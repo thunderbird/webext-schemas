@@ -32,7 +32,7 @@ Options:
                                 folder created in the temporary download folder
                                 after using the --release option will work also.
                                 Either --release or --input has to be specified.
-   --output=path              - Path of a folder to store the processed manifest
+   --output=path              - Path of a folder to store the processed schema
                                 files. All existing files in that folder will be
                                 deleted.
    --manifest_version=number  - The requested manifest version of the schema
