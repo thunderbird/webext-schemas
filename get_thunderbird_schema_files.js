@@ -100,14 +100,27 @@ const URL_REPLACEMENTS = {
 };
 
 // Toolkit schema files which should be ignored.
+// Note: Privileged extensions can only be created by Mozilla, relevant APIs are
+// therefore excluded. They are identified by being signed by a different CA.
+// Unsigned add-ons cannot be privileged, except for temporarily installed
+// experiments. See
+// - https://searchfox.org/mozilla-central/rev/74518d4f6979b088e28405ba7e6238f4707639cf/toolkit/components/extensions/Extension.sys.mjs#974-981
+// - https://searchfox.org/mozilla-central/rev/74518d4f6979b088e28405ba7e6238f4707639cf/toolkit/mozapps/extensions/internal/XPIInstall.sys.mjs#861,877-879
 const SKIP_TOOLKIT_SCHEMAS = [
-  "activity_log.json",
-  "browser_action.json",
+  // Privileged extensions only.
+  "activity_log.json", 
   "geckoProfiler.json",
-  "page_action.json",
-  "theme.json",
-  "test.json",
+  "network_status.json",
   "telemetry.json",
+  // Not usable by extensions.
+   "test.json",
+  // Not supported by Thunderbird.
+  "page_action.json",
+  "captive_portal.json",
+  "proxy.json", // Bug 1903727.
+   // Re-implemented by Thunderbird.
+  "browser_action.json",
+  "theme.json",
 ];
 
 // Rare cases where Thunderbird directly loads a browser schema.
