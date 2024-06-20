@@ -101,11 +101,13 @@ const URL_REPLACEMENTS = {
 
 // Toolkit schema files which should be ignored.
 const SKIP_TOOLKIT_SCHEMAS = [
+  "activity_log.json",
   "browser_action.json",
+  "geckoProfiler.json",
+  "page_action.json",
   "theme.json",
   "test.json",
   "telemetry.json",
-  "page_action.json",
 ];
 
 // Rare cases where Thunderbird directly loads a browser schema.
