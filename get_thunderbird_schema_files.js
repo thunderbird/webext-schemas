@@ -173,7 +173,7 @@ async function main() {
 
   // Setup output directory.
   if (!fs.existsSync(args.output)) {
-    fs.mkdirSync(args.output);
+    fs.mkdirSync(args.output, { recursive: true });
   }
   for (const file of await fs.readdir(args.output)) {
     await fs.unlink(path.join(args.output, file));
