@@ -1,0 +1,1195 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "$extend": "OptionalPermission",
+                "choices": [
+                    {
+                        "enum": [
+                            "messagesDelete",
+                            "messagesImport",
+                            "messagesMove",
+                            "messagesRead",
+                            "messagesTags",
+                            "messagesTagsList",
+                            "messagesUpdate",
+                            "messagesModifyPermanent",
+                            "sensitiveDataUpload"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "events": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#onupdated-message-changedproperties",
+                "description": "Fired when one or more properties of a message have been updated.",
+                "name": "onUpdated",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageHeader",
+                        "name": "message"
+                    },
+                    {
+                        "$ref": "messages.MessageProperties",
+                        "name": "changedProperties"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#onmoved-originalmessages-movedmessages",
+                "description": "Fired when messages have been moved.",
+                "name": "onMoved",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageList",
+                        "name": "originalMessages"
+                    },
+                    {
+                        "$ref": "messages.MessageList",
+                        "name": "movedMessages"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#oncopied-originalmessages-copiedmessages",
+                "description": "Fired when messages have been copied.",
+                "name": "onCopied",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageList",
+                        "name": "originalMessages"
+                    },
+                    {
+                        "$ref": "messages.MessageList",
+                        "name": "copiedMessages"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#ondeleted-messages",
+                "description": "Fired when messages have been permanently deleted.",
+                "name": "onDeleted",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageList",
+                        "name": "messages"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#onnewmailreceived-folder-messages",
+                "description": "Fired when a new message is received, and has been through junk classification and message filters.",
+                "extraParameters": [
+                    {
+                        "description": "Monitor all folders (including all special use folders as defined by $(ref:folders.MailFolderSpecialUse)) instead of just inbox folders and normal folders.",
+                        "name": "monitorAllFolders",
+                        "optional": true,
+                        "type": "boolean"
+                    }
+                ],
+                "name": "onNewMailReceived",
+                "parameters": [
+                    {
+                        "$ref": "folders.MailFolder",
+                        "name": "folder"
+                    },
+                    {
+                        "$ref": "messages.MessageList",
+                        "name": "messages"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead"
+                ],
+                "type": "function"
+            }
+        ],
+        "functions": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#list-folderid",
+                "async": "callback",
+                "description": "Gets all messages in a folder.",
+                "name": "list",
+                "parameters": [
+                    {
+                        "$ref": "folders.MailFolderId",
+                        "name": "folderId"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "messages.MessageList"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#continuelist-messagelistid",
+                "async": "callback",
+                "description": "Returns the next chunk of messages in a list. See $(doc:examples/messageLists) for more information.",
+                "name": "continueList",
+                "parameters": [
+                    {
+                        "name": "messageListId",
+                        "type": "string"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "messages.MessageList"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#abortlist-messagelistid",
+                "async": true,
+                "description": "Finalizes the specified list and terminates any process currently still adding messages.",
+                "name": "abortList",
+                "parameters": [
+                    {
+                        "name": "messageListId",
+                        "type": "string"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#get-messageid",
+                "async": "callback",
+                "description": "Returns the specified message.",
+                "name": "get",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "messages.MessageHeader"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getfull-messageid-options",
+                "async": "callback",
+                "description": "Returns the specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.",
+                "name": "getFull",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
+                    },
+                    {
+                        "name": "options",
+                        "optional": true,
+                        "properties": {
+                            "decrypt": {
+                                "description": "Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to true.",
+                                "optional": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "messages.MessagePart"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getraw-messageid-options",
+                "async": "callback",
+                "description": "Returns the unmodified source of a message. Throws if the message could not be read, for example due to network issues.",
+                "name": "getRaw",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
+                    },
+                    {
+                        "name": "options",
+                        "optional": true,
+                        "properties": {
+                            "data_format": {
+                                "description": "The message can either be returned as a DOM File (default) or as a <a href='https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary'>binary string</a>. It is recommended to use the <var>File</var> format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like <a href='https://developer.mozilla.org/en-US/docs/Web/API/Blob/text'>File.text()</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer'>File.arrayBuffer()</a>. Working with binary strings is error prone and needs special handling: <literalinclude>includes/messages/decodeBinaryString.js<lang>JavaScript</lang></literalinclude> (see MDN for <a href='https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings'>supported input encodings</a>).",
+                                "enum": [
+                                    "BinaryString",
+                                    "File"
+                                ],
+                                "type": "string",
+                                "optional": true
+                            },
+                            "decrypt": {
+                                "description": "Whether the message should be decrypted. Throws, if the message could not be decrypted.",
+                                "optional": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "choices": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "additionalProperties": true,
+                                        "isInstanceOf": "File",
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#listattachments-messageid",
+                "async": "callback",
+                "description": "Lists the attachments of a message.",
+                "name": "listAttachments",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "messages.MessageAttachment"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#listinlinetextparts-messageid",
+                "async": "callback",
+                "description": "Lists all inline text parts of a message. These parts are not returned by $(ref:messages.listAttachments) and usually make up the readable content of the message, mostly with content type <var>text/plain</var> or <var>text/html</var>. If a message only includes a part with content type <var>text/html</var>, the method $(ref:messengerUtilities.convertToPlainText) can be used to retreive a plain text version. \n\n**Note:** A message usually contains only one inline text part per subtype, but technically messages can contain multiple inline text parts per subtype.",
+                "name": "listInlineTextParts",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "messages.InlineTextPart"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getattachmentfile-messageid-partname",
+                "async": "callback",
+                "description": "Gets the content of a $(ref:messages.MessageAttachment) as a <a href='https://developer.mozilla.org/docs/Web/API/File'>File</a> object.",
+                "name": "getAttachmentFile",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
+                    },
+                    {
+                        "name": "partName",
+                        "pattern": "^\\d+(\\.\\d+)*$",
+                        "type": "string"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "additionalProperties": true,
+                                "isInstanceOf": "File",
+                                "type": "object"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#deleteattachments-messageid-partnames",
+                "async": true,
+                "description": "Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a <var>text/x-moz-deleted</var> content type. This permanently modifies the message.",
+                "name": "deleteAttachments",
+                "parameters": [
+                    {
+                        "name": "messageId",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "An array of attachments, identifying the to be deleted attachments by their <var>partName</var>.",
+                        "items": {
+                            "pattern": "^\\d+(\\.\\d+)*$",
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "name": "partNames",
+                        "type": "array"
+                    }
+                ],
+                "permissions": [
+                    "messagesModifyPermanent"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#openattachment-messageid-partname-tabid",
+                "async": true,
+                "description": "Opens the specified attachment.",
+                "name": "openAttachment",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
+                    },
+                    {
+                        "name": "partName",
+                        "pattern": "^\\d+(\\.\\d+)*$",
+                        "type": "string"
+                    },
+                    {
+                        "description": "The ID of the tab associated with the message opening.",
+                        "name": "tabId",
+                        "type": "integer"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#query-queryinfo",
+                "async": "callback",
+                "description": "Gets all messages that have the specified properties, or all messages if no properties are specified. Messages of unified mailbox folders are not included by default (as that could double the amount of returned messages), but explicitly specifying a unified mailbox folder is supported.",
+                "name": "query",
+                "parameters": [
+                    {
+                        "default": {},
+                        "name": "queryInfo",
+                        "optional": true,
+                        "properties": {
+                            "accountId": {
+                                "$ref": "accounts.MailAccountId",
+                                "description": "Limits the search to folders of the account with the specified id.",
+                                "optional": true
+                            },
+                            "attachment": {
+                                "choices": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "$ref": "QueryRange"
+                                    }
+                                ],
+                                "description": "Whether the message has attachments, or not. Supports to specify a $(ref:messages.QueryRange) (min/max) instead of a simple boolean value (none/some).",
+                                "optional": true
+                            },
+                            "author": {
+                                "description": "Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: <var>Name <user@domain.org></var>). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "autoPaginationTimeout": {
+                                "description": "Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to <var>1000</var> ms. Setting it to <var>0</var> will disable auto-pagination.",
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "body": {
+                                "description": "Returns only messages with this value in the body of the mail.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "flagged": {
+                                "description": "Returns only flagged (or unflagged if false) messages.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "folderId": {
+                                "$ref": "folders.MailFolderId",
+                                "description": "Returns only messages from the folder with the specified id. The <permission>accountsRead</permission> permission is required.",
+                                "optional": true
+                            },
+                            "fromDate": {
+                                "$ref": "extensionTypes.Date",
+                                "description": "Returns only messages with a date after this value.",
+                                "optional": true
+                            },
+                            "fromMe": {
+                                "description": "Returns only messages with the author's address matching any configured identity.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "fullText": {
+                                "description": "Returns only messages with this value somewhere in the mail (subject, body or author).",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "headerMessageId": {
+                                "description": "Returns only messages with a Message-ID header matching this value.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "includeSubFolders": {
+                                "description": "Search the specified folder recursively.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "junk": {
+                                "description": "Returns only messages whith the specified junk state.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "junkScore": {
+                                "$ref": "QueryRange",
+                                "description": "Returns only messages with a junk score in the specified range.",
+                                "optional": true
+                            },
+                            "messagesPerPage": {
+                                "description": "Set the nominal number of messages-per-page for this query. Defaults to <var>100</var> messages.",
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "new": {
+                                "description": "Returns only messages with the specified new state.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "read": {
+                                "description": "Returns only messages with the specified read state.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "recipients": {
+                                "description": "Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: <var>Name <user@domain.org></var>). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "returnMessageListId": {
+                                "description": "The <em>messageListId</em> is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the <em>messageListId</em> directly.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "size": {
+                                "$ref": "QueryRange",
+                                "description": "Returns only messages with a size in the specified byte range.",
+                                "optional": true
+                            },
+                            "subject": {
+                                "description": "Returns only messages whose subject contains the provided string.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "tags": {
+                                "$ref": "messages.tags.TagsDetail",
+                                "description": "Returns only messages with the specified tags. For a list of available tags, call the $(ref:messages.tags.list) method.",
+                                "optional": true
+                            },
+                            "toDate": {
+                                "$ref": "extensionTypes.Date",
+                                "description": "Returns only messages with a date before this value.",
+                                "optional": true
+                            },
+                            "toMe": {
+                                "description": "Returns only messages with at least one recipient address matching any configured identity.",
+                                "optional": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "choices": [
+                                    {
+                                        "$ref": "messages.MessageList"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#update-messageid-newproperties",
+                "async": true,
+                "description": "Updates message properties and tags. Updating external messages will throw an <em>ExtensionError</em>.",
+                "name": "update",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
+                    },
+                    {
+                        "$ref": "messages.MessageProperties",
+                        "name": "newProperties"
+                    }
+                ],
+                "permissions": [
+                    "messagesUpdate"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#move-messageids-folderid",
+                "async": true,
+                "description": "Moves messages to a specified folder. If the messages cannot be removed from the source folder, they will be copied instead of moved. Moving external messages will throw an <em>ExtensionError</em>.",
+                "name": "move",
+                "parameters": [
+                    {
+                        "description": "The IDs of the messages to move.",
+                        "items": {
+                            "$ref": "messages.MessageId"
+                        },
+                        "name": "messageIds",
+                        "type": "array"
+                    },
+                    {
+                        "$ref": "folders.MailFolderId",
+                        "description": "The folder to move the messages to.",
+                        "name": "folderId"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead",
+                    "messagesMove"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#copy-messageids-folderid",
+                "async": true,
+                "description": "Copies messages to a specified folder.",
+                "name": "copy",
+                "parameters": [
+                    {
+                        "description": "The IDs of the messages to copy.",
+                        "items": {
+                            "$ref": "messages.MessageId"
+                        },
+                        "name": "messageIds",
+                        "type": "array"
+                    },
+                    {
+                        "$ref": "folders.MailFolderId",
+                        "description": "The folder to copy the messages to.",
+                        "name": "folderId"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead",
+                    "messagesMove"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#delete-messageids-skiptrash",
+                "async": true,
+                "description": "Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an <em>ExtensionError</em>. The <var>skipTrash</var> parameter allows immediate permanent deletion, bypassing the trash folder.",
+                "name": "delete",
+                "parameters": [
+                    {
+                        "description": "The IDs of the messages to delete.",
+                        "items": {
+                            "$ref": "messages.MessageId"
+                        },
+                        "name": "messageIds",
+                        "type": "array"
+                    },
+                    {
+                        "description": "If true, the message will be deleted permanently, regardless of the account's deletion behavior settings.",
+                        "name": "skipTrash",
+                        "optional": true,
+                        "type": "boolean"
+                    }
+                ],
+                "permissions": [
+                    "messagesDelete"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#import-file-folderid-properties",
+                "async": "callback",
+                "description": "Imports a message into a local Thunderbird folder. To import a message into an IMAP folder, add it to a local folder first and then move it to the IMAP folder.",
+                "name": "import",
+                "parameters": [
+                    {
+                        "additionalProperties": true,
+                        "isInstanceOf": "File",
+                        "name": "file",
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "folders.MailFolderId",
+                        "description": "The folder to import the messages into.",
+                        "name": "folderId"
+                    },
+                    {
+                        "$ref": "messages.MessageProperties",
+                        "name": "properties",
+                        "optional": true
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "messages.MessageHeader"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead",
+                    "messagesImport"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#archive-messageids",
+                "async": true,
+                "description": "Archives messages using the current settings. Archiving external messages will throw an <em>ExtensionError</em>.",
+                "name": "archive",
+                "parameters": [
+                    {
+                        "description": "The IDs of the messages to archive.",
+                        "items": {
+                            "$ref": "messages.MessageId"
+                        },
+                        "name": "messageIds",
+                        "type": "array"
+                    }
+                ],
+                "permissions": [
+                    "messagesMove"
+                ],
+                "type": "function"
+            }
+        ],
+        "namespace": "messages",
+        "permissions": [
+            "messagesRead"
+        ],
+        "types": [
+            {
+                "description": "A unique id representing a $(ref:messages.MessageHeader) and the associated message. This id doesn’t refer to the Message-ID email header. It is an internal tracking number that does not remain after a restart. Nor does it follow an email that has been moved to a different folder.",
+                "id": "MessageId",
+                "minimum": 1,
+                "type": "integer"
+            },
+            {
+                "description": "An inline part with content type <var>text/*</var>. These parts are not returned by $(ref:messages.listAttachments) and usually make up the readable content of the message, mostly with content type <var>text/plain</var> or <var>text/html</var>",
+                "id": "InlineTextPart",
+                "properties": {
+                    "content": {
+                        "description": "The content of this inline text part.",
+                        "type": "string"
+                    },
+                    "contentType": {
+                        "description": "The content type of the part. Most common types for inline text parts are <var>text/plain</var> and <var>text/html</var>. Possible other (deprecated) types are <var>text/richtext</var> and <var>text/enriched</var>. Some calendaring services include an inline text part with type <var>text/calendar</var>.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Basic information about a message.",
+                "id": "MessageHeader",
+                "properties": {
+                    "author": {
+                        "type": "string"
+                    },
+                    "bccList": {
+                        "description": "The Bcc recipients. Not populated for news/nntp messages.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "ccList": {
+                        "description": "The Cc recipients. Not populated for news/nntp messages.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "date": {
+                        "$ref": "extensionTypes.Date"
+                    },
+                    "external": {
+                        "description": "Whether this message is a real message or an external message (opened from a file or from an attachment).",
+                        "type": "boolean"
+                    },
+                    "flagged": {
+                        "description": "Whether this message is flagged (a.k.a. starred).",
+                        "type": "boolean"
+                    },
+                    "folder": {
+                        "$ref": "folders.MailFolder",
+                        "description": "The <permission>accountsRead</permission> permission is required for this property to be included. Not available for external or attached messages.",
+                        "optional": true
+                    },
+                    "headerMessageId": {
+                        "description": "The message-id header of the message.",
+                        "type": "string"
+                    },
+                    "headersOnly": {
+                        "description": "Some account types (for example <var>pop3</var>) allow to download only the headers of the message, but not its body. The body of such messages will not be available.",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "$ref": "messages.MessageId"
+                    },
+                    "junk": {
+                        "description": "Whether the message has been marked as junk. Always <var>false</var> for news/nntp messages and external messages.",
+                        "type": "boolean"
+                    },
+                    "junkScore": {
+                        "description": "The junk score associated with the message. Always <var>0</var> for news/nntp messages and external messages.",
+                        "maximum": 100,
+                        "minimum": 0,
+                        "type": "integer"
+                    },
+                    "new": {
+                        "description": "Whether the message has been received recently and is marked as new.",
+                        "type": "boolean"
+                    },
+                    "read": {
+                        "description": "Whether the message has been marked as read. Not available for external or attached messages.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "recipients": {
+                        "description": "The To recipients. Not populated for news/nntp messages.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "size": {
+                        "description": "The total size of the message in bytes.",
+                        "type": "integer"
+                    },
+                    "subject": {
+                        "description": "The subject of the message.",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "Tags associated with this message. For a list of available tags, use $(ref:messages.tags.list).",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "See $(doc:examples/messageLists) for more information.",
+                "id": "MessageList",
+                "properties": {
+                    "id": {
+                        "choices": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "description": "Id of the message list, to be used with $(ref:messages.continueList) or $(ref:messages.abortList)."
+                    },
+                    "messages": {
+                        "items": {
+                            "$ref": "messages.MessageHeader"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Represents an email message \"part\", which could be the whole message.",
+                "id": "MessagePart",
+                "properties": {
+                    "body": {
+                        "description": "The content of the part.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "contentType": {
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "decryptionStatus": {
+                        "description": "The decryption status, only available for the root part.",
+                        "enum": [
+                            "none",
+                            "skipped",
+                            "success",
+                            "fail"
+                        ],
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "headers": {
+                        "additionalProperties": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "description": "A <em>dictionary object</em> of part headers as <em>key-value</em> pairs, with the header name as <em>key</em>, and an array of headers as <em>value</em>.",
+                        "optional": true,
+                        "type": "object"
+                    },
+                    "name": {
+                        "description": "Name of the part, if it is a file.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "partName": {
+                        "description": "The identifier of this part, used in $(ref:messages.getAttachmentFile).",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "parts": {
+                        "description": "Any sub-parts of this part.",
+                        "items": {
+                            "$ref": "messages.MessagePart"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "size": {
+                        "description": "The size of this part. The size of parts with content type <em>message/rfc822</em> is not the actual message size (on disc), but the total size of its decoded body parts, excluding headers.",
+                        "optional": true,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Message properties used in $(ref:messages.update) and $(ref:messages.import). They can also be monitored by $(ref:messages.onUpdated).",
+                "id": "MessageProperties",
+                "properties": {
+                    "flagged": {
+                        "description": "Whether the message is flagged (a.k.a starred).",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "junk": {
+                        "description": "Whether the message is marked as junk. Only supported in $(ref:messages.update).",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "new": {
+                        "description": "Whether the message is marked as new. Only supported in $(ref:messages.import).",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "read": {
+                        "description": "Whether the message is marked as read.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "tags": {
+                        "description": "Tags associated with this message. For a list of available tags, call the $(ref:messages.tags.list) method.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Represents an attachment in a message. This includes all MIME parts with a <em>content-disposition</em> header set to <var>attachment</var>, but also related parts like inline images.",
+                "id": "MessageAttachment",
+                "properties": {
+                    "contentId": {
+                        "description": "The content-id of this part. Available for related parts, which are referenced from other places inside the same message (e.g. inline images).",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "contentType": {
+                        "description": "The content type of the attachment. A value of <var>text/x-moz-deleted</var> indicates that the original attachment was permanently deleted and replaced by a placeholder text attachment with some meta information about the original attachment.",
+                        "type": "string"
+                    },
+                    "message": {
+                        "$ref": "messages.MessageHeader",
+                        "description": "A MessageHeader, if this attachment is a message.",
+                        "optional": true
+                    },
+                    "name": {
+                        "description": "The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.",
+                        "type": "string"
+                    },
+                    "partName": {
+                        "description": "Identifies the MIME part of the message associated with this attachment.",
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "The size in bytes of this attachment.",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "An object defining a range.",
+                "id": "QueryRange",
+                "properties": {
+                    "max": {
+                        "description": "The maximum value required to match the query.",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "min": {
+                        "description": "The minimum value required to match the query.",
+                        "optional": true,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        ]
+    },
+    {
+        "functions": [
+            {
+                "async": "callback",
+                "description": "Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.",
+                "name": "list",
+                "parameters": [
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "messages.tags.MessageTag"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "messagesTagsList"
+                ],
+                "type": "function"
+            },
+            {
+                "async": true,
+                "description": "Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.",
+                "name": "create",
+                "parameters": [
+                    {
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <var>()<>{/%*\"</var> or spaces.",
+                        "name": "key",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Human-readable tag name.",
+                        "name": "tag",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.",
+                        "name": "color",
+                        "pattern": "^#[0-9a-fA-F]{6}",
+                        "type": "string"
+                    }
+                ],
+                "permissions": [
+                    "messagesTags"
+                ],
+                "type": "function"
+            },
+            {
+                "async": true,
+                "description": "Updates a message tag. Throws if the specified tag key does not exist.",
+                "name": "update",
+                "parameters": [
+                    {
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <var>()<>{/%*\"</var> or spaces.",
+                        "name": "key",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
+                        "type": "string"
+                    },
+                    {
+                        "name": "updateProperties",
+                        "properties": {
+                            "color": {
+                                "description": "Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.",
+                                "optional": true,
+                                "pattern": "^#[0-9a-fA-F]{6}",
+                                "type": "string"
+                            },
+                            "tag": {
+                                "description": "Human-readable tag name.",
+                                "optional": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "permissions": [
+                    "messagesTags"
+                ],
+                "type": "function"
+            },
+            {
+                "async": true,
+                "description": "Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.",
+                "name": "delete",
+                "parameters": [
+                    {
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <var>()<>{/%*\"</var> or spaces.",
+                        "name": "key",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
+                        "type": "string"
+                    }
+                ],
+                "permissions": [
+                    "messagesTags"
+                ],
+                "type": "function"
+            }
+        ],
+        "namespace": "messages.tags",
+        "types": [
+            {
+                "id": "MessageTag",
+                "properties": {
+                    "color": {
+                        "description": "Tag color.",
+                        "type": "string"
+                    },
+                    "key": {
+                        "description": "Unique tag identifier.",
+                        "type": "string"
+                    },
+                    "ordinal": {
+                        "description": "Custom sort string (usually empty).",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "description": "Human-readable tag name.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Used for filtering messages by tag in various methods. Note that functions using this type may have a partial implementation.",
+                "id": "TagsDetail",
+                "properties": {
+                    "mode": {
+                        "description": "Whether all of the tag filters must apply, or any of them.",
+                        "enum": [
+                            "all",
+                            "any"
+                        ],
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "A <em>dictionary object</em> with one or more filter condition as <em>key-value</em> pairs, the <em>key</em> being the tag to filter on, and the <em>value</em> being a boolean expression, requesting whether a message must include (<var>true</var>) or exclude (<var>false</var>) the tag. For a list of available tags, call the $(ref:messages.tags.list) method.",
+                        "patternProperties": {
+                            ".*": {
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            }
+        ]
+    }
+]

@@ -1,0 +1,19 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "$extend": "OptionalPermission",
+                "choices": [
+                    {
+                        "enum": [
+                            "messagesModify",
+                            "sensitiveDataUpload"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            }
+        ]
+    }
+]

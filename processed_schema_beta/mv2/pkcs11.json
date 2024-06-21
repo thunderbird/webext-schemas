@@ -1,0 +1,96 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "$extend": "OptionalPermission",
+                "choices": [
+                    {
+                        "enum": [
+                            "pkcs11"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description": "PKCS#11 module management API",
+        "functions": [
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/isModuleInstalled",
+                "async": true,
+                "description": "checks whether a PKCS#11 module, given by name, is installed",
+                "name": "isModuleInstalled",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "support": {
+                    "version_added": "58"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/installModule",
+                "async": true,
+                "description": "Install a PKCS#11 module with a given name",
+                "name": "installModule",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "flags",
+                        "optional": true,
+                        "type": "integer"
+                    }
+                ],
+                "support": {
+                    "version_added": "58"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/uninstallModule",
+                "async": true,
+                "description": "Remove an installed PKCS#11 module from firefox",
+                "name": "uninstallModule",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "support": {
+                    "version_added": "58"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/getModuleSlots",
+                "async": true,
+                "description": "Enumerate a module's slots, each with their name and whether a token is present",
+                "name": "getModuleSlots",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "support": {
+                    "version_added": "58"
+                },
+                "type": "function"
+            }
+        ],
+        "namespace": "pkcs11",
+        "permissions": [
+            "pkcs11"
+        ]
+    }
+]

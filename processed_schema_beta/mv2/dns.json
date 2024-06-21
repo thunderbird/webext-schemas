@@ -1,0 +1,92 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "$extend": "PermissionNoPrompt",
+                "choices": [
+                    {
+                        "enum": [
+                            "dns"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description": "Asynchronous DNS API",
+        "functions": [
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/dns/resolve",
+                "async": true,
+                "description": "Resolves a hostname to a DNS record.",
+                "name": "resolve",
+                "parameters": [
+                    {
+                        "name": "hostname",
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "ResolveFlags",
+                        "default": [],
+                        "name": "flags",
+                        "optional": true
+                    }
+                ],
+                "support": {
+                    "version_added": "60"
+                },
+                "type": "function"
+            }
+        ],
+        "namespace": "dns",
+        "permissions": [
+            "dns"
+        ],
+        "types": [
+            {
+                "description": "An object encapsulating a DNS Record.",
+                "id": "DNSRecord",
+                "properties": {
+                    "addresses": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "canonicalName": {
+                        "description": "The canonical hostname for this record.  this value is empty if the record was not fetched with the 'canonical_name' flag.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "isTRR": {
+                        "description": "Record retreived with TRR.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "id": "ResolveFlags",
+                "items": {
+                    "enum": [
+                        "allow_name_collisions",
+                        "bypass_cache",
+                        "canonical_name",
+                        "disable_ipv4",
+                        "disable_ipv6",
+                        "disable_trr",
+                        "offline",
+                        "priority_low",
+                        "priority_medium",
+                        "speculate"
+                    ],
+                    "type": "string"
+                },
+                "type": "array"
+            }
+        ]
+    }
+]

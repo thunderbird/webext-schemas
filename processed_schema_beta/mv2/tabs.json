@@ -1,0 +1,1040 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "$extend": "OptionalPermissionNoPrompt",
+                "choices": [
+                    {
+                        "enum": [
+                            "activeTab"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "$extend": "OptionalPermission",
+                "choices": [
+                    {
+                        "enum": [
+                            "tabs"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description": "The tabs API supports creating, modifying and interacting with tabs in Thunderbird windows.",
+        "events": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#oncreated-tab",
+                "description": "Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.",
+                "name": "onCreated",
+                "parameters": [
+                    {
+                        "$ref": "Tab",
+                        "description": "Details of the tab that was created.",
+                        "name": "tab"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onupdated-tabid-changeinfo-tab",
+                "description": "Fired when a tab is updated.",
+                "extraParameters": [
+                    {
+                        "$ref": "UpdateFilter",
+                        "description": "A set of filters that restricts the events that will be sent to this listener.",
+                        "name": "filter",
+                        "optional": true
+                    }
+                ],
+                "name": "onUpdated",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "Lists the changes to the state of the tab that was updated.",
+                        "name": "changeInfo",
+                        "properties": {
+                            "favIconUrl": {
+                                "description": "The tab's new favicon URL.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "status": {
+                                "description": "The status of the tab. Can be either <var>loading</var> or <var>complete</var>.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "url": {
+                                "description": "The tab's URL if it has changed.",
+                                "optional": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "Tab",
+                        "description": "Gives the state of the tab that was updated.",
+                        "name": "tab"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onmoved-tabid-moveinfo",
+                "description": "Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see $(ref:tabs.onDetached).",
+                "name": "onMoved",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "moveInfo",
+                        "properties": {
+                            "fromIndex": {
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            "toIndex": {
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            "windowId": {
+                                "minimum": 0,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onactivated-activeinfo",
+                "description": "Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.",
+                "name": "onActivated",
+                "parameters": [
+                    {
+                        "name": "activeInfo",
+                        "properties": {
+                            "previousTabId": {
+                                "description": "The ID of the tab that was previously active, if that tab is still open.",
+                                "minimum": 0,
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "tabId": {
+                                "description": "The ID of the tab that has become active.",
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            "windowId": {
+                                "description": "The ID of the window the active tab changed inside of.",
+                                "minimum": 0,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#ondetached-tabid-detachinfo",
+                "description": "Fired when a tab is detached from a window, for example because it is being moved between windows.",
+                "name": "onDetached",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "detachInfo",
+                        "properties": {
+                            "oldPosition": {
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            "oldWindowId": {
+                                "minimum": 0,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onattached-tabid-attachinfo",
+                "description": "Fired when a tab is attached to a window, for example because it was moved between windows.",
+                "name": "onAttached",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "attachInfo",
+                        "properties": {
+                            "newPosition": {
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            "newWindowId": {
+                                "minimum": 0,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onremoved-tabid-removeinfo",
+                "description": "Fired when a tab is closed.",
+                "name": "onRemoved",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "removeInfo",
+                        "properties": {
+                            "isWindowClosing": {
+                                "description": "Is <var>true</var> when the tab is being closed because its window is being closed.",
+                                "type": "boolean"
+                            },
+                            "windowId": {
+                                "description": "The window whose tab is closed.",
+                                "minimum": 0,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "type": "function"
+            }
+        ],
+        "functions": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#get-tabid",
+                "async": "callback",
+                "description": "Retrieves details about the specified tab.",
+                "name": "get",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "Tab",
+                                "name": "tab"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#getcurrent",
+                "async": "callback",
+                "description": "Gets the tab that this script call is being made from. May be <var>undefined</var> if called from a non-tab context (for example: a background page or popup view).",
+                "name": "getCurrent",
+                "parameters": [
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "Tab",
+                                "description": "This may return undefined",
+                                "name": "tab",
+                                "optional": true
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#connect-tabid-connectinfo",
+                "description": "Connects to the content script(s) in the specified tab. The <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect'>runtime.onConnect</a> event is fired in each content script running in the specified tab for the current extension. For more details, see <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts'>Content Script Messaging</a>.",
+                "name": "connect",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "connectInfo",
+                        "optional": true,
+                        "properties": {
+                            "frameId": {
+                                "description": "Open a port to a specific frame identified by <var>frameId</var> instead of all frames in the tab.",
+                                "minimum": 0,
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "name": {
+                                "description": "Will be passed into onConnect for content scripts that are listening for the connection event.",
+                                "optional": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "returns": {
+                    "$ref": "runtime.Port",
+                    "description": "A port that can be used to communicate with the content scripts running in the specified tab."
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#sendmessage-tabid-message-options-responsecallback",
+                "async": "responseCallback",
+                "description": "Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage'>runtime.onMessage</a> event is fired in each content script running in the specified tab for the current extension.",
+                "name": "sendMessage",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "message",
+                        "type": "any"
+                    },
+                    {
+                        "name": "options",
+                        "optional": true,
+                        "properties": {
+                            "frameId": {
+                                "description": "Send a message to a specific frame identified by <var>frameId</var> instead of all frames in the tab.",
+                                "minimum": 0,
+                                "optional": true,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "responseCallback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "description": "The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError'>runtime.lastError</a> will be set to the error message.",
+                                "name": "response",
+                                "type": "any"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#create-createproperties",
+                "async": "callback",
+                "description": "Creates a new content tab. Use the $(doc:messageDisplay) to open messages. Only supported in <var>normal</var> windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a <a href='https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3'>content script</a> , capture click events and handle them manually.",
+                "name": "create",
+                "parameters": [
+                    {
+                        "description": "Properties for the new tab. Defaults to an empty tab, if no <var>url</var> is provided.",
+                        "name": "createProperties",
+                        "properties": {
+                            "active": {
+                                "description": "Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see $(ref:windows.update)). Defaults to <var>true</var>.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "cookieStoreId": {
+                                "description": "The <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid'>CookieStore</a> id the new tab should use. Either a custom id created using the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities'>contextualIdentities API</a>, or a built-in one: <var>firefox-default</var>, <var>firefox-container-1</var>, <var>firefox-container-2</var>, <var>firefox-container-3</var>, <var>firefox-container-4</var>, <var>firefox-container-5</var>. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "index": {
+                                "description": "The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.",
+                                "minimum": 0,
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "selected": {
+                                "deprecated": "Please use <var>createProperties.active</var>.",
+                                "description": "Whether the tab should become the selected tab in the window. Defaults to <var>true</var>",
+                                "optional": true,
+                                "type": "boolean",
+                                "unsupported": true
+                            },
+                            "url": {
+                                "description": "The URL to navigate the tab to initially. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally after creating an empty tab. Fully-qualified URLs must include a scheme (i.e. <var>http://www.google.com</var>, not <var>www.google.com</var>). Relative URLs will be relative to the root of the extension. ",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "windowId": {
+                                "description": "The window to create the new tab in. Defaults to the current window.",
+                                "minimum": -2,
+                                "optional": true,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "Tab",
+                                "description": "Details about the created tab. Will contain the ID of the new tab.",
+                                "name": "tab"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#duplicate-tabid",
+                "async": "callback",
+                "description": "Duplicates a tab.",
+                "name": "duplicate",
+                "parameters": [
+                    {
+                        "description": "The ID of the tab which is to be duplicated.",
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "Tab",
+                                "description": "Details about the duplicated tab. The $(ref:tabs.Tab) object doesn't contain <var>url</var>, <var>title</var> and <var>favIconUrl</var> if the <permission>tabs</permission> permission has not been requested.",
+                                "name": "tab"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#query-queryinfo",
+                "async": "callback",
+                "description": "Gets all tabs that have the specified properties, or all tabs if no properties are specified.",
+                "name": "query",
+                "parameters": [
+                    {
+                        "default": {},
+                        "name": "queryInfo",
+                        "optional": true,
+                        "properties": {
+                            "active": {
+                                "description": "Whether the tabs are active in their windows.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "cookieStoreId": {
+                                "choices": [
+                                    {
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ],
+                                "description": "The <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid'>CookieStore</a> id(s) used by the tabs. Either custom ids created using the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities'>contextualIdentities API</a>, or built-in ones: <var>firefox-default</var>, <var>firefox-container-1</var>, <var>firefox-container-2</var>, <var>firefox-container-3</var>, <var>firefox-container-4</var>, <var>firefox-container-5</var>. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.",
+                                "optional": true
+                            },
+                            "currentWindow": {
+                                "description": "Whether the tabs are in the current window.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "highlighted": {
+                                "description": "Whether the tabs are highlighted. Works as an alias of active.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "index": {
+                                "description": "The position of the tabs within their windows.",
+                                "minimum": 0,
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "lastFocusedWindow": {
+                                "description": "Whether the tabs are in the last focused window.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "mailTab": {
+                                "description": "Whether the tab is a Thunderbird 3-pane tab.  If specified, the <var>queryInfo.type</var> property will be ignored",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "spaceId": {
+                                "description": "The id of the space the tabs should belong to.",
+                                "minimum": 1,
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "status": {
+                                "$ref": "TabStatus",
+                                "description": "Whether the tabs have completed loading.",
+                                "optional": true
+                            },
+                            "title": {
+                                "description": "Match page titles against a pattern.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "type": {
+                                "choices": [
+                                    {
+                                        "$ref": "TabType"
+                                    },
+                                    {
+                                        "items": {
+                                            "$ref": "TabType"
+                                        },
+                                        "type": "array"
+                                    }
+                                ],
+                                "description": "Match tabs against the given tab type or types.",
+                                "optional": true
+                            },
+                            "url": {
+                                "choices": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                ],
+                                "description": "Match tabs against one or more <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns'>URL Patterns</a>. Note that fragment identifiers are not matched.",
+                                "optional": true
+                            },
+                            "windowId": {
+                                "description": "The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the current window.",
+                                "minimum": -2,
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "windowType": {
+                                "$ref": "WindowType",
+                                "description": "The type of window the tabs are in.",
+                                "optional": true
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "Tab"
+                                },
+                                "name": "result",
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#update-tabid-updateproperties",
+                "async": "callback",
+                "description": "Modifies the properties of a tab. Properties that are not specified in <var>updateProperties</var> are not modified.",
+                "name": "update",
+                "parameters": [
+                    {
+                        "description": "Defaults to the selected tab of the current window.",
+                        "minimum": 0,
+                        "name": "tabId",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    {
+                        "description": "Properties which should to be updated.",
+                        "name": "updateProperties",
+                        "properties": {
+                            "active": {
+                                "description": "Set this to <var>true</var>, if the tab should become active. Does not affect whether the window is focused (see $(ref:windows.update)). Setting this to <var>false</var> has no effect.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "url": {
+                                "description": "A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. **Note:** This function will throw an error, if a content page is loaded into a non-content tab (its type must be either <var>content</var> or <var>mail</var>).",
+                                "optional": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "Tab",
+                                "description": "Details about the updated tab. The $(ref:tabs.Tab) object doesn't contain <var>url</var>, <var>title</var> and <var>favIconUrl</var> if the <permission>tabs</permission> permission has not been requested.",
+                                "name": "tab"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#move-tabids-moveproperties",
+                "async": "callback",
+                "description": "Moves one or more tabs to a new position within its current window, or to a different window. Note that tabs can only be moved to and from windows of type <var>normal</var>.",
+                "name": "move",
+                "parameters": [
+                    {
+                        "choices": [
+                            {
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            {
+                                "items": {
+                                    "minimum": 0,
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "description": "The tab or list of tabs to move.",
+                        "name": "tabIds"
+                    },
+                    {
+                        "name": "moveProperties",
+                        "properties": {
+                            "index": {
+                                "description": "The position to move the tab to. <var>-1</var> will place the tab at the end of the window.",
+                                "minimum": -1,
+                                "type": "integer"
+                            },
+                            "windowId": {
+                                "description": "Defaults to the window the tab is currently in.",
+                                "minimum": -2,
+                                "optional": true,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "description": "Details about the moved tabs.",
+                                "items": {
+                                    "$ref": "Tab"
+                                },
+                                "name": "tabs",
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#reload-tabid-reloadproperties",
+                "async": "callback",
+                "description": "Reload a tab. Only applicable for tabs which display a content page.",
+                "name": "reload",
+                "parameters": [
+                    {
+                        "description": "The ID of the tab to reload; defaults to the selected tab of the current window.",
+                        "minimum": 0,
+                        "name": "tabId",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "reloadProperties",
+                        "optional": true,
+                        "properties": {
+                            "bypassCache": {
+                                "description": "Whether using any local cache. Default is false.",
+                                "optional": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#remove-tabids",
+                "async": "callback",
+                "description": "Closes one or more tabs.",
+                "name": "remove",
+                "parameters": [
+                    {
+                        "choices": [
+                            {
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            {
+                                "items": {
+                                    "minimum": 0,
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "description": "The tab or list of tabs to close.",
+                        "name": "tabIds"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#executescript-tabid-details",
+                "async": "callback",
+                "description": "Injects JavaScript code into a page. For details, see the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts'>programmatic injection</a> section of the content scripts doc.",
+                "name": "executeScript",
+                "parameters": [
+                    {
+                        "description": "The ID of the tab in which to run the script; defaults to the active tab of the current window.",
+                        "minimum": 0,
+                        "name": "tabId",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "extensionTypes.InjectDetails",
+                        "description": "Details of the script to run.",
+                        "name": "details"
+                    },
+                    {
+                        "description": "Called after all the JavaScript has been executed.",
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "description": "The result of the script in every injected frame.",
+                                "items": {
+                                    "type": "any"
+                                },
+                                "name": "result",
+                                "optional": true,
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#insertcss-tabid-details",
+                "async": "callback",
+                "description": "Injects CSS into a page. For details, see the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts'>programmatic injection</a> section of the content scripts doc.",
+                "name": "insertCSS",
+                "parameters": [
+                    {
+                        "description": "The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.",
+                        "minimum": 0,
+                        "name": "tabId",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "extensionTypes.InjectDetails",
+                        "description": "Details of the CSS text to insert.",
+                        "name": "details"
+                    },
+                    {
+                        "description": "Called when all the CSS has been inserted.",
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#removecss-tabid-details",
+                "async": "callback",
+                "description": "Removes injected CSS from a page. For details, see the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts'>programmatic injection</a> section of the content scripts doc.",
+                "name": "removeCSS",
+                "parameters": [
+                    {
+                        "description": "The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.",
+                        "minimum": 0,
+                        "name": "tabId",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "extensionTypes.InjectDetails",
+                        "description": "Details of the CSS text to remove.",
+                        "name": "details"
+                    },
+                    {
+                        "description": "Called when all the CSS has been removed.",
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            }
+        ],
+        "namespace": "tabs",
+        "properties": {
+            "TAB_ID_NONE": {
+                "description": "An ID which represents the absence of a tab.",
+                "value": -1
+            }
+        },
+        "types": [
+            {
+                "id": "Tab",
+                "properties": {
+                    "active": {
+                        "description": "Whether the tab is active in its window. (Does not necessarily mean the window is focused.)",
+                        "type": "boolean"
+                    },
+                    "cookieStoreId": {
+                        "description": "The <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid'>CookieStore</a> id used by the tab. Either a custom id created using the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities'>contextualIdentities API</a>, or a built-in one: <var>firefox-default</var>, <var>firefox-container-1</var>, <var>firefox-container-2</var>, <var>firefox-container-3</var>, <var>firefox-container-4</var>, <var>firefox-container-5</var>. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "favIconUrl": {
+                        "description": "The URL of the tab's favicon. This property is only present if the extension's manifest includes the <permission>tabs</permission> permission. It may also be an empty string if the tab is loading.",
+                        "optional": true,
+                        "permissions": [
+                            "tabs"
+                        ],
+                        "type": "string"
+                    },
+                    "height": {
+                        "description": "The height of the tab in pixels.",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "highlighted": {
+                        "description": "Whether the tab is highlighted. Works as an alias of active",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to $(ref:tabs.TAB_ID_NONE) for apps and devtools windows.",
+                        "minimum": -1,
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "index": {
+                        "description": "The zero-based index of the tab within its window.",
+                        "minimum": -1,
+                        "type": "integer"
+                    },
+                    "mailTab": {
+                        "description": "Whether the tab is a 3-pane tab.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "selected": {
+                        "deprecated": "Please use $(ref:tabs.Tab.highlighted).",
+                        "description": "Whether the tab is selected.",
+                        "type": "boolean",
+                        "unsupported": true
+                    },
+                    "spaceId": {
+                        "description": "The id of the space.",
+                        "minimum": 1,
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "Either <var>loading</var> or <var>complete</var>.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "The title of the tab. This property is only present if the extension's manifest includes the <permission>tabs</permission> permission.",
+                        "optional": true,
+                        "permissions": [
+                            "tabs"
+                        ],
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "TabType",
+                        "optional": true
+                    },
+                    "url": {
+                        "description": "The URL the tab is displaying. This property is only present if the extension's manifest includes the <permission>tabs</permission> permission.",
+                        "optional": true,
+                        "permissions": [
+                            "tabs"
+                        ],
+                        "type": "string"
+                    },
+                    "width": {
+                        "description": "The width of the tab in pixels.",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "windowId": {
+                        "description": "The ID of the window the tab is contained within.",
+                        "minimum": 0,
+                        "optional": true,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Whether the tabs have completed loading.",
+                "enum": [
+                    "loading",
+                    "complete"
+                ],
+                "id": "TabStatus",
+                "type": "string"
+            },
+            {
+                "description": "Tab types supported by the tabs API.",
+                "enum": [
+                    "addressBook",
+                    "calendar",
+                    "calendarEvent",
+                    "calendarTask",
+                    "chat",
+                    "content",
+                    "mail",
+                    "messageCompose",
+                    "messageDisplay",
+                    "special",
+                    "tasks"
+                ],
+                "id": "TabType",
+                "type": "string"
+            },
+            {
+                "description": "The type of a window. Under some circumstances a Window may not be assigned a type property.",
+                "enum": [
+                    "normal",
+                    "popup",
+                    "panel",
+                    "app",
+                    "devtools",
+                    "messageCompose",
+                    "messageDisplay"
+                ],
+                "id": "WindowType",
+                "type": "string"
+            },
+            {
+                "description": "Event names supported in onUpdated.",
+                "enum": [
+                    "favIconUrl",
+                    "status",
+                    "title"
+                ],
+                "id": "UpdatePropertyName",
+                "type": "string"
+            },
+            {
+                "description": "An object describing filters to apply to tabs.onUpdated events.",
+                "id": "UpdateFilter",
+                "properties": {
+                    "properties": {
+                        "description": "A list of property names. Events that do not match any of the names will be filtered out.",
+                        "items": {
+                            "$ref": "UpdatePropertyName"
+                        },
+                        "minItems": 1,
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "tabId": {
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "urls": {
+                        "description": "A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the <permission>tabs</permission> or <permission>activeTab</permission> permission.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "windowId": {
+                        "optional": true,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        ]
+    }
+]

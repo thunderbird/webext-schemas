@@ -1,0 +1,65 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "choices": [
+                    {
+                        "properties": {
+                            "allowed_extensions": {
+                                "items": {
+                                    "$ref": "manifest.ExtensionID"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "pattern": "^\\w+(\\.\\w+)*$",
+                                "type": "string"
+                            },
+                            "path": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "enum": [
+                                    "pkcs11",
+                                    "stdio"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "data": {
+                                "additionalProperties": {
+                                    "type": "any"
+                                },
+                                "type": "object"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "$ref": "manifest.ExtensionID"
+                            },
+                            "type": {
+                                "enum": [
+                                    "storage"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "description": "Represents a native manifest file",
+                "id": "NativeManifest"
+            }
+        ]
+    }
+]

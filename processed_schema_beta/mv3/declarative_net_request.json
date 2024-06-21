@@ -1,0 +1,980 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "$extend": "Permission",
+                "choices": [
+                    {
+                        "enum": [
+                            "declarativeNetRequest"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "$extend": "OptionalPermission",
+                "choices": [
+                    {
+                        "enum": [
+                            "declarativeNetRequestFeedback"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "$extend": "PermissionNoPrompt",
+                "choices": [
+                    {
+                        "enum": [
+                            "declarativeNetRequestWithHostAccess"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "$extend": "WebExtensionManifest",
+                "properties": {
+                    "declarative_net_request": {
+                        "additionalProperties": {
+                            "$ref": "UnrecognizedProperty"
+                        },
+                        "optional": true,
+                        "properties": {
+                            "rule_resources": {
+                                "items": {
+                                    "additionalProperties": {
+                                        "$ref": "UnrecognizedProperty"
+                                    },
+                                    "properties": {
+                                        "enabled": {
+                                            "description": "Whether the ruleset is enabled by default.",
+                                            "type": "boolean"
+                                        },
+                                        "id": {
+                                            "description": "A non-empty string uniquely identifying the ruleset. IDs beginning with '_' are reserved for internal use.",
+                                            "pattern": "^[^_]",
+                                            "type": "string"
+                                        },
+                                        "path": {
+                                            "$ref": "manifest.ExtensionURL",
+                                            "description": "The path of the JSON ruleset relative to the extension directory."
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "description": "Use the declarativeNetRequest API to block or modify network requests by specifying declarative rules.",
+        "functions": [
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateDynamicRules",
+                "async": "callback",
+                "description": "Modifies the current set of dynamic rules for the extension. The rules with IDs listed in options.removeRuleIds are first removed, and then the rules given in options.addRules are added. These rules are persisted across browser sessions and extension updates.",
+                "name": "updateDynamicRules",
+                "parameters": [
+                    {
+                        "name": "options",
+                        "properties": {
+                            "addRules": {
+                                "description": "Rules to add.",
+                                "items": {
+                                    "$ref": "Rule"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "removeRuleIds": {
+                                "description": "IDs of the rules to remove. Any invalid IDs will be ignored.",
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "description": "Called when the dynamic rules have been updated",
+                        "name": "callback",
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateSessionRules",
+                "async": "callback",
+                "description": "Modifies the current set of session scoped rules for the extension. The rules with IDs listed in options.removeRuleIds are first removed, and then the rules given in options.addRules are added. These rules are not persisted across sessions and are backed in memory.",
+                "name": "updateSessionRules",
+                "parameters": [
+                    {
+                        "name": "options",
+                        "properties": {
+                            "addRules": {
+                                "description": "Rules to add.",
+                                "items": {
+                                    "$ref": "Rule"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "removeRuleIds": {
+                                "description": "IDs of the rules to remove. Any invalid IDs will be ignored.",
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "description": "Called when the session rules have been updated",
+                        "name": "callback",
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getEnabledRulesets",
+                "async": "callback",
+                "description": "Returns the ids for the current set of enabled static rulesets.",
+                "name": "getEnabledRulesets",
+                "parameters": [
+                    {
+                        "name": "callback",
+                        "parameters": [
+                            {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "name": "rulesetIds",
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateEnabledRulesets",
+                "async": "callback",
+                "description": "Modifies the static rulesets enabled/disabled state.",
+                "name": "updateEnabledRulesets",
+                "parameters": [
+                    {
+                        "name": "updateRulesetOptions",
+                        "properties": {
+                            "disableRulesetIds": {
+                                "default": [],
+                                "items": {
+                                    "type": "string"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "enableRulesetIds": {
+                                "default": [],
+                                "items": {
+                                    "type": "string"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateStaticRules",
+                "async": "callback",
+                "description": "Modified individual static rules enabled/disabled state. Changes to rules belonging to a disabled ruleset will take effect when the ruleset becomes enabled.",
+                "name": "updateStaticRules",
+                "parameters": [
+                    {
+                        "name": "options",
+                        "properties": {
+                            "disableRuleIds": {
+                                "default": [],
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "enableRuleIds": {
+                                "default": [],
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "rulesetId": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "128"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getAvailableStaticRuleCount",
+                "async": "callback",
+                "description": "Returns the remaining number of static rules an extension can enable",
+                "name": "getAvailableStaticRuleCount",
+                "parameters": [
+                    {
+                        "name": "callback",
+                        "parameters": [
+                            {
+                                "name": "count",
+                                "type": "integer"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getDisabledRuleIds",
+                "async": "callback",
+                "description": "Returns the list of individual disabled static rules from a given static ruleset id.",
+                "name": "getDisabledRuleIds",
+                "parameters": [
+                    {
+                        "name": "options",
+                        "properties": {
+                            "rulesetId": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "parameters": [
+                            {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "name": "disabledRuleIds",
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "128"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getDynamicRules",
+                "async": "callback",
+                "description": "Returns the current set of dynamic rules for the extension.",
+                "name": "getDynamicRules",
+                "parameters": [
+                    {
+                        "$ref": "GetRulesFilter",
+                        "description": "An object to filter the set of dynamic rules for the extension.",
+                        "name": "filter",
+                        "optional": true,
+                        "support": {
+                            "version_added": "127"
+                        }
+                    },
+                    {
+                        "name": "callback",
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "Rule"
+                                },
+                                "name": "dynamicRules",
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getSessionRules",
+                "async": "callback",
+                "description": "Returns the current set of session scoped rules for the extension.",
+                "name": "getSessionRules",
+                "parameters": [
+                    {
+                        "$ref": "GetRulesFilter",
+                        "description": "An object to filter the set of session scoped rules for the extension.",
+                        "name": "filter",
+                        "optional": true,
+                        "support": {
+                            "version_added": "127"
+                        }
+                    },
+                    {
+                        "name": "callback",
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "Rule"
+                                },
+                                "name": "sessionRules",
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/isRegexSupported",
+                "async": "callback",
+                "description": "Checks if the given regular expression will be supported as a 'regexFilter' rule condition.",
+                "name": "isRegexSupported",
+                "parameters": [
+                    {
+                        "name": "regexOptions",
+                        "properties": {
+                            "isCaseSensitive": {
+                                "default": false,
+                                "description": "Whether the 'regex' specified is case sensitive.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "regex": {
+                                "description": "The regular expresson to check.",
+                                "type": "string"
+                            },
+                            "requireCapturing": {
+                                "default": false,
+                                "description": "Whether the 'regex' specified requires capturing. Capturing is only required for redirect rules which specify a 'regexSubstition' action.",
+                                "optional": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "parameters": [
+                            {
+                                "name": "result",
+                                "properties": {
+                                    "isSupported": {
+                                        "description": "Whether the given regex is supported",
+                                        "type": "boolean"
+                                    },
+                                    "reason": {
+                                        "$ref": "UnsupportedRegexReason",
+                                        "description": "Specifies the reason why the regular expression is not supported. Only provided if 'isSupported' is false.",
+                                        "optional": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/testMatchOutcome",
+                "async": "callback",
+                "description": "Checks if any of the extension's declarativeNetRequest rules would match a hypothetical request.",
+                "name": "testMatchOutcome",
+                "parameters": [
+                    {
+                        "description": "The details of the request to test.",
+                        "name": "request",
+                        "properties": {
+                            "initiator": {
+                                "description": "The initiator URL (if any) for the hypothetical request.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "method": {
+                                "default": "get",
+                                "description": "Standard HTTP method of the hypothetical request.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "tabId": {
+                                "default": -1,
+                                "description": "The ID of the tab in which the hypothetical request takes place. Does not need to correspond to a real tab ID. Default is -1, meaning that the request isn't related to a tab.",
+                                "optional": true,
+                                "type": "integer"
+                            },
+                            "type": {
+                                "$ref": "ResourceType",
+                                "description": "The resource type of the hypothetical request."
+                            },
+                            "url": {
+                                "description": "The URL of the hypothetical request.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "options",
+                        "optional": true,
+                        "properties": {
+                            "includeOtherExtensions": {
+                                "description": "Whether to account for rules from other installed extensions during rule evaluation.",
+                                "optional": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "support": {
+                            "version_added": "113"
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "description": "Called with the details of matched rules.",
+                        "name": "callback",
+                        "parameters": [
+                            {
+                                "name": "result",
+                                "properties": {
+                                    "matchedRules": {
+                                        "description": "The rules (if any) that match the hypothetical request.",
+                                        "items": {
+                                            "$ref": "MatchedRule"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "declarativeNetRequestFeedback"
+                ],
+                "support": {
+                    "version_added": "113"
+                },
+                "type": "function"
+            }
+        ],
+        "namespace": "declarativeNetRequest",
+        "permissions": [
+            "declarativeNetRequest",
+            "declarativeNetRequestWithHostAccess"
+        ],
+        "properties": {
+            "DYNAMIC_RULESET_ID": {
+                "description": "Ruleset ID for the dynamic rules added by the extension.",
+                "type": "string",
+                "value": "_dynamic"
+            },
+            "GUARANTEED_MINIMUM_STATIC_RULES": {
+                "description": "The minimum number of static rules guaranteed to an extension across its enabled static rulesets. Any rules above this limit will count towards the global static rule limit.",
+                "type": "number"
+            },
+            "MAX_NUMBER_OF_DISABLED_STATIC_RULES": {
+                "description": "The maximum number of static rules that can be disabled on each static ruleset.",
+                "type": "number"
+            },
+            "MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES": {
+                "description": "Deprecated property returning the maximum number of dynamic and session rules an extension can add, replaced by MAX_NUMBER_OF_DYNAMIC_RULES/MAX_NUMBER_OF_SESSION_RULES.",
+                "type": "number"
+            },
+            "MAX_NUMBER_OF_DYNAMIC_RULES": {
+                "description": "The maximum number of dynamic session rules an extension can add.",
+                "type": "number"
+            },
+            "MAX_NUMBER_OF_ENABLED_STATIC_RULESETS": {
+                "description": "The maximum number of static Rulesets an extension can enable at any one time.",
+                "type": "number"
+            },
+            "MAX_NUMBER_OF_REGEX_RULES": {
+                "description": "The maximum number of regular expression rules that an extension can add. This limit is evaluated separately for the set of session rules, dynamic rules and those specified in the rule_resources file.",
+                "type": "number"
+            },
+            "MAX_NUMBER_OF_SESSION_RULES": {
+                "description": "The maximum number of dynamic session rules an extension can add.",
+                "type": "number"
+            },
+            "MAX_NUMBER_OF_STATIC_RULESETS": {
+                "description": "The maximum number of static Rulesets an extension can specify as part of the rule_resources manifest key.",
+                "type": "number"
+            },
+            "SESSION_RULESET_ID": {
+                "description": "Ruleset ID for the session-scoped rules added by the extension.",
+                "type": "string",
+                "value": "_session"
+            }
+        },
+        "types": [
+            {
+                "description": "How the requested resource will be used. Comparable to the webRequest.ResourceType type.",
+                "enum": [
+                    "main_frame",
+                    "sub_frame",
+                    "stylesheet",
+                    "script",
+                    "image",
+                    "object",
+                    "object_subrequest",
+                    "xmlhttprequest",
+                    "xslt",
+                    "ping",
+                    "beacon",
+                    "xml_dtd",
+                    "font",
+                    "media",
+                    "websocket",
+                    "csp_report",
+                    "imageset",
+                    "web_manifest",
+                    "speculative",
+                    "other"
+                ],
+                "id": "ResourceType",
+                "type": "string"
+            },
+            {
+                "description": "Describes the reason why a given regular expression isn't supported.",
+                "enum": [
+                    "syntaxError",
+                    "memoryLimitExceeded"
+                ],
+                "id": "UnsupportedRegexReason",
+                "type": "string"
+            },
+            {
+                "id": "MatchedRule",
+                "properties": {
+                    "extensionId": {
+                        "description": "ID of the extension, if this rule belongs to a different extension.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "ruleId": {
+                        "description": "A matching rule's ID.",
+                        "type": "integer"
+                    },
+                    "rulesetId": {
+                        "description": "ID of the Ruleset this rule belongs to.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Describes the type of the Rule.action.redirect.transform property.",
+                "id": "URLTransform",
+                "properties": {
+                    "fragment": {
+                        "description": "The new fragment for the request. Should be either empty, in which case the existing fragment is cleared; or should begin with '#'.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "host": {
+                        "description": "The new host name for the request.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "password": {
+                        "description": "The new password for the request.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "path": {
+                        "description": "The new path for the request. If empty, the existing path is cleared.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "port": {
+                        "description": "The new port for the request. If empty, the existing port is cleared.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "query": {
+                        "description": "The new query for the request. Should be either empty, in which case the existing query is cleared; or should begin with '?'. Cannot be specified if 'queryTransform' is specified.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "queryTransform": {
+                        "description": "Add, remove or replace query key-value pairs. Cannot be specified if 'query' is specified.",
+                        "optional": true,
+                        "properties": {
+                            "addOrReplaceParams": {
+                                "description": "The list of query key-value pairs to be added or replaced.",
+                                "items": {
+                                    "properties": {
+                                        "key": {
+                                            "type": "string"
+                                        },
+                                        "replaceOnly": {
+                                            "default": false,
+                                            "description": "If true, the query key is replaced only if it's already present. Otherwise, the key is also added if it's missing.",
+                                            "optional": true,
+                                            "type": "boolean"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "removeParams": {
+                                "description": "The list of query keys to be removed.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "scheme": {
+                        "description": "The new scheme for the request.",
+                        "enum": [
+                            "http",
+                            "https",
+                            "moz-extension"
+                        ],
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "username": {
+                        "description": "The new username for the request.",
+                        "optional": true,
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "id": "Rule",
+                "properties": {
+                    "action": {
+                        "description": "The action to take if this rule is matched.",
+                        "properties": {
+                            "redirect": {
+                                "description": "Describes how the redirect should be performed. Only valid when type is 'redirect'.",
+                                "optional": true,
+                                "properties": {
+                                    "extensionPath": {
+                                        "description": "Path relative to the extension directory. Should start with '/'.",
+                                        "optional": true,
+                                        "type": "string"
+                                    },
+                                    "regexSubstitution": {
+                                        "description": "Substitution pattern for rules which specify a 'regexFilter'. The first match of regexFilter within the url will be replaced with this pattern. Within regexSubstitution, backslash-escaped digits (\\1 to \\9) can be used to insert the corresponding capture groups. \\0 refers to the entire matching text.",
+                                        "optional": true,
+                                        "type": "string"
+                                    },
+                                    "transform": {
+                                        "$ref": "URLTransform",
+                                        "description": "Url transformations to perform.",
+                                        "optional": true
+                                    },
+                                    "url": {
+                                        "description": "The redirect url. Redirects to JavaScript urls are not allowed.",
+                                        "format": "url",
+                                        "optional": true,
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "requestHeaders": {
+                                "description": "The request headers to modify for the request. Only valid when type is 'modifyHeaders'.",
+                                "items": {
+                                    "properties": {
+                                        "header": {
+                                            "description": "The name of the request header to be modified.",
+                                            "type": "string"
+                                        },
+                                        "operation": {
+                                            "description": "The operation to be performed on a header.",
+                                            "enum": [
+                                                "append",
+                                                "set",
+                                                "remove"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "description": "The new value for the header. Must be specified for the 'append' and 'set' operations.",
+                                            "optional": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "minItems": 1,
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "responseHeaders": {
+                                "description": "The response headers to modify for the request. Only valid when type is 'modifyHeaders'.",
+                                "items": {
+                                    "properties": {
+                                        "header": {
+                                            "description": "The name of the response header to be modified.",
+                                            "type": "string"
+                                        },
+                                        "operation": {
+                                            "description": "The operation to be performed on a header.",
+                                            "enum": [
+                                                "append",
+                                                "set",
+                                                "remove"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "description": "The new value for the header. Must be specified for the 'append' and 'set' operations.",
+                                            "optional": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "minItems": 1,
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "type": {
+                                "enum": [
+                                    "block",
+                                    "redirect",
+                                    "allow",
+                                    "upgradeScheme",
+                                    "modifyHeaders",
+                                    "allowAllRequests"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "condition": {
+                        "description": "The condition under which this rule is triggered.",
+                        "properties": {
+                            "domainType": {
+                                "description": "Specifies whether the network request is first-party or third-party to the domain from which it originated. If omitted, all requests are matched.",
+                                "enum": [
+                                    "firstParty",
+                                    "thirdParty"
+                                ],
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "excludedInitiatorDomains": {
+                                "description": "The rule will not match network requests originating from the list of 'initiatorDomains'. If the list is empty or omitted, no domains are excluded. This takes precedence over 'initiatorDomains'.",
+                                "items": {
+                                    "format": "canonicalDomain",
+                                    "type": "string"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "excludedRequestDomains": {
+                                "description": "The rule will not match network requests when the domains matches one from the list of 'excludedRequestDomains'. If the list is empty or omitted, no domains are excluded. This takes precedence over 'requestDomains'.",
+                                "items": {
+                                    "format": "canonicalDomain",
+                                    "type": "string"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "excludedRequestMethods": {
+                                "description": "List of request methods which the rule won't match. Cannot be specified if 'requestMethods' is specified. If neither of them is specified, all request methods are matched.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "excludedResourceTypes": {
+                                "description": "List of resource types which the rule won't match. Cannot be specified if 'resourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.",
+                                "items": {
+                                    "$ref": "ResourceType"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "excludedTabIds": {
+                                "description": "List of tabIds which the rule should not match. An ID of -1 excludes requests which don't originate from a tab. Only supported for session-scoped rules.",
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "initiatorDomains": {
+                                "description": "The rule will only match network requests originating from the list of 'initiatorDomains'. If the list is omitted, the rule is applied to requests from all domains.",
+                                "items": {
+                                    "format": "canonicalDomain",
+                                    "type": "string"
+                                },
+                                "minItems": 1,
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "isUrlFilterCaseSensitive": {
+                                "description": "Whether 'urlFilter' or 'regexFilter' is case-sensitive.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "regexFilter": {
+                                "description": "Regular expression to match against the network request url. Only one of 'urlFilter' or 'regexFilter' can be specified.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "requestDomains": {
+                                "description": "The rule will only match network requests when the domain matches one from the list of 'requestDomains'. If the list is omitted, the rule is applied to requests from all domains.",
+                                "items": {
+                                    "format": "canonicalDomain",
+                                    "type": "string"
+                                },
+                                "minItems": 1,
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "requestMethods": {
+                                "description": "List of HTTP request methods which the rule can match. Should be a lower-case method such as 'connect', 'delete', 'get', 'head', 'options', 'patch', 'post', 'put'.'",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 1,
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "resourceTypes": {
+                                "description": "List of resource types which the rule can match. When the rule action is 'allowAllRequests', this must be specified and may only contain 'main_frame' or 'sub_frame'. Cannot be specified if 'excludedResourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.",
+                                "items": {
+                                    "$ref": "ResourceType"
+                                },
+                                "minItems": 1,
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "tabIds": {
+                                "description": "List of tabIds which the rule should match. An ID of -1 matches requests which don't originate from a tab. Only supported for session-scoped rules.",
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "minItems": 1,
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "urlFilter": {
+                                "description": "TODO: link to doc explaining supported pattern. The pattern which is matched against the network request url. Only one of 'urlFilter' or 'regexFilter' can be specified.",
+                                "optional": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "id": {
+                        "description": "An id which uniquely identifies a rule. Mandatory and should be >= 1.",
+                        "minimum": 1,
+                        "type": "integer"
+                    },
+                    "priority": {
+                        "default": 1,
+                        "description": "Rule priority. Defaults to 1. When specified, should be >= 1",
+                        "minimum": 1,
+                        "optional": true,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "id": "GetRulesFilter",
+                "properties": {
+                    "ruleIds": {
+                        "description": "If specified, only rules with matching IDs are included.",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            }
+        ]
+    }
+]

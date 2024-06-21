@@ -1,0 +1,1080 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "$extend": "OptionalPermission",
+                "choices": [
+                    {
+                        "enum": [
+                            "compose",
+                            "compose.save",
+                            "compose.send"
+                        ],
+                        "type": "string"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "events": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onbeforesend-tab-details",
+                "description": "Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
+                "name": "onBeforeSend",
+                "parameters": [
+                    {
+                        "$ref": "tabs.Tab",
+                        "name": "tab"
+                    },
+                    {
+                        "$ref": "ComposeDetails",
+                        "description": "The current state of the compose window. This is functionally the same as calling the $(ref:compose.getComposeDetails) function.",
+                        "name": "details"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "returns": {
+                    "properties": {
+                        "cancel": {
+                            "description": "Cancels the send.",
+                            "optional": true,
+                            "type": "boolean"
+                        },
+                        "details": {
+                            "$ref": "ComposeDetails",
+                            "description": "Updates the compose window. This is functionally the same as calling the $(ref:compose.setComposeDetails) function.",
+                            "optional": true
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onaftersend-tab-sendinfo",
+                "description": "Fired when sending a message succeeded or failed.",
+                "name": "onAfterSend",
+                "parameters": [
+                    {
+                        "$ref": "tabs.Tab",
+                        "name": "tab"
+                    },
+                    {
+                        "name": "sendInfo",
+                        "properties": {
+                            "error": {
+                                "description": "An error description, if sending the message failed.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "headerMessageId": {
+                                "description": "The header messageId of the outgoing message. Only included for actually sent messages.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "messages": {
+                                "description": "Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).",
+                                "items": {
+                                    "$ref": "messages.MessageHeader"
+                                },
+                                "type": "array"
+                            },
+                            "mode": {
+                                "description": "The used send mode.",
+                                "enum": [
+                                    "sendNow",
+                                    "sendLater"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onaftersave-tab-saveinfo",
+                "description": "Fired when saving a message as draft or template succeeded or failed.",
+                "name": "onAfterSave",
+                "parameters": [
+                    {
+                        "$ref": "tabs.Tab",
+                        "name": "tab"
+                    },
+                    {
+                        "name": "saveInfo",
+                        "properties": {
+                            "error": {
+                                "description": "An error description, if saving the message failed.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "messages": {
+                                "description": "The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).",
+                                "items": {
+                                    "$ref": "messages.MessageHeader"
+                                },
+                                "type": "array"
+                            },
+                            "mode": {
+                                "description": "The used save mode.",
+                                "enum": [
+                                    "autoSave",
+                                    "draft",
+                                    "template"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onattachmentadded-tab-attachment",
+                "description": "Fired when an attachment is added to a message being composed.",
+                "name": "onAttachmentAdded",
+                "parameters": [
+                    {
+                        "$ref": "tabs.Tab",
+                        "name": "tab"
+                    },
+                    {
+                        "$ref": "ComposeAttachment",
+                        "name": "attachment"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onattachmentremoved-tab-attachmentid",
+                "description": "Fired when an attachment is removed from a message being composed.",
+                "name": "onAttachmentRemoved",
+                "parameters": [
+                    {
+                        "$ref": "tabs.Tab",
+                        "name": "tab"
+                    },
+                    {
+                        "name": "attachmentId",
+                        "type": "integer"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onidentitychanged-tab-identityid",
+                "description": "Fired when the user changes the identity that will be used to send a message being composed.",
+                "name": "onIdentityChanged",
+                "parameters": [
+                    {
+                        "$ref": "tabs.Tab",
+                        "name": "tab"
+                    },
+                    {
+                        "name": "identityId",
+                        "type": "string"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#oncomposestatechanged-tab-state",
+                "description": "Fired when the state of the message composer changed.",
+                "name": "onComposeStateChanged",
+                "parameters": [
+                    {
+                        "$ref": "tabs.Tab",
+                        "name": "tab"
+                    },
+                    {
+                        "$ref": "ComposeState",
+                        "name": "state"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onactivedictionarieschanged-tab-dictionaries",
+                "description": "Fired when one or more dictionaries have been activated or deactivated.",
+                "name": "onActiveDictionariesChanged",
+                "parameters": [
+                    {
+                        "$ref": "tabs.Tab",
+                        "name": "tab"
+                    },
+                    {
+                        "$ref": "ComposeDictionaries",
+                        "name": "dictionaries"
+                    }
+                ],
+                "type": "function"
+            }
+        ],
+        "functions": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#beginnew-messageid-details",
+                "async": "callback",
+                "description": "Open a new message compose window.\n\n**Note:** The compose format can be set by <var>details.isPlainText</var> or by specifying only one of <var>details.body</var> or <var>details.plainTextBody</var>. Otherwise the default compose format of the selected identity is used.\n\n**Note:** Specifying <var>details.body</var> and <var>details.plainTextBody</var> without also specifying <var>details.isPlainText</var> threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching <var>details.body</var> or <var>details.plainTextBody</var> value.\n\n**Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.",
+                "name": "beginNew",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "description": "If specified, the message or template to edit as a new message.",
+                        "name": "messageId",
+                        "optional": true
+                    },
+                    {
+                        "$ref": "ComposeDetails",
+                        "name": "details",
+                        "optional": true
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "tabs.Tab",
+                                "name": "return"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#beginreply-messageid-replytype-details",
+                "async": "callback",
+                "description": "Open a new message compose window replying to a given message.\n\n**Note:** The compose format can be set by <var>details.isPlainText</var> or by specifying only one of <var>details.body</var> or <var>details.plainTextBody</var>. Otherwise the default compose format of the selected identity is used.\n\n**Note:** Specifying <var>details.body</var> and <var>details.plainTextBody</var> without also specifying <var>details.isPlainText</var> threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching <var>details.body</var> or <var>details.plainTextBody</var> value.\n\n**Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.",
+                "name": "beginReply",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "description": "The message to reply to, as retrieved using other APIs.",
+                        "name": "messageId"
+                    },
+                    {
+                        "enum": [
+                            "replyToSender",
+                            "replyToList",
+                            "replyToAll"
+                        ],
+                        "name": "replyType",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "ComposeDetails",
+                        "name": "details",
+                        "optional": true
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "tabs.Tab",
+                                "name": "return"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#beginforward-messageid-forwardtype-details",
+                "async": "callback",
+                "description": "Open a new message compose window forwarding a given message.\n\n**Note:** The compose format can be set by <var>details.isPlainText</var> or by specifying only one of <var>details.body</var> or <var>details.plainTextBody</var>. Otherwise the default compose format of the selected identity is used.\n\n**Note:** Specifying <var>details.body</var> and <var>details.plainTextBody</var> without also specifying <var>details.isPlainText</var> threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching <var>details.body</var> or <var>details.plainTextBody</var> value.\n\n**Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.",
+                "name": "beginForward",
+                "parameters": [
+                    {
+                        "$ref": "messages.MessageId",
+                        "description": "The message to forward, as retrieved using other APIs.",
+                        "name": "messageId"
+                    },
+                    {
+                        "enum": [
+                            "forwardInline",
+                            "forwardAsAttachment"
+                        ],
+                        "name": "forwardType",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "ComposeDetails",
+                        "name": "details",
+                        "optional": true
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "tabs.Tab",
+                                "name": "return"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#getcomposedetails-tabid",
+                "async": "callback",
+                "description": "Fetches the current state of a compose window. Currently only a limited amount of information is available, more will be added in later versions.",
+                "name": "getComposeDetails",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "ComposeDetails"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#setcomposedetails-tabid-details",
+                "async": true,
+                "description": "Updates the compose window. The properties of the given $(ref:compose.ComposeDetails) object will be used to overwrite the current values of the specified compose window, so only properties that are to be changed should be included. Modified settings will be treated as user initiated, and turn off further automatic changes on these settings.\n\nWhen updating any of the array properties (<var>customHeaders</var> and most address fields), make sure to first get the current values to not accidentally remove all existing entries when setting the new value.\n\n**Note:** The compose format of an existing compose window cannot be changed. Since Thunderbird 98, setting conflicting values for <var>details.body</var>, <var>details.plainTextBody</var> or <var>details.isPlaintext</var> no longer throws an exception, instead the compose window chooses the matching <var>details.body</var> or <var>details.plainTextBody</var> value and ignores the other.",
+                "name": "setComposeDetails",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "ComposeDetails",
+                        "name": "details"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#getactivedictionaries-tabid",
+                "async": "callback",
+                "description": "Returns a $(ref:compose.ComposeDictionaries) object, listing all installed dictionaries, including the information whether they are currently enabled or not.",
+                "name": "getActiveDictionaries",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "ComposeDictionaries"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#setactivedictionaries-tabid-activedictionaries",
+                "async": true,
+                "description": "Updates the active dictionaries. Throws if the <var>activeDictionaries</var> array contains unknown or invalid language identifiers.",
+                "name": "setActiveDictionaries",
+                "parameters": [
+                    {
+                        "minimum": 0,
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "items": {
+                            "type": "string"
+                        },
+                        "name": "activeDictionaries",
+                        "type": "array"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#listattachments-tabid",
+                "async": "callback",
+                "description": "Lists all of the attachments of the message being composed in the specified tab.",
+                "name": "listAttachments",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "ComposeAttachment"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#getattachmentfile-id",
+                "async": "callback",
+                "description": "Gets the content of a $(ref:compose.ComposeAttachment) as a <a href='https://developer.mozilla.org/docs/Web/API/File'>File</a> object.",
+                "name": "getAttachmentFile",
+                "parameters": [
+                    {
+                        "description": "The unique identifier for the attachment.",
+                        "name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "additionalProperties": true,
+                                "isInstanceOf": "File",
+                                "type": "object"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#addattachment-tabid-attachment",
+                "async": "callback",
+                "description": "Adds an attachment to the message being composed in the specified tab.",
+                "name": "addAttachment",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "choices": [
+                            {
+                                "$ref": "FileAttachment"
+                            },
+                            {
+                                "$ref": "ComposeAttachment"
+                            }
+                        ],
+                        "name": "attachment"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "ComposeAttachment"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#updateattachment-tabid-attachmentid-attachment",
+                "async": "callback",
+                "description": "Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will throw an <em>ExtensionError</em>.",
+                "name": "updateAttachment",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "attachmentId",
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "FileAttachment",
+                        "name": "attachment"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "ComposeAttachment"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#removeattachment-tabid-attachmentid",
+                "async": true,
+                "description": "Removes an attachment from the message being composed in the specified tab.",
+                "name": "removeAttachment",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "attachmentId",
+                        "type": "integer"
+                    }
+                ],
+                "permissions": [
+                    "compose"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#sendmessage-tabid-options",
+                "async": "callback",
+                "description": "Sends the message currently being composed. If the send mode is not specified or set to <var>default</var>, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an $(ref:compose.onBeforeSend) event or if there has been an error while sending the message to the outgoing mail server.",
+                "name": "sendMessage",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "options",
+                        "optional": true,
+                        "properties": {
+                            "mode": {
+                                "enum": [
+                                    "default",
+                                    "sendNow",
+                                    "sendLater"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "name": "return",
+                                "properties": {
+                                    "headerMessageId": {
+                                        "description": "The header messageId of the outgoing message. Only included for actually sent messages.",
+                                        "optional": true,
+                                        "type": "string"
+                                    },
+                                    "messages": {
+                                        "description": "Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).",
+                                        "items": {
+                                            "$ref": "messages.MessageHeader"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "mode": {
+                                        "description": "The used send mode.",
+                                        "enum": [
+                                            "sendNow",
+                                            "sendLater"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "compose.send"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#savemessage-tabid-options",
+                "async": "callback",
+                "description": "Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.",
+                "name": "saveMessage",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "options",
+                        "optional": true,
+                        "properties": {
+                            "mode": {
+                                "enum": [
+                                    "draft",
+                                    "template"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "name": "return",
+                                "properties": {
+                                    "messages": {
+                                        "description": "The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).",
+                                        "items": {
+                                            "$ref": "messages.MessageHeader"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "mode": {
+                                        "description": "The used save mode.",
+                                        "enum": [
+                                            "draft",
+                                            "template"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "compose.save"
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#getcomposestate-tabid",
+                "async": "callback",
+                "description": "Returns information about the current state of the message composer.",
+                "name": "getComposeState",
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "ComposeState",
+                                "name": "return"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            }
+        ],
+        "namespace": "compose",
+        "types": [
+            {
+                "choices": [
+                    {
+                        "description": "A name and email address in the format <var>Name <email@example.com></var>, or just an email address.",
+                        "type": "string"
+                    },
+                    {
+                        "properties": {
+                            "nodeId": {
+                                "description": "The ID of a contact or mailing list node from the $(doc:addressBook.contacts) or $(doc:addressBook.mailingLists).",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "Which sort of object this ID is for.",
+                                "enum": [
+                                    "contact",
+                                    "mailingList"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "id": "ComposeRecipient"
+            },
+            {
+                "choices": [
+                    {
+                        "$ref": "ComposeRecipient"
+                    },
+                    {
+                        "items": {
+                            "$ref": "ComposeRecipient"
+                        },
+                        "type": "array"
+                    }
+                ],
+                "id": "ComposeRecipientList"
+            },
+            {
+                "description": "Represent the state of the message composer.",
+                "id": "ComposeState",
+                "properties": {
+                    "canSendLater": {
+                        "description": "The message can be send later.",
+                        "type": "boolean"
+                    },
+                    "canSendNow": {
+                        "description": "The message can be send now.",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Used by various functions to represent the state of a message being composed. Note that functions using this type may have a partial implementation.",
+                "id": "ComposeDetails",
+                "properties": {
+                    "additionalFccFolderId": {
+                        "$ref": "folders.MailFolderId",
+                        "description": "An additional fcc folder which can be selected while composing the message. Cleared when set to <var>null</var>.",
+                        "optional": "omit-key-if-missing"
+                    },
+                    "attachPublicPGPKey": {
+                        "description": "Whether the public OpenPGP key of the sending identity should be attached to the message.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "attachVCard": {
+                        "description": "Whether or not the vCard of the used identity will be attached to the message during send. **Note:** If the value has not been modified, selecting a different identity will load the default value of the new identity.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "attachments": {
+                        "description": "Only used in the begin* functions. Attachments to add to the message.",
+                        "items": {
+                            "choices": [
+                                {
+                                    "$ref": "FileAttachment"
+                                },
+                                {
+                                    "$ref": "ComposeAttachment"
+                                }
+                            ]
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "bcc": {
+                        "$ref": "ComposeRecipientList",
+                        "optional": true
+                    },
+                    "body": {
+                        "description": "The HTML content of the message.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "cc": {
+                        "$ref": "ComposeRecipientList",
+                        "optional": true
+                    },
+                    "customHeaders": {
+                        "description": "Array of custom headers. Headers will be returned in <em>Http-Header-Case</em> (a.k.a. <em>Train-Case</em>). Set an empty array to clear all custom headers.",
+                        "items": {
+                            "$ref": "CustomHeader"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "deliveryFormat": {
+                        "description": "Defines the MIME format of the sent message (ignored on plain text messages). Defaults to <var>auto</var>, which will send html messages as plain text, if they do not include any formatting, and as <var>both</var> otherwise (a multipart/mixed message).",
+                        "enum": [
+                            "auto",
+                            "plaintext",
+                            "html",
+                            "both"
+                        ],
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "deliveryStatusNotification": {
+                        "description": "Let the sender know when the recipient's server received the message. Not supported by all servers.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "followupTo": {
+                        "$ref": "ComposeRecipientList",
+                        "optional": true
+                    },
+                    "from": {
+                        "$ref": "ComposeRecipient",
+                        "description": "*Caution*: Setting a value for <var>from</var> does not change the used identity, it overrides the <em>From</em> header. Many email servers do not accept emails where the <em>From</em> header does not match the sender identity. Must be set to exactly one valid email address.",
+                        "optional": true
+                    },
+                    "identityId": {
+                        "description": "The ID of an identity from the $(doc:accounts). The settings from the identity will be used in the composed message. If <var>replyTo</var> is also specified, the <var>replyTo</var> property of the identity is overridden. The permission <permission>accountsRead</permission> is required to include the <var>identityId</var>.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "isModified": {
+                        "description": "Whether the composer is considered modified by the user. A modified composer asks for confirmation, when it is closed.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "isPlainText": {
+                        "description": "Whether the message is an HTML message or a plain text message.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "newsgroups": {
+                        "choices": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "description": "A single newsgroup name or an array of newsgroup names.",
+                        "optional": true
+                    },
+                    "overrideDefaultFccFolderId": {
+                        "$ref": "folders.MailFolderId",
+                        "description": " This value overrides the default fcc setting (defined by the used identity) for this message only. Either a $(ref:folders.MailFolderId) specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to <var>null</var>.",
+                        "optional": "omit-key-if-missing"
+                    },
+                    "plainTextBody": {
+                        "description": "The plain text content of the message.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "priority": {
+                        "description": "The priority of the message.",
+                        "enum": [
+                            "lowest",
+                            "low",
+                            "normal",
+                            "high",
+                            "highest"
+                        ],
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "relatedMessageId": {
+                        "$ref": "messages.MessageId",
+                        "description": "The id of the original message (in case of draft, template, forward or reply). Read-only. Is <var>null</var> in all other cases or if the original message was opened from file.",
+                        "optional": true
+                    },
+                    "replyTo": {
+                        "$ref": "ComposeRecipientList",
+                        "optional": true
+                    },
+                    "returnReceipt": {
+                        "description": "Add the <em>Disposition-Notification-To</em> header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "selectedEncryptionTechnology": {
+                        "choices": [
+                            {
+                                "$ref": "compose.EncryptionPropertiesSMIME"
+                            },
+                            {
+                                "$ref": "compose.EncryptionPropertiesOpenPGP"
+                            }
+                        ],
+                        "description": "The selected encryption technology (<var>OpenPGP</var> or <var>S/MIME</var>) which is to be used to sign and/or encrypt the message. If the sending identity does not support encryption at all, this will be <var>undefined</var>.",
+                        "optional": true
+                    },
+                    "subject": {
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "to": {
+                        "$ref": "ComposeRecipientList",
+                        "optional": true
+                    },
+                    "type": {
+                        "description": "Read-only. The type of the message being composed, depending on how the compose window was opened by the user.",
+                        "enum": [
+                            "draft",
+                            "new",
+                            "redirect",
+                            "reply",
+                            "forward"
+                        ],
+                        "optional": true,
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Object used to add, update or rename an attachment in a message being composed.",
+                "id": "FileAttachment",
+                "properties": {
+                    "file": {
+                        "additionalProperties": true,
+                        "description": "The new content for the attachment.",
+                        "isInstanceOf": "File",
+                        "optional": true,
+                        "type": "object"
+                    },
+                    "name": {
+                        "description": "The new name for the attachment, as displayed to the user. If not specified, the name of the provided <var>file</var> object is used.",
+                        "optional": true,
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Represents an attachment in a message being composed.",
+                "id": "ComposeAttachment",
+                "properties": {
+                    "id": {
+                        "description": "A unique identifier for this attachment.",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "The name of this attachment, as displayed to the user.",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "The size in bytes of this attachment. Read-only.",
+                        "optional": true,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "A custom header definition.",
+                "id": "CustomHeader",
+                "properties": {
+                    "name": {
+                        "description": "Name of a custom header, must be prefixed by <var>X-</var> (but not by <var>X-Mozilla-</var>) or be one of the explicitly allowed headers (<var>MSIP_Labels</var>)",
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "additionalProperties": {
+                    "type": "boolean"
+                },
+                "description": "A <em>dictionary object</em> with entries for all installed dictionaries, having a language identifier as <em>key</em> (for example <var>en-US</var>) and a boolean expression as <em>value</em>, indicating whether that dictionary is enabled for spellchecking or not.",
+                "id": "ComposeDictionaries",
+                "type": "object"
+            },
+            {
+                "id": "EncryptionPropertiesOpenPGP",
+                "properties": {
+                    "encryptBody": {
+                        "description": "Whether encryption of the message body using the OpenPGP technology is enabled. **Note:** If encryption is enabled, but the <a href='https://support.mozilla.org/en-US/kb/thunderbird-help-cannot-encrypt'>preconditions</a> for sending an encrypted message are not met, the message cannot be sent.",
+                        "type": "boolean"
+                    },
+                    "encryptSubject": {
+                        "description": "Whether encryption of the message subject using the OpenPGP technology is enabled (only supported if encryption of the body is enabled a well).",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "pattern": "^OpenPGP$",
+                        "type": "string"
+                    },
+                    "signMessage": {
+                        "description": "Whether the message will be signed using the OpenPGP technology.",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "id": "EncryptionPropertiesSMIME",
+                "properties": {
+                    "encryptBody": {
+                        "description": "Whether encryption of the message body using the S/MIME technology is enabled. **Note:** If encryption is enabled, but the <a href='https://support.mozilla.org/en-US/kb/thunderbird-help-cannot-encrypt'>preconditions</a> for sending an encrypted message are not met, the message cannot be sent.",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "pattern": "^S/MIME$",
+                        "type": "string"
+                    },
+                    "signMessage": {
+                        "description": "Whether the message will be signed using the S/MIME technology",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        ]
+    }
+]

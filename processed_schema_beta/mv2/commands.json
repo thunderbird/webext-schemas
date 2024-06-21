@@ -1,0 +1,221 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "description": "Definition of a shortcut, for example <var>Alt+F5</var>. The string must match the shortcut format as defined by the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values'>MDN page of the commands API</a>.",
+                "format": "manifestShortcutKey",
+                "id": "KeyName",
+                "type": "string"
+            },
+            {
+                "$extend": "WebExtensionManifest",
+                "properties": {
+                    "commands": {
+                        "additionalProperties": {
+                            "additionalProperties": {
+                                "$ref": "UnrecognizedProperty"
+                            },
+                            "properties": {
+                                "description": {
+                                    "optional": true,
+                                    "preprocess": "localize",
+                                    "type": "string"
+                                },
+                                "suggested_key": {
+                                    "optional": true,
+                                    "properties": {
+                                        "additionalProperties": {
+                                            "deprecated": "Unknown platform name",
+                                            "optional": true,
+                                            "type": "string"
+                                        },
+                                        "android": {
+                                            "optional": true,
+                                            "type": "string"
+                                        },
+                                        "chromeos": {
+                                            "optional": true,
+                                            "type": "string"
+                                        },
+                                        "default": {
+                                            "$ref": "KeyName",
+                                            "optional": true
+                                        },
+                                        "ios": {
+                                            "optional": true,
+                                            "type": "string"
+                                        },
+                                        "linux": {
+                                            "$ref": "KeyName",
+                                            "optional": true
+                                        },
+                                        "mac": {
+                                            "$ref": "KeyName",
+                                            "optional": true
+                                        },
+                                        "windows": {
+                                            "$ref": "KeyName",
+                                            "optional": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "description": "A <em>dictionary object</em> defining one or more commands as <em>name-value</em> pairs, the <em>name</em> being the name of the command and the <em>value</em> being a $(ref:commands.CommandsShortcut). The <em>name</em> may also be one of the following built-in special shortcuts: \n * <var>_execute_browser_action</var> \n * <var>_execute_compose_action</var> \n * <var>_execute_message_display_action</var>\nExample: <literalinclude>includes/commands/manifest.json<lang>JSON</lang></literalinclude>",
+                        "type": "object",
+                        "optional": true
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "description": "Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.",
+        "events": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#oncommand-command-tab",
+                "description": "Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
+                "name": "onCommand",
+                "parameters": [
+                    {
+                        "name": "command",
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "tabs.Tab",
+                        "description": "The details of the active tab while the command occurred.",
+                        "name": "tab"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#onchanged-changeinfo",
+                "description": "Fired when a registered command's shortcut is changed.",
+                "name": "onChanged",
+                "parameters": [
+                    {
+                        "name": "changeInfo",
+                        "properties": {
+                            "name": {
+                                "description": "The name of the shortcut.",
+                                "type": "string"
+                            },
+                            "newShortcut": {
+                                "description": "The new shortcut active for this command, or blank if not active.",
+                                "type": "string"
+                            },
+                            "oldShortcut": {
+                                "description": "The old shortcut which is no longer active for this command, or blank if the shortcut was previously inactive.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "type": "function"
+            }
+        ],
+        "functions": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#update-detail",
+                "async": true,
+                "description": "Update the details of an already defined command.",
+                "name": "update",
+                "parameters": [
+                    {
+                        "description": "The new details for the command.",
+                        "name": "detail",
+                        "properties": {
+                            "description": {
+                                "description": "The description for the command.",
+                                "optional": true,
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "The name of the command.",
+                                "type": "string"
+                            },
+                            "shortcut": {
+                                "description": "An empty string to clear the shortcut, or a string matching the format defined by the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values'>MDN page of the commands API</a>  to set a new shortcut key. If the string does not match this format, the function throws an error.",
+                                "format": "manifestShortcutKeyOrEmpty",
+                                "optional": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#reset-name",
+                "async": true,
+                "description": "Reset a command's details to what is specified in the manifest.",
+                "name": "reset",
+                "parameters": [
+                    {
+                        "description": "The name of the command.",
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#getall",
+                "async": "callback",
+                "description": "Returns all the registered extension commands for this extension and their shortcut (if active).",
+                "name": "getAll",
+                "parameters": [
+                    {
+                        "description": "Called to return the registered commands.",
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "Command"
+                                },
+                                "name": "commands",
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            }
+        ],
+        "namespace": "commands",
+        "permissions": [
+            "manifest:commands"
+        ],
+        "types": [
+            {
+                "id": "Command",
+                "properties": {
+                    "description": {
+                        "description": "The Extension Command description",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the Extension Command",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "shortcut": {
+                        "description": "The shortcut active for this command, or blank if not active.",
+                        "optional": true,
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        ]
+    }
+]

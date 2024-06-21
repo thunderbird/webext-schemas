@@ -1,0 +1,11 @@
+[
+    {
+        "namespace": "manifest",
+        "types": [
+            {
+                "$extend": "WebExtensionManifest",
+                "properties": {}
+            }
+        ]
+    }
+]
