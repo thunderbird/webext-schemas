@@ -467,7 +467,7 @@ function processSchema(
     // Reset.
     fullPath = value.namespace;
   }
-  if (value.name) {
+  if (value.name && typeof value.name !== "object") {
     fullPath = `${fullPath}.${value.name}`;
     const parts = fullPath.split(".");
     // Check if we are at the event/type/function level.
