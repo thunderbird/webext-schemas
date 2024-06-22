@@ -56,6 +56,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "getBadgeText": {
@@ -63,6 +90,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -74,6 +128,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "getPopup": {
@@ -83,6 +164,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "getTitle": {
@@ -90,6 +198,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -110,6 +245,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "onClicked": {
@@ -117,6 +279,285 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "tab": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "highlighted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "favIconUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "status": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "cookieStoreId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "lastAccessed": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "audible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "autoDiscardable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "mutedInfo": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "discarded": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "incognito": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sessionId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isArticle": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isInReaderMode": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sharingState": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "attention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "successorTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "info": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "modifiers": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "button": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -128,6 +569,24 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "options": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "setBadgeBackgroundColor": {
@@ -135,6 +594,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -146,6 +632,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "setBadgeTextColor": {
@@ -153,6 +666,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -164,6 +704,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "setPopup": {
@@ -173,6 +740,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "setTitle": {
@@ -180,6 +774,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -272,6 +893,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "getBadgeText": {
@@ -279,6 +927,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -290,6 +965,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "getPopup": {
@@ -297,6 +999,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -308,6 +1037,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "isEnabled": {
@@ -315,6 +1071,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -326,6 +1109,285 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "tab": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "highlighted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "favIconUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "status": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "cookieStoreId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "lastAccessed": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "audible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "autoDiscardable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "mutedInfo": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "discarded": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "incognito": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sessionId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isArticle": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isInReaderMode": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sharingState": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "attention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "successorTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "info": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "modifiers": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "button": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "openPopup": {
@@ -333,6 +1395,24 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "options": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -344,6 +1424,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "setBadgeText": {
@@ -351,6 +1458,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -362,6 +1496,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "setIcon": {
@@ -369,6 +1530,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -380,6 +1568,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "setTitle": {
@@ -387,6 +1602,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -405,6 +1647,15 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    }
+                },
+                "getUserSettings": {
+                    "__compat": {
+                        "support": {
+                            "thunderbird": {
+                                "version_added": false
                             }
                         }
                     }
@@ -936,6 +2187,42 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "changeInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "name": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "newShortcut": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "oldShortcut": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "onCommand": {
@@ -943,6 +2230,258 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "tab": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "highlighted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "favIconUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "status": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "cookieStoreId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "lastAccessed": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "audible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "autoDiscardable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "mutedInfo": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "discarded": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "incognito": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sessionId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isArticle": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isInReaderMode": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sharingState": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "attention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "successorTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
                             }
                         }
                     }
@@ -961,6 +2500,42 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "detail": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "name": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "description": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "shortcut": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -1422,6 +2997,141 @@
                                 }
                             }
                         }
+                    },
+                    "createProperties": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "type": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "icons": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "checked": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "contexts": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "viewTypes": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "visible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "onclick": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "parentId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "documentUrlPatterns": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "targetUrlPatterns": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "enabled": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "command": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "getTargetElement": {
@@ -1438,6 +3148,285 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "info": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "modifiers": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "button": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tab": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "highlighted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "favIconUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "status": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "cookieStoreId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "lastAccessed": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "audible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "autoDiscardable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "mutedInfo": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "discarded": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "incognito": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sessionId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isArticle": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isInReaderMode": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sharingState": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "attention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "successorTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
                             }
                         }
                     }
@@ -1458,6 +3447,375 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "info": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "menuIds": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "contexts": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "viewType": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "editable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "mediaType": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "linkUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "linkText": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "srcUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "pageUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "frameUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "selectionText": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "targetElementId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tab": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "highlighted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "favIconUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "status": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "cookieStoreId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "lastAccessed": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "audible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "autoDiscardable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "mutedInfo": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "discarded": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "incognito": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sessionId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isArticle": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isInReaderMode": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sharingState": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "attention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "successorTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "overrideContext": {
@@ -1465,6 +3823,51 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "contextOptions": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "showDefaults": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "context": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "bookmarkId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
                             }
                         }
                     }
@@ -1485,6 +3888,15 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "menuItemId": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        }
                     }
                 },
                 "removeAll": {
@@ -1501,6 +3913,132 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "id": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        }
+                    },
+                    "updateProperties": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "type": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "icons": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "checked": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "contexts": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "viewTypes": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "visible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "onclick": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "parentId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "documentUrlPatterns": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "targetUrlPatterns": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "enabled": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -1723,6 +4261,15 @@
                     }
                 },
                 "setWindowValue": {
+                    "__compat": {
+                        "support": {
+                            "thunderbird": {
+                                "version_added": false
+                            }
+                        }
+                    }
+                },
+                "getDevices": {
                     "__compat": {
                         "support": {
                             "thunderbird": {
@@ -2128,6 +4675,15 @@
                                     }
                                 }
                             }
+                        },
+                        "name": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
                         }
                     }
                 },
@@ -2243,6 +4799,114 @@
                             "support": {
                                 "thunderbird": {
                                     "version_added": true
+                                }
+                            }
+                        }
+                    },
+                    "createProperties": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "cookieStoreId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "openInReaderMode": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "discarded": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "muted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
                                 }
                             }
                         }
@@ -2472,6 +5136,42 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "tabIds": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        }
+                    },
+                    "moveProperties": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "moveInSuccession": {
@@ -2488,6 +5188,42 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "activeInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "tabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "previousTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -2508,6 +5244,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "attachInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "newWindowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "newPosition": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "onCreated": {
@@ -2517,6 +5280,258 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "tab": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "highlighted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "favIconUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "status": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "cookieStoreId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "lastAccessed": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "audible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "autoDiscardable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "mutedInfo": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "discarded": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "incognito": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sessionId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isArticle": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isInReaderMode": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sharingState": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "attention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "successorTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "onDetached": {
@@ -2524,6 +5539,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "detachInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "oldWindowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "oldPosition": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -2553,6 +5595,42 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "moveInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "fromIndex": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "toIndex": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "onRemoved": {
@@ -2560,6 +5638,33 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "removeInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "isWindowClosing": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -2671,6 +5776,42 @@
                                     }
                                 }
                             }
+                        },
+                        "attention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isArticle": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sharingState": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
                         }
                     },
                     "filter": {
@@ -2688,6 +5829,258 @@
                                         "thunderbird": {
                                             "version_added": false
                                         }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tab": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "index": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "highlighted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "favIconUrl": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "status": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "cookieStoreId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "lastAccessed": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "audible": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "autoDiscardable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "mutedInfo": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "discarded": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "incognito": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sessionId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isArticle": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "isInReaderMode": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "sharingState": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "attention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "successorTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
                                     }
                                 }
                             }
@@ -2899,6 +6292,42 @@
                                     }
                                 }
                             }
+                        },
+                        "hidden": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "screen": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "camera": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "microphone": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
                         }
                     }
                 },
@@ -2909,6 +6338,24 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "reloadProperties": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "bypassCache": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "remove": {
@@ -2916,6 +6363,15 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "tabIds": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
                             }
                         }
                     }
@@ -2972,6 +6428,15 @@
                                     "safari_ios": {
                                         "version_added": false
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "responseCallback": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
                                 }
                             }
                         }
@@ -3110,6 +6575,96 @@
                                 }
                             }
                         }
+                    },
+                    "updateProperties": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "url": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "active": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "autoDiscardable": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "highlighted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "pinned": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "muted": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "openerTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "loadReplace": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "successorTabId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "warmup": {
@@ -3155,6 +6710,33 @@
                                 "version_added": true
                             }
                         }
+                    },
+                    "updateInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "theme": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "reset": {
@@ -3171,6 +6753,42 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "details": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "images": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "colors": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "properties": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
                             }
                         }
                     }
@@ -3634,6 +7252,15 @@
                                     }
                                 }
                             }
+                        },
+                        "populate": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
                         }
                     }
                 },
@@ -3662,6 +7289,33 @@
                                 }
                             }
                         }
+                    },
+                    "getInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "populate": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "windowTypes": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "getCurrent": {
@@ -3685,6 +7339,15 @@
                                 "support": {
                                     "thunderbird": {
                                         "version_added": false
+                                    }
+                                }
+                            }
+                        },
+                        "populate": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
                                     }
                                 }
                             }
@@ -3715,6 +7378,15 @@
                                     }
                                 }
                             }
+                        },
+                        "populate": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
                         }
                     }
                 },
@@ -3732,6 +7404,132 @@
                         "support": {
                             "thunderbird": {
                                 "version_added": true
+                            }
+                        }
+                    },
+                    "window": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "id": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "focused": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "top": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "left": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "tabs": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "incognito": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "type": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "state": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "alwaysOnTop": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "title": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "sessionId": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": false
+                                    }
+                                }
                             }
                         }
                     }
@@ -3841,6 +7639,96 @@
                                     "version_added": true
                                 }
                             }
+                        }
+                    },
+                    "updateInfo": {
+                        "__compat": {
+                            "support": {
+                                "thunderbird": {
+                                    "version_added": true
+                                }
+                            }
+                        },
+                        "left": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "top": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "width": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "height": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "focused": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "drawAttention": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "state": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        },
+                        "titlePreface": {
+                            "__compat": {
+                                "support": {
+                                    "thunderbird": {
+                                        "version_added": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "contextMenus": {
+                "__compat": {
+                    "support": {
+                        "thunderbird": {
+                            "version_added": false
                         }
                     }
                 }
