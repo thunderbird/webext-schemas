@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  * 
  * Author: John Bieling
- * Version: 1.0 (18.06.2024)
+ * Version: 1.1 (28.06.2024)
  */
 
 const path = require("path");
@@ -13,7 +13,6 @@ const https = require("https");
 const yargs = require("yargs");
 const jsonUtils = require("comment-json");
 const extract = require("extract-zip");
-const bcd = require("@mdn/browser-compat-data");
 
 const HELP_SCREEN = `
 
@@ -22,21 +21,24 @@ Usage:
     node get_thunderbird_schema_files.js <options>
     
 Options:
-   --release=name             - The name of the Thunderbird release to get the
-                                schema files for. The files will be downloaded
-                                from hg.mozilla.org. Examples: "central", "beta"
-                                or "esr115". Either --release or --input has to
-                                be specified.
-   --input=path               - Path to a local checkout of a mozilla repository
-                                with a matching /comm directory. The mozilla-*
-                                folder created in the temporary download folder
-                                after using the --release option will work also.
-                                Either --release or --input has to be specified.
+   --compat                   - Path to the thunderbird webextension compatibility
+                                data file (will become obsolete once released as
+                                an npm module).
+   --manifest_version=number  - The requested manifest version of the schema
+                                files. Allowed values are "2" and "3".
    --output=path              - Path of a folder to store the processed schema
                                 files. All existing files in that folder will be
                                 deleted.
-   --manifest_version=number  - The requested manifest version of the schema
-                                files. Allowed values are "2" and "3".
+   --release=name             - The name of the Thunderbird release to get the
+                                schema files for. The files will be downloaded
+                                from hg.mozilla.org. Examples: "central", "beta"
+                                or "esr115". Either --release or --source has to
+                                be specified.
+   --source=path              - Path to a local checkout of a mozilla repository
+                                with a matching /comm directory. The mozilla-*
+                                folder created in the temporary download folder
+                                after using the --release option will work also.
+                                Either --release or --source has to be specified.
 `;
 
 // URL placeholder and their correct value. These are replaced if found inside
@@ -99,43 +101,18 @@ const URL_REPLACEMENTS = {
     "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions",
 };
 
-// Toolkit schema files which should be ignored.
-// Note: Privileged extensions can only be created by Mozilla, relevant APIs are
-// therefore excluded. They are identified by being signed by a different CA.
-// Unsigned add-ons cannot be privileged, except for temporarily installed
-// experiments. See
-// - https://searchfox.org/mozilla-central/rev/74518d4f6979b088e28405ba7e6238f4707639cf/toolkit/components/extensions/Extension.sys.mjs#974-981
-// - https://searchfox.org/mozilla-central/rev/74518d4f6979b088e28405ba7e6238f4707639cf/toolkit/mozapps/extensions/internal/XPIInstall.sys.mjs#861,877-879
-const SKIP_TOOLKIT_SCHEMAS = [
-  // Privileged extensions only.
-  "activity_log.json", 
-  "geckoProfiler.json",
-  "network_status.json",
-  "telemetry.json",
-  // Not usable by extensions.
-   "test.json",
-  // Not supported by Thunderbird.
-  "page_action.json",
-  "captive_portal.json",
-  "proxy.json", // Bug 1903727.
-   // Re-implemented by Thunderbird.
-  "browser_action.json",
-  "theme.json",
-];
-
-// Rare cases where Thunderbird directly loads a browser schema.
-const USE_BROWSER_SCHEMAS = ["pkcs11.json"];
-
 const TEMP_DIR = "temp";
 const API_DOC_BASE_URL = "https://webextension-api.thunderbird.net/en";
 
-const schemas = [];
+let schemas = [];
 let api_doc_branch = "stable";
 
 const args = yargs.argv;
-if ((!args.input && !args.release) || !args.output || !args.manifest_version) {
+let bcd;
+if ((!args.source && !args.release) || !args.compat || !args.output || !args.manifest_version) {
   console.log(HELP_SCREEN);
 } else {
+  bcd = require(args.compat);
   main();
 }
 
@@ -150,10 +127,10 @@ async function main() {
 
   // Download schema files, if requested.
   if (args.release) {
-    args.input = await downloadSchemaFilesIntoTempFolder(args.release);
+    args.source = await downloadSchemaFilesIntoTempFolder(args.release);
   } else {
     // Set the release based on the provided folder name.
-    args.release = path.basename(args.input).split("-")[1];
+    args.release = path.basename(args.source).split("-")[1];
   }
 
   // Determine api_doc_branch based on requested release.
@@ -179,29 +156,28 @@ async function main() {
     await fs.unlink(path.join(args.output, file));
   }
 
-  // Parse the toolkit schema files and exclude schemas which are re-implemented
-  // by Thunderbird or not supported.
-  parseSchemaFiles(
+  // Parse the toolkit schema files.
+  readSchemaFiles(
     "firefox",
     getJsonFiles(
-      path.join(args.input, "toolkit", "components", "extensions", "schemas")
-    ).filter(e => !SKIP_TOOLKIT_SCHEMAS.includes(e.name))
+      path.join(args.source, "toolkit", "components", "extensions", "schemas")
+    )
   );
 
-  // Parse the browser schema files, which are used by Thunderbird as well.
-  parseSchemaFiles(
+  // Parse the browser schema files.
+  readSchemaFiles(
     "firefox",
     getJsonFiles(
-      path.join(args.input, "browser", "components", "extensions", "schemas")
-    ).filter(e => USE_BROWSER_SCHEMAS.includes(e.name))
+      path.join(args.source, "browser", "components", "extensions", "schemas")
+    )
   );
 
   // Parse Thunderbird's own schema files.
-  parseSchemaFiles(
+  readSchemaFiles(
     "thunderbird",
     getJsonFiles(
       path.join(
-        args.input,
+        args.source,
         "comm",
         "mail",
         "components",
@@ -210,6 +186,55 @@ async function main() {
       )
     )
   );
+
+  // An API should list `version_added: false` to indicate no support. A missing
+  // __compat entry indicates default behavior = support.
+  const BCD_SUPPORTED_APIS = Object.keys(bcd.webextensions.api).filter(
+    e => bcd.webextensions.api[e]?.__compat?.support?.thunderbird?.version_added !== false
+  );
+  const BCD_SUPPORTED_MANIFESTS = Object.keys(bcd.webextensions.manifest).filter(
+    e => bcd.webextensions.manifest[e]?.__compat?.support?.thunderbird?.version_added !== false
+  );
+  const THUNDERBIRD_APIS = schemas
+    .filter(e => e.owner == "thunderbird")
+    .map(e => e.json.map(n => n.namespace)).flat()
+    .filter(e => e != "manifest");
+
+  // Filter out unsupported.
+  schemas = schemas.flatMap(schema => {
+    // Keep Thunderbird APIs.
+    if (schema.owner == "thunderbird") {
+      return [schema];
+    }
+    // Remove re-implemented
+    if (schema.json.map(e => e.namespace).some(e => THUNDERBIRD_APIS.includes(e))) {
+      return [];
+    }
+    // Remove unsupported.
+    if (!schema.json.map(e => e.namespace).some(e => BCD_SUPPORTED_APIS.includes(e))) {
+      // Before removing this file, check if it extends the global manifest with
+      // a supported WebExtensionManifest entry.
+      let manifestTypes = schema.json
+        .filter(e => e.namespace == "manifest")
+        .map(e => e.types).flat()
+      if(manifestTypes
+        .filter(e => e.$extend == "WebExtensionManifest")
+        .map(e => Object.keys(e.properties)).flat()
+        .some(e => BCD_SUPPORTED_MANIFESTS.includes(e))
+      ) {
+        return [schema];
+      }
+      // Also check, if it defines either the global WebExtensionManifest or
+      // the global ManifestBase entry.
+      if(manifestTypes
+        .some(e => ["ManifestBase", "WebExtensionManifest"].includes(e.id))
+      ) {
+        return [schema];
+      }
+      return [];
+    }
+    return [schema];
+  });
 
   // Process $import.
   for (const schema of schemas) {
@@ -228,8 +253,6 @@ async function main() {
   // Write files.
   for (const schema of schemas) {
     const output_file_name = schema.file.name;
-    // Special handling for browserAction.json
-
     await writePrettyJSONFile(
       path.join(args.output, output_file_name),
       schema.json
@@ -305,6 +328,18 @@ async function downloadSchemaFilesIntoTempFolder(release) {
   return path.join(TEMP_DIR, mozillaFolder);
 }
 
+// Recursive merge, to is modified.
+function mergeObjects(to, from) {
+  for (const n in from) {
+    if (typeof to[n] != "object") {
+      to[n] = from[n];
+    } else if (typeof from[n] == "object") {
+      to[n] = mergeObjects(to[n], from[n]);
+    }
+  }
+  return to;
+}
+
 function getJsonFiles(folderPath) {
   return fs
     .readdirSync(folderPath, { withFileTypes: true })
@@ -314,7 +349,7 @@ function getJsonFiles(folderPath) {
     );
 }
 
-function parseSchemaFiles(owner, files) {
+function readSchemaFiles(owner, files) {
   for (const file of files) {
     const json = jsonUtils.parse(
       fs.readFileSync(path.join(file.path, file.name), "utf-8")
@@ -374,8 +409,7 @@ function processImports(value) {
         // Do not import namespace name and id.
         delete imported.namespace;
         delete imported.id;
-        // Merge. This may have to be re-done in a more sophisticated way.
-        return Object.assign(value, imported);
+        return mergeObjects(value, imported);
       }
       console.log(`Missing requested import: ${id}`);
     }
