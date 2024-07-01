@@ -26,7 +26,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "ComposeDetails",
@@ -52,6 +55,9 @@
                     },
                     "type": "object"
                 },
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -61,7 +67,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "name": "sendInfo",
@@ -98,6 +107,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -107,7 +119,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "name": "saveInfo",
@@ -140,6 +155,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -149,7 +167,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "ComposeAttachment",
@@ -159,6 +180,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -168,7 +192,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "name": "attachmentId",
@@ -178,6 +205,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -187,7 +217,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "name": "identityId",
@@ -197,6 +230,9 @@
                 "permissions": [
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -206,13 +242,19 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "ComposeState",
                         "name": "state"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -222,13 +264,19 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "ComposeDictionaries",
                         "name": "dictionaries"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -262,6 +310,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -302,6 +353,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -341,6 +395,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -368,6 +425,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -389,6 +449,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -416,6 +479,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -440,6 +506,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -469,6 +538,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -495,6 +567,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -532,6 +607,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -566,6 +644,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -586,6 +667,9 @@
                 "permissions": [
                     "compose"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -650,6 +734,9 @@
                 "permissions": [
                     "compose.send"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -708,6 +795,9 @@
                 "permissions": [
                     "compose.save"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -732,6 +822,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],

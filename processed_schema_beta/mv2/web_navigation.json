@@ -19,7 +19,6 @@
         "description": "Use the <code>browser.webNavigation</code> API to receive notifications about the status of navigation requests in-flight.",
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onBeforeNavigate",
                 "description": "Fired when a navigation is about to occur.",
                 "extraParameters": [
                     {
@@ -29,6 +28,7 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onBeforeNavigate",
                 "name": "onBeforeNavigate",
                 "parameters": [
                     {
@@ -63,16 +63,11 @@
                     }
                 ],
                 "support": {
-                    "notes": [
-                        "Filtering is supported from version 50.",
-                        "If the filter parameter is empty, Firefox raises an exception."
-                    ],
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCommitted",
                 "description": "Fired when a navigation is committed. The document (and the resources it refers to, such as images and subframes) might still be downloading, but at least part of the document has been received from the server and the browser has decided to switch to the new document.",
                 "extraParameters": [
                     {
@@ -82,6 +77,7 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCommitted",
                 "name": "onCommitted",
                 "parameters": [
                     {
@@ -123,16 +119,11 @@
                     }
                 ],
                 "support": {
-                    "notes": [
-                        "Filtering is supported from version 50.",
-                        "If the filter parameter is empty, Firefox raises an exception."
-                    ],
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onDOMContentLoaded",
                 "description": "Fired when the page's DOM is fully constructed, but the referenced resources may not finish loading.",
                 "extraParameters": [
                     {
@@ -142,6 +133,7 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onDOMContentLoaded",
                 "name": "onDOMContentLoaded",
                 "parameters": [
                     {
@@ -172,16 +164,11 @@
                     }
                 ],
                 "support": {
-                    "notes": [
-                        "Filtering is supported from version 50.",
-                        "If the filter parameter is empty, Firefox raises an exception."
-                    ],
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCompleted",
                 "description": "Fired when a document, including the resources it refers to, is completely loaded and initialized.",
                 "extraParameters": [
                     {
@@ -191,6 +178,7 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCompleted",
                 "name": "onCompleted",
                 "parameters": [
                     {
@@ -221,16 +209,11 @@
                     }
                 ],
                 "support": {
-                    "notes": [
-                        "Filtering is supported from version 50.",
-                        "If the filter parameter is empty, Firefox raises an exception."
-                    ],
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onErrorOccurred",
                 "description": "Fired when an error occurs and the navigation is aborted. This can happen if either a network error occurred, or the user aborted the navigation.",
                 "extraParameters": [
                     {
@@ -240,6 +223,7 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onErrorOccurred",
                 "name": "onErrorOccurred",
                 "parameters": [
                     {
@@ -275,16 +259,11 @@
                     }
                 ],
                 "support": {
-                    "notes": [
-                        "Filtering is supported from version 50.",
-                        "If the filter parameter is empty, Firefox raises an exception."
-                    ],
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCreatedNavigationTarget",
                 "description": "Fired when a new window, or a new tab in an existing window, is created to host a navigation.",
                 "extraParameters": [
                     {
@@ -294,6 +273,7 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCreatedNavigationTarget",
                 "name": "onCreatedNavigationTarget",
                 "parameters": [
                     {
@@ -328,16 +308,11 @@
                     }
                 ],
                 "support": {
-                    "notes": [
-                        "If the filter parameter is empty, Firefox raises an exception.",
-                        "If a blocked popup is unblocked by the user, the event is then sent."
-                    ],
                     "version_added": "54"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onReferenceFragmentUpdated",
                 "description": "Fired when the reference fragment of a frame was updated. All future events for that frame will use the updated URL.",
                 "extraParameters": [
                     {
@@ -347,6 +322,7 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onReferenceFragmentUpdated",
                 "name": "onReferenceFragmentUpdated",
                 "parameters": [
                     {
@@ -388,17 +364,13 @@
                     }
                 ],
                 "support": {
-                    "notes": [
-                        "Filtering is supported from version 50.",
-                        "If the filter parameter is empty, Firefox raises an exception."
-                    ],
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onTabReplaced",
                 "description": "Fired when the contents of the tab is replaced by a different (usually previously pre-rendered) tab.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onTabReplaced",
                 "name": "onTabReplaced",
                 "parameters": [
                     {
@@ -421,13 +393,11 @@
                     }
                 ],
                 "support": {
-                    "notes": "Although you can add listeners for this event, it will never fire because the underlying functionality is not supported.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onHistoryStateUpdated",
                 "description": "Fired when the frame's history was updated to a new URL. All future events for that frame will use the updated URL.",
                 "extraParameters": [
                     {
@@ -437,6 +407,7 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onHistoryStateUpdated",
                 "name": "onHistoryStateUpdated",
                 "parameters": [
                     {
@@ -485,9 +456,9 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/getFrame",
                 "async": "callback",
                 "description": "Retrieves information about the given frame. A frame refers to an &lt;iframe&gt; or a &lt;frame&gt; of a web page and is identified by a tab ID and a frame ID.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/getFrame",
                 "name": "getFrame",
                 "parameters": [
                     {
@@ -554,9 +525,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/getAllFrames",
                 "async": "callback",
                 "description": "Retrieves information about all frames of a given tab.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/getAllFrames",
                 "name": "getAllFrames",
                 "parameters": [
                     {
@@ -616,7 +587,6 @@
                     }
                 ],
                 "support": {
-                    "notes": "The returned objects do not include the <code>errorOccurred</code> property. See <a href='https://bugzil.la/1248418'>bug 1248418</a>.",
                     "version_added": "47"
                 },
                 "type": "function"

@@ -65,8 +65,8 @@
                             "type": "object"
                         },
                         "description": "A <em>dictionary object</em> defining one or more commands as <em>name-value</em> pairs, the <em>name</em> being the name of the command and the <em>value</em> being a $(ref:commands.CommandsShortcut). The <em>name</em> may also be one of the following built-in special shortcuts: \n * <var>_execute_action</var> \n * <var>_execute_compose_action</var> \n * <var>_execute_message_display_action</var>\nExample: <literalinclude>includes/commands/manifest.json<lang>JSON</lang></literalinclude>",
-                        "type": "object",
-                        "optional": true
+                        "optional": true,
+                        "type": "object"
                     }
                 }
             }
@@ -78,23 +78,34 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/commands.html#oncommand-command-tab",
                 "description": "Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/onCommand",
                 "name": "onCommand",
                 "parameters": [
                     {
                         "name": "command",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "string"
                     },
                     {
                         "$ref": "tabs.Tab",
                         "description": "The details of the active tab while the command occurred.",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": "126"
+                        }
                     }
                 ],
+                "support": {
+                    "version_added": "48"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/commands.html#onchanged-changeinfo",
                 "description": "Fired when a registered command's shortcut is changed.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/onChanged",
                 "name": "onChanged",
                 "parameters": [
                     {
@@ -113,9 +124,15 @@
                                 "type": "string"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": "115"
+                },
                 "type": "function"
             }
         ],
@@ -124,6 +141,7 @@
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/commands.html#update-detail",
                 "async": true,
                 "description": "Update the details of an already defined command.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/update",
                 "name": "update",
                 "parameters": [
                     {
@@ -146,29 +164,43 @@
                                 "type": "string"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": "60"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/commands.html#reset-name",
                 "async": true,
                 "description": "Reset a command's details to what is specified in the manifest.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/reset",
                 "name": "reset",
                 "parameters": [
                     {
                         "description": "The name of the command.",
                         "name": "name",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "string"
                     }
                 ],
+                "support": {
+                    "version_added": "60"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/commands.html#getall",
                 "async": "callback",
                 "description": "Returns all the registered extension commands for this extension and their shortcut (if active).",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/getAll",
                 "name": "getAll",
                 "parameters": [
                     {
@@ -187,6 +219,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "48"
+                },
                 "type": "function"
             }
         ],

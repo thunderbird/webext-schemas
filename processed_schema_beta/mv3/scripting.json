@@ -19,9 +19,9 @@
         "description": "Use the scripting API to execute script in different contexts.",
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/executeScript",
                 "async": "callback",
                 "description": "Injects a script into a target context. The script will be run at <code>document_idle</code>.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/executeScript",
                 "name": "executeScript",
                 "parameters": [
                     {
@@ -50,9 +50,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/insertCSS",
                 "async": "callback",
                 "description": "Inserts a CSS stylesheet into a target context. If multiple frames are specified, unsuccessful injections are ignored.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/insertCSS",
                 "name": "insertCSS",
                 "parameters": [
                     {
@@ -73,9 +73,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/removeCSS",
                 "async": "callback",
                 "description": "Removes a CSS stylesheet that was previously inserted by this extension from a target context.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/removeCSS",
                 "name": "removeCSS",
                 "parameters": [
                     {
@@ -96,9 +96,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/registerContentScripts",
                 "async": "callback",
                 "description": "Registers one or more content scripts for this extension.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/registerContentScripts",
                 "name": "registerContentScripts",
                 "parameters": [
                     {
@@ -122,9 +122,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/getRegisteredContentScripts",
                 "async": "callback",
                 "description": "Returns all dynamically registered content scripts for this extension that match the given filter.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/getRegisteredContentScripts",
                 "name": "getRegisteredContentScripts",
                 "parameters": [
                     {
@@ -154,9 +154,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/unregisterContentScripts",
                 "async": "callback",
                 "description": "Unregisters one or more content scripts for this extension.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/unregisterContentScripts",
                 "name": "unregisterContentScripts",
                 "parameters": [
                     {
@@ -178,9 +178,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/updateContentScripts",
                 "async": "callback",
                 "description": "Updates one or more content scripts for this extension.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/scripting/updateContentScripts",
                 "name": "updateContentScripts",
                 "parameters": [
                     {

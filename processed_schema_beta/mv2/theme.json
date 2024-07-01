@@ -459,14 +459,21 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/theme.html#onupdated-updateinfo",
                 "description": "Fired when a new theme has been applied",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/theme/onUpdated",
                 "name": "onUpdated",
                 "parameters": [
                     {
                         "$ref": "ThemeUpdateInfo",
                         "description": "Details of the theme update",
-                        "name": "updateInfo"
+                        "name": "updateInfo",
+                        "support": {
+                            "version_added": true
+                        }
                     }
                 ],
+                "support": {
+                    "version_added": "58"
+                },
                 "type": "function"
             }
         ],
@@ -475,12 +482,16 @@
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/theme.html#getcurrent-windowid",
                 "async": "callback",
                 "description": "Returns the current theme for the specified window or the last focused window.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/theme/getCurrent",
                 "name": "getCurrent",
                 "parameters": [
                     {
                         "description": "The window for which we want the theme.",
                         "name": "windowId",
                         "optional": true,
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -494,47 +505,67 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "58"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/theme.html#update-windowid-details",
                 "async": true,
                 "description": "Make complete updates to the theme. Resolves when the update has completed.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/theme/update",
                 "name": "update",
                 "parameters": [
                     {
                         "description": "The id of the window to update. No id updates all windows.",
                         "name": "windowId",
                         "optional": true,
+                        "support": {
+                            "version_added": "57"
+                        },
                         "type": "integer"
                     },
                     {
                         "$ref": "manifest.ThemeType",
                         "description": "The properties of the theme to update.",
-                        "name": "details"
+                        "name": "details",
+                        "support": {
+                            "version_added": true
+                        }
                     }
                 ],
                 "permissions": [
                     "theme"
                 ],
+                "support": {
+                    "version_added": "55"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/theme.html#reset-windowid",
                 "async": true,
                 "description": "Removes the updates made to the theme.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/theme/reset",
                 "name": "reset",
                 "parameters": [
                     {
                         "description": "The id of the window to reset. No id resets all windows.",
                         "name": "windowId",
                         "optional": true,
+                        "support": {
+                            "version_added": "57"
+                        },
                         "type": "integer"
                     }
                 ],
                 "permissions": [
                     "theme"
                 ],
+                "support": {
+                    "version_added": "56"
+                },
                 "type": "function"
             }
         ],

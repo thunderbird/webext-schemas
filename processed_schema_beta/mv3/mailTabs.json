@@ -8,7 +8,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "folders.MailFolder",
@@ -18,6 +21,9 @@
                 "permissions": [
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -27,7 +33,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "messages.MessageList",
@@ -37,6 +46,9 @@
                 "permissions": [
                     "messagesRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -90,6 +102,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -114,6 +129,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -141,6 +159,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -173,6 +194,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -202,6 +226,9 @@
                 "permissions": [
                     "messagesRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -234,6 +261,9 @@
                 "permissions": [
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -263,6 +293,9 @@
                 "permissions": [
                     "messagesRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -291,6 +324,9 @@
                     "messagesRead",
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -355,6 +391,9 @@
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],

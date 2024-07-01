@@ -19,8 +19,8 @@
         "description": "The <code>browser.management</code> API provides ways to manage the list of extensions that are installed and running.",
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/onDisabled",
                 "description": "Fired when an addon has been disabled.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/onDisabled",
                 "name": "onDisabled",
                 "parameters": [
                     {
@@ -32,14 +32,13 @@
                     "management"
                 ],
                 "support": {
-                    "notes": "Before version 56, only extensions whose <code>type</code> is <code>'theme'</code> are supported.",
                     "version_added": "55"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/onEnabled",
                 "description": "Fired when an addon has been enabled.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/onEnabled",
                 "name": "onEnabled",
                 "parameters": [
                     {
@@ -51,14 +50,13 @@
                     "management"
                 ],
                 "support": {
-                    "notes": "Before version 56, only extensions whose <code>type</code> is <code>'theme'</code> are supported.",
                     "version_added": "55"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/onInstalled",
                 "description": "Fired when an addon has been installed.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/onInstalled",
                 "name": "onInstalled",
                 "parameters": [
                     {
@@ -70,14 +68,13 @@
                     "management"
                 ],
                 "support": {
-                    "notes": "Before version 56, only extensions whose <code>type</code> is <code>'theme'</code> are supported.",
                     "version_added": "55"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/onUninstalled",
                 "description": "Fired when an addon has been uninstalled.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/onUninstalled",
                 "name": "onUninstalled",
                 "parameters": [
                     {
@@ -89,10 +86,6 @@
                     "management"
                 ],
                 "support": {
-                    "notes": [
-                        "Before version 56, only extensions whose <code>type</code> is <code>'theme'</code> are supported.",
-                        "This event is not fired when the extension is in the \"pending uninstall\" state. The event is fired as expected once the extension is completely removed (for example, when the <code>about:addons</code> tab is closed)."
-                    ],
                     "version_added": "55"
                 },
                 "type": "function"
@@ -100,9 +93,9 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/getAll",
                 "async": "callback",
                 "description": "Returns a list of information about installed extensions.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/getAll",
                 "name": "getAll",
                 "parameters": [
                     {
@@ -124,15 +117,14 @@
                     "management"
                 ],
                 "support": {
-                    "notes": "Before version 56, only extensions whose 'type' is 'theme' are returned.",
                     "version_added": "55"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/get",
                 "async": "callback",
                 "description": "Returns information about the installed extension that has the given ID.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/get",
                 "name": "get",
                 "parameters": [
                     {
@@ -161,9 +153,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/install",
                 "async": "callback",
                 "description": "Installs and enables a theme extension from the given url.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/install",
                 "name": "install",
                 "parameters": [
                     {
@@ -204,15 +196,14 @@
                 ],
                 "requireUserInput": true,
                 "support": {
-                    "notes": "The installable file pointed to by <code>url</code> must be a <a href='https://developer.mozilla.org/docs/Mozilla/Add-ons/Themes'>theme</a>, and not a normal browser extension.",
                     "version_added": "63"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/getSelf",
                 "async": "callback",
                 "description": "Returns information about the calling extension. Note: This function can be used without requesting the 'management' permission in the manifest.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/getSelf",
                 "name": "getSelf",
                 "parameters": [
                     {
@@ -233,9 +224,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/uninstallSelf",
                 "async": "callback",
                 "description": "Uninstalls the calling extension. Note: This function can be used without requesting the 'management' permission in the manifest.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/uninstallSelf",
                 "name": "uninstallSelf",
                 "parameters": [
                     {
@@ -268,9 +259,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/setEnabled",
                 "async": "callback",
                 "description": "Enables or disables the given add-on.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/management/setEnabled",
                 "name": "setEnabled",
                 "parameters": [
                     {
@@ -294,7 +285,6 @@
                     "management"
                 ],
                 "support": {
-                    "notes": "Only extensions whose 'type' is 'theme' can be enabled and disabled.",
                     "version_added": "55"
                 },
                 "type": "function"

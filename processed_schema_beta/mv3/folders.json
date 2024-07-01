@@ -27,6 +27,9 @@
                         "name": "createdFolder"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -43,6 +46,9 @@
                         "name": "renamedFolder"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -59,6 +65,9 @@
                         "name": "movedFolder"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -75,6 +84,9 @@
                         "name": "copiedFolder"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -87,6 +99,9 @@
                         "name": "deletedFolder"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -103,6 +118,9 @@
                         "name": "updatedFolder"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -119,6 +137,9 @@
                         "name": "folderInfo"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -302,6 +323,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -332,6 +356,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -362,6 +389,9 @@
                 "permissions": [
                     "accountsFolders"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -392,6 +422,9 @@
                 "permissions": [
                     "accountsFolders"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -422,6 +455,9 @@
                 "permissions": [
                     "accountsFolders"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -452,6 +488,9 @@
                 "permissions": [
                     "accountsFolders"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -469,6 +508,9 @@
                     "accountsFolders",
                     "messagesDelete"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -497,6 +539,9 @@
                 "permissions": [
                     "accountsFolders"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -520,6 +565,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -543,6 +591,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -576,6 +627,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -609,6 +663,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -649,6 +706,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -673,6 +733,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -695,6 +758,9 @@
                 "permissions": [
                     "accountsFolders"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -704,7 +770,11 @@
         ],
         "properties": {
             "DEFAULT_MOST_RECENT_LIMIT": {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#default_most_recent_limit",
                 "description": "The number of most recent folders used in Thunderbird's UI. Controled by the <var>mail.folder_widget.max_recent</var> preference.",
+                "support": {
+                    "version_added": true
+                },
                 "value": -1
             }
         },
@@ -766,12 +836,12 @@
                         "type": "array"
                     },
                     "subFolders": {
+                        "description": "Subfolders of this folder. The property may be <var>null</var>, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.",
                         "items": {
                             "$ref": "folders.MailFolder"
                         },
-                        "type": "array",
-                        "description": "Subfolders of this folder. The property may be <var>null</var>, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.",
-                        "optional": true
+                        "optional": true,
+                        "type": "array"
                     }
                 },
                 "type": "object"

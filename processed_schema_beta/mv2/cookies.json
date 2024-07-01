@@ -19,8 +19,8 @@
         "description": "Use the <code>browser.cookies</code> API to query and modify cookies, and to be notified when they change.",
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/onChanged",
                 "description": "Fired when a cookie is set or removed. As a special case, note that updating a cookie's properties is implemented as a two step process: the cookie to be updated is first removed entirely, generating a notification with \"cause\" of \"overwrite\" .  Afterwards, a new cookie is written with the updated values, generating a second notification with \"cause\" \"explicit\".",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/onChanged",
                 "name": "onChanged",
                 "parameters": [
                     {
@@ -50,9 +50,9 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/get",
                 "async": "callback",
                 "description": "Retrieves information about a single cookie. If more than one cookie of the same name exists for the given URL, the one with the longest path will be returned. For cookies with the same path length, the cookie with the earliest creation time will be returned.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/get",
                 "name": "get",
                 "parameters": [
                     {
@@ -99,15 +99,14 @@
                     }
                 ],
                 "support": {
-                    "notes": "Provides access to cookies from private browsing mode and container tabs since version 52.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/getAll",
                 "async": "callback",
                 "description": "Retrieves all cookies from a single cookie store that match the given information.  The cookies returned will be sorted, with those with the longest path first.  If multiple cookies have the same path length, those with the earliest creation time will be first.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/getAll",
                 "name": "getAll",
                 "parameters": [
                     {
@@ -178,15 +177,14 @@
                     }
                 ],
                 "support": {
-                    "notes": "Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/set",
                 "async": "callback",
                 "description": "Sets a cookie with the given cookie data; may overwrite equivalent cookies if they exist.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/set",
                 "name": "set",
                 "parameters": [
                     {
@@ -271,15 +269,14 @@
                     }
                 ],
                 "support": {
-                    "notes": "Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/remove",
                 "async": "callback",
                 "description": "Deletes a cookie by name.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/remove",
                 "name": "remove",
                 "parameters": [
                     {
@@ -350,15 +347,14 @@
                     }
                 ],
                 "support": {
-                    "notes": "Before version 56, this function did not remove cookies from private browsing mode. From version 56 onwards this is fixed.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/getAllCookieStores",
                 "async": "callback",
                 "description": "Lists all existing cookie stores.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies/getAllCookieStores",
                 "name": "getAllCookieStores",
                 "parameters": [
                     {
@@ -377,7 +373,6 @@
                     }
                 ],
                 "support": {
-                    "notes": "Before version 52, only the default cookie store was visible. From version 52 onwards, the cookie stores for private browsing mode and container tabs are also readable.",
                     "version_added": "45"
                 },
                 "type": "function"

@@ -31,6 +31,9 @@
                         "name": "account"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -43,6 +46,9 @@
                         "name": "accountId"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -69,6 +75,9 @@
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -100,6 +109,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -131,6 +143,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -164,6 +179,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -208,15 +226,15 @@
                 "type": "string"
             },
             {
+                "description": "The type of an account.",
                 "enum": [
                     "imap",
                     "local",
                     "nntp",
                     "pop3"
                 ],
-                "type": "string",
-                "description": "The type of an account.",
-                "id": "MailAccountType"
+                "id": "MailAccountType",
+                "type": "string"
             }
         ]
     }

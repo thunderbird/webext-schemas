@@ -29,6 +29,9 @@
                         "name": "composeScriptOptions"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -89,6 +92,9 @@
                         "name": "messageDisplayScriptOptions"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],

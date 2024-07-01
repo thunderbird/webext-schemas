@@ -2,8 +2,8 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onClosed",
                 "description": "Fired when the notification closed, either by the system or by user action.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onClosed",
                 "name": "onClosed",
                 "parameters": [
                     {
@@ -26,8 +26,8 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onClicked",
                 "description": "Fired when the user clicked in a non-button area of the notification.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onClicked",
                 "name": "onClicked",
                 "parameters": [
                     {
@@ -42,8 +42,8 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onButtonClicked",
                 "description": "Fired when the  user pressed a button in the notification.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onButtonClicked",
                 "name": "onButtonClicked",
                 "parameters": [
                     {
@@ -83,8 +83,8 @@
                 "unsupported": true
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onShown",
                 "description": "Fired when the notification is shown.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onShown",
                 "name": "onShown",
                 "parameters": [
                     {
@@ -101,9 +101,9 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/create",
                 "async": "callback",
                 "description": "Creates and displays a notification.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/create",
                 "name": "create",
                 "parameters": [
                     {
@@ -136,9 +136,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/update",
                 "async": "callback",
                 "description": "Updates an existing notification.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/update",
                 "name": "update",
                 "parameters": [
                     {
@@ -171,9 +171,9 @@
                 "unsupported": true
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/clear",
                 "async": "callback",
                 "description": "Clears an existing notification.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/clear",
                 "name": "clear",
                 "parameters": [
                     {
@@ -200,9 +200,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/getAll",
                 "async": "callback",
                 "description": "Retrieves all the notifications.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/notifications/getAll",
                 "name": "getAll",
                 "parameters": [
                     {

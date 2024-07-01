@@ -8,13 +8,19 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "messages.MessageHeader",
                         "name": "message"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -24,7 +30,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "items": {
@@ -34,6 +43,9 @@
                         "type": "array"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -68,6 +80,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -96,6 +111,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -160,6 +178,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],

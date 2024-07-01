@@ -8,13 +8,19 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "messages.MessageList",
                         "name": "displayedMessages"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -42,6 +48,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -106,6 +115,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],

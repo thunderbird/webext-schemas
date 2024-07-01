@@ -7,9 +7,9 @@
         "description": "The <code>browser.extension</code> API has utilities that can be used by any extension page. It includes support for exchanging messages between an extension and its content scripts or between extensions, as described in detail in $(topic:messaging)[Message Passing].",
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/onRequest",
                 "deprecated": "Please use $(ref:runtime.onMessage).",
                 "description": "Fired when a request is sent from either an extension process or a content script.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/onRequest",
                 "name": "onRequest",
                 "parameters": [
                     {
@@ -35,9 +35,9 @@
                 "unsupported": true
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/onRequestExternal",
                 "deprecated": "Please use $(ref:runtime.onMessageExternal).",
                 "description": "Fired when a request is sent from another extension.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/onRequestExternal",
                 "name": "onRequestExternal",
                 "parameters": [
                     {
@@ -69,9 +69,9 @@
                     "content",
                     "devtools"
                 ],
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/getURL",
                 "deprecated": "Please use $(ref:runtime.getURL).",
                 "description": "Converts a relative path within an extension install directory to a fully-qualified URL.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/getURL",
                 "name": "getURL",
                 "parameters": [
                     {
@@ -90,8 +90,8 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/getViews",
                 "description": "Returns an array of the JavaScript 'window' objects for each of the pages running inside the current extension.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/getViews",
                 "name": "getViews",
                 "parameters": [
                     {
@@ -129,14 +129,13 @@
                     "type": "array"
                 },
                 "support": {
-                    "notes": "If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then its return value will not include the extension's background page.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/getBackgroundPage",
                 "description": "Returns the JavaScript 'window' object for the background page running inside the current extension. Returns null if the extension has no background page.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/getBackgroundPage",
                 "name": "getBackgroundPage",
                 "parameters": [],
                 "returns": {
@@ -153,9 +152,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/isAllowedIncognitoAccess",
                 "async": "callback",
                 "description": "Retrieves the state of the extension's access to Incognito-mode (as determined by the user-controlled 'Allowed in Incognito' checkbox.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/isAllowedIncognitoAccess",
                 "name": "isAllowedIncognitoAccess",
                 "parameters": [
                     {
@@ -176,9 +175,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/isAllowedFileSchemeAccess",
                 "async": "callback",
                 "description": "Retrieves the state of the extension's access to the 'file://' scheme (as determined by the user-controlled 'Allow access to File URLs' checkbox.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/isAllowedFileSchemeAccess",
                 "name": "isAllowedFileSchemeAccess",
                 "parameters": [
                     {
@@ -199,8 +198,8 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/setUpdateUrlData",
                 "description": "Sets the value of the ap CGI parameter used in the extension's update URL.  This value is ignored for extensions that are hosted in the browser vendor's store.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/setUpdateUrlData",
                 "name": "setUpdateUrlData",
                 "parameters": [
                     {
@@ -224,7 +223,11 @@
                     "devtools"
                 ],
                 "description": "True for content scripts running inside incognito tabs, and for extension pages running inside an incognito process. The latter only applies to extensions with 'split' incognito_behavior.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/inIncognitoContext",
                 "optional": true,
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "boolean"
             },
             "lastError": {
@@ -237,12 +240,16 @@
                 ],
                 "deprecated": "Please use $(ref:runtime.lastError).",
                 "description": "Set for the lifetime of a callback if an ansychronous extension api has resulted in an error. If no error has occured lastError will be <var>undefined</var>.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/extension/lastError",
                 "optional": true,
                 "properties": {
                     "message": {
                         "description": "Description of the error that has taken place.",
                         "type": "string"
                     }
+                },
+                "support": {
+                    "version_added": "47"
                 },
                 "type": "object"
             }

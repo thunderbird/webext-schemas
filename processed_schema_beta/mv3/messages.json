@@ -39,6 +39,9 @@
                         "name": "changedProperties"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -58,6 +61,9 @@
                 "permissions": [
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -77,6 +83,9 @@
                 "permissions": [
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -92,6 +101,9 @@
                 "permissions": [
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -119,6 +131,9 @@
                 "permissions": [
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -147,6 +162,9 @@
                 "permissions": [
                     "accountsRead"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -170,6 +188,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -183,6 +204,9 @@
                         "type": "string"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -206,6 +230,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -241,6 +268,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -263,8 +293,8 @@
                                     "BinaryString",
                                     "File"
                                 ],
-                                "type": "string",
-                                "optional": true
+                                "optional": true,
+                                "type": "string"
                             },
                             "decrypt": {
                                 "description": "Whether the message should be decrypted. Throws, if the message could not be decrypted.",
@@ -294,6 +324,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -320,6 +353,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -346,6 +382,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -376,6 +415,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -402,6 +444,9 @@
                 "permissions": [
                     "messagesModifyPermanent"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -425,6 +470,9 @@
                         "type": "integer"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -586,6 +634,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -606,6 +657,9 @@
                 "permissions": [
                     "messagesUpdate"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -632,6 +686,9 @@
                     "accountsRead",
                     "messagesMove"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -658,6 +715,9 @@
                     "accountsRead",
                     "messagesMove"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -684,6 +744,9 @@
                 "permissions": [
                     "messagesDelete"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -723,6 +786,9 @@
                     "accountsRead",
                     "messagesImport"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -743,6 +809,9 @@
                 "permissions": [
                     "messagesMove"
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],

@@ -2,9 +2,9 @@
     {
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts/register",
                 "async": true,
                 "description": "Register a content script programmatically",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts/register",
                 "name": "register",
                 "parameters": [
                     {

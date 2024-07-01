@@ -23,7 +23,6 @@
         "description": "Use the <code>browser.webRequest</code> API to observe and analyze traffic and to intercept, block, or modify requests in-flight.",
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeRequest",
                 "description": "Fired when a request is about to occur.",
                 "extraParameters": [
                     {
@@ -41,6 +40,7 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeRequest",
                 "name": "onBeforeRequest",
                 "parameters": [
                     {
@@ -148,13 +148,11 @@
                     "optional": true
                 },
                 "support": {
-                    "notes": "Asynchronous event listeners are supported from version 52.",
                     "version_added": "46"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeSendHeaders",
                 "description": "Fired before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any HTTP data is sent. ",
                 "extraParameters": [
                     {
@@ -172,6 +170,7 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeSendHeaders",
                 "name": "onBeforeSendHeaders",
                 "parameters": [
                     {
@@ -252,13 +251,11 @@
                     "optional": true
                 },
                 "support": {
-                    "notes": "Asynchronous event listeners are supported from version 52.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onSendHeaders",
                 "description": "Fired just before a request is going to be sent to the server (modifications of previous onBeforeSendHeaders callbacks are visible by the time onSendHeaders is fired).",
                 "extraParameters": [
                     {
@@ -276,6 +273,7 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onSendHeaders",
                 "name": "onSendHeaders",
                 "parameters": [
                     {
@@ -356,7 +354,6 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onHeadersReceived",
                 "description": "Fired when HTTP response headers of a request have been received.",
                 "extraParameters": [
                     {
@@ -374,6 +371,7 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onHeadersReceived",
                 "name": "onHeadersReceived",
                 "parameters": [
                     {
@@ -462,16 +460,11 @@
                     "optional": true
                 },
                 "support": {
-                    "notes": [
-                        "Modification of the 'Content-Type' header is supported from version 51.",
-                        "Asynchronous event listeners are supported from version 52."
-                    ],
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onAuthRequired",
                 "description": "Fired when an authentication failure is received. The listener has three options: it can provide authentication credentials, it can cancel the request and display the error page, or it can take no action on the challenge. If bad user credentials are provided, this may be called multiple times for the same request.",
                 "extraParameters": [
                     {
@@ -490,6 +483,7 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onAuthRequired",
                 "name": "onAuthRequired",
                 "parameters": [
                     {
@@ -614,13 +608,11 @@
                     "optional": true
                 },
                 "support": {
-                    "notes": "To handle a request asynchronously, return a Promise from the listener.",
                     "version_added": "54"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onResponseStarted",
                 "description": "Fired when the first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.",
                 "extraParameters": [
                     {
@@ -638,6 +630,7 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onResponseStarted",
                 "name": "onResponseStarted",
                 "parameters": [
                     {
@@ -735,7 +728,6 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeRedirect",
                 "description": "Fired when a server-initiated redirect is about to occur.",
                 "extraParameters": [
                     {
@@ -753,6 +745,7 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeRedirect",
                 "name": "onBeforeRedirect",
                 "parameters": [
                     {
@@ -854,7 +847,6 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onCompleted",
                 "description": "Fired when a request is completed.",
                 "extraParameters": [
                     {
@@ -872,6 +864,7 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onCompleted",
                 "name": "onCompleted",
                 "parameters": [
                     {
@@ -976,7 +969,6 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onErrorOccurred",
                 "description": "Fired when an error occurs.",
                 "extraParameters": [
                     {
@@ -985,6 +977,7 @@
                         "name": "filter"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/onErrorOccurred",
                 "name": "onErrorOccurred",
                 "parameters": [
                     {
@@ -1075,9 +1068,9 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/handlerBehaviorChanged",
                 "async": "callback",
                 "description": "Needs to be called when the behavior of the webRequest handlers has changed to prevent incorrect handling due to caching. This function call is expensive. Don't call it often.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/handlerBehaviorChanged",
                 "name": "handlerBehaviorChanged",
                 "parameters": [
                     {
@@ -1093,8 +1086,8 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/filterResponseData",
                 "description": "...",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/filterResponseData",
                 "name": "filterResponseData",
                 "parameters": [
                     {
@@ -1118,9 +1111,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/getSecurityInfo",
                 "async": true,
                 "description": "Retrieves the security information for the request.  Returns a promise that will resolve to a SecurityInfo object.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/getSecurityInfo",
                 "name": "getSecurityInfo",
                 "parameters": [
                     {
@@ -1158,6 +1151,10 @@
         "properties": {
             "MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES": {
                 "description": "The maximum number of times that <code>handlerBehaviorChanged</code> can be called per 10 minute sustained interval. <code>handlerBehaviorChanged</code> is an expensive function call that shouldn't be called often.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES",
+                "support": {
+                    "version_added": "45"
+                },
                 "value": 20
             }
         },

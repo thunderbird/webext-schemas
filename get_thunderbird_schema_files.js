@@ -22,7 +22,7 @@ Usage:
     
 Options:
    --compat                   - Path to the thunderbird webextension compatibility
-                                data file (will become obsolete once released as
+                                data module (will become obsolete once released as
                                 an npm module).
    --manifest_version=number  - The requested manifest version of the schema
                                 files. Allowed values are "2" and "3".
@@ -245,6 +245,7 @@ async function main() {
   for (const schema of schemas) {
     schema.json = processSchema(
       schema.json,
+      null,
       args.manifest_version,
       schema.owner
     );
@@ -255,7 +256,7 @@ async function main() {
     const output_file_name = schema.file.name;
     await writePrettyJSONFile(
       path.join(args.output, output_file_name),
-      schema.json
+      sortKeys(schema.json)
     );
   }
 }
@@ -475,6 +476,7 @@ function getNestedIdOrNamespace(value, searchString) {
  */
 function processSchema(
   value,
+  name,
   requested_manifest_version,
   owner,
   fullPath = ""
@@ -492,7 +494,7 @@ function processSchema(
           (!v.max_manifest_version ||
             v.max_manifest_version >= requested_manifest_version)
       )
-      .map(e => processSchema(e, requested_manifest_version, owner, fullPath));
+      .map(e => processSchema(e, e.name, requested_manifest_version, owner, fullPath));
   }
 
   // Looks like value is an object. Find out where we are to be able to retrieve
@@ -501,39 +503,20 @@ function processSchema(
     // Reset.
     fullPath = value.namespace;
   }
-  if (value.name && typeof value.name !== "object") {
-    fullPath = `${fullPath}.${value.name}`;
+
+  if (name && typeof name !== "object") {
+    fullPath = `${fullPath}.${name}`;
     const parts = fullPath.split(".");
     // Check if we are at the event/type/function level.
     if (
       parts.length == 3 &&
-      ["types", "functions", "events"].includes(parts[1])
+      ["types", "functions", "events", "properties"].includes(parts[1])
     ) {
       const [namespace, , name] = parts;
-      if (owner == "firefox") {
-        // Check Firefox compat data.
-        const compatData =
-          bcd.webextensions.api[namespace] &&
-          bcd.webextensions.api[namespace][name] &&
-          bcd.webextensions.api[namespace][name].__compat;
-        if (compatData) {
-          if (compatData?.mdn_url) {
-            value.api_documentation_url = compatData.mdn_url;
-          }
-          if (compatData?.support?.firefox) {
-            value.support = compatData.support.firefox;
-          }
-        }
-      } else {
-        // Generate Thunderbird API_DOC_URL.
-        const anchor = [
-          name,
-          ...value.parameters.map(e => e.name).filter(e => e != "callback"),
-        ]
-          .join("-")
-          .toLowerCase();
-        value.api_documentation_url = `${API_DOC_BASE_URL}/${api_doc_branch}/${namespace}.html#${anchor}`;
-      }
+      addCompatData(value, owner, {
+        namespaceName: namespace,
+        entryName: name,
+      })
     }
 
     // Check if we are at the parameters level.
@@ -543,27 +526,25 @@ function processSchema(
       "parameters" == parts[3]
     ) {
       const [namespace, , name, , parameter] = parts;
-      if (owner == "firefox") {
-        // Check Firefox compat data.
-        const compatData =
-          bcd.webextensions.api[namespace] &&
-          bcd.webextensions.api[namespace][name] &&
-          bcd.webextensions.api[namespace][name][parameter] &&
-          bcd.webextensions.api[namespace][name][parameter].__compat;
-        if (compatData) {
-          if (compatData?.mdn_url) {
-            value.api_documentation_url = compatData.mdn_url;
-          }
-          if (compatData?.support?.firefox) {
-            value.support = compatData.support.firefox;
-          }
-        }
+      addCompatData(value, owner, {
+        namespaceName: namespace,
+        entryName: name,
+        paramName: parameter
+      })
+    }
+  } else {
+    // Top-level properties are not an array, but an object with the property
+    // names as keys. 
+    const parts = fullPath.split(".");
+    if (parts.length == 2 && parts[1] == "properties") {
+      for (let key of Object.keys(value)) {
+       value[key] = processSchema(value[key], key, requested_manifest_version, owner, fullPath)
       }
+      return value;
     }
   }
 
   return Object.keys(value)
-    .sort()
     .reduce((o, key) => {
       let v = value[key];
       const v_orig_length = v.length;
@@ -575,6 +556,7 @@ function processSchema(
       ) {
         v = processSchema(
           value[key],
+          value[key].name,
           requested_manifest_version,
           owner,
           `${fullPath}.${key}`
@@ -643,6 +625,18 @@ function processSchema(
     }, {});
 }
 
+function sortKeys(x) {
+  if (typeof x !== "object" || !x) {
+    return x;
+  }
+  if (Array.isArray(x)) {
+    return x.map(sortKeys);
+  }
+  return Object.keys(x)
+    .sort()
+    .reduce((o, k) => ({ ...o, [k]: sortKeys(x[k]) }), {});
+}
+
 /**
  * Helper function to produce pretty JSON files.
  *
@@ -680,4 +674,42 @@ function download(url, path) {
         reject(err);
       });
   });
+}
+
+function addCompatData(value, owner, pathData) {
+  const {namespaceName, entryName, paramName, propertyName} = pathData;
+  let addApiDoc = true;
+  let entry = 
+    bcd.webextensions.api[namespaceName] &&
+    bcd.webextensions.api[namespaceName][entryName]
+
+  if (entry && paramName) {
+    entry = entry[paramName];
+    addApiDoc = false;
+  }
+  if (entry && propertyName) {
+    entry = entry[propertyName];
+  }
+  if (!entry) return;
+
+  let compatData = entry.__compat;
+  if (!compatData) {
+    return
+  }
+
+  if (compatData?.mdn_url) {
+    value.mdn_url = compatData.mdn_url;
+  }
+  if (compatData?.support?.thunderbird) {
+    value.support = compatData.support.thunderbird;
+  }
+  if (addApiDoc && owner == "thunderbird") {
+    // Generate Thunderbird API_DOC_URL.
+    const anchorParts = [entryName];
+    if (value.parameters) {
+      anchorParts.push(...value.parameters.map(e => e.name).filter(e => e != "callback"))
+    }
+    const anchor = anchorParts.join("-").toLowerCase();
+    value.api_documentation_url = `${API_DOC_BASE_URL}/${api_doc_branch}/${namespaceName}.html#${anchor}`;
+  }
 }

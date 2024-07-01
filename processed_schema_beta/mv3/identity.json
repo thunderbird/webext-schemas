@@ -168,9 +168,9 @@
                 "unsupported": true
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/identity/launchWebAuthFlow",
                 "async": "callback",
                 "description": "Starts an auth flow at the specified URL.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/identity/launchWebAuthFlow",
                 "name": "launchWebAuthFlow",
                 "parameters": [
                     {
@@ -204,8 +204,8 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/identity/getRedirectURL",
                 "description": "Generates a redirect URL to be used in |launchWebAuthFlow|.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/identity/getRedirectURL",
                 "name": "getRedirectURL",
                 "parameters": [
                     {

@@ -3,8 +3,8 @@
         "description": "Use the <code>browser.idle</code> API to detect when the machine's idle state changes.",
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/idle/onStateChanged",
                 "description": "Fired when the system changes to an active or idle state. The event fires with \"idle\" if the the user has not generated any input for a specified number of seconds, and \"active\" when the user generates input on an idle system.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/idle/onStateChanged",
                 "name": "onStateChanged",
                 "parameters": [
                     {
@@ -20,9 +20,9 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/idle/queryState",
                 "async": "callback",
                 "description": "Returns \"idle\" if the user has not generated any input for a specified number of seconds, or \"active\" otherwise.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/idle/queryState",
                 "name": "queryState",
                 "parameters": [
                     {
@@ -43,14 +43,13 @@
                     }
                 ],
                 "support": {
-                    "notes": "Before version 51, Firefox always reports 'active'. After version 51, Firefox reports 'active' or 'idle' as appropriate.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/idle/setDetectionInterval",
                 "description": "Sets the interval, in seconds, used to determine when the system is in an idle state for onStateChanged events. The default interval is 60 seconds.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/idle/setDetectionInterval",
                 "name": "setDetectionInterval",
                 "parameters": [
                     {

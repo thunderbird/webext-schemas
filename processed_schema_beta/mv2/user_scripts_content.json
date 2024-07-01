@@ -9,8 +9,8 @@
                     "content",
                     "content_only"
                 ],
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/onBeforeScript",
                 "description": "Event called when a new userScript global has been created",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/onBeforeScript",
                 "name": "onBeforeScript",
                 "parameters": [
                     {

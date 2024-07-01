@@ -34,9 +34,9 @@
         "events": [],
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getAcceptLanguages",
                 "async": "callback",
                 "description": "Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use $(ref:i18n.getUILanguage).",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getAcceptLanguages",
                 "name": "getAcceptLanguages",
                 "parameters": [
                     {
@@ -60,8 +60,8 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getMessage",
                 "description": "Gets the localized string for the specified message. If the message is missing, this method returns an empty string (''). If the format of the <code>getMessage()</code> call is wrong &mdash; for example, <em>messageName</em> is not a string or the <em>substitutions</em> array has more than 9 elements &mdash; this method returns <code>undefined</code>.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getMessage",
                 "name": "getMessage",
                 "parameters": [
                     {
@@ -81,14 +81,13 @@
                     "type": "string"
                 },
                 "support": {
-                    "notes": "Firefox 47 and earlier returns \"??\" instead of \"\" if the message is not found in _locales, <a href='https://bugzil.la/1258199'>bug 1258199</a> changed this act to match Chrome, landed on Firefox 48.",
                     "version_added": "45"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getUILanguage",
                 "description": "Gets the browser UI language of the browser. This is different from $(ref:i18n.getAcceptLanguages) which returns the preferred user languages.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getUILanguage",
                 "name": "getUILanguage",
                 "parameters": [],
                 "returns": {
@@ -96,15 +95,14 @@
                     "type": "string"
                 },
                 "support": {
-                    "notes": "Firefox 55 and earlier returns a language tag that's separated with the underscore character instead of hyphen, see <a href='https://bugzil.la/1374552'>bug 1374552</a>.",
                     "version_added": "47"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/detectLanguage",
                 "async": "callback",
                 "description": "Detects the language of the provided text using CLD.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n/detectLanguage",
                 "name": "detectLanguage",
                 "parameters": [
                     {

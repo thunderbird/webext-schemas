@@ -11,8 +11,8 @@
         "description": "Use the <code>browser.storage</code> API to store, retrieve, and track changes to user data.",
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage/onChanged",
                 "description": "Fired when one or more items change.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage/onChanged",
                 "name": "onChanged",
                 "parameters": [
                     {
@@ -43,21 +43,29 @@
             "local": {
                 "$ref": "StorageArea",
                 "description": "Items in the <code>local</code> storage area are local to each machine.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage/local",
                 "properties": {
                     "QUOTA_BYTES": {
                         "description": "The maximum amount (in bytes) of data that can be stored in local storage, as measured by the JSON stringification of every value plus every key's length. This value will be ignored if the extension has the <code>unlimitedStorage</code> permission. Updates that would cause this limit to be exceeded fail immediately and set $(ref:runtime.lastError).",
                         "value": 5242880
                     }
+                },
+                "support": {
+                    "version_added": "45"
                 }
             },
             "managed": {
                 "$ref": "StorageArea",
                 "description": "Items in the <code>managed</code> storage area are set by administrators or native applications, and are read-only for the extension; trying to modify this namespace results in an error.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage/managed",
                 "properties": {
                     "QUOTA_BYTES": {
                         "description": "The maximum size (in bytes) of the managed storage JSON manifest file. Files larger than this limit will fail to load.",
                         "value": 5242880
                     }
+                },
+                "support": {
+                    "version_added": "57"
                 }
             },
             "session": {
@@ -65,11 +73,16 @@
                 "allowedContexts": [
                     "devtools"
                 ],
-                "description": "Items in the <code>session</code> storage area are kept in memory, and only until the either browser or extension is closed or reloaded."
+                "description": "Items in the <code>session</code> storage area are kept in memory, and only until the either browser or extension is closed or reloaded.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage/session",
+                "support": {
+                    "version_added": "115"
+                }
             },
             "sync": {
                 "$ref": "StorageAreaSync",
                 "description": "Items in the <code>sync</code> storage area are synced by the browser.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync",
                 "properties": {
                     "MAX_ITEMS": {
                         "description": "The maximum number of items that can be stored in sync storage. Updates that would cause this limit to be exceeded will fail immediately and set $(ref:runtime.lastError).",
@@ -96,6 +109,9 @@
                         "description": "The maximum size (in bytes) of each individual item in sync storage, as measured by the JSON stringification of its value plus its key length. Updates containing items larger than this limit will fail immediately and set $(ref:runtime.lastError).",
                         "value": 8192
                     }
+                },
+                "support": {
+                    "version_added": "53"
                 }
             }
         },

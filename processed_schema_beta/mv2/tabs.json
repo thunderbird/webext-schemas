@@ -32,14 +32,21 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#oncreated-tab",
                 "description": "Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onCreated",
                 "name": "onCreated",
                 "parameters": [
                     {
                         "$ref": "Tab",
                         "description": "Details of the tab that was created.",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
@@ -53,11 +60,15 @@
                         "optional": true
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onUpdated",
                 "name": "onUpdated",
                 "parameters": [
                     {
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -80,24 +91,37 @@
                                 "type": "string"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
                         "$ref": "Tab",
                         "description": "Gives the state of the tab that was updated.",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onmoved-tabid-moveinfo",
                 "description": "Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see $(ref:tabs.onDetached).",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onMoved",
                 "name": "onMoved",
                 "parameters": [
                     {
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -116,14 +140,21 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onactivated-activeinfo",
                 "description": "Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onActivated",
                 "name": "onActivated",
                 "parameters": [
                     {
@@ -146,19 +177,29 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#ondetached-tabid-detachinfo",
                 "description": "Fired when a tab is detached from a window, for example because it is being moved between windows.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onDetached",
                 "name": "onDetached",
                 "parameters": [
                     {
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -173,19 +214,29 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onattached-tabid-attachinfo",
                 "description": "Fired when a tab is attached to a window, for example because it was moved between windows.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onAttached",
                 "name": "onAttached",
                 "parameters": [
                     {
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -200,19 +251,29 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#onremoved-tabid-removeinfo",
                 "description": "Fired when a tab is closed.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onRemoved",
                 "name": "onRemoved",
                 "parameters": [
                     {
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -228,9 +289,15 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             }
         ],
@@ -239,11 +306,15 @@
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#get-tabid",
                 "async": "callback",
                 "description": "Retrieves details about the specified tab.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/get",
                 "name": "get",
                 "parameters": [
                     {
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -258,12 +329,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#getcurrent",
                 "async": "callback",
                 "description": "Gets the tab that this script call is being made from. May be <var>undefined</var> if called from a non-tab context (for example: a background page or popup view).",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/getCurrent",
                 "name": "getCurrent",
                 "parameters": [
                     {
@@ -280,16 +355,23 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#connect-tabid-connectinfo",
                 "description": "Connects to the content script(s) in the specified tab. The <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect'>runtime.onConnect</a> event is fired in each content script running in the specified tab for the current extension. For more details, see <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts'>Content Script Messaging</a>.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/connect",
                 "name": "connect",
                 "parameters": [
                     {
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -308,6 +390,9 @@
                                 "type": "string"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
@@ -315,21 +400,31 @@
                     "$ref": "runtime.Port",
                     "description": "A port that can be used to communicate with the content scripts running in the specified tab."
                 },
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#sendmessage-tabid-message-options-responsecallback",
                 "async": "responseCallback",
                 "description": "Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage'>runtime.onMessage</a> event is fired in each content script running in the specified tab for the current extension.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage",
                 "name": "sendMessage",
                 "parameters": [
                     {
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
                         "name": "message",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "any"
                     },
                     {
@@ -343,6 +438,9 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -355,15 +453,22 @@
                                 "type": "any"
                             }
                         ],
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#create-createproperties",
                 "async": "callback",
                 "description": "Creates a new content tab. Use the $(doc:messageDisplay) to open messages. Only supported in <var>normal</var> windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a <a href='https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3'>content script</a> , capture click events and handle them manually.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/create",
                 "name": "create",
                 "parameters": [
                     {
@@ -405,6 +510,9 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -420,18 +528,25 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#duplicate-tabid",
                 "async": "callback",
                 "description": "Duplicates a tab.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/duplicate",
                 "name": "duplicate",
                 "parameters": [
                     {
                         "description": "The ID of the tab which is to be duplicated.",
                         "minimum": 0,
                         "name": "tabId",
+                        "support": {
+                            "version_added": "47"
+                        },
                         "type": "integer"
                     },
                     {
@@ -447,12 +562,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "47"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#query-queryinfo",
                 "async": "callback",
                 "description": "Gets all tabs that have the specified properties, or all tabs if no properties are specified.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query",
                 "name": "query",
                 "parameters": [
                     {
@@ -564,6 +683,9 @@
                                 "optional": true
                             }
                         },
+                        "support": {
+                            "version_added": "45"
+                        },
                         "type": "object"
                     },
                     {
@@ -581,12 +703,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#update-tabid-updateproperties",
                 "async": "callback",
                 "description": "Modifies the properties of a tab. Properties that are not specified in <var>updateProperties</var> are not modified.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/update",
                 "name": "update",
                 "parameters": [
                     {
@@ -594,6 +720,9 @@
                         "minimum": 0,
                         "name": "tabId",
                         "optional": true,
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -611,6 +740,9 @@
                                 "type": "string"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -626,12 +758,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#move-tabids-moveproperties",
                 "async": "callback",
                 "description": "Moves one or more tabs to a new position within its current window, or to a different window. Note that tabs can only be moved to and from windows of type <var>normal</var>.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/move",
                 "name": "move",
                 "parameters": [
                     {
@@ -649,7 +785,10 @@
                             }
                         ],
                         "description": "The tab or list of tabs to move.",
-                        "name": "tabIds"
+                        "name": "tabIds",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "name": "moveProperties",
@@ -665,6 +804,9 @@
                                 "optional": true,
                                 "type": "integer"
                             }
+                        },
+                        "support": {
+                            "version_added": true
                         },
                         "type": "object"
                     },
@@ -684,12 +826,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "46"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#reload-tabid-reloadproperties",
                 "async": "callback",
                 "description": "Reload a tab. Only applicable for tabs which display a content page.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/reload",
                 "name": "reload",
                 "parameters": [
                     {
@@ -697,6 +843,9 @@
                         "minimum": 0,
                         "name": "tabId",
                         "optional": true,
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -709,6 +858,9 @@
                                 "type": "boolean"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -718,12 +870,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#remove-tabids",
                 "async": "callback",
                 "description": "Closes one or more tabs.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/remove",
                 "name": "remove",
                 "parameters": [
                     {
@@ -741,7 +897,10 @@
                             }
                         ],
                         "description": "The tab or list of tabs to close.",
-                        "name": "tabIds"
+                        "name": "tabIds",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "name": "callback",
@@ -750,12 +909,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#executescript-tabid-details",
                 "async": "callback",
                 "description": "Injects JavaScript code into a page. For details, see the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts'>programmatic injection</a> section of the content scripts doc.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript",
                 "name": "executeScript",
                 "parameters": [
                     {
@@ -763,12 +926,18 @@
                         "minimum": 0,
                         "name": "tabId",
                         "optional": true,
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
                         "$ref": "extensionTypes.InjectDetails",
                         "description": "Details of the script to run.",
-                        "name": "details"
+                        "name": "details",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "description": "Called after all the JavaScript has been executed.",
@@ -788,12 +957,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#insertcss-tabid-details",
                 "async": "callback",
                 "description": "Injects CSS into a page. For details, see the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts'>programmatic injection</a> section of the content scripts doc.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS",
                 "name": "insertCSS",
                 "parameters": [
                     {
@@ -801,12 +974,18 @@
                         "minimum": 0,
                         "name": "tabId",
                         "optional": true,
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
                         "$ref": "extensionTypes.InjectDetails",
                         "description": "Details of the CSS text to insert.",
-                        "name": "details"
+                        "name": "details",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "description": "Called when all the CSS has been inserted.",
@@ -816,12 +995,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "47"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#removecss-tabid-details",
                 "async": "callback",
                 "description": "Removes injected CSS from a page. For details, see the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts'>programmatic injection</a> section of the content scripts doc.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/removeCSS",
                 "name": "removeCSS",
                 "parameters": [
                     {
@@ -829,12 +1012,18 @@
                         "minimum": 0,
                         "name": "tabId",
                         "optional": true,
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
                         "$ref": "extensionTypes.InjectDetails",
                         "description": "Details of the CSS text to remove.",
-                        "name": "details"
+                        "name": "details",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "description": "Called when all the CSS has been removed.",
@@ -844,13 +1033,21 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "49"
+                },
                 "type": "function"
             }
         ],
         "namespace": "tabs",
         "properties": {
             "TAB_ID_NONE": {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#tab_id_none",
                 "description": "An ID which represents the absence of a tab.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/TAB_ID_NONE",
+                "support": {
+                    "version_added": "45"
+                },
                 "value": -1
             }
         },

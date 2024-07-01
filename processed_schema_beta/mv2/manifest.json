@@ -156,9 +156,9 @@
                     },
                     "content_security_policy": {
                         "format": "contentSecurityPolicy",
-                        "type": "string",
                         "onError": "warn",
-                        "optional": true
+                        "optional": true,
+                        "type": "string"
                     },
                     "granted_host_permissions": {
                         "default": false,
@@ -240,20 +240,20 @@
                         "type": "object"
                     },
                     "permissions": {
+                        "default": [],
                         "items": {
                             "$ref": "PermissionOrOrigin",
                             "onError": "warn"
                         },
-                        "type": "array",
-                        "default": [],
-                        "optional": true
+                        "optional": true,
+                        "type": "array"
                     },
                     "web_accessible_resources": {
                         "items": {
                             "type": "string"
                         },
-                        "type": "array",
-                        "optional": true
+                        "optional": true,
+                        "type": "array"
                     }
                 },
                 "type": "object"

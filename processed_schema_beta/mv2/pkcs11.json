@@ -19,9 +19,9 @@
         "description": "PKCS#11 module management API",
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/isModuleInstalled",
                 "async": true,
                 "description": "checks whether a PKCS#11 module, given by name, is installed",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/isModuleInstalled",
                 "name": "isModuleInstalled",
                 "parameters": [
                     {
@@ -35,9 +35,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/installModule",
                 "async": true,
                 "description": "Install a PKCS#11 module with a given name",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/installModule",
                 "name": "installModule",
                 "parameters": [
                     {
@@ -56,9 +56,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/uninstallModule",
                 "async": true,
                 "description": "Remove an installed PKCS#11 module from firefox",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/uninstallModule",
                 "name": "uninstallModule",
                 "parameters": [
                     {
@@ -72,9 +72,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/getModuleSlots",
                 "async": true,
                 "description": "Enumerate a module's slots, each with their name and whether a token is present",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11/getModuleSlots",
                 "name": "getModuleSlots",
                 "parameters": [
                     {

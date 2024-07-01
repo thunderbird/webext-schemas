@@ -2,8 +2,8 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/onAlarm",
                 "description": "Fired when an alarm has expired. Useful for transient background pages.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/onAlarm",
                 "name": "onAlarm",
                 "parameters": [
                     {
@@ -20,8 +20,8 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/create",
                 "description": "Creates an alarm. After the delay is expired, the onAlarm event is fired. If there is another alarm with the same name (or no name if none is specified), it will be cancelled and replaced by this alarm.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/create",
                 "name": "create",
                 "parameters": [
                     {
@@ -59,9 +59,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/get",
                 "async": "callback",
                 "description": "Retrieves details about the specified alarm.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/get",
                 "name": "get",
                 "parameters": [
                     {
@@ -88,9 +88,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/getAll",
                 "async": "callback",
                 "description": "Gets an array of all the alarms.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/getAll",
                 "name": "getAll",
                 "parameters": [
                     {
@@ -113,9 +113,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/clear",
                 "async": "callback",
                 "description": "Clears the alarm with the given name.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/clear",
                 "name": "clear",
                 "parameters": [
                     {
@@ -142,9 +142,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/clearAll",
                 "async": "callback",
                 "description": "Clears all alarms.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms/clearAll",
                 "name": "clearAll",
                 "parameters": [
                     {

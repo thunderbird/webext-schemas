@@ -15,14 +15,21 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/onCreated",
                 "name": "onCreated",
                 "parameters": [
                     {
                         "$ref": "Window",
                         "description": "Details of the window that was created.",
-                        "name": "window"
+                        "name": "window",
+                        "support": {
+                            "version_added": true
+                        }
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
@@ -38,15 +45,22 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/onRemoved",
                 "name": "onRemoved",
                 "parameters": [
                     {
                         "description": "ID of the removed window.",
                         "minimum": 0,
                         "name": "windowId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
@@ -62,15 +76,22 @@
                         "type": "array"
                     }
                 ],
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/onFocusChanged",
                 "name": "onFocusChanged",
                 "parameters": [
                     {
                         "description": "ID of the newly focused window.",
                         "minimum": -1,
                         "name": "windowId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             }
         ],
@@ -79,17 +100,24 @@
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#get-windowid-getinfo",
                 "async": "callback",
                 "description": "Gets details about a window.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/get",
                 "name": "get",
                 "parameters": [
                     {
                         "minimum": -2,
                         "name": "windowId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
                         "$ref": "GetInfo",
                         "name": "getInfo",
-                        "optional": true
+                        "optional": true,
+                        "support": {
+                            "version_added": "45"
+                        }
                     },
                     {
                         "name": "callback",
@@ -103,18 +131,25 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#getcurrent-getinfo",
                 "async": "callback",
                 "description": "Gets the active or topmost window.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getCurrent",
                 "name": "getCurrent",
                 "parameters": [
                     {
                         "$ref": "GetInfo",
                         "name": "getInfo",
-                        "optional": true
+                        "optional": true,
+                        "support": {
+                            "version_added": "45"
+                        }
                     },
                     {
                         "name": "callback",
@@ -128,18 +163,25 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#getlastfocused-getinfo",
                 "async": "callback",
                 "description": "Gets the window that was most recently focused &mdash; typically the window 'on top'.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getLastFocused",
                 "name": "getLastFocused",
                 "parameters": [
                     {
                         "$ref": "GetInfo",
                         "name": "getInfo",
-                        "optional": true
+                        "optional": true,
+                        "support": {
+                            "version_added": "45"
+                        }
                     },
                     {
                         "name": "callback",
@@ -153,18 +195,25 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#getall-getinfo",
                 "async": "callback",
                 "description": "Gets all windows.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getAll",
                 "name": "getAll",
                 "parameters": [
                     {
                         "$ref": "GetInfo",
                         "name": "getInfo",
-                        "optional": true
+                        "optional": true,
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "name": "callback",
@@ -181,12 +230,16 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#create-createdata",
                 "async": "callback",
                 "description": "Creates (opens) a new window with any optional sizing, position or default URL provided. When loading a page into a popup window, same-site links are opened within the same window, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a <a href='https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3'>content script</a> , capture click events and handle them manually. Same-site links with targets other than <var>_self</var> are opened in a new tab in the most recent <var>normal</var> Thunderbird window.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/create",
                 "name": "create",
                 "parameters": [
                     {
@@ -276,6 +329,9 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -291,17 +347,24 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#update-windowid-updateinfo",
                 "async": "callback",
                 "description": "Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/update",
                 "name": "update",
                 "parameters": [
                     {
                         "minimum": -2,
                         "name": "windowId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -350,6 +413,9 @@
                                 "type": "integer"
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -364,17 +430,24 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#remove-windowid",
                 "async": "callback",
                 "description": "Removes (closes) a window, and all the tabs inside it.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/remove",
                 "name": "remove",
                 "parameters": [
                     {
                         "minimum": -2,
                         "name": "windowId",
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "integer"
                     },
                     {
@@ -384,6 +457,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": "45"
+                },
                 "type": "function"
             },
             {
@@ -397,17 +473,30 @@
                         "type": "string"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
         "namespace": "windows",
         "properties": {
             "WINDOW_ID_CURRENT": {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#window_id_current",
                 "description": "The windowId value that represents the current window.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_CURRENT",
+                "support": {
+                    "version_added": "45"
+                },
                 "value": -2
             },
             "WINDOW_ID_NONE": {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#window_id_none",
                 "description": "The windowId value that represents the absence of a window.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_NONE",
+                "support": {
+                    "version_added": "45"
+                },
                 "value": -1
             }
         },

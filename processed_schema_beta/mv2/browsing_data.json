@@ -19,9 +19,9 @@
         "description": "Use the <code>chrome.browsingData</code> API to remove browsing data from a user's local profile.",
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/settings",
                 "async": "callback",
                 "description": "Reports which types of data are currently selected in the 'Clear browsing data' settings UI.  Note: some of the data types included in this API are not available in the settings UI, and some UI settings control more than one data type listed here.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/settings",
                 "name": "settings",
                 "parameters": [
                     {
@@ -54,9 +54,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/remove",
                 "async": "callback",
                 "description": "Clears various types of browsing data stored in a user's profile.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/remove",
                 "name": "remove",
                 "parameters": [
                     {
@@ -77,7 +77,6 @@
                     }
                 ],
                 "support": {
-                    "notes": "Specifying <code>dataTypes.history</code> will also remove download history and service workers.",
                     "version_added": "53"
                 },
                 "type": "function"
@@ -103,9 +102,9 @@
                 "unsupported": true
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeCache",
                 "async": "callback",
                 "description": "Clears the browser's cache.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeCache",
                 "name": "removeCache",
                 "parameters": [
                     {
@@ -121,15 +120,14 @@
                     }
                 ],
                 "support": {
-                    "notes": "<code>removalOptions.since</code> is not supported.",
                     "version_added": "53"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeCookies",
                 "async": "callback",
                 "description": "Clears the browser's cookies and server-bound certificates modified within a particular timeframe.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeCookies",
                 "name": "removeCookies",
                 "parameters": [
                     {
@@ -150,9 +148,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeDownloads",
                 "async": "callback",
                 "description": "Clears the browser's list of downloaded files (<em>not</em> the downloaded files themselves).",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeDownloads",
                 "name": "removeDownloads",
                 "parameters": [
                     {
@@ -193,9 +191,9 @@
                 "unsupported": true
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeFormData",
                 "async": "callback",
                 "description": "Clears the browser's stored form data (autofill).",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeFormData",
                 "name": "removeFormData",
                 "parameters": [
                     {
@@ -216,9 +214,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeHistory",
                 "async": "callback",
                 "description": "Clears the browser's history.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeHistory",
                 "name": "removeHistory",
                 "parameters": [
                     {
@@ -234,7 +232,6 @@
                     }
                 ],
                 "support": {
-                    "notes": "This function also removes download history and service workers.",
                     "version_added": "53"
                 },
                 "type": "function"
@@ -260,9 +257,9 @@
                 "unsupported": true
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeLocalStorage",
                 "async": "callback",
                 "description": "Clears websites' local storage data.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removeLocalStorage",
                 "name": "removeLocalStorage",
                 "parameters": [
                     {
@@ -278,15 +275,14 @@
                     }
                 ],
                 "support": {
-                    "notes": "<code>removalOptions.since</code> is not supported.",
                     "version_added": "57"
                 },
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removePluginData",
                 "async": "callback",
                 "description": "Clears plugins' data.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removePluginData",
                 "name": "removePluginData",
                 "parameters": [
                     {
@@ -307,9 +303,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removePasswords",
                 "async": "callback",
                 "description": "Clears the browser's stored passwords.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/removePasswords",
                 "name": "removePasswords",
                 "parameters": [
                     {

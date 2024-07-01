@@ -86,7 +86,10 @@
                 "parameters": [
                     {
                         "$ref": "tabs.Tab",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "OnClickData",
@@ -94,6 +97,9 @@
                         "optional": true
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -132,6 +138,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -141,6 +150,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -166,6 +178,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -180,6 +195,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -216,6 +234,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -225,6 +246,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -250,6 +274,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -271,6 +298,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -313,6 +343,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -322,6 +355,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -358,6 +394,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -367,6 +406,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -392,6 +434,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -406,6 +451,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -442,6 +490,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -451,6 +502,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -476,6 +530,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -490,6 +547,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -529,9 +589,15 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -557,6 +623,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -571,6 +640,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -610,6 +682,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -619,6 +694,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -644,6 +722,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -658,6 +739,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -680,6 +764,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -702,6 +789,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -727,6 +817,9 @@
                                 "unsupported": true
                             }
                         },
+                        "support": {
+                            "version_added": true
+                        },
                         "type": "object"
                     },
                     {
@@ -740,6 +833,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -773,6 +869,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],

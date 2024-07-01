@@ -24,76 +24,148 @@
         "properties": {
             "allowPopupsForUserEvents": {
                 "$ref": "types.Setting",
-                "description": "Allows or disallows pop-up windows from opening in response to user events."
+                "description": "Allows or disallows pop-up windows from opening in response to user events.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/allowPopupsForUserEvents",
+                "support": {
+                    "version_added": "57"
+                }
             },
             "cacheEnabled": {
                 "$ref": "types.Setting",
-                "description": "Enables or disables the browser cache."
+                "description": "Enables or disables the browser cache.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/cacheEnabled",
+                "support": {
+                    "version_added": "56"
+                }
             },
             "closeTabsByDoubleClick": {
                 "$ref": "types.Setting",
-                "description": "This boolean setting controls whether the selected tab can be closed with a double click."
+                "description": "This boolean setting controls whether the selected tab can be closed with a double click.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/closeTabsByDoubleClick",
+                "support": {
+                    "version_added": false
+                }
             },
             "contextMenuShowEvent": {
                 "$ref": "types.Setting",
-                "description": "Controls after which mouse event context menus popup. This setting's value is of type ContextMenuMouseEvent, which has possible values of <code>mouseup</code> and <code>mousedown</code>."
+                "description": "Controls after which mouse event context menus popup. This setting's value is of type ContextMenuMouseEvent, which has possible values of <code>mouseup</code> and <code>mousedown</code>.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/contextMenuShowEvent",
+                "support": {
+                    "version_added": "59"
+                }
             },
             "ftpProtocolEnabled": {
                 "$ref": "types.Setting",
                 "deprecated": "FTP support was removed from Firefox in bug 1574475",
-                "description": "Returns whether the FTP protocol is enabled. Read-only."
+                "description": "Returns whether the FTP protocol is enabled. Read-only.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/ftpProtocolEnabled",
+                "support": {
+                    "version_added": "72"
+                }
             },
             "homepageOverride": {
                 "$ref": "types.Setting",
-                "description": "Returns the value of the overridden home page. Read-only."
+                "description": "Returns the value of the overridden home page. Read-only.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/homepageOverride",
+                "support": {
+                    "version_added": false
+                }
             },
             "imageAnimationBehavior": {
                 "$ref": "types.Setting",
-                "description": "Controls the behaviour of image animation in the browser. This setting's value is of type ImageAnimationBehavior, defaulting to <code>normal</code>."
+                "description": "Controls the behaviour of image animation in the browser. This setting's value is of type ImageAnimationBehavior, defaulting to <code>normal</code>.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/imageAnimationBehavior",
+                "support": {
+                    "version_added": "57"
+                }
             },
             "newTabPageOverride": {
                 "$ref": "types.Setting",
-                "description": "Returns the value of the overridden new tab page. Read-only."
+                "description": "Returns the value of the overridden new tab page. Read-only.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/newTabPageOverride",
+                "support": {
+                    "version_added": false
+                }
             },
             "newTabPosition": {
                 "$ref": "types.Setting",
-                "description": "Controls where new tabs are opened. <val>afterCurrent</val> will open all new tabs next to the current tab, <val>relatedAfterCurrent</val> will open only related tabs next to the current tab, and <val>atEnd</val> will open all tabs at the end of the tab strip. The default is <val>relatedAfterCurrent</val>."
+                "description": "Controls where new tabs are opened. <val>afterCurrent</val> will open all new tabs next to the current tab, <val>relatedAfterCurrent</val> will open only related tabs next to the current tab, and <val>atEnd</val> will open all tabs at the end of the tab strip. The default is <val>relatedAfterCurrent</val>.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/newTabPosition",
+                "support": {
+                    "version_added": false
+                }
             },
             "openBookmarksInNewTabs": {
                 "$ref": "types.Setting",
-                "description": "This boolean setting controls whether bookmarks are opened in the current tab or in a new tab."
+                "description": "This boolean setting controls whether bookmarks are opened in the current tab or in a new tab.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/openBookmarksInNewTabs",
+                "support": {
+                    "version_added": false
+                }
             },
             "openSearchResultsInNewTabs": {
                 "$ref": "types.Setting",
-                "description": "This boolean setting controls whether search results are opened in the current tab or in a new tab."
+                "description": "This boolean setting controls whether search results are opened in the current tab or in a new tab.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/openSearchResultsInNewTabs",
+                "support": {
+                    "version_added": false
+                }
             },
             "openUrlbarResultsInNewTabs": {
                 "$ref": "types.Setting",
-                "description": "This boolean setting controls whether urlbar results are opened in the current tab or in a new tab."
+                "description": "This boolean setting controls whether urlbar results are opened in the current tab or in a new tab.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/openUrlbarResultsInNewTabs",
+                "support": {
+                    "version_added": false
+                }
             },
             "overrideContentColorScheme": {
                 "$ref": "types.Setting",
-                "description": "This setting controls whether a light or dark color scheme overrides the page's preferred color scheme."
+                "description": "This setting controls whether a light or dark color scheme overrides the page's preferred color scheme.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/overrideContentColorScheme",
+                "support": {
+                    "version_added": "95"
+                }
             },
             "overrideDocumentColors": {
                 "$ref": "types.Setting",
-                "description": "This setting controls whether the user-chosen colors override the page's colors."
+                "description": "This setting controls whether the user-chosen colors override the page's colors.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/overrideDocumentColors",
+                "support": {
+                    "version_added": "61"
+                }
             },
             "useDocumentFonts": {
                 "$ref": "types.Setting",
-                "description": "This setting controls whether the document's fonts are used."
+                "description": "This setting controls whether the document's fonts are used.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/useDocumentFonts",
+                "support": {
+                    "version_added": "61"
+                }
             },
             "webNotificationsDisabled": {
                 "$ref": "types.Setting",
-                "description": "Disables webAPI notifications."
+                "description": "Disables webAPI notifications.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/webNotificationsDisabled",
+                "support": {
+                    "version_added": "58"
+                }
             },
             "zoomFullPage": {
                 "$ref": "types.Setting",
-                "description": "This boolean setting controls whether zoom is applied to the full page or to text only."
+                "description": "This boolean setting controls whether zoom is applied to the full page or to text only.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/zoomFullPage",
+                "support": {
+                    "version_added": "75"
+                }
             },
             "zoomSiteSpecific": {
                 "$ref": "types.Setting",
-                "description": "This boolean setting controls whether zoom is applied on a per-site basis or to the current tab only. If privacy.resistFingerprinting is true, this setting has no effect and zoom is applied to the current tab only."
+                "description": "This boolean setting controls whether zoom is applied on a per-site basis or to the current tab only. If privacy.resistFingerprinting is true, this setting has no effect and zoom is applied to the current tab only.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/zoomSiteSpecific",
+                "support": {
+                    "version_added": false
+                }
             }
         },
         "types": [

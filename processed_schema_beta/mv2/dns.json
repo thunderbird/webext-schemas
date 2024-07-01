@@ -19,9 +19,9 @@
         "description": "Asynchronous DNS API",
         "functions": [
             {
-                "api_documentation_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/dns/resolve",
                 "async": true,
                 "description": "Resolves a hostname to a DNS record.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/dns/resolve",
                 "name": "resolve",
                 "parameters": [
                     {

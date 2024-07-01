@@ -82,7 +82,10 @@
                     {
                         "$ref": "tabs.Tab",
                         "description": "The tab where the upload was initiated. Currently only available for the message composer.",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     },
                     {
                         "$ref": "RelatedCloudFile",
@@ -123,6 +126,9 @@
                     },
                     "type": "object"
                 },
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -143,9 +149,15 @@
                     {
                         "$ref": "tabs.Tab",
                         "description": "The tab where the upload was initiated. Currently only available for the message composer.",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -172,7 +184,10 @@
                     {
                         "$ref": "tabs.Tab",
                         "description": "The tab where the rename was initiated. Currently only available for the message composer.",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     }
                 ],
                 "returns": {
@@ -197,6 +212,9 @@
                     },
                     "type": "object"
                 },
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -218,9 +236,15 @@
                     {
                         "$ref": "tabs.Tab",
                         "description": "The tab where the upload was initiated. Currently only available for the message composer.",
-                        "name": "tab"
+                        "name": "tab",
+                        "support": {
+                            "version_added": true
+                        }
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -234,6 +258,9 @@
                         "name": "account"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -247,6 +274,9 @@
                         "type": "string"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
@@ -278,6 +308,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -303,6 +336,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             },
             {
@@ -367,6 +403,9 @@
                         "type": "function"
                     }
                 ],
+                "support": {
+                    "version_added": true
+                },
                 "type": "function"
             }
         ],
