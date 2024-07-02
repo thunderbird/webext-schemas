@@ -32,19 +32,22 @@ Options
 =======
 
 ```
-    --release=name             - The name of the Thunderbird release to get the
-                                 schema files for. The files will be downloaded
-                                 from hg.mozilla.org. Examples: "central", "beta"
-                                 or "esr115". Either --release or --input has to
-                                 be specified.
-    --input=path               - Path to a local checkout of a mozilla repository
-                                 with a matching /comm directory. The mozilla-*
-                                 folder created in the temporary download folder
-                                 after using the --release option will work also.
-                                 Either --release or --input has to be specified.
-    --output=path              - Path of a folder to store the processed schema
-                                 files. All existing files in that folder will be
-                                 deleted.
-    --manifest_version=number  - The requested manifest version of the schema
-                                 files. Allowed values are "2" and "3".
+   --compat                   - Path to the thunderbird webextension compatibility
+                                data module (will become obsolete once released as
+                                an npm module).
+   --manifest_version=number  - The requested manifest version of the schema
+                                files. Allowed values are "2" and "3".
+   --output=path              - Path of a folder to store the processed schema
+                                files. All existing files in that folder will be
+                                deleted.
+   --release=name             - The name of the Thunderbird release to get the
+                                schema files for. The files will be downloaded
+                                from hg.mozilla.org. Examples: "central", "beta"
+                                or "esr115". Either --release or --source has to
+                                be specified.
+   --source=path              - Path to a local checkout of a mozilla repository
+                                with a matching /comm directory. The mozilla-*
+                                folder created in the temporary download folder
+                                after using the --release option will work also.
+                                Either --release or --source has to be specified.
 ```
