@@ -79,9 +79,9 @@
                 "name": "list",
                 "parameters": [
                     {
-                        "$ref": "accounts.MailAccountId",
                         "name": "accountId",
-                        "optional": true
+                        "optional": true,
+                        "type": "string"
                     },
                     {
                         "name": "callback",
@@ -105,7 +105,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#get-identityid",
                 "async": "callback",
-                "description": "Returns details of the requested identity, or <var>null</var> if it doesn't exist.",
+                "description": "Returns details of the requested identity, or <value>null</value> if it doesn't exist.",
                 "name": "get",
                 "parameters": [
                     {
@@ -117,14 +117,8 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "choices": [
-                                    {
-                                        "$ref": "identities.MailIdentity"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
+                                "$ref": "identities.MailIdentity",
+                                "optional": true
                             }
                         ],
                         "type": "function"
@@ -142,8 +136,8 @@
                 "name": "create",
                 "parameters": [
                     {
-                        "$ref": "accounts.MailAccountId",
-                        "name": "accountId"
+                        "name": "accountId",
+                        "type": "string"
                     },
                     {
                         "$ref": "identities.MailIdentity",
@@ -223,26 +217,19 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#getdefault-accountid",
                 "async": "callback",
-                "description": "Returns the default identity for the requested account, or <var>null</var> if it is not defined.",
+                "description": "Returns the default identity for the requested account, or <value>null</value> if it is not defined.",
                 "name": "getDefault",
                 "parameters": [
                     {
-                        "$ref": "accounts.MailAccountId",
-                        "name": "accountId"
+                        "name": "accountId",
+                        "type": "string"
                     },
                     {
                         "name": "callback",
                         "optional": true,
                         "parameters": [
                             {
-                                "choices": [
-                                    {
-                                        "$ref": "identities.MailIdentity"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
+                                "$ref": "identities.MailIdentity"
                             }
                         ],
                         "type": "function"
@@ -260,8 +247,8 @@
                 "name": "setDefault",
                 "parameters": [
                     {
-                        "$ref": "accounts.MailAccountId",
-                        "name": "accountId"
+                        "name": "accountId",
+                        "type": "string"
                     },
                     {
                         "name": "identityId",
@@ -280,26 +267,12 @@
         ],
         "types": [
             {
-                "id": "EncryptionCapabilities",
-                "properties": {
-                    "canEncrypt": {
-                        "description": "Whether the encryption technology is configured to support message encryption.",
-                        "type": "boolean"
-                    },
-                    "canSign": {
-                        "description": "Whether the encryption technology is configured to support message signing.",
-                        "type": "boolean"
-                    }
-                },
-                "type": "object"
-            },
-            {
                 "id": "MailIdentity",
                 "properties": {
                     "accountId": {
-                        "$ref": "accounts.MailAccountId",
-                        "description": "The id of the $(ref:accounts.MailAccount) this identity belongs to. The <var>accountId</var> property is read-only.",
-                        "optional": true
+                        "description": "The id of the $(ref:accounts.MailAccount) this identity belongs to. The <val>accountId</val> property is read-only.",
+                        "optional": true,
+                        "type": "string"
                     },
                     "composeHtml": {
                         "description": "If the identity uses HTML as the default compose format.",
@@ -311,23 +284,8 @@
                         "optional": true,
                         "type": "string"
                     },
-                    "encryptionCapabilities": {
-                        "description": "The encryption capabilities of this identity. Read only.",
-                        "optional": true,
-                        "properties": {
-                            "OpenPGP": {
-                                "$ref": "identities.EncryptionCapabilities",
-                                "description": "The capabilities of this identity for the OpenPGP encryption technology."
-                            },
-                            "S/MIME": {
-                                "$ref": "identities.EncryptionCapabilities",
-                                "description": "The capabilities of this identity for the S/MIME encryption technology."
-                            }
-                        },
-                        "type": "object"
-                    },
                     "id": {
-                        "description": "A unique identifier for this identity. The <var>id</var> property is read-only.",
+                        "description": "A unique identifier for this identity. The <val>id</val> property is read-only.",
                         "optional": true,
                         "type": "string"
                     },

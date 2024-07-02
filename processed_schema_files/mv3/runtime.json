@@ -238,40 +238,6 @@
                 },
                 "type": "function",
                 "unsupported": true
-            },
-            {
-                "description": "Fired when a runtime performance issue is detected with the extension. Observe this event to be proactively notified of runtime performance problems with the extension.",
-                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onPerformanceWarning",
-                "name": "onPerformanceWarning",
-                "parameters": [
-                    {
-                        "name": "details",
-                        "properties": {
-                            "category": {
-                                "$ref": "OnPerformanceWarningCategory",
-                                "description": "The performance warning event category, e.g. 'content_script'."
-                            },
-                            "description": {
-                                "description": "An explanation of what the warning means, and hopefully how to address it.",
-                                "type": "string"
-                            },
-                            "severity": {
-                                "$ref": "OnPerformanceWarningSeverity",
-                                "description": "The performance warning event severity, e.g. 'high'."
-                            },
-                            "tabId": {
-                                "description": "The $(ref:tabs.Tab) that the performance warning relates to, if any.",
-                                "optional": true,
-                                "type": "integer"
-                            }
-                        },
-                        "type": "object"
-                    }
-                ],
-                "support": {
-                    "version_added": "124"
-                },
-                "type": "function"
             }
         ],
         "functions": [
@@ -301,33 +267,6 @@
                 "support": {
                     "version_added": "45"
                 },
-                "type": "function"
-            },
-            {
-                "async": "callback",
-                "description": "Fetches information about active contexts associated with this extension",
-                "name": "getContexts",
-                "parameters": [
-                    {
-                        "$ref": "ContextFilter",
-                        "description": "A filter to find matching context.",
-                        "name": "filter"
-                    },
-                    {
-                        "name": "callback",
-                        "parameters": [
-                            {
-                                "description": "The matching contexts, if any.",
-                                "items": {
-                                    "$ref": "ExtensionContext"
-                                },
-                                "name": "contexts",
-                                "type": "array"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
                 "type": "function"
             },
             {
@@ -421,13 +360,13 @@
             },
             {
                 "async": "callback",
-                "description": "Sets the URL to be visited upon uninstallation. This may be used to clean up server-side data, do analytics, and implement surveys. Maximum 1023 characters.",
+                "description": "Sets the URL to be visited upon uninstallation. This may be used to clean up server-side data, do analytics, and implement surveys. Maximum 255 characters.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/runtime/setUninstallURL",
                 "name": "setUninstallURL",
                 "parameters": [
                     {
                         "description": "URL to be opened after the extension is uninstalled. This URL must have an http: or https: scheme. Set an empty string to not open a new tab upon uninstallation.",
-                        "maxLength": 1023,
+                        "maxLength": 255,
                         "name": "url",
                         "optional": true,
                         "type": "string"
@@ -774,131 +713,6 @@
         },
         "types": [
             {
-                "description": "A filter to match against existing extension context. Matching contexts must match all specified filters.",
-                "id": "ContextFilter",
-                "properties": {
-                    "contextIds": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    },
-                    "contextTypes": {
-                        "items": {
-                            "$ref": "ContextType"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    },
-                    "documentIds": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    },
-                    "documentOrigins": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    },
-                    "documentUrls": {
-                        "items": {
-                            "type": "string"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    },
-                    "frameIds": {
-                        "items": {
-                            "type": "integer"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    },
-                    "incognito": {
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "tabIds": {
-                        "items": {
-                            "type": "integer"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    },
-                    "windowIds": {
-                        "items": {
-                            "type": "integer"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    }
-                },
-                "type": "object"
-            },
-            {
-                "description": "The type of extension view.",
-                "enum": [
-                    "BACKGROUND",
-                    "POPUP",
-                    "SIDE_PANEL",
-                    "TAB"
-                ],
-                "id": "ContextType",
-                "type": "string"
-            },
-            {
-                "description": "A context hosting extension content",
-                "id": "ExtensionContext",
-                "properties": {
-                    "contextId": {
-                        "description": "An unique identifier associated to this context",
-                        "type": "string"
-                    },
-                    "contextType": {
-                        "$ref": "ContextType",
-                        "description": "The type of the context"
-                    },
-                    "documentId": {
-                        "description": "An UUID for the document associated with this context, or undefined if it is not hosted in a document",
-                        "optional": true,
-                        "type": "string",
-                        "unsupported": true
-                    },
-                    "documentOrigin": {
-                        "description": "The origin of the document associated with this context, or undefined if it is not hosted in a document",
-                        "optional": true,
-                        "type": "string"
-                    },
-                    "documentUrl": {
-                        "description": "The URL of the document associated with this context, or undefined if it is not hosted in a document",
-                        "optional": true,
-                        "type": "string"
-                    },
-                    "frameId": {
-                        "description": "The frame ID for this context, or -1 if it is not hosted in a frame.",
-                        "type": "integer"
-                    },
-                    "incognito": {
-                        "description": "Whether the context is associated with an private browsing context.",
-                        "type": "boolean"
-                    },
-                    "tabId": {
-                        "description": "The tab ID for this context, or -1 if it is not hosted in a tab.",
-                        "type": "integer"
-                    },
-                    "windowId": {
-                        "description": "The window ID for this context, or -1 if it is not hosted in a window.",
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            },
-            {
                 "additionalProperties": {
                     "type": "any"
                 },
@@ -1092,24 +906,6 @@
                     "periodic"
                 ],
                 "id": "OnRestartRequiredReason",
-                "type": "string"
-            },
-            {
-                "description": "The performance warning event category, e.g. 'content_script'.",
-                "enum": [
-                    "content_script"
-                ],
-                "id": "OnPerformanceWarningCategory",
-                "type": "string"
-            },
-            {
-                "description": "The performance warning event severity. Will be 'high' for serious and user-visible issues.",
-                "enum": [
-                    "low",
-                    "medium",
-                    "high"
-                ],
-                "id": "OnPerformanceWarningSeverity",
                 "type": "string"
             }
         ]

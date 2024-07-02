@@ -105,25 +105,6 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#onupdated-originalfolder-updatedfolder",
-                "description": "Fired when properties of a folder have changed (<var>specialUse</var> and <var>isFavorite</var>).",
-                "name": "onUpdated",
-                "parameters": [
-                    {
-                        "$ref": "folders.MailFolder",
-                        "name": "originalFolder"
-                    },
-                    {
-                        "$ref": "folders.MailFolder",
-                        "name": "updatedFolder"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#onfolderinfochanged-folder-folderinfo",
                 "description": "Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.",
                 "name": "onFolderInfoChanged",
@@ -145,231 +126,21 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#query-queryinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#create-parent-childname",
                 "async": "callback",
-                "description": "Gets folders that match the specified properties, or all folders if no properties are specified.",
-                "name": "query",
-                "parameters": [
-                    {
-                        "default": {},
-                        "name": "queryInfo",
-                        "optional": true,
-                        "properties": {
-                            "accountId": {
-                                "$ref": "accounts.MailAccountId",
-                                "description": "Limits the search to folders of the account with the specified id.",
-                                "optional": true
-                            },
-                            "canAddMessages": {
-                                "description": "Whether the folder supports adding new messages, or not.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "canAddSubfolders": {
-                                "description": "Whether the folder supports adding new subfolders, or not.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "canBeDeleted": {
-                                "description": "Whether the folder can be deleted, or not.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "canBeRenamed": {
-                                "description": "Whether the folder can be renamed, or not.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "canDeleteMessages": {
-                                "description": "Whether the folder supports deleting messages, or not.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "folderId": {
-                                "$ref": "folders.MailFolderId",
-                                "description": "Limits the search to the folder with the specified id.",
-                                "optional": true
-                            },
-                            "hasMessages": {
-                                "choices": [
-                                    {
-                                        "type": "boolean"
-                                    },
-                                    {
-                                        "$ref": "QueryRange"
-                                    }
-                                ],
-                                "description": "Whether the folder (excluding subfolders) contains messages, or not. Supports to specify a $(ref:folders.QueryRange) (min/max) instead of a simple boolean value (none/some).",
-                                "optional": true
-                            },
-                            "hasNewMessages": {
-                                "choices": [
-                                    {
-                                        "type": "boolean"
-                                    },
-                                    {
-                                        "$ref": "QueryRange"
-                                    }
-                                ],
-                                "description": "Whether the folder (excluding subfolders) contains new messages, or not. Supports to specify a $(ref:folders.QueryRange) (min/max) instead of a simple boolean value (none/some).",
-                                "optional": true
-                            },
-                            "hasSubFolders": {
-                                "choices": [
-                                    {
-                                        "type": "boolean"
-                                    },
-                                    {
-                                        "$ref": "QueryRange"
-                                    }
-                                ],
-                                "description": "Whether the folder has subfolders, or not. Supports to specify a $(ref:folders.QueryRange) (min/max) instead of a simple boolean value (none/some).",
-                                "optional": true
-                            },
-                            "hasUnreadMessages": {
-                                "choices": [
-                                    {
-                                        "type": "boolean"
-                                    },
-                                    {
-                                        "$ref": "QueryRange"
-                                    }
-                                ],
-                                "description": "Whether the folder (excluding subfolders) contains unread messages, or not. Supports to specify a $(ref:folders.QueryRange) (min/max) instead of a simple boolean value (none/some).",
-                                "optional": true
-                            },
-                            "isFavorite": {
-                                "description": "Whether the folder is a favorite folder, or not.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "isRoot": {
-                                "description": "Whether the folder is a root folder, or not.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "isTag": {
-                                "description": "Whether the folder is a virtual tag folder, or not. Note: Virtual tag folders are always skipped, unless this property is set to <var>true</var>",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "isUnified": {
-                                "description": "Whether the folder is a unified mailbox folder, or not. Note: Unified mailbox folders are always skipped, unless this property is set to <var>true</var>",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "isVirtual": {
-                                "description": "Whether the folder is a virtual search folder, or not.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "limit": {
-                                "description": "Limits the number of returned folders. If used together with <var>recent</var>, supports being set to $(ref:folders.DEFAULT_MOST_RECENT_LIMIT)",
-                                "optional": true,
-                                "type": "integer"
-                            },
-                            "name": {
-                                "choices": [
-                                    {
-                                        "$ref": "RegularExpression"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ],
-                                "description": "Return only folders whose name is matched by the provided string or regular expression.",
-                                "optional": true
-                            },
-                            "path": {
-                                "choices": [
-                                    {
-                                        "$ref": "RegularExpression"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ],
-                                "description": "Return only folders whose path is matched by the provided string or regular expression.",
-                                "optional": true
-                            },
-                            "recent": {
-                                "description": "Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "specialUse": {
-                                "description": "Match only folders with the specified special use (folders have to match all specified uses).",
-                                "items": {
-                                    "$ref": "folders.MailFolderSpecialUse"
-                                },
-                                "minItems": 1,
-                                "optional": true,
-                                "type": "array"
-                            }
-                        },
-                        "type": "object"
-                    },
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [
-                            {
-                                "items": {
-                                    "$ref": "folders.MailFolder"
-                                },
-                                "type": "array"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#get-folderid-includesubfolders",
-                "async": "callback",
-                "description": "Returns the specified folder.",
-                "name": "get",
-                "parameters": [
-                    {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
-                    },
-                    {
-                        "default": false,
-                        "description": "Specifies whether the returned $(ref:folders.MailFolder) should populate its <var>subFolders</var> property and include all its (nested!) subfolders. Defaults to <var>false</var>.",
-                        "name": "includeSubFolders",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [
-                            {
-                                "$ref": "folders.MailFolder"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#create-folderid-childname",
-                "async": "callback",
-                "description": "Creates a new subfolder in the specified folder.",
+                "description": "Creates a new subfolder in the specified folder or at the root of the specified account.",
                 "name": "create",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolder"
+                            },
+                            {
+                                "$ref": "accounts.MailAccount"
+                            }
+                        ],
+                        "name": "parent"
                     },
                     {
                         "name": "childName",
@@ -395,14 +166,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#rename-folderid-newname",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#rename-folder-newname",
                 "async": "callback",
                 "description": "Renames a folder.",
                 "name": "rename",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
+                        "$ref": "folders.MailFolder",
+                        "name": "folder"
                     },
                     {
                         "name": "newName",
@@ -428,18 +199,25 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#move-sourcefolderid-destinationfolderid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#move-sourcefolder-destination",
                 "async": "callback",
-                "description": "Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.",
+                "description": "Moves the given <val>sourceFolder</val> into the given <val>destination</val>. Throws if the destination already contains a folder with the name of the source folder.",
                 "name": "move",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "sourceFolderId"
+                        "$ref": "folders.MailFolder",
+                        "name": "sourceFolder"
                     },
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "destinationFolderId"
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolder"
+                            },
+                            {
+                                "$ref": "accounts.MailAccount"
+                            }
+                        ],
+                        "name": "destination"
                     },
                     {
                         "name": "callback",
@@ -461,18 +239,25 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#copy-sourcefolderid-destinationfolderid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#copy-sourcefolder-destination",
                 "async": "callback",
-                "description": "Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.",
+                "description": "Copies the given <val>sourceFolder</val> into the given <val>destination</val>. Throws if the destination already contains a folder with the name of the source folder.",
                 "name": "copy",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "sourceFolderId"
+                        "$ref": "folders.MailFolder",
+                        "name": "sourceFolder"
                     },
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "destinationFolderId"
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolder"
+                            },
+                            {
+                                "$ref": "accounts.MailAccount"
+                            }
+                        ],
+                        "name": "destination"
                     },
                     {
                         "name": "callback",
@@ -494,14 +279,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#delete-folderid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#delete-folder",
                 "async": true,
                 "description": "Deletes a folder.",
                 "name": "delete",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
+                        "$ref": "folders.MailFolder",
+                        "name": "folder"
                     }
                 ],
                 "permissions": [
@@ -514,45 +299,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#update-folderid-updateproperties",
-                "async": true,
-                "description": "Updates properties of a folder.",
-                "name": "update",
-                "parameters": [
-                    {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
-                    },
-                    {
-                        "description": "The properties to update.",
-                        "name": "updateProperties",
-                        "properties": {
-                            "isFavorite": {
-                                "description": "Sets or clears the favorite status.",
-                                "optional": true,
-                                "type": "boolean"
-                            }
-                        },
-                        "type": "object"
-                    }
-                ],
-                "permissions": [
-                    "accountsFolders"
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getfolderinfo-folderid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getfolderinfo-folder",
                 "async": "callback",
-                "description": "Get additional information about a folder.",
+                "description": "Get additional information about a mail folder.",
                 "name": "getFolderInfo",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
+                        "$ref": "folders.MailFolder",
+                        "name": "folder"
                     },
                     {
                         "name": "callback",
@@ -571,44 +325,18 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getfoldercapabilities-folderid",
-                "async": "callback",
-                "description": "Get capability information about a folder.",
-                "name": "getFolderCapabilities",
-                "parameters": [
-                    {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
-                    },
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [
-                            {
-                                "$ref": "folders.MailFolderCapabilities"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getparentfolders-folderid-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getparentfolders-folder-includesubfolders",
                 "async": "callback",
                 "description": "Get all parent folders as a flat ordered array. The first array entry is the direct parent.",
                 "name": "getParentFolders",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
+                        "$ref": "folders.MailFolder",
+                        "name": "folder"
                     },
                     {
                         "default": false,
-                        "description": "Specifies whether each returned parent $(ref:folders.MailFolder) should populate its <var>subFolders</var> property and include all its (nested!) subfolders. Defaults to <var>false</var>.",
+                        "description": "Specifies whether the returned $(ref:folders.MailFolder) object for each parent folder should include its nested subfolders . Defaults to <value>false</value>.",
                         "name": "includeSubFolders",
                         "optional": true,
                         "type": "boolean"
@@ -633,18 +361,25 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getsubfolders-folderid-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getsubfolders-folderoraccount-includesubfolders",
                 "async": "callback",
-                "description": "Get the subfolders of the specified folder.",
+                "description": "Get the subfolders of the specified folder or account.",
                 "name": "getSubFolders",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolder"
+                            },
+                            {
+                                "$ref": "accounts.MailAccount"
+                            }
+                        ],
+                        "name": "folderOrAccount"
                     },
                     {
-                        "default": false,
-                        "description": "Specifies whether each returned direct child $(ref:folders.MailFolder) should populate its <var>subFolders</var> property and include all its (nested!) subfolders. Defaults to <var>false</var>.",
+                        "default": true,
+                        "description": "Specifies whether the returned $(ref:folders.MailFolder) object for each direct subfolder should also include all its nested subfolders . Defaults to <value>true</value>.",
                         "name": "includeSubFolders",
                         "optional": true,
                         "type": "boolean"
@@ -662,101 +397,6 @@
                         ],
                         "type": "function"
                     }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getunifiedfolder-type-includesubfolders",
-                "async": "callback",
-                "description": "Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts.",
-                "name": "getUnifiedFolder",
-                "parameters": [
-                    {
-                        "description": "The requested unified mailbox folder type.",
-                        "enum": [
-                            "inbox",
-                            "drafts",
-                            "sent",
-                            "trash",
-                            "templates",
-                            "archives",
-                            "junk"
-                        ],
-                        "name": "type",
-                        "type": "string"
-                    },
-                    {
-                        "default": false,
-                        "description": "Specifies whether the returned $(ref:folders.MailFolder) should populate its <var>subFolders</var> property and include all its (nested!) subfolders. Defaults to <var>false</var>.",
-                        "name": "includeSubFolders",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [
-                            {
-                                "$ref": "folders.MailFolder"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#gettagfolder-key",
-                "async": "callback",
-                "description": "Get one of the special unified mailbox tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.",
-                "name": "getTagFolder",
-                "parameters": [
-                    {
-                        "description": "The tag key of the requested folder. See $(ref:messages.tags.list()) for the available tags. Throws when specifying an invalid tag key.",
-                        "name": "key",
-                        "type": "string"
-                    },
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [
-                            {
-                                "$ref": "folders.MailFolder"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#markasread-folderid",
-                "async": "callback",
-                "description": "Marks all messages in a folder as read.",
-                "name": "markAsRead",
-                "parameters": [
-                    {
-                        "$ref": "folders.MailFolderId",
-                        "name": "folderId"
-                    },
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [],
-                        "type": "function"
-                    }
-                ],
-                "permissions": [
-                    "accountsFolders"
                 ],
                 "support": {
                     "version_added": true
@@ -768,55 +408,14 @@
         "permissions": [
             "accountsRead"
         ],
-        "properties": {
-            "DEFAULT_MOST_RECENT_LIMIT": {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#default_most_recent_limit",
-                "description": "The number of most recent folders used in Thunderbird's UI. Controled by the <var>mail.folder_widget.max_recent</var> preference.",
-                "support": {
-                    "version_added": true
-                },
-                "value": -1
-            }
-        },
         "types": [
             {
-                "description": "An object describing a folder.",
+                "description": "An object describing a mail folder, as returned for example by the $(ref:folders.getParentFolders) or $(ref:folders.getSubFolders) methods, or part of a $(ref:accounts.MailAccount) object, which is returned for example by the $(ref:accounts.list) and $(ref:accounts.get) methods. The <val>subFolders</val> property is only included if requested.",
                 "id": "MailFolder",
                 "properties": {
                     "accountId": {
-                        "$ref": "accounts.MailAccountId",
-                        "description": "The id of the account this folder belongs to.",
-                        "optional": true
-                    },
-                    "id": {
-                        "$ref": "folders.MailFolderId",
-                        "description": "An identifier for the folder.",
-                        "optional": true
-                    },
-                    "isFavorite": {
-                        "description": "Whether this folder is a favorite folder.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "isRoot": {
-                        "description": "Whether this folder is a root folder.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "isTag": {
-                        "description": "Whether this folder is a virtual tag folder.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "isUnified": {
-                        "description": "Whether this folder is a unified mailbox folder.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "isVirtual": {
-                        "description": "Whether this folder is a virtual search folder.",
-                        "optional": true,
-                        "type": "boolean"
+                        "description": "The account this folder belongs to.",
+                        "type": "string"
                     },
                     "name": {
                         "description": "The human-friendly name of this folder.",
@@ -827,51 +426,40 @@
                         "description": "Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is. Use $(ref:folders.getParentFolders) or $(ref:folders.getSubFolders) to obtain hierarchy information.",
                         "type": "string"
                     },
-                    "specialUse": {
-                        "description": "The special use of this folder. A folder can have multiple special uses.",
+                    "subFolders": {
+                        "description": "Subfolders are only included if requested. They will be returned in the same order as used in Thunderbird's folder pane.",
                         "items": {
-                            "$ref": "folders.MailFolderSpecialUse"
+                            "$ref": "MailFolder"
                         },
                         "optional": true,
                         "type": "array"
                     },
-                    "subFolders": {
-                        "description": "Subfolders of this folder. The property may be <var>null</var>, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.",
-                        "items": {
-                            "$ref": "folders.MailFolder"
-                        },
+                    "type": {
+                        "description": "The type of folder, for several common types.",
+                        "enum": [
+                            "inbox",
+                            "drafts",
+                            "sent",
+                            "trash",
+                            "templates",
+                            "archives",
+                            "junk",
+                            "outbox"
+                        ],
                         "optional": true,
-                        "type": "array"
+                        "type": "string"
                     }
                 },
                 "type": "object"
             },
             {
-                "description": "A unique id representing a $(ref:folders.MailFolder) throughout a session. Renaming or moving a folder will invalidate its id.",
-                "id": "MailFolderId",
-                "type": "string"
-            },
-            {
-                "description": "An object containing additional information about a folder.",
+                "description": "An object containing additional information about a mail folder.",
                 "id": "MailFolderInfo",
                 "properties": {
-                    "lastUsed": {
-                        "$ref": "extensionTypes.Date",
-                        "description": "Date the folder was last used (precision: seconds).",
-                        "optional": true
-                    },
-                    "newMessageCount": {
-                        "description": "Number of new messages in this folder.",
+                    "favorite": {
+                        "description": "Whether this folder is a favorite folder.",
                         "optional": true,
-                        "type": "integer"
-                    },
-                    "quota": {
-                        "description": "Quota information, if available.",
-                        "items": {
-                            "$ref": "folders.MailFolderQuota"
-                        },
-                        "optional": true,
-                        "type": "array"
+                        "type": "boolean"
                     },
                     "totalMessageCount": {
                         "description": "Number of messages in this folder.",
@@ -882,113 +470,6 @@
                         "description": "Number of unread messages in this folder.",
                         "optional": true,
                         "type": "integer"
-                    }
-                },
-                "type": "object"
-            },
-            {
-                "description": "An object containing capability information about a folder.",
-                "id": "MailFolderCapabilities",
-                "properties": {
-                    "canAddMessages": {
-                        "description": "Whether this folder supports adding new messages.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "canAddSubfolders": {
-                        "description": "Whether this folder supports adding new subfolders.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "canBeDeleted": {
-                        "description": "Whether this folder can be deleted.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "canBeRenamed": {
-                        "description": "Whether this folder can be renamed.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "canDeleteMessages": {
-                        "description": "Whether this folder supports deleting messages.",
-                        "optional": true,
-                        "type": "boolean"
-                    }
-                },
-                "type": "object"
-            },
-            {
-                "description": "Supported values for the special use of a folder.",
-                "enum": [
-                    "inbox",
-                    "drafts",
-                    "sent",
-                    "trash",
-                    "templates",
-                    "archives",
-                    "junk",
-                    "outbox"
-                ],
-                "id": "MailFolderSpecialUse",
-                "type": "string"
-            },
-            {
-                "description": "An object containing quota information.",
-                "id": "MailFolderQuota",
-                "properties": {
-                    "limit": {
-                        "description": "The maximum available quota.",
-                        "type": "integer"
-                    },
-                    "type": {
-                        "description": "The type of the quota as defined by RFC2087. A <var>STORAGE</var> quota is constraining the available storage in bytes, a <var>MESSAGE</var> quota is constraining the number of storable messages.",
-                        "enum": [
-                            "STORAGE",
-                            "MESSAGE"
-                        ],
-                        "type": "string"
-                    },
-                    "unused": {
-                        "description": "The currently unused quota.",
-                        "type": "integer"
-                    },
-                    "used": {
-                        "description": "The currently used quota.",
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            },
-            {
-                "description": "An object defining a range.",
-                "id": "QueryRange",
-                "properties": {
-                    "max": {
-                        "description": "The maximum value required to match the query.",
-                        "optional": true,
-                        "type": "integer"
-                    },
-                    "min": {
-                        "description": "The minimum value required to match the query.",
-                        "optional": true,
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            },
-            {
-                "id": "RegularExpression",
-                "properties": {
-                    "flags": {
-                        "description": "Supported RegExp flags: <var>i</var> = case insensitive, and/or one of <var>u</var> = unicode support or <var>v</var> = extended unicode support",
-                        "optional": true,
-                        "pattern": "^(i|u|v|iu|iv|ui|vi)$",
-                        "type": "string"
-                    },
-                    "regexp": {
-                        "description": "A regular expression, for example <var>^Projects \\d{4}$</var>.",
-                        "type": "string"
                     }
                 },
                 "type": "object"

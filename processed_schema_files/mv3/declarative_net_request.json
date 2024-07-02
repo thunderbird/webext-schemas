@@ -186,7 +186,7 @@
             },
             {
                 "async": "callback",
-                "description": "Modifies the static rulesets enabled/disabled state.",
+                "description": "Returns the ids for the current set of enabled static rulesets.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateEnabledRulesets",
                 "name": "updateEnabledRulesets",
                 "parameters": [
@@ -225,48 +225,6 @@
             },
             {
                 "async": "callback",
-                "description": "Modified individual static rules enabled/disabled state. Changes to rules belonging to a disabled ruleset will take effect when the ruleset becomes enabled.",
-                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateStaticRules",
-                "name": "updateStaticRules",
-                "parameters": [
-                    {
-                        "name": "options",
-                        "properties": {
-                            "disableRuleIds": {
-                                "default": [],
-                                "items": {
-                                    "type": "integer"
-                                },
-                                "optional": true,
-                                "type": "array"
-                            },
-                            "enableRuleIds": {
-                                "default": [],
-                                "items": {
-                                    "type": "integer"
-                                },
-                                "optional": true,
-                                "type": "array"
-                            },
-                            "rulesetId": {
-                                "type": "string"
-                            }
-                        },
-                        "type": "object"
-                    },
-                    {
-                        "name": "callback",
-                        "parameters": [],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": "128"
-                },
-                "type": "function"
-            },
-            {
-                "async": "callback",
                 "description": "Returns the remaining number of static rules an extension can enable",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getAvailableStaticRuleCount",
                 "name": "getAvailableStaticRuleCount",
@@ -289,53 +247,10 @@
             },
             {
                 "async": "callback",
-                "description": "Returns the list of individual disabled static rules from a given static ruleset id.",
-                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getDisabledRuleIds",
-                "name": "getDisabledRuleIds",
-                "parameters": [
-                    {
-                        "name": "options",
-                        "properties": {
-                            "rulesetId": {
-                                "type": "string"
-                            }
-                        },
-                        "type": "object"
-                    },
-                    {
-                        "name": "callback",
-                        "parameters": [
-                            {
-                                "items": {
-                                    "type": "integer"
-                                },
-                                "name": "disabledRuleIds",
-                                "type": "array"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": "128"
-                },
-                "type": "function"
-            },
-            {
-                "async": "callback",
                 "description": "Returns the current set of dynamic rules for the extension.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getDynamicRules",
                 "name": "getDynamicRules",
                 "parameters": [
-                    {
-                        "$ref": "GetRulesFilter",
-                        "description": "An object to filter the set of dynamic rules for the extension.",
-                        "name": "filter",
-                        "optional": true,
-                        "support": {
-                            "version_added": "127"
-                        }
-                    },
                     {
                         "name": "callback",
                         "parameters": [
@@ -361,15 +276,6 @@
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getSessionRules",
                 "name": "getSessionRules",
                 "parameters": [
-                    {
-                        "$ref": "GetRulesFilter",
-                        "description": "An object to filter the set of session scoped rules for the extension.",
-                        "name": "filter",
-                        "optional": true,
-                        "support": {
-                            "version_added": "127"
-                        }
-                    },
                     {
                         "name": "callback",
                         "parameters": [
@@ -550,20 +456,12 @@
                 },
                 "type": "number"
             },
-            "MAX_NUMBER_OF_DISABLED_STATIC_RULES": {
-                "description": "The maximum number of static rules that can be disabled on each static ruleset.",
-                "type": "number"
-            },
             "MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES": {
-                "description": "Deprecated property returning the maximum number of dynamic and session rules an extension can add, replaced by MAX_NUMBER_OF_DYNAMIC_RULES/MAX_NUMBER_OF_SESSION_RULES.",
+                "description": "The maximum number of dynamic and session rules an extension can add. NOTE: in the Firefox we are enforcing this limit to the session and dynamic rules count separately, instead of enforcing it to the rules count for both combined as the Chrome implementation does.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES",
                 "support": {
                     "version_added": "113"
                 },
-                "type": "number"
-            },
-            "MAX_NUMBER_OF_DYNAMIC_RULES": {
-                "description": "The maximum number of dynamic session rules an extension can add.",
                 "type": "number"
             },
             "MAX_NUMBER_OF_ENABLED_STATIC_RULESETS": {
@@ -580,10 +478,6 @@
                 "support": {
                     "version_added": "113"
                 },
-                "type": "number"
-            },
-            "MAX_NUMBER_OF_SESSION_RULES": {
-                "description": "The maximum number of dynamic session rules an extension can add.",
                 "type": "number"
             },
             "MAX_NUMBER_OF_STATIC_RULESETS": {
@@ -985,20 +879,6 @@
                         "minimum": 1,
                         "optional": true,
                         "type": "integer"
-                    }
-                },
-                "type": "object"
-            },
-            {
-                "id": "GetRulesFilter",
-                "properties": {
-                    "ruleIds": {
-                        "description": "If specified, only rules with matching IDs are included.",
-                        "items": {
-                            "type": "integer"
-                        },
-                        "optional": true,
-                        "type": "array"
                     }
                 },
                 "type": "object"

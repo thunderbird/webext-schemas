@@ -21,7 +21,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/composeScripts.html#register-composescriptoptions",
                 "async": true,
-                "description": "Register a compose script programmatically. **Note:** Registered scripts will only be applied to newly opened message composer tabs. To apply the script to already open message composer tab, manually inject your script by calling $(ref:tabs.executeScript) for each of the open <var>messageCompose</var> tabs.",
+                "description": "Register a compose script programmatically",
                 "name": "register",
                 "parameters": [
                     {
@@ -41,11 +41,11 @@
         ],
         "types": [
             {
-                "description": "Details of a compose script registered programmatically.",
+                "description": "Details of a compose script registered programmatically",
                 "id": "RegisteredComposeScriptOptions",
                 "properties": {
                     "css": {
-                        "description": "The list of CSS files to inject.",
+                        "description": "The list of CSS files to inject",
                         "items": {
                             "$ref": "extensionTypes.ExtensionFileOrCode"
                         },
@@ -53,7 +53,7 @@
                         "type": "array"
                     },
                     "js": {
-                        "description": "The list of JavaScript files to inject.",
+                        "description": "The list of JavaScript files to inject",
                         "items": {
                             "$ref": "extensionTypes.ExtensionFileOrCode"
                         },
@@ -64,11 +64,11 @@
                 "type": "object"
             },
             {
-                "description": "An object that represents a compose script registered programmatically.",
+                "description": "An object that represents a compose script registered programmatically",
                 "functions": [
                     {
                         "async": true,
-                        "description": "Unregister a compose script registered programmatically.",
+                        "description": "Unregister a compose script registered programmatically",
                         "name": "unregister",
                         "parameters": [],
                         "type": "function"
@@ -84,7 +84,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplayScripts.html#register-messagedisplayscriptoptions",
                 "async": true,
-                "description": "Register a message display script programmatically. **Note:** Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling $(ref:tabs.executeScript) for each of the open <var>messageDisplay</var> tabs.",
+                "description": "Register a message display script programmatically",
                 "name": "register",
                 "parameters": [
                     {
@@ -122,17 +122,6 @@
                         },
                         "optional": true,
                         "type": "array"
-                    },
-                    "runAt": {
-                        "default": "document_idle",
-                        "description": "Determines when the files specified in css and js are injected. The states directly correspond to <code>Document.readyState</code>: <var>loading</var>, <var>interactive</var> and <var>complete</var>",
-                        "enum": [
-                            "document_start",
-                            "document_end",
-                            "document_idle"
-                        ],
-                        "optional": true,
-                        "type": "string"
                     }
                 },
                 "type": "object"
