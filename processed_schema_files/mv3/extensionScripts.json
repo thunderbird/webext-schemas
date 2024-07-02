@@ -122,6 +122,17 @@
                         },
                         "optional": true,
                         "type": "array"
+                    },
+                    "runAt": {
+                        "default": "document_idle",
+                        "description": "Determines when the files specified in css and js are injected. The states directly correspond to <code>Document.readyState</code>: <value>loading</value>, <value>interactive</value> and <value>complete</value>",
+                        "enum": [
+                            "document_start",
+                            "document_end",
+                            "document_idle"
+                        ],
+                        "optional": true,
+                        "type": "string"
                     }
                 },
                 "type": "object"

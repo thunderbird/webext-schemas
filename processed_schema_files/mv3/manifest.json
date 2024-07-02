@@ -209,6 +209,11 @@
                         "optional": true,
                         "type": "array"
                     },
+                    "options_page": {
+                        "$ref": "ExtensionURL",
+                        "description": "Alias property for options_ui.page, ignored when options_ui.page is set. When using this property the options page is always opened in a new tab.",
+                        "optional": true
+                    },
                     "options_ui": {
                         "additionalProperties": {
                             "$ref": "UnrecognizedProperty"
