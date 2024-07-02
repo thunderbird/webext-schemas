@@ -235,9 +235,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/messages.html#getraw-messageid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/messages.html#getraw-messageid-options",
                 "async": "callback",
-                "description": "Returns the unmodified source of a message as a <a href='|link-binary-string|'>binary string</a>, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use $(ref:messages.getFull) to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.\n\nTo get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main <a href='|link-content-type|'>content-type</a> header (example: <value>text/html; charset=UTF-8</value>) using the following function (see MDN for <a href='|link-input-encoding|'>supported input encodings</a>): <literalinclude>includes/messages/decodeBinaryString.js<lang>JavaScript</lang></literalinclude>",
+                "description": "Returns the unmodified source of a message. Throws if the message could not be read, for example due to network issues.",
                 "name": "getRaw",
                 "parameters": [
                     {
@@ -245,11 +245,35 @@
                         "type": "integer"
                     },
                     {
+                        "name": "options",
+                        "optional": true,
+                        "properties": {
+                            "data_format": {
+                                "description": "The message can either be returned as a DOM File (default) or as a <a href='|link-binary-string|'>binary string</a>. It is recommended to use the <val>File</val> format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like <a href='|link-DOMFile-text|'>File.text()</a> and <a href='|link-DOMFile-arrayBuffer|'>File.arrayBuffer()</a>. Working with binary strings is error prone and needs special handling: <literalinclude>includes/messages/decodeBinaryString.js<lang>JavaScript</lang></literalinclude> (see MDN for <a href='|link-input-encoding|'>supported input encodings</a>).",
+                                "enum": [
+                                    "BinaryString",
+                                    "File"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
                         "name": "callback",
                         "optional": true,
                         "parameters": [
                             {
-                                "type": "string"
+                                "choices": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "additionalProperties": true,
+                                        "isInstanceOf": "File",
+                                        "type": "object"
+                                    }
+                                ]
                             }
                         ],
                         "type": "function"
@@ -667,9 +691,9 @@
                 "name": "createTag",
                 "parameters": [
                     {
-                        "description": "Unique tag identifier (must use only alphanumeric characters).",
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
                         "name": "key",
-                        "pattern": "^[$a-zA-Z0-9]+$",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
                         "type": "string"
                     },
                     {
@@ -699,9 +723,9 @@
                 "name": "updateTag",
                 "parameters": [
                     {
-                        "description": "Unique tag identifier.",
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
                         "name": "key",
-                        "pattern": "^[$a-zA-Z0-9]+$",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
                         "type": "string"
                     },
                     {
@@ -737,8 +761,9 @@
                 "name": "deleteTag",
                 "parameters": [
                     {
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
                         "name": "key",
-                        "pattern": "^[$a-zA-Z0-9]+$",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
                         "type": "string"
                     }
                 ],
