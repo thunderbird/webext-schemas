@@ -287,11 +287,10 @@
                 "name": "beginNew",
                 "parameters": [
                     {
+                        "$ref": "messages.MessageId",
                         "description": "If specified, the message or template to edit as a new message.",
-                        "minimum": 1,
                         "name": "messageId",
-                        "optional": true,
-                        "type": "integer"
+                        "optional": true
                     },
                     {
                         "$ref": "ComposeDetails",
@@ -322,10 +321,9 @@
                 "name": "beginReply",
                 "parameters": [
                     {
+                        "$ref": "messages.MessageId",
                         "description": "The message to reply to, as retrieved using other APIs.",
-                        "minimum": 1,
-                        "name": "messageId",
-                        "type": "integer"
+                        "name": "messageId"
                     },
                     {
                         "enum": [
@@ -366,10 +364,9 @@
                 "name": "beginForward",
                 "parameters": [
                     {
+                        "$ref": "messages.MessageId",
                         "description": "The message to forward, as retrieved using other APIs.",
-                        "minimum": 1,
-                        "name": "messageId",
-                        "type": "integer"
+                        "name": "messageId"
                     },
                     {
                         "enum": [
@@ -1041,9 +1038,9 @@
                         "type": "string"
                     },
                     "relatedMessageId": {
+                        "$ref": "messages.MessageId",
                         "description": "The id of the original message (in case of draft, template, forward or reply). Read-only. Is <value>null</value> in all other cases or if the original message was opened from file.",
-                        "optional": true,
-                        "type": "integer"
+                        "optional": true
                     },
                     "replyTo": {
                         "$ref": "ComposeRecipientList",

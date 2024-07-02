@@ -12,6 +12,8 @@
                             "messagesMove",
                             "messagesRead",
                             "messagesTags",
+                            "messagesTagsList",
+                            "messagesUpdate",
                             "sensitiveDataUpload"
                         ],
                         "type": "string"
@@ -213,8 +215,8 @@
                 "name": "get",
                 "parameters": [
                     {
-                        "name": "messageId",
-                        "type": "integer"
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
                     },
                     {
                         "name": "callback",
@@ -239,8 +241,8 @@
                 "name": "getFull",
                 "parameters": [
                     {
-                        "name": "messageId",
-                        "type": "integer"
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
                     },
                     {
                         "name": "callback",
@@ -265,8 +267,8 @@
                 "name": "getRaw",
                 "parameters": [
                     {
-                        "name": "messageId",
-                        "type": "integer"
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
                     },
                     {
                         "name": "options",
@@ -315,8 +317,8 @@
                 "name": "listAttachments",
                 "parameters": [
                     {
-                        "name": "messageId",
-                        "type": "integer"
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
                     },
                     {
                         "name": "callback",
@@ -344,8 +346,8 @@
                 "name": "getAttachmentFile",
                 "parameters": [
                     {
-                        "name": "messageId",
-                        "type": "integer"
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
                     },
                     {
                         "name": "partName",
@@ -377,8 +379,8 @@
                 "name": "openAttachment",
                 "parameters": [
                     {
-                        "name": "messageId",
-                        "type": "integer"
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
                     },
                     {
                         "name": "partName",
@@ -521,7 +523,7 @@
                             },
                             "tags": {
                                 "$ref": "messages.tags.TagsDetail",
-                                "description": "Returns only messages with the specified tags. For a list of available tags, call the $(ref:messages.listTags) method.",
+                                "description": "Returns only messages with the specified tags. For a list of available tags, call the $(ref:messages.tags.list) method.",
                                 "optional": true
                             },
                             "toDate": {
@@ -563,18 +565,20 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#update-messageid-newproperties",
                 "async": true,
-                "description": "Marks or unmarks a message as junk, read, flagged, or tagged. Updating external messages will throw an <em>ExtensionError</em>.",
+                "description": "Updates message properties and tags. Updating external messages will throw an <em>ExtensionError</em>.",
                 "name": "update",
                 "parameters": [
                     {
-                        "minimum": 1,
-                        "name": "messageId",
-                        "type": "integer"
+                        "$ref": "messages.MessageId",
+                        "name": "messageId"
                     },
                     {
                         "$ref": "MessageProperties",
                         "name": "newProperties"
                     }
+                ],
+                "permissions": [
+                    "messagesUpdate"
                 ],
                 "support": {
                     "version_added": true
@@ -590,8 +594,7 @@
                     {
                         "description": "The IDs of the messages to move.",
                         "items": {
-                            "minimum": 1,
-                            "type": "integer"
+                            "$ref": "messages.MessageId"
                         },
                         "name": "messageIds",
                         "type": "array"
@@ -620,8 +623,7 @@
                     {
                         "description": "The IDs of the messages to copy.",
                         "items": {
-                            "minimum": 1,
-                            "type": "integer"
+                            "$ref": "messages.MessageId"
                         },
                         "name": "messageIds",
                         "type": "array"
@@ -650,8 +652,7 @@
                     {
                         "description": "The IDs of the messages to delete.",
                         "items": {
-                            "minimum": 1,
-                            "type": "integer"
+                            "$ref": "messages.MessageId"
                         },
                         "name": "messageIds",
                         "type": "array"
@@ -722,8 +723,7 @@
                     {
                         "description": "The IDs of the messages to archive.",
                         "items": {
-                            "minimum": 1,
-                            "type": "integer"
+                            "$ref": "messages.MessageId"
                         },
                         "name": "messageIds",
                         "type": "array"
@@ -743,6 +743,12 @@
             "messagesRead"
         ],
         "types": [
+            {
+                "description": "A unique id representing a $(ref:messages.MessageHeader) and the associated message. This id doesn’t refer to the Message-ID email header. It is an internal tracking number that does not remain after a restart. Nor does it follow an email that has been moved to a different folder.",
+                "id": "MessageId",
+                "minimum": 1,
+                "type": "integer"
+            },
             {
                 "description": "Basic information about a message.",
                 "id": "MessageHeader",
@@ -789,8 +795,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "minimum": 1,
-                        "type": "integer"
+                        "$ref": "messages.MessageId"
                     },
                     "junk": {
                         "description": "Whether the message has been marked as junk. Always <value>false</value> for news/nntp messages and external messages.",
@@ -928,7 +933,7 @@
                         "type": "boolean"
                     },
                     "tags": {
-                        "description": "Tags associated with this message. For a list of available tags, call the listTags method.",
+                        "description": "Tags associated with this message. For a list of available tags, call the $(ref:messages.tags.list) method.",
                         "items": {
                             "type": "string"
                         },
@@ -1005,6 +1010,9 @@
                         ],
                         "type": "function"
                     }
+                ],
+                "permissions": [
+                    "messagesTagsList"
                 ],
                 "type": "function"
             },
@@ -1089,9 +1097,6 @@
             }
         ],
         "namespace": "messages.tags",
-        "permissions": [
-            "messagesRead"
-        ],
         "types": [
             {
                 "id": "MessageTag",
@@ -1128,7 +1133,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "description": "A <em>dictionary object</em> with one or more filter condition as <em>key-value</em> pairs, the <em>key</em> being the tag to filter on, and the <em>value</em> being a boolean expression, requesting whether a message must include (<value>true</value>) or exclude (<value>false</value>) the tag. For a list of available tags, call the $(ref:messages.listTags) method.",
+                        "description": "A <em>dictionary object</em> with one or more filter condition as <em>key-value</em> pairs, the <em>key</em> being the tag to filter on, and the <em>value</em> being a boolean expression, requesting whether a message must include (<value>true</value>) or exclude (<value>false</value>) the tag. For a list of available tags, call the $(ref:messages.tags.list) method.",
                         "patternProperties": {
                             ".*": {
                                 "type": "boolean"

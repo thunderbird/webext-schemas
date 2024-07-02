@@ -253,10 +253,10 @@
                                 "optional": true,
                                 "type": "boolean"
                             },
-                            "mostRecent": {
-                                "description": "Whether the folder (excluding subfolders) has been used within the last month. The returned folders will be sorted by their recentness and limited to the most recent ones, which is controlled by the <value>mail.folder_widget.max_recent</value> preference. A value of <value>false</value> is ignored.",
+                            "limit": {
+                                "description": "Limits the number of returned folders. If used together with <value>recent</value>, supports being set to $(ref:folders.DEFAULT_MOST_RECENT_LIMIT)",
                                 "optional": true,
-                                "type": "boolean"
+                                "type": "integer"
                             },
                             "name": {
                                 "choices": [
@@ -283,7 +283,7 @@
                                 "optional": true
                             },
                             "recent": {
-                                "description": "Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness. Ignored if <value>mostRecent</value> is specified.",
+                                "description": "Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness.",
                                 "optional": true,
                                 "type": "boolean"
                             },
@@ -807,6 +807,16 @@
         "permissions": [
             "accountsRead"
         ],
+        "properties": {
+            "DEFAULT_MOST_RECENT_LIMIT": {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#default_most_recent_limit",
+                "description": "The number of most recent folders used in Thunderbird's UI. Controled by the <value>mail.folder_widget.max_recent</value> preference.",
+                "support": {
+                    "version_added": true
+                },
+                "value": -1
+            }
+        },
         "types": [
             {
                 "description": "An object describing a folder. The <val>subFolders</val> property is only included if requested.",

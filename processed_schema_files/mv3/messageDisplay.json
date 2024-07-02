@@ -151,10 +151,9 @@
                                 "type": "string"
                             },
                             "messageId": {
+                                "$ref": "messages.MessageId",
                                 "description": "The id of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <val>messageId</val> is unknown or invalid.",
-                                "minimum": 1,
-                                "optional": true,
-                                "type": "integer"
+                                "optional": true
                             },
                             "windowId": {
                                 "description": "The id of the window, where the new tab should be created. Defaults to the current window. Only applicable to messages opened in tabs.",
