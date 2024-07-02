@@ -142,6 +142,7 @@
                             "mode": {
                                 "description": "The used save mode.",
                                 "enum": [
+                                    "autoSave",
                                     "draft",
                                     "template"
                                 ],
@@ -948,7 +949,7 @@
                         "type": "array"
                     },
                     "deliveryFormat": {
-                        "description": "Defines the mime format of the sent message (ignored on plain text messages). Defaults to <value>auto</value>, which will send html messages as plain text, if they do not include any formatting, and as <value>both</value> otherwise (a multipart/mixed message).",
+                        "description": "Defines the MIME format of the sent message (ignored on plain text messages). Defaults to <value>auto</value>, which will send html messages as plain text, if they do not include any formatting, and as <value>both</value> otherwise (a multipart/mixed message).",
                         "enum": [
                             "auto",
                             "plaintext",
@@ -969,13 +970,18 @@
                     },
                     "from": {
                         "$ref": "ComposeRecipient",
-                        "description": "*Caution*: Setting a value for <val>from</val> does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.",
+                        "description": "*Caution*: Setting a value for <val>from</val> does not change the used identity, it overrides the <value>From</value> header. Many email servers do not accept emails where the <value>From</value> header does not match the sender identity. Must be set to exactly one valid email address.",
                         "optional": true
                     },
                     "identityId": {
                         "description": "The ID of an identity from the $(doc:accounts). The settings from the identity will be used in the composed message. If <val>replyTo</val> is also specified, the <val>replyTo</val> property of the identity is overridden. The permission <permission>accountsRead</permission> is required to include the <val>identityId</val>.",
                         "optional": true,
                         "type": "string"
+                    },
+                    "isModified": {
+                        "description": "Whether the composer is considered modified by the user. A modified composer asks for confirmation, when it is closed.",
+                        "optional": true,
+                        "type": "boolean"
                     },
                     "isPlainText": {
                         "description": "Whether the message is an HTML message or a plain text message.",
@@ -1119,8 +1125,7 @@
                 "id": "CustomHeader",
                 "properties": {
                     "name": {
-                        "description": "Name of a custom header, must have a <value>X-</value> prefix.",
-                        "pattern": "^X-.*$",
+                        "description": "Name of a custom header, must be prefixed by <value>X-</value> (but not by <value>X-Mozilla-</value>) or be one of the explicitly allowed headers (<value>MSIP_Labels</value>)",
                         "type": "string"
                     },
                     "value": {

@@ -236,7 +236,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getfull-messageid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getfull-messageid-options",
                 "async": "callback",
                 "description": "Returns the specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.",
                 "name": "getFull",
@@ -244,6 +244,18 @@
                     {
                         "$ref": "messages.MessageId",
                         "name": "messageId"
+                    },
+                    {
+                        "name": "options",
+                        "optional": true,
+                        "properties": {
+                            "decrypt": {
+                                "description": "Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to true.",
+                                "optional": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
                     },
                     {
                         "name": "callback",
@@ -281,7 +293,13 @@
                                     "BinaryString",
                                     "File"
                                 ],
+                                "optional": true,
                                 "type": "string"
+                            },
+                            "decrypt": {
+                                "description": "Whether the message should be decrypted. Throws, if the message could not be decrypted.",
+                                "optional": true,
+                                "type": "boolean"
                             }
                         },
                         "type": "object"
@@ -676,7 +694,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#delete-messageids-skiptrash",
                 "async": true,
-                "description": "Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an <em>ExtensionError</em>. The <val>skipTrash</val> parameter allows immediate permanent deletion, bypassing the trash folder.\n**Note**: Consider using $(ref:messages.move) to manually move messages to the account's trash folder, instead of requesting the overly powerful permission to actually delete messages. The account's trash folder can be extracted as follows: <literalinclude>includes/messages/getTrash.js<lang>JavaScript</lang></literalinclude>",
+                "description": "Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an <em>ExtensionError</em>. The <val>skipTrash</val> parameter allows immediate permanent deletion, bypassing the trash folder.",
                 "name": "delete",
                 "parameters": [
                     {
@@ -901,6 +919,17 @@
                         "optional": true,
                         "type": "string"
                     },
+                    "decryptionStatus": {
+                        "description": "The decryption status, only available for the root part.",
+                        "enum": [
+                            "none",
+                            "skipped",
+                            "success",
+                            "fail"
+                        ],
+                        "optional": true,
+                        "type": "string"
+                    },
                     "headers": {
                         "additionalProperties": {
                             "items": {
@@ -908,7 +937,7 @@
                             },
                             "type": "array"
                         },
-                        "description": "A <em>dictionary object</em> of part headers as <em>key-value</em> pairs, with the header name as <em>key</em>, and an array of headers as <em>value</em>",
+                        "description": "A <em>dictionary object</em> of part headers as <em>key-value</em> pairs, with the header name as <em>key</em>, and an array of headers as <em>value</em>.",
                         "optional": true,
                         "type": "object"
                     },
