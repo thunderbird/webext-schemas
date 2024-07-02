@@ -51,7 +51,7 @@
                                 "type": "string"
                             },
                             "default_icon": {
-                                "$ref": "IconPath",
+                                "$ref": "manifest.IconPath",
                                 "description": "The paths to one or more icons for the browserAction button.",
                                 "optional": true
                             },
