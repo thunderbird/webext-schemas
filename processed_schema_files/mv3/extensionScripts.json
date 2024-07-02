@@ -15,5 +15,131 @@
                 ]
             }
         ]
+    },
+    {
+        "functions": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/composeScripts.html#register-composescriptoptions",
+                "async": true,
+                "description": "Register a compose script programmatically",
+                "name": "register",
+                "parameters": [
+                    {
+                        "$ref": "RegisteredComposeScriptOptions",
+                        "name": "composeScriptOptions"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            }
+        ],
+        "namespace": "composeScripts",
+        "permissions": [
+            "compose"
+        ],
+        "types": [
+            {
+                "description": "Details of a compose script registered programmatically",
+                "id": "RegisteredComposeScriptOptions",
+                "properties": {
+                    "css": {
+                        "description": "The list of CSS files to inject",
+                        "items": {
+                            "$ref": "extensionTypes.ExtensionFileOrCode"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "js": {
+                        "description": "The list of JavaScript files to inject",
+                        "items": {
+                            "$ref": "extensionTypes.ExtensionFileOrCode"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "An object that represents a compose script registered programmatically",
+                "functions": [
+                    {
+                        "async": true,
+                        "description": "Unregister a compose script registered programmatically",
+                        "name": "unregister",
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "id": "RegisteredComposeScript",
+                "type": "object"
+            }
+        ]
+    },
+    {
+        "functions": [
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/messageDisplayScripts.html#register-messagedisplayscriptoptions",
+                "async": true,
+                "description": "Register a message display script programmatically",
+                "name": "register",
+                "parameters": [
+                    {
+                        "$ref": "RegisteredMessageDisplayScriptOptions",
+                        "name": "messageDisplayScriptOptions"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            }
+        ],
+        "namespace": "messageDisplayScripts",
+        "permissions": [
+            "messagesModify"
+        ],
+        "types": [
+            {
+                "description": "Details of a message display script registered programmatically",
+                "id": "RegisteredMessageDisplayScriptOptions",
+                "properties": {
+                    "css": {
+                        "description": "The list of CSS files to inject",
+                        "items": {
+                            "$ref": "extensionTypes.ExtensionFileOrCode"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "js": {
+                        "description": "The list of JavaScript files to inject",
+                        "items": {
+                            "$ref": "extensionTypes.ExtensionFileOrCode"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "An object that represents a message display script registered programmatically",
+                "functions": [
+                    {
+                        "async": true,
+                        "description": "Unregister a message display script registered programmatically",
+                        "name": "unregister",
+                        "parameters": [],
+                        "type": "function"
+                    }
+                ],
+                "id": "RegisteredMessageDisplayScript",
+                "type": "object"
+            }
+        ]
     }
 ]

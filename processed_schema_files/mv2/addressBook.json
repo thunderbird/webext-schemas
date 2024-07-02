@@ -19,7 +19,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#oncreated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#oncreated-node",
                 "description": "Fired when an address book is created.",
                 "name": "onCreated",
                 "parameters": [
@@ -34,7 +34,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#onupdated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#onupdated-node",
                 "description": "Fired when an address book is renamed.",
                 "name": "onUpdated",
                 "parameters": [
@@ -49,7 +49,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#ondeleted-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#ondeleted-id",
                 "description": "Fired when an addressBook is deleted.",
                 "name": "onDeleted",
                 "parameters": [
@@ -66,7 +66,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#openui",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#openui",
                 "async": "callback",
                 "description": "Opens the address book user interface.",
                 "name": "openUI",
@@ -89,7 +89,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#closeui",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#closeui",
                 "async": true,
                 "description": "Closes the address book user interface.",
                 "name": "closeUI",
@@ -100,7 +100,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#list-complete",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#list-complete",
                 "async": "callback",
                 "description": "Gets a list of the user's address books, optionally including all contacts and mailing lists.",
                 "name": "list",
@@ -132,7 +132,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#get-id-complete",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#get-id-complete",
                 "async": "callback",
                 "description": "Gets a single address book, optionally including all contacts and mailing lists.",
                 "name": "get",
@@ -165,7 +165,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#create-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#create-properties",
                 "async": "callback",
                 "description": "Creates a new, empty address book.",
                 "name": "create",
@@ -197,7 +197,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#update-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#update-id-properties",
                 "async": true,
                 "description": "Renames an address book.",
                 "name": "update",
@@ -222,7 +222,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#delete-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/addressBooks.html#delete-id",
                 "async": true,
                 "description": "Removes an address book, and all associated contacts and mailing lists.",
                 "name": "delete",
@@ -281,7 +281,7 @@
                         "type": "string"
                     },
                     "parentId": {
-                        "description": "The <var>id</var> of the parent object.",
+                        "description": "The <val>id</val> of the parent object.",
                         "optional": true,
                         "type": "string"
                     },
@@ -297,7 +297,7 @@
                     },
                     "type": {
                         "$ref": "NodeType",
-                        "description": "Always set to <var>addressBook</var>."
+                        "description": "Always set to <value>addressBook</value>."
                     }
                 },
                 "type": "object"
@@ -319,7 +319,7 @@
                                 "type": "string"
                             },
                             "id": {
-                                "description": "The unique ID of the created address book. If several listeners have been added, the <var>id</var> allows to identify which address book initiated the search request. If not provided, a unique ID will be generated for you.",
+                                "description": "The unique ID of the created address book. If several listeners have been added, the <val>id</val> allows to identify which address book initiated the search request. If not provided, a unique ID will be generated for you.",
                                 "optional": true,
                                 "type": "string"
                             },
@@ -362,7 +362,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#oncreated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#oncreated-node",
                 "description": "Fired when a contact is created.",
                 "name": "onCreated",
                 "parameters": [
@@ -377,7 +377,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#onupdated-node-changedproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#onupdated-node-changedproperties",
                 "description": "Fired when a contact is changed.",
                 "name": "onUpdated",
                 "parameters": [
@@ -396,7 +396,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#ondeleted-parentid-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#ondeleted-parentid-id",
                 "description": "Fired when a contact is removed from an address book.",
                 "name": "onDeleted",
                 "parameters": [
@@ -417,9 +417,9 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#list-parentid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#list-parentid",
                 "async": "callback",
-                "description": "Gets all the contacts in the address book with the id <var>parentId</var>.",
+                "description": "Gets all the contacts in the address book with the id <val>parentId</val>.",
                 "name": "list",
                 "parameters": [
                     {
@@ -446,9 +446,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#quicksearch-parentid-queryinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#quicksearch-parentid-queryinfo",
                 "async": "callback",
-                "description": "Gets all contacts matching <var>queryInfo</var> in the address book with the id <var>parentId</var>.",
+                "description": "Gets all contacts matching <val>queryInfo</val> in the address book with the id <val>parentId</val>.",
                 "name": "quickSearch",
                 "parameters": [
                     {
@@ -489,7 +489,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#get-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#get-id",
                 "async": "callback",
                 "description": "Gets a single contact.",
                 "name": "get",
@@ -515,9 +515,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#getphoto-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#getphoto-id",
                 "async": "callback",
-                "description": "Gets the photo associated with this contact. Returns <var>null</var>, if no photo is available.",
+                "description": "Gets the photo associated with this contact, if any.",
                 "name": "getPhoto",
                 "parameters": [
                     {
@@ -529,16 +529,10 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "choices": [
-                                    {
-                                        "additionalProperties": true,
-                                        "isInstanceOf": "File",
-                                        "type": "object"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
+                                "additionalProperties": true,
+                                "isInstanceOf": "File",
+                                "optional": true,
+                                "type": "object"
                             }
                         ],
                         "type": "function"
@@ -550,7 +544,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#setphoto-id-file",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#setphoto-id-file",
                 "async": true,
                 "description": "Sets the photo associated with this contact.",
                 "name": "setPhoto",
@@ -572,9 +566,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#create-parentid-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#create-parentid-id-properties",
                 "async": "callback",
-                "description": "Adds a new contact to the address book with the id <var>parentId</var>.",
+                "description": "Adds a new contact to the address book with the id <val>parentId</val>.",
                 "name": "create",
                 "parameters": [
                     {
@@ -589,7 +583,7 @@
                     },
                     {
                         "$ref": "ContactProperties",
-                        "description": "The properties object for the new contact. If it includes a <var>vCard</var> member, all specified <a href='https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334'>legacy properties</a> are ignored and the new contact will be based on the provided vCard string. If a UID is specified in the vCard string, which is already used by another contact, an exception is thrown. **Note:** Using individual properties is deprecated, use the <var>vCard</var> member instead.",
+                        "description": "The properties object for the new contact. If it includes a <val>vCard</val> member, all specified <a href='|link-legacy-properties|'>legacy properties</a> are ignored and the new contact will be based on the provided vCard string. If a UID is specified in the vCard string, which is already used by another contact, an exception is thrown. **Note:** Using individual properties is deprecated, use the <val>vCard</val> member instead.",
                         "name": "properties"
                     },
                     {
@@ -610,7 +604,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#update-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#update-id-properties",
                 "async": true,
                 "description": "Updates a contact.",
                 "name": "update",
@@ -621,7 +615,7 @@
                     },
                     {
                         "$ref": "ContactProperties",
-                        "description": "An object with properties to update the specified contact. Individual properties are removed, if they are set to <var>null</var>. If the provided object includes a <var>vCard</var> member, all specified <a href='https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334'>legacy properties</a> are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored. **Note:** Using individual properties is deprecated, use the <var>vCard</var> member instead. ",
+                        "description": "An object with properties to update the specified contact. Individual properties are removed, if they are set to <value>null</value>. If the provided object includes a <val>vCard</val> member, all specified <a href='|link-legacy-properties|'>legacy properties</a> are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored. **Note:** Using individual properties is deprecated, use the <val>vCard</val> member instead. ",
                         "name": "properties"
                     }
                 ],
@@ -631,7 +625,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#delete-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/contacts.html#delete-id",
                 "async": true,
                 "description": "Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.",
                 "name": "delete",
@@ -658,30 +652,30 @@
                 "properties": {
                     "includeLocal": {
                         "default": true,
-                        "description": "Whether to include results from local address books. Defaults to <var>true</var>.",
+                        "description": "Whether to include results from local address books. Defaults to true.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "includeReadOnly": {
                         "default": true,
-                        "description": "Whether to include results from read-only address books. Defaults to <var>true</var>.",
+                        "description": "Whether to include results from read-only address books. Defaults to true.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "includeReadWrite": {
                         "default": true,
-                        "description": "Whether to include results from read-write address books. Defaults to <var>true</var>.",
+                        "description": "Whether to include results from read-write address books. Defaults to true.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "includeRemote": {
                         "default": true,
-                        "description": "Whether to include results from remote address books. Defaults to <var>true</var>.",
+                        "description": "Whether to include results from remote address books. Defaults to true.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "searchString": {
-                        "description": "One or more space-separated terms to search for in predefined contact fields (defined by the preference <var>mail.addr_book.quicksearchquery.format</var>).",
+                        "description": "One or more space-separated terms to search for.",
                         "optional": true,
                         "type": "string"
                     }
@@ -697,7 +691,7 @@
                         "type": "string"
                     },
                     "parentId": {
-                        "description": "The <var>id</var> of the parent object.",
+                        "description": "The <val>id</val> of the parent object.",
                         "optional": true,
                         "type": "string"
                     },
@@ -716,13 +710,13 @@
                     },
                     "type": {
                         "$ref": "addressBooks.NodeType",
-                        "description": "Always set to <var>contact</var>."
+                        "description": "Always set to <value>contact</value>."
                     }
                 },
                 "type": "object"
             },
             {
-                "description": "A set of individual properties for a particular contact, and its vCard string. Further information can be found in $(doc:examples/vcard).",
+                "description": "A set of individual properties for a particular contact, and its vCard string. Further information can be found in $(ref:howto_contacts).",
                 "id": "ContactProperties",
                 "patternProperties": {
                     "^\\w+$": {
@@ -739,7 +733,7 @@
                 "type": "object"
             },
             {
-                "description": "A dictionary of changed properties. Keys are the property name that changed, values are an object containing <var>oldValue</var> and <var>newValue</var>. Values can be either a string or <var>null</var>.",
+                "description": "A dictionary of changed properties. Keys are the property name that changed, values are an object containing <val>oldValue</val> and <val>newValue</val>. Values can be either a string or <value>null</value>.",
                 "id": "PropertyChange",
                 "patternProperties": {
                     "^\\w+$": {
@@ -775,7 +769,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#oncreated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#oncreated-node",
                 "description": "Fired when a mailing list is created.",
                 "name": "onCreated",
                 "parameters": [
@@ -790,7 +784,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#onupdated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#onupdated-node",
                 "description": "Fired when a mailing list is changed.",
                 "name": "onUpdated",
                 "parameters": [
@@ -805,7 +799,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#ondeleted-parentid-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#ondeleted-parentid-id",
                 "description": "Fired when a mailing list is deleted.",
                 "name": "onDeleted",
                 "parameters": [
@@ -824,7 +818,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#onmemberadded-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#onmemberadded-node",
                 "description": "Fired when a contact is added to the mailing list.",
                 "name": "onMemberAdded",
                 "parameters": [
@@ -839,7 +833,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#onmemberremoved-parentid-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#onmemberremoved-parentid-id",
                 "description": "Fired when a contact is removed from the mailing list.",
                 "name": "onMemberRemoved",
                 "parameters": [
@@ -860,9 +854,9 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#list-parentid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#list-parentid",
                 "async": "callback",
-                "description": "Gets all the mailing lists in the address book with id <var>parentId</var>.",
+                "description": "Gets all the mailing lists in the address book with id <val>parentId</val>.",
                 "name": "list",
                 "parameters": [
                     {
@@ -889,7 +883,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#get-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#get-id",
                 "async": "callback",
                 "description": "Gets a single mailing list.",
                 "name": "get",
@@ -915,9 +909,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#create-parentid-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#create-parentid-properties",
                 "async": "callback",
-                "description": "Creates a new mailing list in the address book with id <var>parentId</var>.",
+                "description": "Creates a new mailing list in the address book with id <val>parentId</val>.",
                 "name": "create",
                 "parameters": [
                     {
@@ -959,7 +953,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#update-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#update-id-properties",
                 "async": true,
                 "description": "Edits the properties of a mailing list.",
                 "name": "update",
@@ -992,7 +986,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#delete-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#delete-id",
                 "async": true,
                 "description": "Removes the mailing list.",
                 "name": "delete",
@@ -1008,9 +1002,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#addmember-id-contactid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#addmember-id-contactid",
                 "async": true,
-                "description": "Adds a contact to the mailing list with id <var>id</var>. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.",
+                "description": "Adds a contact to the mailing list with id <val>id</val>. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.",
                 "name": "addMember",
                 "parameters": [
                     {
@@ -1028,9 +1022,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#listmembers-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#listmembers-id",
                 "async": "callback",
-                "description": "Gets all contacts that are members of the mailing list with id <var>id</var>.",
+                "description": "Gets all contacts that are members of the mailing list with id <val>id</val>.",
                 "name": "listMembers",
                 "parameters": [
                     {
@@ -1057,9 +1051,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#removemember-id-contactid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/mailingLists.html#removemember-id-contactid",
                 "async": true,
-                "description": "Removes a contact from the mailing list with id <var>id</var>. This does not delete the contact from the address book.",
+                "description": "Removes a contact from the mailing list with id <val>id</val>. This does not delete the contact from the address book.",
                 "name": "removeMember",
                 "parameters": [
                     {
@@ -1108,7 +1102,7 @@
                         "type": "string"
                     },
                     "parentId": {
-                        "description": "The <var>id</var> of the parent object.",
+                        "description": "The <val>id</val> of the parent object.",
                         "optional": true,
                         "type": "string"
                     },
@@ -1124,7 +1118,7 @@
                     },
                     "type": {
                         "$ref": "addressBooks.NodeType",
-                        "description": "Always set to <var>mailingList</var>."
+                        "description": "Always set to <value>mailingList</value>."
                     }
                 },
                 "type": "object"

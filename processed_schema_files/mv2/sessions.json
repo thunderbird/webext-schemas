@@ -2,7 +2,7 @@
     {
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/sessions.html#settabvalue-tabid-key-value",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/sessions.html#settabvalue-tabid-key-value",
                 "async": true,
                 "description": "Store a key/value pair associated with a given tab.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/sessions/setTabValue",
@@ -38,9 +38,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/sessions.html#gettabvalue-tabid-key",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/sessions.html#gettabvalue-tabid-key",
                 "async": "callback",
-                "description": "Retrieve a previously stored value for a given tab, given its key. Returns <var>undefined</var> if the key does not exist.",
+                "description": "Retrieve a previously stored value for a given tab, given its key.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/sessions/getTabValue",
                 "name": "getTabValue",
                 "parameters": [
@@ -65,7 +65,6 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "description": "This may return undefined",
                                 "optional": true,
                                 "type": "string"
                             }
@@ -79,7 +78,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/sessions.html#removetabvalue-tabid-key",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/sessions.html#removetabvalue-tabid-key",
                 "async": true,
                 "description": "Remove a key/value pair from a given tab.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/sessions/removeTabValue",

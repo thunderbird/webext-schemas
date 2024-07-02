@@ -8,7 +8,6 @@
                     {
                         "enum": [
                             "webRequest",
-                            "webRequestAuthProvider",
                             "webRequestBlocking",
                             "webRequestFilterResponse",
                             "webRequestFilterResponse.serviceWorkerScript"
@@ -479,7 +478,6 @@
                         },
                         "name": "extraInfoSpec",
                         "optional": true,
-                        "postprocess": "mutuallyExclusiveBlockingOrAsyncBlocking",
                         "type": "array"
                     }
                 ],
@@ -591,7 +589,7 @@
                         "type": "object"
                     },
                     {
-                        "name": "asyncCallback",
+                        "name": "callback",
                         "optional": true,
                         "parameters": [
                             {
@@ -1226,7 +1224,7 @@
                     "asyncBlocking"
                 ],
                 "id": "OnAuthRequiredOptions",
-                "postprocess": "webRequestBlockingOrAuthProviderPermissionRequired",
+                "postprocess": "webRequestBlockingPermissionRequired",
                 "type": "string"
             },
             {

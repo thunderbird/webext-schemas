@@ -18,13 +18,13 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#oncreated-accountid-account",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/accounts.html#oncreated-id-account",
                 "description": "Fired when a new account has been created.",
                 "name": "onCreated",
                 "parameters": [
                     {
-                        "$ref": "MailAccountId",
-                        "name": "accountId"
+                        "name": "id",
+                        "type": "string"
                     },
                     {
                         "$ref": "MailAccount",
@@ -37,13 +37,13 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#ondeleted-accountid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/accounts.html#ondeleted-id",
                 "description": "Fired when an account has been removed.",
                 "name": "onDeleted",
                 "parameters": [
                     {
-                        "$ref": "MailAccountId",
-                        "name": "accountId"
+                        "name": "id",
+                        "type": "string"
                     }
                 ],
                 "support": {
@@ -52,13 +52,13 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#onupdated-accountid-changedvalues",
-                "description": "Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed <var>defaultIdentity</var> is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/accounts.html#onupdated-id-changedvalues",
+                "description": "Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed <val>defaultIdentity</val> is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.",
                 "name": "onUpdated",
                 "parameters": [
                     {
-                        "$ref": "MailAccountId",
-                        "name": "accountId"
+                        "name": "id",
+                        "type": "string"
                     },
                     {
                         "name": "changedValues",
@@ -83,15 +83,15 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#list-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/accounts.html#list-includefolders",
                 "async": "callback",
                 "description": "Returns all mail accounts. They will be returned in the same order as used in Thunderbird's folder pane.",
                 "name": "list",
                 "parameters": [
                     {
-                        "default": false,
-                        "description": "Specifies whether the $(ref:folders.MailFolder) in the <var>rootFolder</var> property of each found $(ref:accounts.MailAccount) should populate its <var>subFolders</var> property, and include all (nested!) subfolders. Defaults to <var>false</var>.",
-                        "name": "includeSubFolders",
+                        "default": true,
+                        "description": "Specifies whether the returned $(ref:accounts.MailAccount) objects should included their account's folders. Defaults to <value>true</value>.",
+                        "name": "includeFolders",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -115,19 +115,19 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#get-accountid-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/accounts.html#get-accountid-includefolders",
                 "async": "callback",
-                "description": "Returns details of the requested account, or <var>null</var> if it doesn't exist.",
+                "description": "Returns details of the requested account, or <value>null</value> if it doesn't exist.",
                 "name": "get",
                 "parameters": [
                     {
-                        "$ref": "MailAccountId",
-                        "name": "accountId"
+                        "name": "accountId",
+                        "type": "string"
                     },
                     {
-                        "default": false,
-                        "description": "Specifies whether the $(ref:folders.MailFolder) in the <var>rootFolder</var> property of the returned $(ref:accounts.MailAccount) should populate its <var>subFolders</var> property, and include all (nested!) subfolders. Defaults to <var>false</var>.",
-                        "name": "includeSubFolders",
+                        "default": true,
+                        "description": "Specifies whether the returned $(ref:accounts.MailAccount) object should included the account's folders. Defaults to <value>true</value>.",
+                        "name": "includeFolders",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -149,15 +149,15 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#getdefault-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/accounts.html#getdefault-includefolders",
                 "async": "callback",
-                "description": "Returns the default account, or <var>null</var> if it is not defined.",
+                "description": "Returns the default account, or <value>null</value> if it is not defined.",
                 "name": "getDefault",
                 "parameters": [
                     {
-                        "default": false,
-                        "description": "Specifies whether the $(ref:folders.MailFolder) in the <var>rootFolder</var> property of the default $(ref:accounts.MailAccount) should populate its <var>subFolders</var> property, and include all (nested!) subfolders. Defaults to <var>false</var>",
-                        "name": "includeSubFolders",
+                        "default": true,
+                        "description": "Specifies whether the returned $(ref:accounts.MailAccount) object should included the account's folders. Defaults to <value>true</value>.",
+                        "name": "includeFolders",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -166,14 +166,56 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "choices": [
-                                    {
-                                        "$ref": "accounts.MailAccount"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
+                                "$ref": "accounts.MailAccount",
+                                "optional": true
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/accounts.html#setdefaultidentity-accountid-identityid",
+                "async": true,
+                "deprecated": "This will be removed. Use $(ref:identities.setDefault) instead.",
+                "description": "Sets the default identity for an account.",
+                "name": "setDefaultIdentity",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "type": "string"
+                    },
+                    {
+                        "name": "identityId",
+                        "type": "string"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/accounts.html#getdefaultidentity-accountid",
+                "async": "callback",
+                "deprecated": "This will be removed. Use $(ref:identities.getDefault) instead.",
+                "description": "Returns the default identity for an account, or <value>null</value> if it is not defined.",
+                "name": "getDefaultIdentity",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "type": "string"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "identities.MailIdentity"
                             }
                         ],
                         "type": "function"
@@ -191,12 +233,20 @@
         ],
         "types": [
             {
-                "description": "An object describing a mail account, as returned for example by the $(ref:accounts.list) and $(ref:accounts.get) methods.",
+                "description": "An object describing a mail account, as returned for example by the $(ref:accounts.list) and $(ref:accounts.get) methods. The <val>folders</val> property is only included if requested.",
                 "id": "MailAccount",
                 "properties": {
+                    "folders": {
+                        "description": "The folders for this account are only included if requested.",
+                        "items": {
+                            "$ref": "folders.MailFolder"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
                     "id": {
-                        "$ref": "MailAccountId",
-                        "description": "A unique identifier for this account."
+                        "description": "A unique identifier for this account.",
+                        "type": "string"
                     },
                     "identities": {
                         "description": "The identities associated with this account. The default identity is listed first, others in no particular order.",
@@ -209,32 +259,12 @@
                         "description": "The human-friendly name of this account.",
                         "type": "string"
                     },
-                    "rootFolder": {
-                        "$ref": "folders.MailFolder",
-                        "description": "The root folder associated with this account."
-                    },
                     "type": {
-                        "description": "What sort of account this is, e.g. <var>imap</var>, <var>nntp</var>, or <var>pop3</var>.",
+                        "description": "What sort of account this is, e.g. <value>imap</value>, <value>nntp</value>, or <value>pop3</value>.",
                         "type": "string"
                     }
                 },
                 "type": "object"
-            },
-            {
-                "description": "A unique id representing a $(ref:accounts.MailAccount).",
-                "id": "MailAccountId",
-                "type": "string"
-            },
-            {
-                "description": "The type of an account.",
-                "enum": [
-                    "imap",
-                    "local",
-                    "nntp",
-                    "pop3"
-                ],
-                "id": "MailAccountType",
-                "type": "string"
             }
         ]
     }

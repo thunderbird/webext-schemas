@@ -3,7 +3,7 @@
         "namespace": "manifest",
         "types": [
             {
-                "description": "Definition of a shortcut, for example <var>Alt+F5</var>. The string must match the shortcut format as defined by the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values'>MDN page of the commands API</a>.",
+                "description": "Definition of a shortcut, for example <value>Alt+F5</value>. The string must match the shortcut format as defined by the <a href='|link-commands-shortcuts|'>MDN page of the commands API</a>.",
                 "format": "manifestShortcutKey",
                 "id": "KeyName",
                 "type": "string"
@@ -64,7 +64,7 @@
                             },
                             "type": "object"
                         },
-                        "description": "A <em>dictionary object</em> defining one or more commands as <em>name-value</em> pairs, the <em>name</em> being the name of the command and the <em>value</em> being a $(ref:commands.CommandsShortcut). The <em>name</em> may also be one of the following built-in special shortcuts: \n * <var>_execute_browser_action</var> \n * <var>_execute_compose_action</var> \n * <var>_execute_message_display_action</var>\nExample: <literalinclude>includes/commands/manifest.json<lang>JSON</lang></literalinclude>",
+                        "description": "A <em>dictionary object</em> defining one or more commands as <em>name-value</em> pairs, the <em>name</em> being the name of the command and the <em>value</em> being a $(ref:commands.CommandsShortcut). The <em>name</em> may also be one of the following built-in special shortcuts: \n * <value>_execute_browser_action</value> \n * <value>_execute_compose_action</value> \n * <value>_execute_message_display_action</value>\nExample: <literalinclude>includes/commands/manifest.json<lang>JSON</lang></literalinclude>",
                         "optional": true,
                         "type": "object"
                     }
@@ -76,8 +76,8 @@
         "description": "Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#oncommand-command-tab",
-                "description": "Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/commands.html#oncommand-command-tab",
+                "description": "Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some <a href='|link-user-input-restrictions|'>restrictions</a> apply.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/onCommand",
                 "name": "onCommand",
                 "parameters": [
@@ -103,7 +103,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#onchanged-changeinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/commands.html#onchanged-changeinfo",
                 "description": "Fired when a registered command's shortcut is changed.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/onChanged",
                 "name": "onChanged",
@@ -138,7 +138,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#update-detail",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/commands.html#update-detail",
                 "async": true,
                 "description": "Update the details of an already defined command.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/update",
@@ -158,7 +158,7 @@
                                 "type": "string"
                             },
                             "shortcut": {
-                                "description": "An empty string to clear the shortcut, or a string matching the format defined by the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values'>MDN page of the commands API</a>  to set a new shortcut key. If the string does not match this format, the function throws an error.",
+                                "description": "An empty string to clear the shortcut, or a string matching the format defined by the <a href='|link-commands-shortcuts|'>MDN page of the commands API</a>  to set a new shortcut key. If the string does not match this format, the function throws an error.",
                                 "format": "manifestShortcutKeyOrEmpty",
                                 "optional": true,
                                 "type": "string"
@@ -176,7 +176,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#reset-name",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/commands.html#reset-name",
                 "async": true,
                 "description": "Reset a command's details to what is specified in the manifest.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/reset",
@@ -197,7 +197,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#getall",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/commands.html#getall",
                 "async": "callback",
                 "description": "Returns all the registered extension commands for this extension and their shortcut (if active).",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/getAll",

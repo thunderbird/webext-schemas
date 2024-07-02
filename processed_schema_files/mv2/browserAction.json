@@ -19,7 +19,7 @@
                                 "default": [
                                     "mail"
                                 ],
-                                "description": "Defines for which spaces the browserAction button will be added to Thunderbird's unified toolbar. Defaults to only allowing the browserAction in the <var>mail</var> space. The <var>default</var> space is for tabs that don't belong to any space. If this is an empty array, the browserAction button is shown in all spaces.",
+                                "description": "Defines for which spaces the browserAction button will be added to Thunderbird's unified toolbar. Defaults to only allowing the browserAction in the <value>mail</value> space. The <value>default</value> space is for tabs that don't belong to any space. If this is an empty array, the browserAction button is shown in all spaces.",
                                 "items": {
                                     "enum": [
                                         "mail",
@@ -37,12 +37,12 @@
                             },
                             "browser_style": {
                                 "default": false,
-                                "description": "Enable browser styles. See the <a href='https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles'>MDN documentation on browser styles</a> for more information.",
+                                "description": "Enable browser styles. See the <a href='|link-mdn-browser-styles|'>MDN documentation on browser styles</a> for more information.",
                                 "optional": true,
                                 "type": "boolean"
                             },
                             "default_area": {
-                                "description": "Defines the location the browserAction button will appear. Deprecated and ignored. Replaced by <var>allowed_spaces</var>",
+                                "description": "Defines the location the browserAction button will appear. Deprecated and ignored. Replaced by <val>allowed_spaces</val>",
                                 "enum": [
                                     "maintoolbar",
                                     "tabstoolbar"
@@ -51,7 +51,7 @@
                                 "type": "string"
                             },
                             "default_icon": {
-                                "$ref": "manifest.IconPath",
+                                "$ref": "IconPath",
                                 "description": "The paths to one or more icons for the browserAction button.",
                                 "optional": true
                             },
@@ -62,7 +62,7 @@
                                 "type": "string"
                             },
                             "default_popup": {
-                                "description": "The html document to be opened as a popup when the user clicks on the browserAction button. Ignored for action buttons with type <var>menu</var>.",
+                                "description": "The html document to be opened as a popup when the user clicks on the browserAction button. Ignored for action buttons with type <value>menu</value>.",
                                 "format": "relativeUrl",
                                 "optional": true,
                                 "preprocess": "localize",
@@ -78,7 +78,7 @@
                                 "default": [
                                     "normal"
                                 ],
-                                "description": "Defines the windows, the browserAction button should appear in. Defaults to showing it only in the <var>normal</var> Thunderbird window, but can also be shown in the <var>messageDisplay</var> window.",
+                                "description": "Defines the windows, the browserAction button should appear in. Defaults to showing it only in the <value>normal</value> Thunderbird window, but can also be shown in the <value>messageDisplay</value> window.",
                                 "items": {
                                     "enum": [
                                         "normal",
@@ -90,7 +90,7 @@
                                 "type": "array"
                             },
                             "theme_icons": {
-                                "description": "Specifies dark and light icons to be used with themes. The <var>light</var> icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the <var>default_icon</var> for light backgrounds (if specified).",
+                                "description": "Specifies dark and light icons to be used with themes. The <val>light</val> icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the <val>default_icon</val> for light backgrounds (if specified).",
                                 "items": {
                                     "$ref": "ThemeIcons"
                                 },
@@ -100,7 +100,7 @@
                             },
                             "type": {
                                 "default": "button",
-                                "description": "Specifies the type of the button. Default type is <var>button</var>.",
+                                "description": "Specifies the type of the button. Default type is <code>button</code>.",
                                 "enum": [
                                     "button",
                                     "menu"
@@ -119,8 +119,8 @@
         "description": "Use the action API to add a button to Thunderbird's unified toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#onclicked-tab-info",
-                "description": "Fired when an action button is clicked. This event will not fire if the action has a popup. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#onclicked-tab-info",
+                "description": "Fired when an action button is clicked. This event will not fire if the action has a popup. This is a user input event handler. For asynchronous listeners some <a href='|link-user-input-restrictions|'>restrictions</a> apply.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/onClicked",
                 "name": "onClicked",
                 "parameters": [
@@ -148,7 +148,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#settitle-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#settitle-details",
                 "async": "callback",
                 "description": "Sets the title of the action button. Is used as tooltip and as the label.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setTitle",
@@ -172,7 +172,7 @@
                                         "type": "null"
                                     }
                                 ],
-                                "description": "A string the action button should display as its label and when moused over. Cleared by setting it to <var>null</var> or an empty string (title defined the manifest will be used)."
+                                "description": "A string the action button should display as its label and when moused over. Cleared by setting it to <value>null</value> or an empty string (title defined the manifest will be used)."
                             },
                             "windowId": {
                                 "description": "Will throw an error if used.",
@@ -200,7 +200,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#gettitle-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#gettitle-details",
                 "async": "callback",
                 "description": "Gets the title of the action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getTitle",
@@ -230,7 +230,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "name": "result",
@@ -246,7 +245,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#setlabel-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#setlabel-details",
                 "async": "callback",
                 "description": "Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.",
                 "name": "setLabel",
@@ -263,7 +262,7 @@
                                         "type": "null"
                                     }
                                 ],
-                                "description": "A string the action button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to <var>null</var>."
+                                "description": "A string the action button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to <value>null</value>."
                             },
                             "tabId": {
                                 "description": "Sets the label only for the given tab.",
@@ -297,16 +296,16 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#getlabel-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#getlabel-details",
                 "async": "callback",
-                "description": "Gets the label of the action button. Returns <var>null</var>, if no label has been set and the title is used.",
+                "description": "Gets the label of the action button.",
                 "name": "getLabel",
                 "parameters": [
                     {
                         "name": "details",
                         "properties": {
                             "tabId": {
-                                "description": "Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.",
+                                "description": "Specifies for which tab the label should be retrieved. If no tab is specified, the global label is retrieved.",
                                 "minimum": 0,
                                 "optional": true,
                                 "type": "integer"
@@ -326,18 +325,11 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
-                                "choices": [
-                                    {
-                                        "type": "string"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ],
-                                "name": "result"
+                                "name": "result",
+                                "optional": true,
+                                "type": "string"
                             }
                         ],
                         "type": "function"
@@ -349,9 +341,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#seticon-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#seticon-details",
                 "async": "callback",
-                "description": "Sets the icon for the action button. Either the <var>path</var> or the <var>imageData</var> property must be specified.",
+                "description": "Sets the icon for the action button. Either the <val>path</val> or the <val>imageData</val> property must be specified.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setIcon",
                 "name": "setIcon",
                 "parameters": [
@@ -407,7 +399,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#setpopup-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#setpopup-details",
                 "async": "callback",
                 "description": "Sets the html document to be opened as a popup when the user clicks on the action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setPopup",
@@ -425,7 +417,7 @@
                                         "type": "null"
                                     }
                                 ],
-                                "description": "The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to <var>null</var> (popup value defined the manifest will be used)."
+                                "description": "The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to <value>null</value> (popup value defined the manifest will be used)."
                             },
                             "tabId": {
                                 "description": "Sets the popup only for the given tab.",
@@ -459,7 +451,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#getpopup-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#getpopup-details",
                 "async": "callback",
                 "description": "Gets the html document set as the popup for this action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getPopup",
@@ -489,7 +481,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "name": "result",
@@ -505,7 +496,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#setbadgetext-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#setbadgetext-details",
                 "async": "callback",
                 "description": "Sets the badge text for the action button. The badge is displayed on top of the icon.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeText",
@@ -529,7 +520,7 @@
                                         "type": "null"
                                     }
                                 ],
-                                "description": "Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to <var>null</var> or an empty string."
+                                "description": "Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to <value>null</value> or an empty string."
                             },
                             "windowId": {
                                 "description": "Will throw an error if used.",
@@ -557,7 +548,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#getbadgetext-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#getbadgetext-details",
                 "async": "callback",
                 "description": "Gets the badge text of the action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeText",
@@ -567,7 +558,7 @@
                         "name": "details",
                         "properties": {
                             "tabId": {
-                                "description": "Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.",
+                                "description": "Specifies for which tab the badge text should be retrieved. If no tab is specified, the global label is retrieved.",
                                 "minimum": 0,
                                 "optional": true,
                                 "type": "integer"
@@ -587,7 +578,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "name": "result",
@@ -603,102 +593,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#setbadgetextcolor-details",
-                "async": true,
-                "description": "Sets the text color for the badge.",
-                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeTextColor",
-                "name": "setBadgeTextColor",
-                "parameters": [
-                    {
-                        "name": "details",
-                        "properties": {
-                            "color": {
-                                "choices": [
-                                    {
-                                        "type": "string"
-                                    },
-                                    {
-                                        "$ref": "ColorArray"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ],
-                                "description": "The color to use as text color in the badge. Cleared by setting it to <var>null</var>."
-                            },
-                            "tabId": {
-                                "description": "Sets the text color for the badge only for the given tab.",
-                                "minimum": 0,
-                                "optional": true,
-                                "type": "integer"
-                            },
-                            "windowId": {
-                                "description": "Will throw an error if used.",
-                                "minimum": -2,
-                                "optional": true,
-                                "type": "integer",
-                                "unsupported": true
-                            }
-                        },
-                        "support": {
-                            "version_added": true
-                        },
-                        "type": "object"
-                    }
-                ],
-                "support": {
-                    "version_added": "63"
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#getbadgetextcolor-details",
-                "async": "callback",
-                "description": "Gets the text color of the badge.",
-                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeTextColor",
-                "name": "getBadgeTextColor",
-                "parameters": [
-                    {
-                        "name": "details",
-                        "properties": {
-                            "tabId": {
-                                "description": "Specifies for which tab the badge text color should be retrieved. If no tab is specified, the global value is retrieved.",
-                                "minimum": 0,
-                                "optional": true,
-                                "type": "integer"
-                            },
-                            "windowId": {
-                                "description": "Will throw an error if used.",
-                                "minimum": -2,
-                                "optional": true,
-                                "type": "integer",
-                                "unsupported": true
-                            }
-                        },
-                        "support": {
-                            "version_added": true
-                        },
-                        "type": "object"
-                    },
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [
-                            {
-                                "$ref": "ColorArray",
-                                "name": "result"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": "63"
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#setbadgebackgroundcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#setbadgebackgroundcolor-details",
                 "async": "callback",
                 "description": "Sets the background color for the badge.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeBackgroundColor",
@@ -719,7 +614,7 @@
                                         "type": "null"
                                     }
                                 ],
-                                "description": "The color to use as background in the badge. Cleared by setting it to <var>null</var>."
+                                "description": "The color to use as background in the badge. Cleared by setting it to <value>null</value> or an empty string."
                             },
                             "tabId": {
                                 "description": "Sets the background color for the badge only for the given tab.",
@@ -753,7 +648,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#getbadgebackgroundcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#getbadgebackgroundcolor-details",
                 "async": "callback",
                 "description": "Gets the badge background color of the action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeBackgroundColor",
@@ -763,7 +658,7 @@
                         "name": "details",
                         "properties": {
                             "tabId": {
-                                "description": "Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.",
+                                "description": "Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global label is retrieved.",
                                 "minimum": 0,
                                 "optional": true,
                                 "type": "integer"
@@ -783,7 +678,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "ColorArray",
@@ -799,9 +693,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#enable-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#enable-tabid",
                 "async": "callback",
-                "description": "Enables the action button for a specific tab (if a <var>tabId</var> is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, an action button is enabled.",
+                "description": "Enables the action button for a specific tab (if a <val>tabId</val> is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, an action button is enabled.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/enable",
                 "name": "enable",
                 "parameters": [
@@ -828,9 +722,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#disable-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#disable-tabid",
                 "async": "callback",
-                "description": "Disables the action button for a specific tab (if a <var>tabId</var> is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.",
+                "description": "Disables the action button for a specific tab (if a <val>tabId</val> is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/disable",
                 "name": "disable",
                 "parameters": [
@@ -857,7 +751,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#isenabled-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#isenabled-details",
                 "async": "callback",
                 "description": "Checks whether the action button is enabled.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/isEnabled",
@@ -902,9 +796,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/browserAction.html#openpopup-options",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/browserAction.html#openpopup-options",
                 "async": "callback",
-                "description": "Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action has no popup, is of type <var>menu</var>, is disabled or has been removed from the toolbar.",
+                "description": "Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action has no popup, is of type <value>menu</value>, is disabled or has been removed from the toolbar.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/openPopup",
                 "name": "openPopup",
                 "parameters": [
@@ -949,7 +843,7 @@
         ],
         "types": [
             {
-                "description": "An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is <var>[255, 0, 0, 255]</var>.",
+                "description": "An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is <value>[255, 0, 0, 255]</value>.",
                 "id": "ColorArray",
                 "items": {
                     "maximum": 255,
@@ -964,14 +858,14 @@
                 "additionalProperties": {
                     "type": "any"
                 },
-                "description": "Pixel data for an image. Must be an <a href='https://developer.mozilla.org/en-US/docs/Web/API/ImageData'>ImageData</a> object (for example, from a <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas'>canvas</a> element).",
+                "description": "Pixel data for an image. Must be an |ImageData| object (for example, from a |Canvas| element).",
                 "id": "ImageDataType",
                 "isInstanceOf": "ImageData",
                 "postprocess": "convertImageDataToURL",
                 "type": "object"
             },
             {
-                "description": "A <em>dictionary object</em> to specify multiple <a href='https://developer.mozilla.org/en-US/docs/Web/API/ImageData'>ImageData</a> objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a <em>name-value</em> pair with <em>value</em> being an <a href='https://developer.mozilla.org/en-US/docs/Web/API/ImageData'>ImageData</a> object, and <em>name</em> its size. Example: <literalinclude>includes/ImageDataDictionary.json<lang>JavaScript</lang></literalinclude>See the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes'>MDN documentation about choosing icon sizes</a> for more information on this.",
+                "description": "A <em>dictionary object</em> to specify multiple |ImageData| objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a <em>name-value</em> pair with <em>value</em> being an |ImageData| object, and <em>name</em> its size. Example: <literalinclude>includes/ImageDataDictionary.json<lang>JavaScript</lang></literalinclude>See the <a href='|link-mdn-icon-size|'>MDN documentation about choosing icon sizes</a> for more information on this.",
                 "id": "ImageDataDictionary",
                 "patternProperties": {
                     "^[1-9]\\d*$": {

@@ -2,7 +2,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#onmessagedisplayed-tab-message",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/messageDisplay.html#onmessagedisplayed-tab-message",
                 "description": "Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a message window.",
                 "name": "onMessageDisplayed",
                 "parameters": [
@@ -24,7 +24,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#onmessagesdisplayed-tab-messages-displayedmessages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/messageDisplay.html#onmessagesdisplayed-tab-messages",
                 "description": "Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.",
                 "name": "onMessagesDisplayed",
                 "parameters": [
@@ -51,15 +51,14 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#getdisplayedmessage-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/messageDisplay.html#getdisplayedmessage-tabid",
                 "async": "callback",
-                "description": "Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible), or the currently active tab. It returns <var>null</var> if no messages are displayed, or if multiple messages are displayed.",
+                "description": "Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible). It returns <value>null</value> if no messages are displayed, or if multiple messages are displayed.",
                 "name": "getDisplayedMessage",
                 "parameters": [
                     {
                         "minimum": 1,
                         "name": "tabId",
-                        "optional": true,
                         "type": "integer"
                     },
                     {
@@ -86,15 +85,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#getdisplayedmessages-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/messageDisplay.html#getdisplayedmessages-tabid",
                 "async": "callback",
-                "description": "Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.",
+                "description": "Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible). The array is empty if no messages are displayed.",
                 "name": "getDisplayedMessages",
                 "parameters": [
                     {
                         "minimum": 1,
                         "name": "tabId",
-                        "optional": true,
                         "type": "integer"
                     },
                     {
@@ -117,7 +115,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#open-openproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115/messageDisplay.html#open-openproperties",
                 "async": "callback",
                 "description": "Opens a message in a new tab or in a new window.",
                 "name": "open",
@@ -139,7 +137,7 @@
                                 "type": "object"
                             },
                             "headerMessageId": {
-                                "description": "The headerMessageId of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <var>headerMessageId</var> is unknown or invalid. Not supported for external messages.",
+                                "description": "The headerMessageId of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <val>headerMessageId</val> is unknown or invalid. Not supported for external messages.",
                                 "optional": true,
                                 "type": "string"
                             },
@@ -153,9 +151,10 @@
                                 "type": "string"
                             },
                             "messageId": {
-                                "$ref": "messages.MessageId",
-                                "description": "The id of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <var>messageId</var> is unknown or invalid.",
-                                "optional": true
+                                "description": "The id of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <val>messageId</val> is unknown or invalid.",
+                                "minimum": 1,
+                                "optional": true,
+                                "type": "integer"
                             },
                             "windowId": {
                                 "description": "The id of the window, where the new tab should be created. Defaults to the current window. Only applicable to messages opened in tabs.",
@@ -168,7 +167,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "tabs.Tab",

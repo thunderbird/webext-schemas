@@ -84,12 +84,7 @@
                         "type": "array"
                     },
                     "matchAboutBlank": {
-                        "description": "If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Ignored if matchOriginAsFallback is specified. By default it is <code>false</code>.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "matchOriginAsFallback": {
-                        "description": "If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is <code>false</code>.",
+                        "description": "If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Code cannot be inserted in top-level about:-frames. By default it is <code>false</code>.",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -104,11 +99,6 @@
                     "runAt": {
                         "$ref": "extensionTypes.RunAt",
                         "description": "The soonest that the JavaScript or CSS will be injected into the tab. Defaults to \"document_idle\".",
-                        "optional": true
-                    },
-                    "world": {
-                        "$ref": "extensionTypes.ExecutionWorld",
-                        "description": "The JavaScript world for a script to execute within. Defaults to \"ISOLATED\".",
                         "optional": true
                     }
                 },

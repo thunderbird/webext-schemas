@@ -3,11 +3,11 @@
         "description": "The windows API supports creating, modifying and interacting with Thunderbird windows.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#oncreated-window",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#oncreated-window",
                 "description": "Fired when a window is created.",
                 "filters": [
                     {
-                        "description": "Conditions that the window's type being created must satisfy. By default it will satisfy <var>['app', 'normal', 'panel', 'popup']</var>, with <var>app</var> and <var>panel</var> window types limited to the extension's own windows.",
+                        "description": "Conditions that the window's type being created must satisfy. By default it will satisfy <value>['app', 'normal', 'panel', 'popup']</value>, with <value>app</value> and <value>panel</value> window types limited to the extension's own windows.",
                         "items": {
                             "$ref": "WindowType"
                         },
@@ -33,11 +33,11 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#onremoved-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#onremoved-windowid",
                 "description": "Fired when a window is removed (closed).",
                 "filters": [
                     {
-                        "description": "Conditions that the window's type being removed must satisfy. By default it will satisfy <var>['app', 'normal', 'panel', 'popup']</var>, with <var>app</var> and <var>panel</var> window types limited to the extension's own windows.",
+                        "description": "Conditions that the window's type being removed must satisfy. By default it will satisfy <value>['app', 'normal', 'panel', 'popup']</value>, with <value>app</value> and <value>panel</value> window types limited to the extension's own windows.",
                         "items": {
                             "$ref": "WindowType"
                         },
@@ -64,11 +64,11 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#onfocuschanged-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#onfocuschanged-windowid",
                 "description": "Fired when the currently focused window changes. Will be $(ref:windows.WINDOW_ID_NONE), if all windows have lost focus. **Note:** On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one window to another.",
                 "filters": [
                     {
-                        "description": "Conditions that the window's type being focused must satisfy. By default it will satisfy <var>['app', 'normal', 'panel', 'popup']</var>, with <var>app</var> and <var>panel</var> window types limited to the extension's own windows.",
+                        "description": "Conditions that the window's type being focused must satisfy. By default it will satisfy <value>['app', 'normal', 'panel', 'popup']</value>, with <value>app</value> and <value>panel</value> window types limited to the extension's own windows.",
                         "items": {
                             "$ref": "WindowType"
                         },
@@ -97,7 +97,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#get-windowid-getinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#get-windowid-getinfo",
                 "async": "callback",
                 "description": "Gets details about a window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/get",
@@ -121,7 +121,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "Window",
@@ -137,7 +136,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#getcurrent-getinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#getcurrent-getinfo",
                 "async": "callback",
                 "description": "Gets the active or topmost window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getCurrent",
@@ -153,7 +152,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "Window",
@@ -169,7 +167,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#getlastfocused-getinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#getlastfocused-getinfo",
                 "async": "callback",
                 "description": "Gets the window that was most recently focused &mdash; typically the window 'on top'.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getLastFocused",
@@ -185,7 +183,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "Window",
@@ -201,7 +198,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#getall-getinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#getall-getinfo",
                 "async": "callback",
                 "description": "Gets all windows.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getAll",
@@ -217,7 +214,6 @@
                     },
                     {
                         "name": "callback",
-                        "optional": true,
                         "parameters": [
                             {
                                 "items": {
@@ -236,9 +232,9 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#create-createdata",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#create-createdata",
                 "async": "callback",
-                "description": "Creates (opens) a new window with any optional sizing, position or default URL provided. When loading a page into a popup window, same-site links are opened within the same window, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a <a href='https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3'>content script</a> , capture click events and handle them manually. Same-site links with targets other than <var>_self</var> are opened in a new tab in the most recent <var>normal</var> Thunderbird window.",
+                "description": "Creates (opens) a new window with any optional sizing, position or default URL provided. When loading a page into a popup window, same-site links are opened within the same window, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a <a href='https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3'>content script</a> , capture click events and handle them manually. Same-site links with targets other than <value>_self</value> are opened in a new tab in the most recent <val>normal</val> Thunderbird window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/create",
                 "name": "create",
                 "parameters": [
@@ -281,7 +277,7 @@
                             },
                             "state": {
                                 "$ref": "WindowState",
-                                "description": "The initial state of the window. The <var>minimized</var>, <var>maximized</var> and <var>fullscreen</var> states cannot be combined with <var>left</var>, <var>top</var>, <var>width</var> or <var>height</var>.",
+                                "description": "The initial state of the window. The <val>minimized</val>, <val>maximized</val> and <val>fullscreen</val> states cannot be combined with <val>left</val>, <val>top</val>, <val>width</val> or <val>height</val>.",
                                 "optional": true
                             },
                             "tabId": {
@@ -302,7 +298,7 @@
                             },
                             "type": {
                                 "$ref": "CreateType",
-                                "description": "Specifies what type of window to create. Thunderbird does not support <var>panel</var> and <var>detached_panel</var>, they are interpreted as <var>popup</var>.",
+                                "description": "Specifies what type of window to create. Thunderbird does not support <value>panel</value> and <value>detached_panel</value>, they are interpreted as <value>popup</value>.",
                                 "optional": true
                             },
                             "url": {
@@ -319,7 +315,7 @@
                                         "type": "array"
                                     }
                                 ],
-                                "description": "A URL to be opened in a popup window, ignored in all other window types. This may also be an array, but only the first element is used (popup windows may not have multiple tabs). If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the popup window will navigate to the requested page. All other URLs will be opened externally after creating an empty popup window. Fully-qualified URLs must include a scheme (i.e. <var>http://www.google.com</var>, not <var>www.google.com</var>). Relative URLs will be relative to the root of the extension. Defaults to the New Tab Page.",
+                                "description": "A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. <value>http://www.google.com</value>, not <value>www.google.com</value>). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.",
                                 "optional": true
                             },
                             "width": {
@@ -341,7 +337,8 @@
                             {
                                 "$ref": "Window",
                                 "description": "Contains details about the created window.",
-                                "name": "window"
+                                "name": "window",
+                                "optional": true
                             }
                         ],
                         "type": "function"
@@ -353,7 +350,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#update-windowid-updateinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#update-windowid-updateinfo",
                 "async": "callback",
                 "description": "Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/update",
@@ -371,7 +368,7 @@
                         "name": "updateInfo",
                         "properties": {
                             "drawAttention": {
-                                "description": "Setting this to <var>true</var> will cause the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.",
+                                "description": "Setting this to <value>true</value> will cause the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.",
                                 "optional": true,
                                 "type": "boolean"
                             },
@@ -393,7 +390,7 @@
                             },
                             "state": {
                                 "$ref": "WindowState",
-                                "description": "The new state of the window. The <var>minimized</var>, <var>maximized</var> and <var>fullscreen</var> states cannot be combined with <var>left</var>, <var>top</var>, <var>width</var> or <var>height</var>.",
+                                "description": "The new state of the window. The <val>minimized</val>, <val>maximized</val> and <val>fullscreen</val> states cannot be combined with <val>left</val>, <val>top</val>, <val>width</val> or <val>height</val>.",
                                 "optional": true
                             },
                             "titlePreface": {
@@ -436,7 +433,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#remove-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#remove-windowid",
                 "async": "callback",
                 "description": "Removes (closes) a window, and all the tabs inside it.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/remove",
@@ -463,7 +460,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#opendefaultbrowser-url",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#opendefaultbrowser-url",
                 "async": true,
                 "description": "Opens the provided URL in the default system browser.",
                 "name": "openDefaultBrowser",
@@ -482,7 +479,7 @@
         "namespace": "windows",
         "properties": {
             "WINDOW_ID_CURRENT": {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#window_id_current",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#window_id_current",
                 "description": "The windowId value that represents the current window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_CURRENT",
                 "support": {
@@ -491,7 +488,7 @@
                 "value": -2
             },
             "WINDOW_ID_NONE": {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/windows.html#window_id_none",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/115-mv3/windows.html#window_id_none",
                 "description": "The windowId value that represents the absence of a window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_NONE",
                 "support": {
@@ -547,7 +544,7 @@
                         "type": "integer"
                     },
                     "incognito": {
-                        "description": "Whether the window is incognito. Since Thunderbird does not support the incognito mode, this is always <var>false</var>.",
+                        "description": "Whether the window is incognito. Since Thunderbird does not support the incognito mode, this is always <value>false</value>.",
                         "type": "boolean"
                     },
                     "left": {
@@ -561,7 +558,7 @@
                         "optional": true
                     },
                     "tabs": {
-                        "description": "Array of $(ref:tabs.Tab) objects representing the current tabs in the window. Only included if requested by $(ref:windows.get), $(ref:windows.getCurrent), $(ref:windows.getAll) or $(ref:windows.getLastFocused), and the optional $(ref:windows.GetInfo) parameter has its <var>populate</var> member set to <var>true</var>.",
+                        "description": "Array of $(ref:tabs.Tab) objects representing the current tabs in the window. Only included if requested by $(ref:windows.get), $(ref:windows.getCurrent), $(ref:windows.getAll) or $(ref:windows.getLastFocused), and the optional $(ref:windows.GetInfo) parameter has its <val>populate</val> member set to <value>true</value>.",
                         "items": {
                             "$ref": "tabs.Tab"
                         },
@@ -592,7 +589,7 @@
                 "type": "object"
             },
             {
-                "description": "Specifies what type of window to create. Thunderbird does not support <var>panel</var> and <var>detached_panel</var>, they are interpreted as <var>popup</var>.",
+                "description": "Specifies what type of window to create. Thunderbird does not support <value>panel</value> and <value>detached_panel</value>, they are interpreted as <value>popup</value>.",
                 "enum": [
                     "normal",
                     "popup",
@@ -607,7 +604,7 @@
                 "id": "GetInfo",
                 "properties": {
                     "populate": {
-                        "description": "If true, the $(ref:windows.Window) returned will have a <var>tabs</var> property that contains an array of $(ref:tabs.Tab) objects representing the tabs inside the window. The $(ref:tabs.Tab) objects only contain the <var>url</var>, <var>title</var> and <var>favIconUrl</var> properties if the extension's manifest file includes the <permission>tabs</permission> permission.",
+                        "description": "If true, the $(ref:windows.Window) returned will have a <val>tabs</val> property that contains an array of $(ref:tabs.Tab) objects representing the tabs inside the window. The $(ref:tabs.Tab) objects only contain the <val>url</val>, <val>title</val> and <val>favIconUrl</val> properties if the extension's manifest file includes the <permission>tabs</permission> permission.",
                         "optional": true,
                         "type": "boolean"
                     },
