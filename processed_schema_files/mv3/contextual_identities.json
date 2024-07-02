@@ -199,7 +199,39 @@
             },
             {
                 "async": true,
-                "description": "Deletes a contetual identity by its cookie Store ID.",
+                "description": "Reorder one or more contextual identities by their cookieStoreIDs to a given position.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/move",
+                "name": "move",
+                "parameters": [
+                    {
+                        "choices": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "description": "The ID or list of IDs of the contextual identity cookie stores. ",
+                        "name": "cookieStoreIds"
+                    },
+                    {
+                        "description": "The position the contextual identity should move to.",
+                        "name": "position",
+                        "type": "integer"
+                    }
+                ],
+                "support": {
+                    "version_added": "123"
+                },
+                "type": "function"
+            },
+            {
+                "async": true,
+                "description": "Deletes a contextual identity by its cookie Store ID.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/remove",
                 "name": "remove",
                 "parameters": [

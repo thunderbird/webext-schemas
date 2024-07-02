@@ -14,6 +14,7 @@
                             "messagesTags",
                             "messagesTagsList",
                             "messagesUpdate",
+                            "messagesModifyPermanent",
                             "sensitiveDataUpload"
                         ],
                         "type": "string"
@@ -177,7 +178,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messages.html#continuelist-messagelistid",
                 "async": "callback",
-                "description": "Returns the next chunk of messages in a list. See $(doc:how-to/messageLists) for more information.",
+                "description": "Returns the next chunk of messages in a list. See $(doc:examples/messageLists) for more information.",
                 "name": "continueList",
                 "parameters": [
                     {
@@ -374,6 +375,35 @@
                         ],
                         "type": "function"
                     }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messages.html#deleteattachments-messageid-partnames",
+                "async": true,
+                "description": "Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a <value>text/x-moz-deleted</value> content type. This permanently modifies the message.",
+                "name": "deleteAttachments",
+                "parameters": [
+                    {
+                        "name": "messageId",
+                        "type": "integer"
+                    },
+                    {
+                        "description": "An array of attachments, identifiying the to be detached attachments by their <value>partName</value>.",
+                        "items": {
+                            "pattern": "^\\d+(\\.\\d+)*$",
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "name": "partNames",
+                        "type": "array"
+                    }
+                ],
+                "permissions": [
+                    "messagesModifyPermanent"
                 ],
                 "support": {
                     "version_added": true
@@ -1000,7 +1030,7 @@
                 "type": "object"
             },
             {
-                "description": "See $(doc:how-to/messageLists) for more information.",
+                "description": "See $(doc:examples/messageLists) for more information.",
                 "id": "MessageList",
                 "properties": {
                     "id": {
@@ -1106,7 +1136,7 @@
                 "id": "MessageAttachment",
                 "properties": {
                     "contentType": {
-                        "description": "The content type of the attachment.",
+                        "description": "The content type of the attachment. A value of <value>text/x-moz-deleted</value> indicates that the original attachment was permanently deleted and replaced by a placeholder text attachment with some meta information about the original attachment.",
                         "type": "string"
                     },
                     "message": {
