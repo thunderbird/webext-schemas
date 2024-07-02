@@ -238,6 +238,40 @@
                 },
                 "type": "function",
                 "unsupported": true
+            },
+            {
+                "description": "Fired when a runtime performance issue is detected with the extension. Observe this event to be proactively notified of runtime performance problems with the extension.",
+                "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onPerformanceWarning",
+                "name": "onPerformanceWarning",
+                "parameters": [
+                    {
+                        "name": "details",
+                        "properties": {
+                            "category": {
+                                "$ref": "OnPerformanceWarningCategory",
+                                "description": "The performance warning event category, e.g. 'content_script'."
+                            },
+                            "description": {
+                                "description": "An explanation of what the warning means, and hopefully how to address it.",
+                                "type": "string"
+                            },
+                            "severity": {
+                                "$ref": "OnPerformanceWarningSeverity",
+                                "description": "The performance warning event severity, e.g. 'high'."
+                            },
+                            "tabId": {
+                                "description": "The $(ref:tabs.Tab) that the performance warning relates to, if any.",
+                                "optional": true,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "support": {
+                    "version_added": "124"
+                },
+                "type": "function"
             }
         ],
         "functions": [
@@ -906,6 +940,24 @@
                     "periodic"
                 ],
                 "id": "OnRestartRequiredReason",
+                "type": "string"
+            },
+            {
+                "description": "The performance warning event category, e.g. 'content_script'.",
+                "enum": [
+                    "content_script"
+                ],
+                "id": "OnPerformanceWarningCategory",
+                "type": "string"
+            },
+            {
+                "description": "The performance warning event severity. Will be 'high' for serious and user-visible issues.",
+                "enum": [
+                    "low",
+                    "medium",
+                    "high"
+                ],
+                "id": "OnPerformanceWarningSeverity",
                 "type": "string"
             }
         ]

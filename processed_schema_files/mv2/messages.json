@@ -392,7 +392,7 @@
                         "type": "integer"
                     },
                     {
-                        "description": "An array of attachments, identifiying the to be detached attachments by their <value>partName</value>.",
+                        "description": "An array of attachments, identifying the to be deleted attachments by their <value>partName</value>.",
                         "items": {
                             "pattern": "^\\d+(\\.\\d+)*$",
                             "type": "string"
@@ -850,9 +850,9 @@
                         "type": "string"
                     },
                     {
-                        "description": "Tag color in hex format (i.e.: <value>#000080</value> for navy blue)",
+                        "description": "Tag color in hex format (i.e.: <value>#000080</value> for navy blue). Value will be stored as upper case.",
                         "name": "color",
-                        "pattern": "^#[0-9a-f]{6}",
+                        "pattern": "^#[0-9a-fA-F]{6}",
                         "type": "string"
                     }
                 ],
@@ -868,7 +868,7 @@
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messages.html#updatetag-key-updateproperties",
                 "async": true,
                 "deprecated": "Deprecated since Thunderbird 121 and removed in Manifest V3: messages.updateTag() is now available as messages.tags.update().",
-                "description": "Updates a message tag.",
+                "description": "Updates a message tag. Throws if the specified tag key does not exist.",
                 "name": "updateTag",
                 "parameters": [
                     {
@@ -881,9 +881,9 @@
                         "name": "updateProperties",
                         "properties": {
                             "color": {
-                                "description": "Tag color in hex format (i.e.: #000080 for navy blue).",
+                                "description": "Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.",
                                 "optional": "true",
-                                "pattern": "^#[0-9a-f]{6}",
+                                "pattern": "^#[0-9a-fA-F]{6}",
                                 "type": "string"
                             },
                             "tag": {
@@ -1221,9 +1221,9 @@
                         "type": "string"
                     },
                     {
-                        "description": "Tag color in hex format (i.e.: #000080 for navy blue)",
+                        "description": "Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.",
                         "name": "color",
-                        "pattern": "^#[0-9a-f]{6}",
+                        "pattern": "^#[0-9a-fA-F]{6}",
                         "type": "string"
                     }
                 ],
@@ -1234,7 +1234,7 @@
             },
             {
                 "async": true,
-                "description": "Updates a message tag.",
+                "description": "Updates a message tag. Throws if the specified tag key does not exist.",
                 "name": "update",
                 "parameters": [
                     {
@@ -1247,9 +1247,9 @@
                         "name": "updateProperties",
                         "properties": {
                             "color": {
-                                "description": "Tag color in hex format (i.e.: #000080 for navy blue).",
+                                "description": "Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.",
                                 "optional": "true",
-                                "pattern": "^#[0-9a-f]{6}",
+                                "pattern": "^#[0-9a-fA-F]{6}",
                                 "type": "string"
                             },
                             "tag": {
