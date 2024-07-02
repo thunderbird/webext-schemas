@@ -105,13 +105,11 @@
                                 "items": {
                                     "$ref": "TransitionQualifier"
                                 },
-                                "type": "array",
-                                "unsupported": true
+                                "type": "array"
                             },
                             "transitionType": {
                                 "$ref": "TransitionType",
-                                "description": "Cause of the navigation.",
-                                "unsupported": true
+                                "description": "Cause of the navigation."
                             },
                             "url": {
                                 "type": "string"
@@ -352,13 +350,11 @@
                                 "items": {
                                     "$ref": "TransitionQualifier"
                                 },
-                                "type": "array",
-                                "unsupported": true
+                                "type": "array"
                             },
                             "transitionType": {
                                 "$ref": "TransitionType",
-                                "description": "Cause of the navigation.",
-                                "unsupported": true
+                                "description": "Cause of the navigation."
                             },
                             "url": {
                                 "type": "string"
@@ -439,13 +435,11 @@
                                 "items": {
                                     "$ref": "TransitionQualifier"
                                 },
-                                "type": "array",
-                                "unsupported": true
+                                "type": "array"
                             },
                             "transitionType": {
                                 "$ref": "TransitionType",
-                                "description": "Cause of the navigation.",
-                                "unsupported": true
+                                "description": "Cause of the navigation."
                             },
                             "url": {
                                 "type": "string"
