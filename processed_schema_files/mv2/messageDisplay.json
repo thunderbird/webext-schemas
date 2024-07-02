@@ -24,7 +24,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#onmessagesdisplayed-tab-messages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#onmessagesdisplayed-tab-messages-displayedmessages",
                 "description": "Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.",
                 "name": "onMessagesDisplayed",
                 "parameters": [
@@ -53,7 +53,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#getdisplayedmessage-tabid",
                 "async": "callback",
-                "description": "Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible), or the currently active tab. It returns <value>null</value> if no messages are displayed, or if multiple messages are displayed.",
+                "description": "Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible), or the currently active tab. It returns <var>null</var> if no messages are displayed, or if multiple messages are displayed.",
                 "name": "getDisplayedMessage",
                 "parameters": [
                     {
@@ -139,7 +139,7 @@
                                 "type": "object"
                             },
                             "headerMessageId": {
-                                "description": "The headerMessageId of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <val>headerMessageId</val> is unknown or invalid. Not supported for external messages.",
+                                "description": "The headerMessageId of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <var>headerMessageId</var> is unknown or invalid. Not supported for external messages.",
                                 "optional": true,
                                 "type": "string"
                             },
@@ -154,7 +154,7 @@
                             },
                             "messageId": {
                                 "$ref": "messages.MessageId",
-                                "description": "The id of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <val>messageId</val> is unknown or invalid.",
+                                "description": "The id of a message to be opened. Will throw an <em>ExtensionError</em>, if the provided <var>messageId</var> is unknown or invalid.",
                                 "optional": true
                             },
                             "windowId": {

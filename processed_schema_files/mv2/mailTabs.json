@@ -94,7 +94,7 @@
                         "parameters": [
                             {
                                 "items": {
-                                    "$ref": "MailTab"
+                                    "$ref": "mailTabs.MailTab"
                                 },
                                 "type": "array"
                             }
@@ -110,11 +110,11 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#get-tabid",
                 "async": "callback",
-                "description": "Get the properties of a mail tab.",
+                "description": "Get the $(ref:mailTabs.MailTab) properties of a mail tab.",
                 "name": "get",
                 "parameters": [
                     {
-                        "description": "ID of the requested mail tab. Throws if the requested tab is not a mail tab.",
+                        "description": "ID of the requested mail tab. Throws if the requested <var>tabId</var> does not belong to a mail tab.",
                         "name": "tabId",
                         "type": "integer"
                     },
@@ -123,7 +123,7 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "MailTab"
+                                "$ref": "mailTabs.MailTab"
                             }
                         ],
                         "type": "function"
@@ -137,7 +137,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#getcurrent",
                 "async": "callback",
-                "description": "Get the properties of the active mail tab, if the active tab is a mail tab. Returns <value>undefined</value> otherwise.",
+                "description": "Get the $(ref:mailTabs.MailTab) properties of the active mail tab. Returns <var>undefined</var>, if the active tab is not a mail tab.",
                 "name": "getCurrent",
                 "parameters": [
                     {
@@ -145,7 +145,7 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "MailTab",
+                                "$ref": "mailTabs.MailTab",
                                 "description": "This may return undefined",
                                 "optional": true
                             }
@@ -165,7 +165,7 @@
                 "name": "create",
                 "parameters": [
                     {
-                        "$ref": "MailTabProperties",
+                        "$ref": "mailTabs.MailTabProperties",
                         "default": {},
                         "name": "createProperties",
                         "optional": true
@@ -175,7 +175,7 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "MailTab",
+                                "$ref": "mailTabs.MailTab",
                                 "description": "Details about the created mail tab. Will contain the ID of the new tab.",
                                 "name": "mailTab"
                             }
@@ -191,7 +191,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#update-tabid-updateproperties",
                 "async": "callback",
-                "description": "Modifies the properties of a mail tab. Properties that are not specified in <val>updateProperties</val> are not modified.",
+                "description": "Modifies the properties of a mail tab. Properties that are not specified in <var>updateProperties</var> are not modified.",
                 "name": "update",
                 "parameters": [
                     {
@@ -202,7 +202,7 @@
                         "type": "integer"
                     },
                     {
-                        "$ref": "MailTabProperties",
+                        "$ref": "mailTabs.MailTabProperties",
                         "name": "updateProperties"
                     },
                     {
@@ -210,7 +210,7 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "MailTab",
+                                "$ref": "mailTabs.MailTab",
                                 "description": "Details about the updated mail tab.",
                                 "name": "mailTab"
                             }
@@ -249,6 +249,41 @@
                 ],
                 "permissions": [
                     "messagesRead"
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#getselectedfolders-tabid",
+                "async": "callback",
+                "description": "Lists the selected folders in the folder pane.",
+                "name": "getSelectedFolders",
+                "parameters": [
+                    {
+                        "description": "Defaults to the active tab of the current window.",
+                        "minimum": 1,
+                        "name": "tabId",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "folders.MailFolder"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "permissions": [
+                    "accountsRead"
                 ],
                 "support": {
                     "version_added": true
@@ -367,7 +402,7 @@
                                 "optional": true
                             },
                             "text": {
-                                "$ref": "QuickFilterTextDetail",
+                                "$ref": "mailTabs.QuickFilterTextDetail",
                                 "description": "Shows only messages matching the supplied text.",
                                 "optional": true
                             },
@@ -486,7 +521,7 @@
                         "type": "string"
                     },
                     "viewType": {
-                        "description": "Group mode of the message list.",
+                        "description": "Grouping type of the message list.",
                         "enum": [
                             "ungrouped",
                             "groupedByThread",
@@ -514,12 +549,12 @@
                                 "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: MailTabProperties.displayedFolder needs to be specified as a MailFolderId instead of as a full MailFolder object."
                             }
                         ],
-                        "description": "Sets the folder displayed in the mail tab. Requires the <permission>accountsRead</permission> permission. The previous message selection in the given folder will be restored, if any. This property is ignored, if <value>selectedMessages</value> is specified.",
+                        "description": "Sets the folder displayed in the mail tab. Requires the <permission>accountsRead</permission> permission. The previous message selection in the given folder will be restored, if any. This property is ignored, if <var>selectedMessages</var> is specified.",
                         "optional": true
                     },
                     "folderMode": {
                         "$ref": "mailTabs.FolderMode",
-                        "description": "Sets the currently used folder mode, enabling it if required. If used without also specifying <value>displayedFolder</value>, the currently selected folder is re-selected in the new folder mode, if possible.",
+                        "description": "Sets the currently used folder mode, enabling it if required. If used without also specifying <var>displayedFolder</var>, the currently selected folder is re-selected in the new folder mode, if possible.",
                         "optional": true
                     },
                     "folderModesEnabled": {
@@ -552,7 +587,7 @@
                         "type": "boolean"
                     },
                     "sortOrder": {
-                        "description": "Sorts the list of messages. <val>sortType</val> must also be given.",
+                        "description": "Sorts the list of messages. <var>sortType</var> must also be given.",
                         "enum": [
                             "none",
                             "ascending",
@@ -562,7 +597,7 @@
                         "type": "string"
                     },
                     "sortType": {
-                        "description": "Sorts the list of messages. <val>sortOrder</val> must also be given.",
+                        "description": "Sorts the list of messages. <var>sortOrder</var> must also be given.",
                         "enum": [
                             "none",
                             "date",
@@ -589,7 +624,7 @@
                         "type": "string"
                     },
                     "viewType": {
-                        "description": "Sets the group mode of displayed messages.",
+                        "description": "Sets the grouping type of displayed messages.",
                         "enum": [
                             "ungrouped",
                             "groupedByThread",
@@ -605,27 +640,27 @@
                 "id": "QuickFilterTextDetail",
                 "properties": {
                     "author": {
-                        "description": "Shows messages where <val>text</val> matches the author.",
+                        "description": "Shows messages where <var>text</var> matches the author.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "body": {
-                        "description": "Shows messages where <val>text</val> matches the message body.",
+                        "description": "Shows messages where <var>text</var> matches the message body.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "recipients": {
-                        "description": "Shows messages where <val>text</val> matches the recipients.",
+                        "description": "Shows messages where <var>text</var> matches the recipients.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "subject": {
-                        "description": "Shows messages where <val>text</val> matches the subject.",
+                        "description": "Shows messages where <var>text</var> matches the subject.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "text": {
-                        "description": "String to match against the <val>recipients</val>, <val>author</val>, <val>subject</val>, or <val>body</val>.",
+                        "description": "String to match against the <var>recipients</var>, <var>author</var>, <var>subject</var>, or <var>body</var>.",
                         "type": "string"
                     }
                 },

@@ -105,7 +105,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#get-identityid",
                 "async": "callback",
-                "description": "Returns details of the requested identity, or <value>null</value> if it doesn't exist.",
+                "description": "Returns details of the requested identity, or <var>null</var> if it doesn't exist.",
                 "name": "get",
                 "parameters": [
                     {
@@ -223,7 +223,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#getdefault-accountid",
                 "async": "callback",
-                "description": "Returns the default identity for the requested account, or <value>null</value> if it is not defined.",
+                "description": "Returns the default identity for the requested account, or <var>null</var> if it is not defined.",
                 "name": "getDefault",
                 "parameters": [
                     {
@@ -280,11 +280,25 @@
         ],
         "types": [
             {
+                "id": "EncryptionCapabilities",
+                "properties": {
+                    "canEncrypt": {
+                        "description": "Whether the encryption technology is configured to support message encryption.",
+                        "type": "boolean"
+                    },
+                    "canSign": {
+                        "description": "Whether the encryption technology is configured to support message signing.",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            {
                 "id": "MailIdentity",
                 "properties": {
                     "accountId": {
                         "$ref": "accounts.MailAccountId",
-                        "description": "The id of the $(ref:accounts.MailAccount) this identity belongs to. The <val>accountId</val> property is read-only.",
+                        "description": "The id of the $(ref:accounts.MailAccount) this identity belongs to. The <var>accountId</var> property is read-only.",
                         "optional": true
                     },
                     "composeHtml": {
@@ -297,8 +311,23 @@
                         "optional": true,
                         "type": "string"
                     },
+                    "encryptionCapabilities": {
+                        "description": "The encryption capabilities of this identity. Read only.",
+                        "optional": true,
+                        "properties": {
+                            "OpenPGP": {
+                                "$ref": "identities.EncryptionCapabilities",
+                                "description": "The capabilities of this identity for the OpenPGP encryption technology."
+                            },
+                            "S/MIME": {
+                                "$ref": "identities.EncryptionCapabilities",
+                                "description": "The capabilities of this identity for the S/MIME encryption technology."
+                            }
+                        },
+                        "type": "object"
+                    },
                     "id": {
-                        "description": "A unique identifier for this identity. The <val>id</val> property is read-only.",
+                        "description": "A unique identifier for this identity. The <var>id</var> property is read-only.",
                         "optional": true,
                         "type": "string"
                     },

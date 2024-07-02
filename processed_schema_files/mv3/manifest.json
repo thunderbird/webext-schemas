@@ -203,6 +203,15 @@
                         "optional": true,
                         "type": "string"
                     },
+                    "optional_host_permissions": {
+                        "default": [],
+                        "items": {
+                            "$ref": "MatchPattern",
+                            "onError": "warn"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
                     "optional_permissions": {
                         "default": [],
                         "items": {
@@ -560,8 +569,15 @@
                 "id": "ExtensionID"
             },
             {
+                "additionalProperties": {
+                    "$ref": "UnrecognizedProperty"
+                },
                 "id": "FirefoxSpecificProperties",
                 "properties": {
+                    "admin_install_only": {
+                        "optional": true,
+                        "type": "boolean"
+                    },
                     "id": {
                         "$ref": "ExtensionID",
                         "optional": true
@@ -584,7 +600,7 @@
             },
             {
                 "additionalProperties": {
-                    "type": "any"
+                    "$ref": "UnrecognizedProperty"
                 },
                 "id": "GeckoAndroidSpecificProperties",
                 "properties": {
@@ -726,7 +742,12 @@
                         "type": "array"
                     },
                     "match_about_blank": {
-                        "description": "If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Code cannot be inserted in top-level about:-frames. By default it is <code>false</code>.",
+                        "description": "If match_about_blank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Ignored if match_origin_as_fallback is specified. By default it is <code>false</code>.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "match_origin_as_fallback": {
+                        "description": "If match_origin_as_fallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is <code>false</code>.",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -742,6 +763,12 @@
                         "$ref": "extensionTypes.RunAt",
                         "default": "document_idle",
                         "description": "The soonest that the JavaScript or CSS will be injected into the tab. Defaults to \"document_idle\".",
+                        "optional": true
+                    },
+                    "world": {
+                        "$ref": "extensionTypes.ExecutionWorld",
+                        "default": "ISOLATED",
+                        "description": "The JavaScript world for a script to execute within. Defaults to \"ISOLATED\".",
                         "optional": true
                     }
                 },

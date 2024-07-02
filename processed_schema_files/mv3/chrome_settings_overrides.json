@@ -18,7 +18,7 @@
                                 "optional": true,
                                 "properties": {
                                     "alternate_urls": {
-                                        "deprecated": "Unsupported on Thunderbird at this time.",
+                                        "deprecated": "Unsupported on Thunderbird.",
                                         "items": {
                                             "format": "url",
                                             "preprocess": "localize",
@@ -39,27 +39,27 @@
                                         "type": "string"
                                     },
                                     "image_url": {
-                                        "deprecated": "Unsupported on Thunderbird at this time.",
+                                        "deprecated": "Unsupported on Thunderbird.",
                                         "format": "url",
                                         "optional": true,
                                         "preprocess": "localize",
                                         "type": "string"
                                     },
                                     "image_url_post_params": {
-                                        "deprecated": "Unsupported on Thunderbird at this time.",
+                                        "deprecated": "Unsupported on Thunderbird.",
                                         "optional": true,
                                         "preprocess": "localize",
                                         "type": "string"
                                     },
                                     "instant_url": {
-                                        "deprecated": "Unsupported on Thunderbird at this time.",
+                                        "deprecated": "Unsupported on Thunderbird.",
                                         "format": "url",
                                         "optional": true,
                                         "preprocess": "localize",
                                         "type": "string"
                                     },
                                     "instant_url_post_params": {
-                                        "deprecated": "Unsupported on Thunderbird at this time.",
+                                        "deprecated": "Unsupported on Thunderbird.",
                                         "optional": true,
                                         "preprocess": "localize",
                                         "type": "string"

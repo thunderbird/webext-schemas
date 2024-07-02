@@ -31,7 +31,7 @@
         "events": [
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#onclicked-info-tab",
-                "description": "Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some <a href='|link-user-input-restrictions|'>restrictions</a> apply.",
+                "description": "Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/onClicked",
                 "name": "onClicked",
                 "parameters": [
@@ -101,7 +101,7 @@
         "functions": [
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#create-createproperties",
-                "description": "Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in <a href='|link-runtime-last-error|'>runtime.lastError</a>).",
+                "description": "Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError'>runtime.lastError</a>).",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/create",
                 "name": "create",
                 "parameters": [
@@ -109,17 +109,17 @@
                         "name": "createProperties",
                         "properties": {
                             "checked": {
-                                "description": "The initial state of a checkbox or radio item: <value>true</value> for selected and <value>false</value> for unselected. Only one radio item can be selected at a time in a given group of radio items.",
+                                "description": "The initial state of a checkbox or radio item: <var>true</var> for selected and <var>false</var> for unselected. Only one radio item can be selected at a time in a given group of radio items.",
                                 "optional": true,
                                 "type": "boolean"
                             },
                             "command": {
-                                "description": "Specifies a command to issue for the context click. Currently supports internal commands <value>_execute_browser_action</value>, <value>_execute_compose_action</value> and <value>_execute_message_display_action</value>.",
+                                "description": "Specifies a command to issue for the context click. Currently supports internal commands <var>_execute_browser_action</var>, <var>_execute_compose_action</var> and <var>_execute_message_display_action</var>.",
                                 "optional": true,
                                 "type": "string"
                             },
                             "contexts": {
-                                "description": "List of contexts this menu item will appear in. Defaults to <value>['page']</value> if not specified.",
+                                "description": "List of contexts this menu item will appear in. Defaults to <var>['page']</var> if not specified.",
                                 "items": {
                                     "$ref": "ContextType"
                                 },
@@ -128,7 +128,7 @@
                                 "type": "array"
                             },
                             "documentUrlPatterns": {
-                                "description": "Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see <a href='|link-match-patterns|'>Match Patterns</a>.",
+                                "description": "Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns'>Match Patterns</a>.",
                                 "items": {
                                     "type": "string"
                                 },
@@ -195,13 +195,13 @@
                                 "type": "array"
                             },
                             "title": {
-                                "description": "The text to be displayed in the item; this is <em>required</em> unless <val>type</val> is <value>separator</value>. When the context is <value>selection</value>, you can use <value>%s</value> within the string to show the selected text. For example, if this parameter's value is <value>Translate '%s' to Latin</value> and the user selects the word <value>cool</value>, the context menu item for the selection is <value>Translate 'cool' to Latin</value>. To specify an access key for the new menu entry, include a <value>&</value> before the desired letter in the title. For example <value>&Help</value>.",
+                                "description": "The text to be displayed in the item; this is <em>required</em> unless <var>type</var> is <var>separator</var>. When the context is <var>selection</var>, you can use <var>%s</var> within the string to show the selected text. For example, if this parameter's value is <var>Translate '%s' to Latin</var> and the user selects the word <var>cool</var>, the context menu item for the selection is <var>Translate 'cool' to Latin</var>. To specify an access key for the new menu entry, include a <var>&</var> before the desired letter in the title. For example <var>&Help</var>.",
                                 "optional": true,
                                 "type": "string"
                             },
                             "type": {
                                 "$ref": "ItemType",
-                                "description": "The type of menu item. Defaults to <value>normal</value> if not specified.",
+                                "description": "The type of menu item. Defaults to <var>normal</var> if not specified.",
                                 "optional": true
                             },
                             "viewTypes": {
@@ -225,7 +225,7 @@
                         "type": "object"
                     },
                     {
-                        "description": "Called when the item has been created in the browser. If there were any problems creating the item, details will be available in <a href='|link-runtime-last-error|'>runtime.lastError</a>.",
+                        "description": "Called when the item has been created in the browser. If there were any problems creating the item, details will be available in <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError'>runtime.lastError</a>.",
                         "name": "callback",
                         "optional": true,
                         "parameters": [],
@@ -439,7 +439,7 @@
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#overridecontext-contextoptions",
-                "description": "Show the matching menu items from this extension instead of the default menu. This should be called during a <a href='|link-contextmenu-event|'>contextmenu</a> event handler, and only applies to the menu that opens after this event.",
+                "description": "Show the matching menu items from this extension instead of the default menu. This should be called during a <a href='https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event'>contextmenu</a> event handler, and only applies to the menu that opens after this event.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/overrideContext",
                 "name": "overrideContext",
                 "parameters": [
@@ -447,7 +447,7 @@
                         "name": "contextOptions",
                         "properties": {
                             "context": {
-                                "description": "ContextType to override, to allow menu items from other extensions in the menu. Currently only <value>tab</value> is supported. <val>contextOptions.showDefaults</val> cannot be used with this option.",
+                                "description": "ContextType to override, to allow menu items from other extensions in the menu. Currently only <var>tab</var> is supported. <var>contextOptions.showDefaults</var> cannot be used with this option.",
                                 "enum": [
                                     "tab"
                                 ],
@@ -461,7 +461,7 @@
                                 "type": "boolean"
                             },
                             "tabId": {
-                                "description": "Required when context is <value>tab</value>. Requires the <permission>tabs</permission> permission.",
+                                "description": "Required when context is <var>tab</var>. Requires the <permission>tabs</permission> permission.",
                                 "minimum": 0,
                                 "optional": true,
                                 "type": "integer"
@@ -511,7 +511,7 @@
         },
         "types": [
             {
-                "description": "The different contexts a menu can appear in. Specifying <value>all</value> is equivalent to the combination of all other contexts excluding <value>tab</value> and <value>tools_menu</value>. More information about each context can be found in the <a href='|link-ui-elements|'>Supported UI Elements</a> article on developer.thunderbird.net.",
+                "description": "The different contexts a menu can appear in. Specifying <var>all</var> is equivalent to the combination of all other contexts excluding <var>tab</var> and <var>tools_menu</var>. More information about each context can be found in the <a href='https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items'>Supported UI Elements</a> article on developer.thunderbird.net.",
                 "enum": [
                     "all",
                     "all_message_attachments",
@@ -580,7 +580,7 @@
                     },
                     "displayedFolder": {
                         "$ref": "folders.MailFolder",
-                        "description": "The displayed folder, if the context menu was opened in the message list. The <permission>accountsRead</permission> permission is required.",
+                        "description": "The displayed folder. Only available for the <var>message_list</var> context. The <permission>accountsRead</permission> permission is required.",
                         "optional": true
                     },
                     "editable": {
@@ -616,7 +616,7 @@
                         "type": "string"
                     },
                     "mediaType": {
-                        "description": "One of <value>image</value>, <value>video</value>, or <value>audio</value> if the context menu was activated on one of these types of elements.",
+                        "description": "One of <var>image</var>, <var>video</var>, or <var>audio</var> if the context menu was activated on one of these types of elements.",
                         "optional": true,
                         "type": "string"
                     },
@@ -641,17 +641,27 @@
                     },
                     "selectedAccount": {
                         "$ref": "accounts.MailAccount",
-                        "description": "The selected account, if the context menu was opened on an account entry in the folder pane. The <permission>accountsRead</permission> permission is required.",
+                        "deprecated": "Deprecated since Thunderbird 128 and removed in Manifest V3: The selectedAccount property has been replaced by the selectedFolders property, returning the root folder of the account.",
+                        "description": "The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the <var>folder_pane</var> context. The <permission>accountsRead</permission> permission is required.",
                         "optional": true
                     },
                     "selectedFolder": {
                         "$ref": "folders.MailFolder",
-                        "description": "The selected folder, if the context menu was opened in the folder pane. The <permission>accountsRead</permission> permission is required.",
+                        "deprecated": "Deprecated since Thunderbird 128 and removed in Manifest V3: The selectedFolder property has been replaced by the selectedFolders property.",
+                        "description": "The selected folder in the folder pane (where the context menu was opened). Only available for the <var>folder_pane</var> context. The <permission>accountsRead</permission> permission is required.",
                         "optional": true
+                    },
+                    "selectedFolders": {
+                        "description": "The selected folders in the folder pane. Only available for the <var>folder_pane</var> context. The <permission>accountsRead</permission> permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.",
+                        "items": {
+                            "$ref": "folders.MailFolder"
+                        },
+                        "optional": true,
+                        "type": "array"
                     },
                     "selectedMessages": {
                         "$ref": "messages.MessageList",
-                        "description": "The selected messages, if the context menu was opened in the message list. The <permission>messagesRead</permission> permission is required.",
+                        "description": "The selected message(s) in the message list (a.k.a. the thread pane). Only available for the <var>message_list</var> context. The <permission>messagesRead</permission> permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.",
                         "optional": true
                     },
                     "selectionText": {
@@ -708,7 +718,7 @@
                     },
                     "displayedFolder": {
                         "$ref": "folders.MailFolder",
-                        "description": "The displayed folder, if the context menu was opened in the message list. The <permission>accountsRead</permission> permission is required.",
+                        "description": "The displayed folder. Only available for the <var>message_list</var> context. The <permission>accountsRead</permission> permission is required.",
                         "optional": true
                     },
                     "editable": {
@@ -750,7 +760,7 @@
                         "type": "string"
                     },
                     "mediaType": {
-                        "description": "One of <value>image</value>, <value>video</value>, or <value>audio</value> if the context menu was activated on one of these types of elements.",
+                        "description": "One of <var>image</var>, <var>video</var>, or <var>audio</var> if the context menu was activated on one of these types of elements.",
                         "optional": true,
                         "type": "string"
                     },
@@ -798,17 +808,27 @@
                     },
                     "selectedAccount": {
                         "$ref": "accounts.MailAccount",
-                        "description": "The selected account, if the context menu was opened on an account entry in the folder pane. The <permission>accountsRead</permission> permission is required.",
+                        "deprecated": "Deprecated since Thunderbird 128 and removed in Manifest V3: The selectedAccount property has been replaced by the selectedFolders property, returning the root folder of the account.",
+                        "description": "The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the <var>folder_pane</var> context. The <permission>accountsRead</permission> permission is required.",
                         "optional": true
                     },
                     "selectedFolder": {
                         "$ref": "folders.MailFolder",
-                        "description": "The selected folder, if the context menu was opened in the folder pane. The <permission>accountsRead</permission> permission is required.",
+                        "deprecated": "Deprecated since Thunderbird 128 and removed in Manifest V3: The selectedFolder property has been replaced by the selectedFolders property.",
+                        "description": "The selected folder in the folder pane (where the context menu was opened). Only available for the <var>folder_pane</var> context. The <permission>accountsRead</permission> permission is required.",
                         "optional": true
+                    },
+                    "selectedFolders": {
+                        "description": "The selected folders in the folder pane. Only available for the <var>folder_pane</var> context. The <permission>accountsRead</permission> permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.",
+                        "items": {
+                            "$ref": "folders.MailFolder"
+                        },
+                        "optional": true,
+                        "type": "array"
                     },
                     "selectedMessages": {
                         "$ref": "messages.MessageList",
-                        "description": "The selected messages, if the context menu was opened in the message list. The <permission>messagesRead</permission> permission is required.",
+                        "description": "The selected message(s) in the message list (a.k.a. the thread pane). Only available for the <var>message_list</var> context. The <permission>messagesRead</permission> permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.",
                         "optional": true
                     },
                     "selectionText": {
@@ -850,7 +870,7 @@
                         "type": "string"
                     }
                 ],
-                "description": "The path for a menu icon may be a relative path to an icon file, a <value>moz-extension:</value> URL, an image <value>data:</value> URL, a <value>blob:</value> URL, or a remote <value>http(s):</value> URL.",
+                "description": "The path for a menu icon may be a relative path to an icon file, a <var>moz-extension:</var> URL, an image <var>data:</var> URL, a <var>blob:</var> URL, or a remote <var>http(s):</var> URL.",
                 "id": "MenuIconPath"
             },
             {

@@ -106,7 +106,7 @@
             },
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#onupdated-originalfolder-updatedfolder",
-                "description": "Fired when properties of a folder have changed (<value>specialUse</value> and <value>isFavorite</value>).",
+                "description": "Fired when properties of a folder have changed (<var>specialUse</var> and <var>isFavorite</var>).",
                 "name": "onUpdated",
                 "parameters": [
                     {
@@ -249,12 +249,12 @@
                                 "type": "boolean"
                             },
                             "isTag": {
-                                "description": "Whether the folder is a virtual tag folder, or not. Note: Virtual tag folders are always skipped, unless this property is set to <value>true</value>",
+                                "description": "Whether the folder is a virtual tag folder, or not. Note: Virtual tag folders are always skipped, unless this property is set to <var>true</var>",
                                 "optional": true,
                                 "type": "boolean"
                             },
                             "isUnified": {
-                                "description": "Whether the folder is a unified mailbox folder, or not. Note: Unified mailbox folders are always skipped, unless this property is set to <value>true</value>",
+                                "description": "Whether the folder is a unified mailbox folder, or not. Note: Unified mailbox folders are always skipped, unless this property is set to <var>true</var>",
                                 "optional": true,
                                 "type": "boolean"
                             },
@@ -264,7 +264,7 @@
                                 "type": "boolean"
                             },
                             "limit": {
-                                "description": "Limits the number of returned folders. If used together with <value>recent</value>, supports being set to $(ref:folders.DEFAULT_MOST_RECENT_LIMIT)",
+                                "description": "Limits the number of returned folders. If used together with <var>recent</var>, supports being set to $(ref:folders.DEFAULT_MOST_RECENT_LIMIT)",
                                 "optional": true,
                                 "type": "integer"
                             },
@@ -329,18 +329,18 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#get-folder-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#get-folderid-includesubfolders",
                 "async": "callback",
                 "description": "Returns the specified folder.",
                 "name": "get",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
                     },
                     {
-                        "default": true,
-                        "description": "Specifies whether the returned $(ref:folders.MailFolder) object should include all its nested subfolders . Defaults to <value>true</value>.",
+                        "default": false,
+                        "description": "Specifies whether the returned $(ref:folders.MailFolder) should populate its <var>subFolders</var> property and include all its (nested!) subfolders. Defaults to <var>false</var>.",
                         "name": "includeSubFolders",
                         "optional": true,
                         "type": "boolean"
@@ -362,14 +362,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#create-destination-childname",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#create-folderid-childname",
                 "async": "callback",
-                "description": "Creates a new subfolder in the specified folder or at the root of the specified account.",
+                "description": "Creates a new subfolder in the specified folder.",
                 "name": "create",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "destination"
+                        "name": "folderId"
                     },
                     {
                         "name": "childName",
@@ -395,14 +395,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#rename-folder-newname",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#rename-folderid-newname",
                 "async": "callback",
                 "description": "Renames a folder.",
                 "name": "rename",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
                     },
                     {
                         "name": "newName",
@@ -428,18 +428,18 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#move-source-destination",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#move-sourcefolderid-destinationfolderid",
                 "async": "callback",
                 "description": "Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.",
                 "name": "move",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "source"
+                        "name": "sourceFolderId"
                     },
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "destination"
+                        "name": "destinationFolderId"
                     },
                     {
                         "name": "callback",
@@ -461,18 +461,18 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#copy-source-destination",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#copy-sourcefolderid-destinationfolderid",
                 "async": "callback",
                 "description": "Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.",
                 "name": "copy",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "source"
+                        "name": "sourceFolderId"
                     },
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "destination"
+                        "name": "destinationFolderId"
                     },
                     {
                         "name": "callback",
@@ -494,14 +494,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#delete-folder",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#delete-folderid",
                 "async": true,
                 "description": "Deletes a folder.",
                 "name": "delete",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
                     }
                 ],
                 "permissions": [
@@ -514,14 +514,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#update-folder-updateproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#update-folderid-updateproperties",
                 "async": true,
                 "description": "Updates properties of a folder.",
                 "name": "update",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
                     },
                     {
                         "description": "The properties to update.",
@@ -545,14 +545,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getfolderinfo-folder",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getfolderinfo-folderid",
                 "async": "callback",
                 "description": "Get additional information about a folder.",
                 "name": "getFolderInfo",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
                     },
                     {
                         "name": "callback",
@@ -571,14 +571,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getfoldercapabilities-folder",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getfoldercapabilities-folderid",
                 "async": "callback",
                 "description": "Get capability information about a folder.",
                 "name": "getFolderCapabilities",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
                     },
                     {
                         "name": "callback",
@@ -597,18 +597,18 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getparentfolders-folder-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getparentfolders-folderid-includesubfolders",
                 "async": "callback",
                 "description": "Get all parent folders as a flat ordered array. The first array entry is the direct parent.",
                 "name": "getParentFolders",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
                     },
                     {
                         "default": false,
-                        "description": "Specifies whether the returned $(ref:folders.MailFolder) object for each parent folder should include its nested subfolders . Defaults to <value>false</value>.",
+                        "description": "Specifies whether each returned parent $(ref:folders.MailFolder) should populate its <var>subFolders</var> property and include all its (nested!) subfolders. Defaults to <var>false</var>.",
                         "name": "includeSubFolders",
                         "optional": true,
                         "type": "boolean"
@@ -633,18 +633,18 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getsubfolders-folder-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getsubfolders-folderid-includesubfolders",
                 "async": "callback",
-                "description": "Get the subfolders of the specified folder or account.",
+                "description": "Get the subfolders of the specified folder.",
                 "name": "getSubFolders",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
                     },
                     {
-                        "default": true,
-                        "description": "Specifies whether the returned $(ref:folders.MailFolder) object for each direct subfolder should also include all its nested subfolders . Defaults to <value>true</value>.",
+                        "default": false,
+                        "description": "Specifies whether each returned direct child $(ref:folders.MailFolder) should populate its <var>subFolders</var> property and include all its (nested!) subfolders. Defaults to <var>false</var>.",
                         "name": "includeSubFolders",
                         "optional": true,
                         "type": "boolean"
@@ -669,7 +669,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getunifiedfolder--includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#getunifiedfolder-type-includesubfolders",
                 "async": "callback",
                 "description": "Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts.",
                 "name": "getUnifiedFolder",
@@ -685,11 +685,12 @@
                             "archives",
                             "junk"
                         ],
+                        "name": "type",
                         "type": "string"
                     },
                     {
                         "default": false,
-                        "description": "Specifies whether the returned $(ref:folders.MailFolder) object should include all its nested subfolders . Defaults to <value>false</value>.",
+                        "description": "Specifies whether the returned $(ref:folders.MailFolder) should populate its <var>subFolders</var> property and include all its (nested!) subfolders. Defaults to <var>false</var>.",
                         "name": "includeSubFolders",
                         "optional": true,
                         "type": "boolean"
@@ -711,13 +712,14 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#gettagfolder-",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#gettagfolder-key",
                 "async": "callback",
                 "description": "Get one of the special unified mailbox tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.",
                 "name": "getTagFolder",
                 "parameters": [
                     {
                         "description": "The tag key of the requested folder. See $(ref:messages.tags.list()) for the available tags. Throws when specifying an invalid tag key.",
+                        "name": "key",
                         "type": "string"
                     },
                     {
@@ -737,14 +739,20 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#markasread-folder",
-                "async": false,
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#markasread-folderid",
+                "async": "callback",
                 "description": "Marks all messages in a folder as read.",
                 "name": "markAsRead",
                 "parameters": [
                     {
                         "$ref": "folders.MailFolderId",
-                        "name": "folder"
+                        "name": "folderId"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [],
+                        "type": "function"
                     }
                 ],
                 "permissions": [
@@ -763,7 +771,7 @@
         "properties": {
             "DEFAULT_MOST_RECENT_LIMIT": {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/folders.html#default_most_recent_limit",
-                "description": "The number of most recent folders used in Thunderbird's UI. Controled by the <value>mail.folder_widget.max_recent</value> preference.",
+                "description": "The number of most recent folders used in Thunderbird's UI. Controled by the <var>mail.folder_widget.max_recent</var> preference.",
                 "support": {
                     "version_added": true
                 },
@@ -828,7 +836,7 @@
                         "type": "array"
                     },
                     "subFolders": {
-                        "description": "Subfolders of this folder. The property may be <value>null</value>, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.",
+                        "description": "Subfolders of this folder. The property may be <var>null</var>, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.",
                         "items": {
                             "$ref": "folders.MailFolder"
                         },
@@ -860,7 +868,7 @@
                     "quota": {
                         "description": "Quota information, if available.",
                         "items": {
-                            "$ref": "MailFolderQuota"
+                            "$ref": "folders.MailFolderQuota"
                         },
                         "optional": true,
                         "type": "array"
@@ -934,7 +942,7 @@
                         "type": "integer"
                     },
                     "type": {
-                        "description": "The type of the quota as defined by RFC2087. A <value>STORAGE</value> quota is constraining the available storage in bytes, a <value>MESSAGE</value> quota is constraining the number of storable messages.",
+                        "description": "The type of the quota as defined by RFC2087. A <var>STORAGE</var> quota is constraining the available storage in bytes, a <var>MESSAGE</var> quota is constraining the number of storable messages.",
                         "enum": [
                             "STORAGE",
                             "MESSAGE"
@@ -973,13 +981,13 @@
                 "id": "RegularExpression",
                 "properties": {
                     "flags": {
-                        "description": "Supported RegExp flags: <value>i</value> = case insensitive, and/or one of <value>u</value> = unicode support or <value>v</value> = extended unicode support",
+                        "description": "Supported RegExp flags: <var>i</var> = case insensitive, and/or one of <var>u</var> = unicode support or <var>v</var> = extended unicode support",
                         "optional": true,
                         "pattern": "^(i|u|v|iu|iv|ui|vi)$",
                         "type": "string"
                     },
                     "regexp": {
-                        "description": "A regular expression, for example <value>^Projects \\d{4}$</value>.",
+                        "description": "A regular expression, for example <var>^Projects \\d{4}$</var>.",
                         "type": "string"
                     }
                 },

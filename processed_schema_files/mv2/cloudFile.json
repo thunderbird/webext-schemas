@@ -13,18 +13,18 @@
                         "properties": {
                             "browser_style": {
                                 "default": false,
-                                "description": "Enable browser styles in the <val>management_url</val> page. See the <a href='|link-mdn-browser-styles|'>MDN documentation on browser styles</a> for more information.",
+                                "description": "Enable browser styles in the <var>management_url</var> page. See the <a href='https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles'>MDN documentation on browser styles</a> for more information.",
                                 "optional": true,
                                 "type": "boolean"
                             },
                             "data_format": {
                                 "deprecated": true,
-                                "description": "This property is no longer used. The only supported data format for the <val>data</val> argument in $(ref:cloudFile.onFileUpload) is |File|.",
+                                "description": "This property is no longer used. The only supported data format for the <var>data</var> argument in $(ref:cloudFile.onFileUpload) is <a href='https://developer.mozilla.org/docs/Web/API/File'>File</a>.",
                                 "optional": true,
                                 "type": "string"
                             },
                             "management_url": {
-                                "description": "A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: <val>cloudFile</val>, <val>extension</val>, <val>i18n</val>, <val>runtime</val>, <val>storage</val>, <val>test</val>.",
+                                "description": "A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: <var>cloudFile</var>, <var>extension</var>, <var>i18n</var>, <var>runtime</var>, <var>storage</var>, <var>test</var>.",
                                 "format": "relativeUrl",
                                 "preprocess": "localize",
                                 "type": "string"
@@ -42,13 +42,13 @@
                             },
                             "reuse_uploads": {
                                 "default": true,
-                                "description": "If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known <val>url</val> and <val>templateInfo</val> values without triggering the registered $(ref:cloudFile.onFileUpload) listener again. Setting this option to <value>false</value> will always trigger the registered listener, providing the already known values through the <val>relatedFileInfo</val> parameter of the $(ref:cloudFile.onFileUpload) event, to let the provider decide how to handle these cases.",
+                                "description": "If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known <var>url</var> and <var>templateInfo</var> values without triggering the registered $(ref:cloudFile.onFileUpload) listener again. Setting this option to <var>false</var> will always trigger the registered listener, providing the already known values through the <var>relatedFileInfo</var> parameter of the $(ref:cloudFile.onFileUpload) event, to let the provider decide how to handle these cases.",
                                 "optional": true,
                                 "type": "boolean"
                             },
                             "service_url": {
                                 "deprecated": true,
-                                "description": "This property is no longer used. The <val>service_url</val> property of the $(ref:cloudFile.CloudFileTemplateInfo) object returned by the $(ref:cloudFile.onFileUpload) event can be used to add a <em>Learn more about</em> link to the footer of the cloud file attachment element.",
+                                "description": "This property is no longer used. The <var>service_url</var> property of the $(ref:cloudFile.CloudFileTemplateInfo) object returned by the $(ref:cloudFile.onFileUpload) event can be used to add a <em>Learn more about</em> link to the footer of the cloud file attachment element.",
                                 "optional": true,
                                 "type": "string"
                             }
@@ -97,7 +97,7 @@
                 "returns": {
                     "properties": {
                         "aborted": {
-                            "description": "Set this to <value>true</value> if the file upload was aborted by the user and an $(ref:cloudFile.onFileUploadAbort) event has been received. No error message will be shown to the user.",
+                            "description": "Set this to <var>true</var> if the file upload was aborted by the user and an $(ref:cloudFile.onFileUploadAbort) event has been received. No error message will be shown to the user.",
                             "optional": true,
                             "type": "boolean"
                         },
@@ -110,7 +110,7 @@
                                     "type": "string"
                                 }
                             ],
-                            "description": "Report an error to the user. Set this to <value>true</value> for showing a generic error message, or set a specific error message.",
+                            "description": "Report an error to the user. Set this to <var>true</var> for showing a generic error message, or set a specific error message.",
                             "optional": true
                         },
                         "templateInfo": {
@@ -201,7 +201,7 @@
                                     "type": "string"
                                 }
                             ],
-                            "description": "Report an error to the user. Set this to <value>true</value> for showing a generic error message, or set a specific error message.",
+                            "description": "Report an error to the user. Set this to <var>true</var> for showing a generic error message, or set a specific error message.",
                             "optional": true
                         },
                         "url": {
@@ -287,7 +287,7 @@
                 ],
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/cloudFile.html#getaccount-accountid",
                 "async": "callback",
-                "description": "Retrieve information about a single cloud file account, or <value>undefined</value> if it does not exists",
+                "description": "Retrieve information about a single cloud file account, or <var>undefined</var> if it does not exists",
                 "name": "getAccount",
                 "parameters": [
                     {
@@ -370,19 +370,19 @@
                                 "type": "string"
                             },
                             "spaceRemaining": {
-                                "description": "The amount of remaining space on the cloud provider, in bytes. Set to <value>-1</value> if unsupported.",
+                                "description": "The amount of remaining space on the cloud provider, in bytes. Set to <var>-1</var> if unsupported.",
                                 "minimum": -1,
                                 "optional": true,
                                 "type": "integer"
                             },
                             "spaceUsed": {
-                                "description": "The amount of space already used on the cloud provider, in bytes. Set to <value>-1</value> if unsupported.",
+                                "description": "The amount of space already used on the cloud provider, in bytes. Set to <var>-1</var> if unsupported.",
                                 "minimum": -1,
                                 "optional": true,
                                 "type": "integer"
                             },
                             "uploadSizeLimit": {
-                                "description": "The maximum size in bytes for a single file to upload. Set to <value>-1</value> if unlimited.",
+                                "description": "The maximum size in bytes for a single file to upload. Set to <var>-1</var> if unlimited.",
                                 "minimum": -1,
                                 "optional": true,
                                 "type": "integer"
@@ -436,19 +436,19 @@
                         "type": "string"
                     },
                     "spaceRemaining": {
-                        "description": "The amount of remaining space on the cloud provider, in bytes. Set to <value>-1</value> if unsupported.",
+                        "description": "The amount of remaining space on the cloud provider, in bytes. Set to <var>-1</var> if unsupported.",
                         "minimum": -1,
                         "optional": true,
                         "type": "integer"
                     },
                     "spaceUsed": {
-                        "description": "The amount of space already used on the cloud provider, in bytes. Set to <value>-1</value> if unsupported.",
+                        "description": "The amount of space already used on the cloud provider, in bytes. Set to <var>-1</var> if unsupported.",
                         "minimum": -1,
                         "optional": true,
                         "type": "integer"
                     },
                     "uploadSizeLimit": {
-                        "description": "The maximum size in bytes for a single file to upload. Set to <value>-1</value> if unlimited.",
+                        "description": "The maximum size in bytes for a single file to upload. Set to <var>-1</var> if unlimited.",
                         "minimum": -1,
                         "optional": true,
                         "type": "integer"
@@ -466,7 +466,7 @@
                         "properties": {
                             "format": {
                                 "additionalProperties": true,
-                                "description": "A format options object as used by |DateTimeFormat|. Defaults to: <literalinclude>includes/cloudFile/defaultDateFormat.js<lang>JavaScript</lang></literalinclude>",
+                                "description": "A format options object as used by <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat'>Intl.DateTimeFormat</a>. Defaults to: <literalinclude>includes/cloudFile/defaultDateFormat.js<lang>JavaScript</lang></literalinclude>",
                                 "optional": true,
                                 "type": "object"
                             },
@@ -528,7 +528,7 @@
                 "type": "object"
             },
             {
-                "description": "Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property <val>reuse_uploads</val> set to <value>false</value>.",
+                "description": "Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property <var>reuse_uploads</var> set to <var>false</var>.",
                 "id": "RelatedCloudFile",
                 "properties": {
                     "dataChanged": {

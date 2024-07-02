@@ -281,7 +281,7 @@
                         "type": "string"
                     },
                     "parentId": {
-                        "description": "The <val>id</val> of the parent object.",
+                        "description": "The <var>id</var> of the parent object.",
                         "optional": true,
                         "type": "string"
                     },
@@ -297,7 +297,7 @@
                     },
                     "type": {
                         "$ref": "NodeType",
-                        "description": "Always set to <value>addressBook</value>."
+                        "description": "Always set to <var>addressBook</var>."
                     }
                 },
                 "type": "object"
@@ -319,7 +319,7 @@
                                 "type": "string"
                             },
                             "id": {
-                                "description": "The unique ID of the created address book. If several listeners have been added, the <val>id</val> allows to identify which address book initiated the search request. If not provided, a unique ID will be generated for you.",
+                                "description": "The unique ID of the created address book. If several listeners have been added, the <var>id</var> allows to identify which address book initiated the search request. If not provided, a unique ID will be generated for you.",
                                 "optional": true,
                                 "type": "string"
                             },
@@ -381,8 +381,8 @@
                         "name": "node"
                     },
                     {
-                        "$ref": "PropertyChange",
-                        "name": "changedProperties"
+                        "name": "oldVCard",
+                        "type": "string"
                     }
                 ],
                 "type": "function"
@@ -406,7 +406,7 @@
         "functions": [
             {
                 "async": "callback",
-                "description": "Gets all the contacts in the address book with the id <val>parentId</val>.",
+                "description": "Gets all the contacts in the address book with the id <var>parentId</var>.",
                 "name": "list",
                 "parameters": [
                     {
@@ -431,7 +431,7 @@
             },
             {
                 "async": "callback",
-                "description": "Gets all contacts matching <val>queryInfo</val>.",
+                "description": "Gets all contacts matching <var>queryInfo</var>.",
                 "name": "query",
                 "parameters": [
                     {
@@ -478,7 +478,7 @@
             },
             {
                 "async": "callback",
-                "description": "Gets the photo associated with this contact. Returns <value>null</value>, if no photo is available.",
+                "description": "Gets the photo associated with this contact. Returns <var>null</var>, if no photo is available.",
                 "name": "getPhoto",
                 "parameters": [
                     {
@@ -527,7 +527,7 @@
             },
             {
                 "async": "callback",
-                "description": "Adds a new contact to the address book with the id <val>parentId</val>.",
+                "description": "Adds a new contact to the address book with the id <var>parentId</var>.",
                 "name": "create",
                 "parameters": [
                     {
@@ -535,15 +535,9 @@
                         "type": "string"
                     },
                     {
-                        "description": "Assigns the contact an id. If an existing contact has this id, an exception is thrown. **Note:** Deprecated, the card's id should be specified in the vCard string instead.",
-                        "name": "id",
-                        "optional": true,
+                        "description": "The vCard for the new contact. If it includes an (optional) id and an existing contact has this id already, an exception is thrown.",
+                        "name": "vCard",
                         "type": "string"
-                    },
-                    {
-                        "$ref": "ContactProperties",
-                        "description": "The properties object for the new contact. If it includes a <val>vCard</val> member, all specified <a href='|link-legacy-properties|'>legacy properties</a> are ignored and the new contact will be based on the provided vCard string. If a UID is specified in the vCard string, which is already used by another contact, an exception is thrown. **Note:** Using individual properties is deprecated, use the <val>vCard</val> member instead.",
-                        "name": "properties"
                     },
                     {
                         "name": "callback",
@@ -569,9 +563,9 @@
                         "type": "string"
                     },
                     {
-                        "$ref": "ContactProperties",
-                        "description": "An object with properties to update the specified contact. Individual properties are removed, if they are set to <value>null</value>. If the provided object includes a <val>vCard</val> member, all specified <a href='|link-legacy-properties|'>legacy properties</a> are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored. **Note:** Using individual properties is deprecated, use the <val>vCard</val> member instead. ",
-                        "name": "properties"
+                        "description": "The updated vCard for the contact.",
+                        "name": "vCard",
+                        "type": "string"
                     }
                 ],
                 "type": "function"
@@ -600,25 +594,25 @@
                 "properties": {
                     "includeLocal": {
                         "default": true,
-                        "description": "Whether to include results from local address books. Defaults to true.",
+                        "description": "Whether to include results from local address books. Defaults to <var>true</var>.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "includeReadOnly": {
                         "default": true,
-                        "description": "Whether to include results from read-only address books. Defaults to true.",
+                        "description": "Whether to include results from read-only address books. Defaults to <var>true</var>.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "includeReadWrite": {
                         "default": true,
-                        "description": "Whether to include results from read-write address books. Defaults to true.",
+                        "description": "Whether to include results from read-write address books. Defaults to <var>true</var>.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "includeRemote": {
                         "default": true,
-                        "description": "Whether to include results from remote address books. Defaults to true.",
+                        "description": "Whether to include results from remote address books. Defaults to <var>true</var>.",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -628,7 +622,7 @@
                         "type": "string"
                     },
                     "searchString": {
-                        "description": "One or more space-separated terms to search for in predefined contact fields (defined by the preference <value>mail.addr_book.quicksearchquery.format</value>).",
+                        "description": "One or more space-separated terms to search for in predefined contact fields (defined by the preference <var>mail.addr_book.quicksearchquery.format</var>).",
                         "optional": true,
                         "type": "string"
                     }
@@ -644,12 +638,9 @@
                         "type": "string"
                     },
                     "parentId": {
-                        "description": "The <val>id</val> of the parent object.",
+                        "description": "The <var>id</var> of the parent object.",
                         "optional": true,
                         "type": "string"
-                    },
-                    "properties": {
-                        "$ref": "ContactProperties"
                     },
                     "readOnly": {
                         "description": "Indicates if the object is read-only.",
@@ -663,7 +654,10 @@
                     },
                     "type": {
                         "$ref": "addressBooks.NodeType",
-                        "description": "Always set to <value>contact</value>."
+                        "description": "Always set to <var>contact</var>."
+                    },
+                    "vCard": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -686,7 +680,7 @@
                 "type": "object"
             },
             {
-                "description": "A dictionary of changed properties. Keys are the property name that changed, values are an object containing <val>oldValue</val> and <val>newValue</val>. Values can be either a string or <value>null</value>.",
+                "description": "A dictionary of changed properties. Keys are the property name that changed, values are an object containing <var>oldValue</var> and <var>newValue</var>. Values can be either a string or <var>null</var>.",
                 "id": "PropertyChange",
                 "patternProperties": {
                     "^\\w+$": {
@@ -788,7 +782,7 @@
         "functions": [
             {
                 "async": "callback",
-                "description": "Gets all the mailing lists in the address book with id <val>parentId</val>.",
+                "description": "Gets all the mailing lists in the address book with id <var>parentId</var>.",
                 "name": "list",
                 "parameters": [
                     {
@@ -835,7 +829,7 @@
             },
             {
                 "async": "callback",
-                "description": "Creates a new mailing list in the address book with id <val>parentId</val>.",
+                "description": "Creates a new mailing list in the address book with id <var>parentId</var>.",
                 "name": "create",
                 "parameters": [
                     {
@@ -916,7 +910,7 @@
             },
             {
                 "async": true,
-                "description": "Adds a contact to the mailing list with id <val>id</val>. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.",
+                "description": "Adds a contact to the mailing list with id <var>id</var>. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.",
                 "name": "addMember",
                 "parameters": [
                     {
@@ -932,7 +926,7 @@
             },
             {
                 "async": "callback",
-                "description": "Gets all contacts that are members of the mailing list with id <val>id</val>.",
+                "description": "Gets all contacts that are members of the mailing list with id <var>id</var>.",
                 "name": "listMembers",
                 "parameters": [
                     {
@@ -957,7 +951,7 @@
             },
             {
                 "async": true,
-                "description": "Removes a contact from the mailing list with id <val>id</val>. This does not delete the contact from the address book.",
+                "description": "Removes a contact from the mailing list with id <var>id</var>. This does not delete the contact from the address book.",
                 "name": "removeMember",
                 "parameters": [
                     {
@@ -1003,7 +997,7 @@
                         "type": "string"
                     },
                     "parentId": {
-                        "description": "The <val>id</val> of the parent object.",
+                        "description": "The <var>id</var> of the parent object.",
                         "optional": true,
                         "type": "string"
                     },
@@ -1019,7 +1013,7 @@
                     },
                     "type": {
                         "$ref": "addressBooks.NodeType",
-                        "description": "Always set to <value>mailingList</value>."
+                        "description": "Always set to <var>mailingList</var>."
                     }
                 },
                 "type": "object"
