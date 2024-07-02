@@ -435,19 +435,12 @@
                         "type": "array"
                     },
                     "type": {
-                        "description": "The type of folder, for several common types.",
-                        "enum": [
-                            "inbox",
-                            "drafts",
-                            "sent",
-                            "trash",
-                            "templates",
-                            "archives",
-                            "junk",
-                            "outbox"
-                        ],
+                        "description": "The type of folder.",
+                        "items": {
+                            "$ref": "folders.MailFolderType"
+                        },
                         "optional": true,
-                        "type": "string"
+                        "type": "array"
                     }
                 },
                 "type": "object"
@@ -473,6 +466,21 @@
                     }
                 },
                 "type": "object"
+            },
+            {
+                "description": "The type of folder",
+                "enum": [
+                    "inbox",
+                    "drafts",
+                    "sent",
+                    "trash",
+                    "templates",
+                    "archives",
+                    "junk",
+                    "outbox"
+                ],
+                "id": "MailFolderType",
+                "type": "string"
             }
         ]
     }

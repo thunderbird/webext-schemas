@@ -100,7 +100,7 @@
                             },
                             "type": {
                                 "default": "button",
-                                "description": "Specifies the type of the button. Default type is <code>button</code>.",
+                                "description": "Specifies the type of the button. Default type is <value>button</value>.",
                                 "enum": [
                                     "button",
                                     "menu"

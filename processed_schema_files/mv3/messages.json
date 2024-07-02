@@ -142,7 +142,7 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "MessageList"
+                                "$ref": "messages.MessageList"
                             }
                         ],
                         "type": "function"
@@ -171,10 +171,26 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "MessageList"
+                                "$ref": "messages.MessageList"
                             }
                         ],
                         "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#abortlist-messagelistid",
+                "async": true,
+                "description": "Finalizes the specified list and terminates any process currently still adding messages.",
+                "name": "abortList",
+                "parameters": [
+                    {
+                        "name": "messageListId",
+                        "type": "string"
                     }
                 ],
                 "support": {
@@ -393,6 +409,11 @@
                                 "optional": true,
                                 "type": "string"
                             },
+                            "autoPaginationTimeout": {
+                                "description": "Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to <value>1000</value> ms. Setting it to <value>0</value> will disable auto-pagination.",
+                                "optional": true,
+                                "type": "integer"
+                            },
                             "body": {
                                 "description": "Returns only messages with this value in the body of the mail.",
                                 "optional": true,
@@ -433,10 +454,20 @@
                                 "optional": true,
                                 "type": "boolean"
                             },
+                            "messagesPerPage": {
+                                "description": "Set the nominal number of messages-per-page for this query. Defaults to <value>100</value> messages.",
+                                "optional": true,
+                                "type": "integer"
+                            },
                             "recipients": {
                                 "description": "Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: <value>Name <user@domain.org></value>). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.",
                                 "optional": true,
                                 "type": "string"
+                            },
+                            "returnMessageListId": {
+                                "description": "The <em>messageListId</em> is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the <em>messageListId</em> directly.",
+                                "optional": true,
+                                "type": "boolean"
                             },
                             "subject": {
                                 "description": "Returns only messages with this value matching the subject.",
@@ -471,7 +502,14 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "MessageList"
+                                "choices": [
+                                    {
+                                        "$ref": "messages.MessageList"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
                             }
                         ],
                         "type": "function"
@@ -691,9 +729,9 @@
                 "name": "createTag",
                 "parameters": [
                     {
-                        "description": "Unique tag identifier (must use only alphanumeric characters).",
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
                         "name": "key",
-                        "pattern": "^[$a-zA-Z0-9]+$",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
                         "type": "string"
                     },
                     {
@@ -723,9 +761,9 @@
                 "name": "updateTag",
                 "parameters": [
                     {
-                        "description": "Unique tag identifier.",
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
                         "name": "key",
-                        "pattern": "^[$a-zA-Z0-9]+$",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
                         "type": "string"
                     },
                     {
@@ -761,8 +799,9 @@
                 "name": "deleteTag",
                 "parameters": [
                     {
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
                         "name": "key",
-                        "pattern": "^[$a-zA-Z0-9]+$",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
                         "type": "string"
                     }
                 ],
