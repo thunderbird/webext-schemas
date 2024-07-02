@@ -642,9 +642,19 @@
                                 "type": "string"
                             },
                             "type": {
-                                "description": "Match tabs against the given Tab.type (see $(ref:tabs.Tab)). Ignored if <val>queryInfo.mailTab</val> is specified.",
-                                "optional": true,
-                                "type": "string"
+                                "choices": [
+                                    {
+                                        "$ref": "TabType"
+                                    },
+                                    {
+                                        "items": {
+                                            "$ref": "TabType"
+                                        },
+                                        "type": "array"
+                                    }
+                                ],
+                                "description": "Match tabs against the given tab type or types. Ignored if <val>queryInfo.mailTab</val> is specified.",
+                                "optional": true
                             },
                             "url": {
                                 "choices": [
@@ -724,7 +734,7 @@
                                 "type": "boolean"
                             },
                             "url": {
-                                "description": "A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. Note: This function will throw an error, if a content page is loaded into a non-content tab (its type must be either <value>content</value> or <value>mail</value>).",
+                                "description": "A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. **Note:** This function will throw an error, if a content page is loaded into a non-content tab (its type must be either <value>content</value> or <value>mail</value>).",
                                 "optional": true,
                                 "type": "string"
                             }
@@ -1113,21 +1123,8 @@
                         "type": "string"
                     },
                     "type": {
-                        "enum": [
-                            "addressBook",
-                            "calendar",
-                            "calendarEvent",
-                            "calendarTask",
-                            "chat",
-                            "content",
-                            "mail",
-                            "messageCompose",
-                            "messageDisplay",
-                            "special",
-                            "tasks"
-                        ],
-                        "optional": true,
-                        "type": "string"
+                        "$ref": "TabType",
+                        "optional": true
                     },
                     "url": {
                         "description": "The URL the tab is displaying. This property is only present if the extension's manifest includes the <permission>tabs</permission> permission.",
@@ -1158,6 +1155,24 @@
                     "complete"
                 ],
                 "id": "TabStatus",
+                "type": "string"
+            },
+            {
+                "description": "Tab types supported by the tabs API.",
+                "enum": [
+                    "addressBook",
+                    "calendar",
+                    "calendarEvent",
+                    "calendarTask",
+                    "chat",
+                    "content",
+                    "mail",
+                    "messageCompose",
+                    "messageDisplay",
+                    "special",
+                    "tasks"
+                ],
+                "id": "TabType",
                 "type": "string"
             },
             {

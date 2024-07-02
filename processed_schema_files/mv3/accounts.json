@@ -18,13 +18,13 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#oncreated-id-account",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#oncreated-accountid-account",
                 "description": "Fired when a new account has been created.",
                 "name": "onCreated",
                 "parameters": [
                     {
-                        "name": "id",
-                        "type": "string"
+                        "$ref": "MailAccountId",
+                        "name": "accountId"
                     },
                     {
                         "$ref": "MailAccount",
@@ -37,13 +37,13 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#ondeleted-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#ondeleted-accountid",
                 "description": "Fired when an account has been removed.",
                 "name": "onDeleted",
                 "parameters": [
                     {
-                        "name": "id",
-                        "type": "string"
+                        "$ref": "MailAccountId",
+                        "name": "accountId"
                     }
                 ],
                 "support": {
@@ -52,13 +52,13 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#onupdated-id-changedvalues",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#onupdated-accountid-changedvalues",
                 "description": "Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed <val>defaultIdentity</val> is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.",
                 "name": "onUpdated",
                 "parameters": [
                     {
-                        "name": "id",
-                        "type": "string"
+                        "$ref": "MailAccountId",
+                        "name": "accountId"
                     },
                     {
                         "name": "changedValues",
@@ -121,8 +121,8 @@
                 "name": "get",
                 "parameters": [
                     {
-                        "name": "accountId",
-                        "type": "string"
+                        "$ref": "MailAccountId",
+                        "name": "accountId"
                     },
                     {
                         "default": true,
@@ -177,54 +177,6 @@
                     "version_added": true
                 },
                 "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#setdefaultidentity-accountid-identityid",
-                "async": true,
-                "deprecated": "This will be removed. Use $(ref:identities.setDefault) instead.",
-                "description": "Sets the default identity for an account.",
-                "name": "setDefaultIdentity",
-                "parameters": [
-                    {
-                        "name": "accountId",
-                        "type": "string"
-                    },
-                    {
-                        "name": "identityId",
-                        "type": "string"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/accounts.html#getdefaultidentity-accountid",
-                "async": "callback",
-                "deprecated": "This will be removed. Use $(ref:identities.getDefault) instead.",
-                "description": "Returns the default identity for an account, or <value>null</value> if it is not defined.",
-                "name": "getDefaultIdentity",
-                "parameters": [
-                    {
-                        "name": "accountId",
-                        "type": "string"
-                    },
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [
-                            {
-                                "$ref": "identities.MailIdentity"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
             }
         ],
         "namespace": "accounts",
@@ -236,17 +188,9 @@
                 "description": "An object describing a mail account, as returned for example by the $(ref:accounts.list) and $(ref:accounts.get) methods. The <val>folders</val> property is only included if requested.",
                 "id": "MailAccount",
                 "properties": {
-                    "folders": {
-                        "description": "The folders for this account are only included if requested.",
-                        "items": {
-                            "$ref": "folders.MailFolder"
-                        },
-                        "optional": true,
-                        "type": "array"
-                    },
                     "id": {
-                        "description": "A unique identifier for this account.",
-                        "type": "string"
+                        "$ref": "MailAccountId",
+                        "description": "A unique identifier for this account."
                     },
                     "identities": {
                         "description": "The identities associated with this account. The default identity is listed first, others in no particular order.",
@@ -259,12 +203,22 @@
                         "description": "The human-friendly name of this account.",
                         "type": "string"
                     },
+                    "rootFolder": {
+                        "$ref": "folders.MailFolder",
+                        "description": "The root folder associated with this account.",
+                        "optional": true
+                    },
                     "type": {
                         "description": "What sort of account this is, e.g. <value>imap</value>, <value>nntp</value>, or <value>pop3</value>.",
                         "type": "string"
                     }
                 },
                 "type": "object"
+            },
+            {
+                "description": "A unique id representing a $(ref:accounts.MailAccount).",
+                "id": "MailAccountId",
+                "type": "string"
             }
         ]
     }

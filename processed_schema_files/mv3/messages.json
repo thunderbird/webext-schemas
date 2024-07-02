@@ -106,6 +106,14 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#onnewmailreceived-folder-messages",
                 "description": "Fired when a new message is received, and has been through junk classification and message filters.",
+                "extraParameters": [
+                    {
+                        "description": "Monitor all folders (including all special use folders as defined by $(ref:folders.MailFolderSpecialUse)) instead of just inbox folders and normal folders.",
+                        "name": "monitorAllFolders",
+                        "optional": true,
+                        "type": "boolean"
+                    }
+                ],
                 "name": "onNewMailReceived",
                 "parameters": [
                     {
@@ -134,7 +142,7 @@
                 "name": "list",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolder",
+                        "$ref": "folders.MailFolderId",
                         "name": "folder"
                     },
                     {
@@ -201,7 +209,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#get-messageid",
                 "async": "callback",
-                "description": "Returns a specified message.",
+                "description": "Returns the specified message.",
                 "name": "get",
                 "parameters": [
                     {
@@ -227,7 +235,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getfull-messageid",
                 "async": "callback",
-                "description": "Returns a specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.",
+                "description": "Returns the specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.",
                 "name": "getFull",
                 "parameters": [
                     {
@@ -399,10 +407,22 @@
                         "name": "queryInfo",
                         "optional": true,
                         "properties": {
+                            "accountId": {
+                                "$ref": "accounts.MailAccountId",
+                                "description": "Limits the search to folders of the account with the specified id.",
+                                "optional": true
+                            },
                             "attachment": {
-                                "description": "If specified, returns only messages with or without attachments.",
-                                "optional": true,
-                                "type": "boolean"
+                                "choices": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "$ref": "QueryRange"
+                                    }
+                                ],
+                                "description": "Whether the message has attachments, or not. Supports to specify a $(ref:messages.QueryRange) (min/max) instead of a simple boolean value (none/some).",
+                                "optional": true
                             },
                             "author": {
                                 "description": "Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: <value>Name <user@domain.org></value>). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.",
@@ -424,9 +444,9 @@
                                 "optional": true,
                                 "type": "boolean"
                             },
-                            "folder": {
-                                "$ref": "folders.MailFolder",
-                                "description": "Returns only messages from the specified folder. The <permission>accountsRead</permission> permission is required.",
+                            "folderId": {
+                                "$ref": "folders.MailFolderId",
+                                "description": "Returns only messages from the folder with the specified id. The <permission>accountsRead</permission> permission is required.",
                                 "optional": true
                             },
                             "fromDate": {
@@ -450,14 +470,34 @@
                                 "type": "string"
                             },
                             "includeSubFolders": {
-                                "description": "Search the folder specified by <val>queryInfo.folder</val> recursively.",
+                                "description": "Search the specified folder recursively.",
                                 "optional": true,
                                 "type": "boolean"
+                            },
+                            "junk": {
+                                "description": "Returns only messages whith the specified junk state.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "junkScore": {
+                                "$ref": "QueryRange",
+                                "description": "Returns only messages with a junk score in the specified range.",
+                                "optional": true
                             },
                             "messagesPerPage": {
                                 "description": "Set the nominal number of messages-per-page for this query. Defaults to <value>100</value> messages.",
                                 "optional": true,
                                 "type": "integer"
+                            },
+                            "new": {
+                                "description": "Returns only messages with the specified new state.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "read": {
+                                "description": "Returns only messages with the specified read state.",
+                                "optional": true,
+                                "type": "boolean"
                             },
                             "recipients": {
                                 "description": "Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: <value>Name <user@domain.org></value>). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.",
@@ -469,13 +509,18 @@
                                 "optional": true,
                                 "type": "boolean"
                             },
+                            "size": {
+                                "$ref": "QueryRange",
+                                "description": "Returns only messages with a size in the specified byte range.",
+                                "optional": true
+                            },
                             "subject": {
-                                "description": "Returns only messages with this value matching the subject.",
+                                "description": "Returns only messages whose subject contains the provided string.",
                                 "optional": true,
                                 "type": "string"
                             },
                             "tags": {
-                                "$ref": "TagsDetail",
+                                "$ref": "messages.tags.TagsDetail",
                                 "description": "Returns only messages with the specified tags. For a list of available tags, call the $(ref:messages.listTags) method.",
                                 "optional": true
                             },
@@ -486,11 +531,6 @@
                             },
                             "toMe": {
                                 "description": "Returns only messages with at least one recipient address matching any configured identity.",
-                                "optional": true,
-                                "type": "boolean"
-                            },
-                            "unread": {
-                                "description": "Returns only unread (or read if false) messages.",
                                 "optional": true,
                                 "type": "boolean"
                             }
@@ -557,7 +597,7 @@
                         "type": "array"
                     },
                     {
-                        "$ref": "folders.MailFolder",
+                        "$ref": "folders.MailFolderId",
                         "description": "The folder to move the messages to.",
                         "name": "destination"
                     }
@@ -587,7 +627,7 @@
                         "type": "array"
                     },
                     {
-                        "$ref": "folders.MailFolder",
+                        "$ref": "folders.MailFolderId",
                         "description": "The folder to copy the messages to.",
                         "name": "destination"
                     }
@@ -644,7 +684,7 @@
                         "type": "object"
                     },
                     {
-                        "$ref": "folders.MailFolder",
+                        "$ref": "folders.MailFolderId",
                         "description": "The folder to import the messages into.",
                         "name": "destination"
                     },
@@ -691,122 +731,6 @@
                 ],
                 "permissions": [
                     "messagesMove"
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#listtags",
-                "async": "callback",
-                "description": "Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.",
-                "name": "listTags",
-                "parameters": [
-                    {
-                        "name": "callback",
-                        "optional": true,
-                        "parameters": [
-                            {
-                                "items": {
-                                    "$ref": "MessageTag"
-                                },
-                                "type": "array"
-                            }
-                        ],
-                        "type": "function"
-                    }
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#createtag-key-tag-color",
-                "async": true,
-                "description": "Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.",
-                "name": "createTag",
-                "parameters": [
-                    {
-                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
-                        "name": "key",
-                        "pattern": "^[^ ()/{%*<>\"]+$",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Human-readable tag name.",
-                        "name": "tag",
-                        "type": "string"
-                    },
-                    {
-                        "description": "Tag color in hex format (i.e.: #000080 for navy blue)",
-                        "name": "color",
-                        "pattern": "^#[0-9a-f]{6}",
-                        "type": "string"
-                    }
-                ],
-                "permissions": [
-                    "messagesTags"
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#updatetag-key-updateproperties",
-                "async": true,
-                "description": "Updates a message tag.",
-                "name": "updateTag",
-                "parameters": [
-                    {
-                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
-                        "name": "key",
-                        "pattern": "^[^ ()/{%*<>\"]+$",
-                        "type": "string"
-                    },
-                    {
-                        "name": "updateProperties",
-                        "properties": {
-                            "color": {
-                                "description": "Tag color in hex format (i.e.: #000080 for navy blue).",
-                                "optional": "true",
-                                "pattern": "^#[0-9a-f]{6}",
-                                "type": "string"
-                            },
-                            "tag": {
-                                "description": "Human-readable tag name.",
-                                "optional": "true",
-                                "type": "string"
-                            }
-                        },
-                        "type": "object"
-                    }
-                ],
-                "permissions": [
-                    "messagesTags"
-                ],
-                "support": {
-                    "version_added": true
-                },
-                "type": "function"
-            },
-            {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#deletetag-key",
-                "async": true,
-                "description": "Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.",
-                "name": "deleteTag",
-                "parameters": [
-                    {
-                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
-                        "name": "key",
-                        "pattern": "^[^ ()/{%*<>\"]+$",
-                        "type": "string"
-                    }
-                ],
-                "permissions": [
-                    "messagesTags"
                 ],
                 "support": {
                     "version_added": true
@@ -903,7 +827,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "description": "Tags associated with this message. For a list of available tags, call the listTags method.",
+                        "description": "Tags associated with this message. For a list of available tags, use $(ref:messages.tags.list).",
                         "items": {
                             "type": "string"
                         },
@@ -1015,6 +939,161 @@
                 "type": "object"
             },
             {
+                "description": "Represents an attachment in a message.",
+                "id": "MessageAttachment",
+                "properties": {
+                    "contentType": {
+                        "description": "The content type of the attachment.",
+                        "type": "string"
+                    },
+                    "message": {
+                        "$ref": "messages.MessageHeader",
+                        "description": "A MessageHeader, if this attachment is a message.",
+                        "optional": true
+                    },
+                    "name": {
+                        "description": "The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.",
+                        "type": "string"
+                    },
+                    "partName": {
+                        "description": "Identifies the MIME part of the message associated with this attachment.",
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "The size in bytes of this attachment.",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "An object defining a range.",
+                "id": "QueryRange",
+                "properties": {
+                    "max": {
+                        "description": "The maximum value required to match the query.",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "min": {
+                        "description": "The minimum value required to match the query.",
+                        "optional": true,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        ]
+    },
+    {
+        "functions": [
+            {
+                "async": "callback",
+                "description": "Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.",
+                "name": "list",
+                "parameters": [
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "messages.tags.MessageTag"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "async": true,
+                "description": "Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.",
+                "name": "create",
+                "parameters": [
+                    {
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
+                        "name": "key",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Human-readable tag name.",
+                        "name": "tag",
+                        "type": "string"
+                    },
+                    {
+                        "description": "Tag color in hex format (i.e.: #000080 for navy blue)",
+                        "name": "color",
+                        "pattern": "^#[0-9a-f]{6}",
+                        "type": "string"
+                    }
+                ],
+                "permissions": [
+                    "messagesTags"
+                ],
+                "type": "function"
+            },
+            {
+                "async": true,
+                "description": "Updates a message tag.",
+                "name": "update",
+                "parameters": [
+                    {
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
+                        "name": "key",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
+                        "type": "string"
+                    },
+                    {
+                        "name": "updateProperties",
+                        "properties": {
+                            "color": {
+                                "description": "Tag color in hex format (i.e.: #000080 for navy blue).",
+                                "optional": "true",
+                                "pattern": "^#[0-9a-f]{6}",
+                                "type": "string"
+                            },
+                            "tag": {
+                                "description": "Human-readable tag name.",
+                                "optional": "true",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "permissions": [
+                    "messagesTags"
+                ],
+                "type": "function"
+            },
+            {
+                "async": true,
+                "description": "Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.",
+                "name": "delete",
+                "parameters": [
+                    {
+                        "description": "Unique tag identifier (will be converted to lower case). Must not include <value>()<>{/%*\"</value> or spaces.",
+                        "name": "key",
+                        "pattern": "^[^ ()/{%*<>\"]+$",
+                        "type": "string"
+                    }
+                ],
+                "permissions": [
+                    "messagesTags"
+                ],
+                "type": "function"
+            }
+        ],
+        "namespace": "messages.tags",
+        "permissions": [
+            "messagesRead"
+        ],
+        "types": [
+            {
                 "id": "MessageTag",
                 "properties": {
                     "color": {
@@ -1056,34 +1135,6 @@
                             }
                         },
                         "type": "object"
-                    }
-                },
-                "type": "object"
-            },
-            {
-                "description": "Represents an attachment in a message.",
-                "id": "MessageAttachment",
-                "properties": {
-                    "contentType": {
-                        "description": "The content type of the attachment.",
-                        "type": "string"
-                    },
-                    "message": {
-                        "$ref": "messages.MessageHeader",
-                        "description": "A MessageHeader, if this attachment is a message.",
-                        "optional": true
-                    },
-                    "name": {
-                        "description": "The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.",
-                        "type": "string"
-                    },
-                    "partName": {
-                        "description": "Identifies the MIME part of the message associated with this attachment.",
-                        "type": "string"
-                    },
-                    "size": {
-                        "description": "The size in bytes of this attachment.",
-                        "type": "integer"
                     }
                 },
                 "type": "object"

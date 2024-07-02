@@ -79,9 +79,9 @@
                 "name": "list",
                 "parameters": [
                     {
+                        "$ref": "accounts.MailAccountId",
                         "name": "accountId",
-                        "optional": true,
-                        "type": "string"
+                        "optional": true
                     },
                     {
                         "name": "callback",
@@ -136,8 +136,8 @@
                 "name": "create",
                 "parameters": [
                     {
-                        "name": "accountId",
-                        "type": "string"
+                        "$ref": "accounts.MailAccountId",
+                        "name": "accountId"
                     },
                     {
                         "$ref": "identities.MailIdentity",
@@ -221,8 +221,8 @@
                 "name": "getDefault",
                 "parameters": [
                     {
-                        "name": "accountId",
-                        "type": "string"
+                        "$ref": "accounts.MailAccountId",
+                        "name": "accountId"
                     },
                     {
                         "name": "callback",
@@ -247,8 +247,8 @@
                 "name": "setDefault",
                 "parameters": [
                     {
-                        "name": "accountId",
-                        "type": "string"
+                        "$ref": "accounts.MailAccountId",
+                        "name": "accountId"
                     },
                     {
                         "name": "identityId",
@@ -270,9 +270,9 @@
                 "id": "MailIdentity",
                 "properties": {
                     "accountId": {
+                        "$ref": "accounts.MailAccountId",
                         "description": "The id of the $(ref:accounts.MailAccount) this identity belongs to. The <val>accountId</val> property is read-only.",
-                        "optional": true,
-                        "type": "string"
+                        "optional": true
                     },
                     "composeHtml": {
                         "description": "If the identity uses HTML as the default compose format.",

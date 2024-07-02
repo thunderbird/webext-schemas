@@ -105,6 +105,25 @@
                 "type": "function"
             },
             {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#onupdated-originalfolder-updatedfolder",
+                "description": "Fired when properties of a folder have changed (<value>specialUse</value> and <value>isFavorite</value>).",
+                "name": "onUpdated",
+                "parameters": [
+                    {
+                        "$ref": "folders.MailFolder",
+                        "name": "originalFolder"
+                    },
+                    {
+                        "$ref": "folders.MailFolder",
+                        "name": "updatedFolder"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#onfolderinfochanged-folder-folderinfo",
                 "description": "Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.",
                 "name": "onFolderInfoChanged",
@@ -126,7 +145,219 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#create-parent-childname",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#query-queryinfo",
+                "async": "callback",
+                "description": "Gets folders that match the specified properties, or all folders if no properties are specified.",
+                "name": "query",
+                "parameters": [
+                    {
+                        "default": {},
+                        "name": "queryInfo",
+                        "optional": true,
+                        "properties": {
+                            "accountId": {
+                                "$ref": "accounts.MailAccountId",
+                                "description": "Limits the search to folders of the account with the specified id.",
+                                "optional": true
+                            },
+                            "canAddMessages": {
+                                "description": "Whether the folder supports adding new messages, or not.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "canAddSubfolders": {
+                                "description": "Whether the folder supports adding new subfolders, or not.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "canBeDeleted": {
+                                "description": "Whether the folder can be deleted, or not.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "canBeRenamed": {
+                                "description": "Whether the folder can be renamed, or not.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "canDeleteMessages": {
+                                "description": "Whether the folder supports deleting messages, or not.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "folderId": {
+                                "$ref": "folders.MailFolderId",
+                                "description": "Limits the search to the folder with the specified id.",
+                                "optional": true
+                            },
+                            "hasMessages": {
+                                "choices": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "$ref": "QueryRange"
+                                    }
+                                ],
+                                "description": "Whether the folder (excluding subfolders) contains messages, or not. Supports to specify a $(ref:folders.QueryRange) (min/max) instead of a simple boolean value (none/some).",
+                                "optional": true
+                            },
+                            "hasNewMessages": {
+                                "choices": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "$ref": "QueryRange"
+                                    }
+                                ],
+                                "description": "Whether the folder (excluding subfolders) contains new messages, or not. Supports to specify a $(ref:folders.QueryRange) (min/max) instead of a simple boolean value (none/some).",
+                                "optional": true
+                            },
+                            "hasSubFolders": {
+                                "choices": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "$ref": "QueryRange"
+                                    }
+                                ],
+                                "description": "Whether the folder has subfolders, or not. Supports to specify a $(ref:folders.QueryRange) (min/max) instead of a simple boolean value (none/some).",
+                                "optional": true
+                            },
+                            "hasUnreadMessages": {
+                                "choices": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "$ref": "QueryRange"
+                                    }
+                                ],
+                                "description": "Whether the folder (excluding subfolders) contains unread messages, or not. Supports to specify a $(ref:folders.QueryRange) (min/max) instead of a simple boolean value (none/some).",
+                                "optional": true
+                            },
+                            "isFavorite": {
+                                "description": "Whether the folder is a favorite folder, or not.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "isRoot": {
+                                "description": "Whether the folder is a root folder, or not.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "isVirtual": {
+                                "description": "Whether this folder is a virtual search folder, or not.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "mostRecent": {
+                                "description": "Whether the folder (excluding subfolders) has been used within the last month. The returned folders will be sorted by their recentness and limited to the most recent ones, which is controlled by the <value>mail.folder_widget.max_recent</value> preference. A value of <value>false</value> is ignored.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "name": {
+                                "choices": [
+                                    {
+                                        "$ref": "RegularExpression"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ],
+                                "description": "Return only folders whose name is matched by the provided string or regular expression.",
+                                "optional": true
+                            },
+                            "path": {
+                                "choices": [
+                                    {
+                                        "$ref": "RegularExpression"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ],
+                                "description": "Return only folders whose path is matched by the provided string or regular expression.",
+                                "optional": true
+                            },
+                            "recent": {
+                                "description": "Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness. Ignored if <value>mostRecent</value> is specified.",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "specialUse": {
+                                "description": "Match only folders with the specified special use (folders have to match all specified uses).",
+                                "items": {
+                                    "$ref": "folders.MailFolderSpecialUse"
+                                },
+                                "minItems": 1,
+                                "optional": true,
+                                "type": "array"
+                            },
+                            "type": {
+                                "$ref": "folders.MailFolderSpecialUse",
+                                "description": "Deprecated. Match only folders with the specified special use.",
+                                "optional": true
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "items": {
+                                    "$ref": "folders.MailFolder"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#get-folder-includesubfolders",
+                "async": "callback",
+                "description": "Returns the specified folder.",
+                "name": "get",
+                "parameters": [
+                    {
+                        "$ref": "folders.MailFolderId",
+                        "name": "folder"
+                    },
+                    {
+                        "default": true,
+                        "description": "Specifies whether the returned $(ref:folders.MailFolder) object should include all its nested subfolders . Defaults to <value>true</value>.",
+                        "name": "includeSubFolders",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "folders.MailFolder"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#create-destination-childname",
                 "async": "callback",
                 "description": "Creates a new subfolder in the specified folder or at the root of the specified account.",
                 "name": "create",
@@ -134,13 +365,18 @@
                     {
                         "choices": [
                             {
-                                "$ref": "folders.MailFolder"
+                                "$ref": "folders.MailFolderId"
                             },
                             {
-                                "$ref": "accounts.MailAccount"
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.create() requires to specify a MailFolderId instead of a full MailFolder object."
+                            },
+                            {
+                                "$ref": "accounts.MailAccount",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.create() requires to specify the MailFolderId of the account's rootFolder, instead of a full MailAccount object."
                             }
                         ],
-                        "name": "parent"
+                        "name": "destination"
                     },
                     {
                         "name": "childName",
@@ -172,7 +408,15 @@
                 "name": "rename",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolder",
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.rename() requires to specify a MailFolderId instead of a full MailFolder object."
+                            }
+                        ],
                         "name": "folder"
                     },
                     {
@@ -199,22 +443,35 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#move-sourcefolder-destination",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#move-source-destination",
                 "async": "callback",
-                "description": "Moves the given <val>sourceFolder</val> into the given <val>destination</val>. Throws if the destination already contains a folder with the name of the source folder.",
+                "description": "Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.",
                 "name": "move",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolder",
-                        "name": "sourceFolder"
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.move() requires to specify a MailFolderId for its source parameter, instead of a full MailFolder object."
+                            }
+                        ],
+                        "name": "source"
                     },
                     {
                         "choices": [
                             {
-                                "$ref": "folders.MailFolder"
+                                "$ref": "folders.MailFolderId"
                             },
                             {
-                                "$ref": "accounts.MailAccount"
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.move() requires to specify a MailFolderId for its destination parameter, instead of a full MailFolder object."
+                            },
+                            {
+                                "$ref": "accounts.MailAccount",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.move() requires to specify the MailFolderId of the account's rootFolder for its destination parameter, instead of a full MailAccount object."
                             }
                         ],
                         "name": "destination"
@@ -239,22 +496,35 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#copy-sourcefolder-destination",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#copy-source-destination",
                 "async": "callback",
-                "description": "Copies the given <val>sourceFolder</val> into the given <val>destination</val>. Throws if the destination already contains a folder with the name of the source folder.",
+                "description": "Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.",
                 "name": "copy",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolder",
-                        "name": "sourceFolder"
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.copy() requires to specify a MailFolderId for its source parameter, instead of a full MailFolder object."
+                            }
+                        ],
+                        "name": "source"
                     },
                     {
                         "choices": [
                             {
-                                "$ref": "folders.MailFolder"
+                                "$ref": "folders.MailFolderId"
                             },
                             {
-                                "$ref": "accounts.MailAccount"
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.copy() requires to specify a MailFolderId for its destination parameter, instead of a full MailFolder object."
+                            },
+                            {
+                                "$ref": "accounts.MailAccount",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.copy() requires to specify the MailFolderId of the account's rootFolder for its destination parameter, instead of a full MailAccount object."
                             }
                         ],
                         "name": "destination"
@@ -285,7 +555,15 @@
                 "name": "delete",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolder",
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.delete() requires to specify a MailFolderId instead of a full MailFolder object."
+                            }
+                        ],
                         "name": "folder"
                     }
                 ],
@@ -299,13 +577,60 @@
                 "type": "function"
             },
             {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#update-folder-updateproperties",
+                "async": true,
+                "description": "Updates properties of a folder.",
+                "name": "update",
+                "parameters": [
+                    {
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.update() requires to specify a MailFolderId instead of a full MailFolder object."
+                            }
+                        ],
+                        "name": "folder"
+                    },
+                    {
+                        "description": "The properties to update.",
+                        "name": "updateProperties",
+                        "properties": {
+                            "isFavorite": {
+                                "description": "Sets or clears the favorite status.",
+                                "optional": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ],
+                "permissions": [
+                    "accountsFolders"
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#getfolderinfo-folder",
                 "async": "callback",
-                "description": "Get additional information about a mail folder.",
+                "description": "Get additional information about a folder.",
                 "name": "getFolderInfo",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolder",
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.getFolderInfo() requires to specify a MailFolderId instead of a full MailFolder object."
+                            }
+                        ],
                         "name": "folder"
                     },
                     {
@@ -325,13 +650,55 @@
                 "type": "function"
             },
             {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#getfoldercapabilities-folder",
+                "async": "callback",
+                "description": "Get capability information about a folder.",
+                "name": "getFolderCapabilities",
+                "parameters": [
+                    {
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.getFolderCapabilities() requires to specify a MailFolderId instead of a full MailFolder object."
+                            }
+                        ],
+                        "name": "folder"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "folders.MailFolderCapabilities"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#getparentfolders-folder-includesubfolders",
                 "async": "callback",
                 "description": "Get all parent folders as a flat ordered array. The first array entry is the direct parent.",
                 "name": "getParentFolders",
                 "parameters": [
                     {
-                        "$ref": "folders.MailFolder",
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.getParentFolders() requires to specify a MailFolderId instead of a full MailFolder object."
+                            }
+                        ],
                         "name": "folder"
                     },
                     {
@@ -361,7 +728,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#getsubfolders-folderoraccount-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#getsubfolders-folder-includesubfolders",
                 "async": "callback",
                 "description": "Get the subfolders of the specified folder or account.",
                 "name": "getSubFolders",
@@ -369,13 +736,18 @@
                     {
                         "choices": [
                             {
-                                "$ref": "folders.MailFolder"
+                                "$ref": "folders.MailFolderId"
                             },
                             {
-                                "$ref": "accounts.MailAccount"
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.getSubFolders() requires to specify a MailFolderId instead of a full MailFolder object."
+                            },
+                            {
+                                "$ref": "accounts.MailAccount",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.getSubFolders() requires to specify the MailFolderId of the account's rootFolder, instead of a full MailAccount object."
                             }
                         ],
-                        "name": "folderOrAccount"
+                        "name": "folder"
                     },
                     {
                         "default": true,
@@ -402,6 +774,33 @@
                     "version_added": true
                 },
                 "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#markasread-folder",
+                "async": false,
+                "description": "Marks all messages in a folder as read.",
+                "name": "markAsRead",
+                "parameters": [
+                    {
+                        "choices": [
+                            {
+                                "$ref": "folders.MailFolderId"
+                            },
+                            {
+                                "$ref": "folders.MailFolder",
+                                "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: folders.markAsRead() requires to specify a MailFolderId instead of a full MailFolder object."
+                            }
+                        ],
+                        "name": "folder"
+                    }
+                ],
+                "permissions": [
+                    "accountsFolders"
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
             }
         ],
         "namespace": "folders",
@@ -410,12 +809,32 @@
         ],
         "types": [
             {
-                "description": "An object describing a mail folder, as returned for example by the $(ref:folders.getParentFolders) or $(ref:folders.getSubFolders) methods, or part of a $(ref:accounts.MailAccount) object, which is returned for example by the $(ref:accounts.list) and $(ref:accounts.get) methods. The <val>subFolders</val> property is only included if requested.",
+                "description": "An object describing a folder. The <val>subFolders</val> property is only included if requested.",
                 "id": "MailFolder",
                 "properties": {
                     "accountId": {
-                        "description": "The account this folder belongs to.",
-                        "type": "string"
+                        "$ref": "accounts.MailAccountId",
+                        "description": "The id of the account this folder belongs to."
+                    },
+                    "id": {
+                        "$ref": "folders.MailFolderId",
+                        "description": "An identifier for the folder.",
+                        "optional": true
+                    },
+                    "isFavorite": {
+                        "description": "Whether this folder is a favorite folder.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "isRoot": {
+                        "description": "Whether this folder is a root folder.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "isVirtual": {
+                        "description": "Whether this folder is a virtual search folder.",
+                        "optional": true,
+                        "type": "boolean"
                     },
                     "name": {
                         "description": "The human-friendly name of this folder.",
@@ -426,30 +845,61 @@
                         "description": "Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is. Use $(ref:folders.getParentFolders) or $(ref:folders.getSubFolders) to obtain hierarchy information.",
                         "type": "string"
                     },
+                    "specialUse": {
+                        "description": "The special use of this folder. A folder can have multiple special uses.",
+                        "items": {
+                            "$ref": "folders.MailFolderSpecialUse"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
                     "subFolders": {
                         "description": "Subfolders are only included if requested. They will be returned in the same order as used in Thunderbird's folder pane.",
                         "items": {
-                            "$ref": "MailFolder"
+                            "$ref": "folders.MailFolder"
                         },
                         "optional": true,
                         "type": "array"
                     },
                     "type": {
-                        "$ref": "folders.MailFolderType",
-                        "description": "The type of folder.",
+                        "$ref": "folders.MailFolderSpecialUse",
+                        "description": "Deprecated. Was used to represent the type of this folder.",
                         "optional": true
                     }
                 },
                 "type": "object"
             },
             {
-                "description": "An object containing additional information about a mail folder.",
+                "description": "A unique id representing a $(ref:folders.MailFolder) throughout a session. Renaming or moving a folder will invalidate its id.",
+                "id": "MailFolderId",
+                "type": "string"
+            },
+            {
+                "description": "An object containing additional information about a folder.",
                 "id": "MailFolderInfo",
                 "properties": {
                     "favorite": {
-                        "description": "Whether this folder is a favorite folder.",
+                        "description": "Deprecated. This information is now available in $(ref:folders.MailFolder).",
                         "optional": true,
                         "type": "boolean"
+                    },
+                    "lastUsed": {
+                        "$ref": "extensionTypes.Date",
+                        "description": "Date the folder was last used (precision: seconds).",
+                        "optional": true
+                    },
+                    "newMessageCount": {
+                        "description": "Number of new messages in this folder.",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "quota": {
+                        "description": "Quota information, if available.",
+                        "items": {
+                            "$ref": "MailFolderQuota"
+                        },
+                        "optional": true,
+                        "type": "array"
                     },
                     "totalMessageCount": {
                         "description": "Number of messages in this folder.",
@@ -465,7 +915,39 @@
                 "type": "object"
             },
             {
-                "description": "The type of folder",
+                "description": "An object containing capability information about a folder.",
+                "id": "MailFolderCapabilities",
+                "properties": {
+                    "canAddMessages": {
+                        "description": "Whether this folder supports adding new messages.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "canAddSubfolders": {
+                        "description": "Whether this folder supports adding new subfolders.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "canBeDeleted": {
+                        "description": "Whether this folder can be deleted.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "canBeRenamed": {
+                        "description": "Whether this folder can be renamed.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "canDeleteMessages": {
+                        "description": "Whether this folder supports deleting messages.",
+                        "optional": true,
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "Supported values for the special use of a folder.",
                 "enum": [
                     "inbox",
                     "drafts",
@@ -476,8 +958,68 @@
                     "junk",
                     "outbox"
                 ],
-                "id": "MailFolderType",
+                "id": "MailFolderSpecialUse",
                 "type": "string"
+            },
+            {
+                "description": "An object containing quota information.",
+                "id": "MailFolderQuota",
+                "properties": {
+                    "limit": {
+                        "description": "The maximum available quota.",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "description": "The type of the quota as defined by RFC2087. A <value>STORAGE</value> quota is constraining the available storage in bytes, a <value>MESSAGE</value> quota is constraining the number of storable messages.",
+                        "enum": [
+                            "STORAGE",
+                            "MESSAGE"
+                        ],
+                        "type": "string"
+                    },
+                    "unused": {
+                        "description": "The currently unused quota.",
+                        "type": "integer"
+                    },
+                    "used": {
+                        "description": "The currently used quota.",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "An object defining a range.",
+                "id": "QueryRange",
+                "properties": {
+                    "max": {
+                        "description": "The maximum value required to match the query.",
+                        "optional": true,
+                        "type": "integer"
+                    },
+                    "min": {
+                        "description": "The minimum value required to match the query.",
+                        "optional": true,
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "id": "RegularExpression",
+                "properties": {
+                    "flags": {
+                        "description": "Supported RegExp flags: <value>i</value> = case insensitive, and/or one of <value>u</value> = unicode support or <value>v</value> = extended unicode support",
+                        "optional": true,
+                        "pattern": "^(i|u|v|iu|iv|ui|vi)$",
+                        "type": "string"
+                    },
+                    "regexp": {
+                        "description": "A regular expression, for example <value>^Projects \\d{4}$</value>.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
             }
         ]
     }
