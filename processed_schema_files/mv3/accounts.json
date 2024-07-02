@@ -136,8 +136,14 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "accounts.MailAccount",
-                                "optional": true
+                                "choices": [
+                                    {
+                                        "$ref": "accounts.MailAccount"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
                             }
                         ],
                         "type": "function"
@@ -166,8 +172,14 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "accounts.MailAccount",
-                                "optional": true
+                                "choices": [
+                                    {
+                                        "$ref": "accounts.MailAccount"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
                             }
                         ],
                         "type": "function"
@@ -185,7 +197,7 @@
         ],
         "types": [
             {
-                "description": "An object describing a mail account, as returned for example by the $(ref:accounts.list) and $(ref:accounts.get) methods. The <val>folders</val> property is only included if requested.",
+                "description": "An object describing a mail account, as returned for example by the $(ref:accounts.list) and $(ref:accounts.get) methods.",
                 "id": "MailAccount",
                 "properties": {
                     "id": {
@@ -205,8 +217,7 @@
                     },
                     "rootFolder": {
                         "$ref": "folders.MailFolder",
-                        "description": "The root folder associated with this account.",
-                        "optional": true
+                        "description": "The root folder associated with this account."
                     },
                     "type": {
                         "description": "What sort of account this is, e.g. <value>imap</value>, <value>nntp</value>, or <value>pop3</value>.",
@@ -218,6 +229,17 @@
             {
                 "description": "A unique id representing a $(ref:accounts.MailAccount).",
                 "id": "MailAccountId",
+                "type": "string"
+            },
+            {
+                "description": "The type of an account.",
+                "enum": [
+                    "imap",
+                    "local",
+                    "nntp",
+                    "pop3"
+                ],
+                "id": "MailAccountType",
                 "type": "string"
             }
         ]

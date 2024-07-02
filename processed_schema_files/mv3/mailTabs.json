@@ -137,7 +137,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/mailTabs.html#getcurrent",
                 "async": "callback",
-                "description": "Get the properties of the active mail tab, if the active tab is a mail tab. Returns undefined otherwise.",
+                "description": "Get the properties of the active mail tab, if the active tab is a mail tab. Returns <value>undefined</value> otherwise.",
                 "name": "getCurrent",
                 "parameters": [
                     {
@@ -146,6 +146,7 @@
                         "parameters": [
                             {
                                 "$ref": "MailTab",
+                                "description": "This may return undefined",
                                 "optional": true
                             }
                         ],
@@ -176,8 +177,7 @@
                             {
                                 "$ref": "MailTab",
                                 "description": "Details about the created mail tab. Will contain the ID of the new tab.",
-                                "name": "mailTab",
-                                "optional": true
+                                "name": "mailTab"
                             }
                         ],
                         "type": "function"
@@ -212,8 +212,7 @@
                             {
                                 "$ref": "MailTab",
                                 "description": "Details about the updated mail tab.",
-                                "name": "mailTab",
-                                "optional": true
+                                "name": "mailTab"
                             }
                         ],
                         "type": "function"
@@ -390,6 +389,19 @@
         "namespace": "mailTabs",
         "types": [
             {
+                "description": "A supported folder mode in the folder pane.",
+                "enum": [
+                    "all",
+                    "unified",
+                    "tags",
+                    "unread",
+                    "favorite",
+                    "recent"
+                ],
+                "id": "FolderMode",
+                "type": "string"
+            },
+            {
                 "id": "MailTab",
                 "properties": {
                     "active": {
@@ -397,10 +409,25 @@
                     },
                     "displayedFolder": {
                         "$ref": "folders.MailFolder",
-                        "description": "The <permission>accountsRead</permission> permission is required for this property to be included.",
+                        "description": "The folder displayed in the mail tab. The <permission>accountsRead</permission> permission is required for this property to be included.",
                         "optional": true
                     },
+                    "folderMode": {
+                        "$ref": "mailTabs.FolderMode",
+                        "description": "The folder mode of the currently displayed folder.",
+                        "optional": true
+                    },
+                    "folderModesEnabled": {
+                        "description": "The enabled folder modes in the folder pane, and their sort order.",
+                        "items": {
+                            "$ref": "mailTabs.FolderMode"
+                        },
+                        "minItems": 1,
+                        "optional": true,
+                        "type": "array"
+                    },
                     "folderPaneVisible": {
+                        "description": "Whether the folder pane is visible or not.",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -408,6 +435,7 @@
                         "type": "integer"
                     },
                     "layout": {
+                        "description": "The arrangement of the folder pane, message list pane, and message display pane.",
                         "enum": [
                             "standard",
                             "wide",
@@ -416,11 +444,12 @@
                         "type": "string"
                     },
                     "messagePaneVisible": {
+                        "description": "Whether the message pane is visible or not.",
                         "optional": true,
                         "type": "boolean"
                     },
                     "sortOrder": {
-                        "description": "**Note:** <val>sortType</val> and <val>sortOrder</val> depend on each other, so both should be present, or neither.",
+                        "description": "The sort order of the message list.",
                         "enum": [
                             "none",
                             "ascending",
@@ -430,7 +459,7 @@
                         "type": "string"
                     },
                     "sortType": {
-                        "description": "**Note:** <val>sortType</val> and <val>sortOrder</val> depend on each other, so both should be present, or neither.",
+                        "description": "The primary sort column of the message list.",
                         "enum": [
                             "none",
                             "date",
@@ -457,6 +486,7 @@
                         "type": "string"
                     },
                     "viewType": {
+                        "description": "Group mode of the message list.",
                         "enum": [
                             "ungrouped",
                             "groupedByThread",
@@ -474,10 +504,24 @@
             {
                 "id": "MailTabProperties",
                 "properties": {
-                    "displayedFolder": {
+                    "displayedFolderId": {
                         "$ref": "folders.MailFolderId",
                         "description": "Sets the folder displayed in the mail tab. Requires the <permission>accountsRead</permission> permission. The previous message selection in the given folder will be restored, if any. This property is ignored, if <value>selectedMessages</value> is specified.",
                         "optional": true
+                    },
+                    "folderMode": {
+                        "$ref": "mailTabs.FolderMode",
+                        "description": "Sets the currently used folder mode, enabling it if required. If used without also specifying <value>displayedFolder</value>, the currently selected folder is re-selected in the new folder mode, if possible.",
+                        "optional": true
+                    },
+                    "folderModesEnabled": {
+                        "description": "Set the enabled folder modes in the folder pane, and their sort order.",
+                        "items": {
+                            "$ref": "mailTabs.FolderMode"
+                        },
+                        "minItems": 1,
+                        "optional": true,
+                        "type": "array"
                     },
                     "folderPaneVisible": {
                         "description": "Shows or hides the folder pane.",
@@ -537,6 +581,7 @@
                         "type": "string"
                     },
                     "viewType": {
+                        "description": "Sets the group mode of displayed messages.",
                         "enum": [
                             "ungrouped",
                             "groupedByThread",

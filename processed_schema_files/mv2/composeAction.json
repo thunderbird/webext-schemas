@@ -185,6 +185,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "name": "result",
@@ -253,7 +254,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/composeAction.html#getlabel-details",
                 "async": "callback",
-                "description": "Gets the label of the composeAction button.",
+                "description": "Gets the label of the composeAction button. Returns <value>null</value>, if no label has been set and the title is used.",
                 "name": "getLabel",
                 "parameters": [
                     {
@@ -280,11 +281,18 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
-                                "name": "result",
-                                "optional": true,
-                                "type": "string"
+                                "choices": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ],
+                                "name": "result"
                             }
                         ],
                         "type": "function"
@@ -433,6 +441,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "name": "result",
@@ -528,6 +537,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "name": "result",
@@ -626,6 +636,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "ColorArray",

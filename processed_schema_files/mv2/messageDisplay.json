@@ -53,12 +53,13 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#getdisplayedmessage-tabid",
                 "async": "callback",
-                "description": "Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible). It returns <value>null</value> if no messages are displayed, or if multiple messages are displayed.",
+                "description": "Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible), or the currently active tab. It returns <value>null</value> if no messages are displayed, or if multiple messages are displayed.",
                 "name": "getDisplayedMessage",
                 "parameters": [
                     {
                         "minimum": 1,
                         "name": "tabId",
+                        "optional": true,
                         "type": "integer"
                     },
                     {
@@ -87,12 +88,13 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#getdisplayedmessages-tabid",
                 "async": "callback",
-                "description": "Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible). The array is empty if no messages are displayed.",
+                "description": "Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.",
                 "name": "getDisplayedMessages",
                 "parameters": [
                     {
                         "minimum": 1,
                         "name": "tabId",
+                        "optional": true,
                         "type": "integer"
                     },
                     {
@@ -166,6 +168,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "tabs.Tab",

@@ -320,6 +320,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "Tab",
@@ -337,15 +338,17 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/tabs.html#getcurrent",
                 "async": "callback",
-                "description": "Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).",
+                "description": "Gets the tab that this script call is being made from. May be <value>undefined</value> if called from a non-tab context (for example: a background page or popup view).",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/tabs/getCurrent",
                 "name": "getCurrent",
                 "parameters": [
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "Tab",
+                                "description": "This may return undefined",
                                 "name": "tab",
                                 "optional": true
                             }
@@ -520,8 +523,7 @@
                             {
                                 "$ref": "Tab",
                                 "description": "Details about the created tab. Will contain the ID of the new tab.",
-                                "name": "tab",
-                                "optional": true
+                                "name": "tab"
                             }
                         ],
                         "type": "function"
@@ -555,8 +557,7 @@
                             {
                                 "$ref": "Tab",
                                 "description": "Details about the duplicated tab. The $(ref:tabs.Tab) object doesn't contain <val>url</val>, <val>title</val> and <val>favIconUrl</val> if the <permission>tabs</permission> permission has not been requested.",
-                                "name": "tab",
-                                "optional": true
+                                "name": "tab"
                             }
                         ],
                         "type": "function"
@@ -621,7 +622,7 @@
                                 "type": "boolean"
                             },
                             "mailTab": {
-                                "description": "Whether the tab is a Thunderbird 3-pane tab.",
+                                "description": "Whether the tab is a Thunderbird 3-pane tab.  If specified, the <val>queryInfo.type</val> property will be ignored",
                                 "optional": true,
                                 "type": "boolean"
                             },
@@ -653,7 +654,7 @@
                                         "type": "array"
                                     }
                                 ],
-                                "description": "Match tabs against the given tab type or types. Ignored if <val>queryInfo.mailTab</val> is specified.",
+                                "description": "Match tabs against the given tab type or types.",
                                 "optional": true
                             },
                             "url": {
@@ -690,6 +691,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "items": {
@@ -751,8 +753,7 @@
                             {
                                 "$ref": "Tab",
                                 "description": "Details about the updated tab. The $(ref:tabs.Tab) object doesn't contain <val>url</val>, <val>title</val> and <val>favIconUrl</val> if the <permission>tabs</permission> permission has not been requested.",
-                                "name": "tab",
-                                "optional": true
+                                "name": "tab"
                             }
                         ],
                         "type": "function"

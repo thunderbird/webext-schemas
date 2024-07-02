@@ -121,6 +121,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "Window",
@@ -152,6 +153,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "Window",
@@ -183,6 +185,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "$ref": "Window",
@@ -214,6 +217,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "items": {
@@ -337,8 +341,7 @@
                             {
                                 "$ref": "Window",
                                 "description": "Contains details about the created window.",
-                                "name": "window",
-                                "optional": true
+                                "name": "window"
                             }
                         ],
                         "type": "function"

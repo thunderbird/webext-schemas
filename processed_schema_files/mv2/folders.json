@@ -248,8 +248,18 @@
                                 "optional": true,
                                 "type": "boolean"
                             },
+                            "isTag": {
+                                "description": "Whether the folder is a virtual tag folder, or not. Note: Virtual tag folders are always skipped, unless this property is set to <value>true</value>",
+                                "optional": true,
+                                "type": "boolean"
+                            },
+                            "isUnified": {
+                                "description": "Whether the folder is a unified mailbox folder, or not. Note: Unified mailbox folders are always skipped, unless this property is set to <value>true</value>",
+                                "optional": true,
+                                "type": "boolean"
+                            },
                             "isVirtual": {
-                                "description": "Whether this folder is a virtual search folder, or not.",
+                                "description": "Whether the folder is a virtual search folder, or not.",
                                 "optional": true,
                                 "type": "boolean"
                             },
@@ -776,6 +786,74 @@
                 "type": "function"
             },
             {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#getunifiedfolder--includesubfolders",
+                "async": "callback",
+                "description": "Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts.",
+                "name": "getUnifiedFolder",
+                "parameters": [
+                    {
+                        "description": "The requested unified mailbox folder type.",
+                        "enum": [
+                            "inbox",
+                            "drafts",
+                            "sent",
+                            "trash",
+                            "templates",
+                            "archives",
+                            "junk"
+                        ],
+                        "type": "string"
+                    },
+                    {
+                        "default": false,
+                        "description": "Specifies whether the returned $(ref:folders.MailFolder) object should include all its nested subfolders . Defaults to <value>false</value>.",
+                        "name": "includeSubFolders",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "folders.MailFolder"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#gettagfolder-",
+                "async": "callback",
+                "description": "Get one of the special unified mailbox tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.",
+                "name": "getTagFolder",
+                "parameters": [
+                    {
+                        "description": "The tag key of the requested folder. See $(ref:messages.tags.list()) for the available tags. Throws when specifying an invalid tag key.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "callback",
+                        "optional": true,
+                        "parameters": [
+                            {
+                                "$ref": "folders.MailFolder"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "support": {
+                    "version_added": true
+                },
+                "type": "function"
+            },
+            {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/folders.html#markasread-folder",
                 "async": false,
                 "description": "Marks all messages in a folder as read.",
@@ -819,12 +897,13 @@
         },
         "types": [
             {
-                "description": "An object describing a folder. The <val>subFolders</val> property is only included if requested.",
+                "description": "An object describing a folder.",
                 "id": "MailFolder",
                 "properties": {
                     "accountId": {
                         "$ref": "accounts.MailAccountId",
-                        "description": "The id of the account this folder belongs to."
+                        "description": "The id of the account this folder belongs to.",
+                        "optional": true
                     },
                     "id": {
                         "$ref": "folders.MailFolderId",
@@ -838,6 +917,16 @@
                     },
                     "isRoot": {
                         "description": "Whether this folder is a root folder.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "isTag": {
+                        "description": "Whether this folder is a virtual tag folder.",
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "isUnified": {
+                        "description": "Whether this folder is a unified mailbox folder.",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -864,12 +953,19 @@
                         "type": "array"
                     },
                     "subFolders": {
-                        "description": "Subfolders are only included if requested. They will be returned in the same order as used in Thunderbird's folder pane.",
-                        "items": {
-                            "$ref": "folders.MailFolder"
-                        },
-                        "optional": true,
-                        "type": "array"
+                        "choices": [
+                            {
+                                "items": {
+                                    "$ref": "folders.MailFolder"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "description": "Subfolders of this folder. The property may be <value>null</value>, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.",
+                        "optional": true
                     },
                     "type": {
                         "$ref": "folders.MailFolderSpecialUse",

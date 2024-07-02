@@ -19,7 +19,7 @@
                         "type": "string"
                     },
                     {
-                        "$ref": "spaces.SpaceButtonProperties",
+                        "$ref": "spaces.SpaceButtonProperties_MV3",
                         "default": {},
                         "description": "Properties of the button for the new space.",
                         "name": "buttonProperties",
@@ -114,6 +114,7 @@
                     },
                     {
                         "name": "callback",
+                        "optional": true,
                         "parameters": [
                             {
                                 "items": {
@@ -168,7 +169,7 @@
                         "type": "string"
                     },
                     {
-                        "$ref": "spaces.SpaceButtonProperties",
+                        "$ref": "spaces.SpaceButtonProperties_MV3",
                         "description": "Only specified button properties will be updated.",
                         "name": "buttonProperties",
                         "optional": true
@@ -205,8 +206,7 @@
                             {
                                 "$ref": "tabs.Tab",
                                 "description": "Details about the opened or activated space tab.",
-                                "name": "tab",
-                                "optional": true
+                                "name": "tab"
                             }
                         ],
                         "type": "function"
@@ -221,7 +221,7 @@
         "namespace": "spaces",
         "types": [
             {
-                "id": "SpaceButtonProperties",
+                "id": "SpaceButtonProperties_MV2",
                 "properties": {
                     "badgeBackgroundColor": {
                         "choices": [
@@ -249,11 +249,11 @@
                                 "$ref": "manifest.IconPath"
                             }
                         ],
-                        "description": "The paths to one or more icons for the button in the spaces toolbar. Defaults to the extension icon, if set to an empty string.",
+                        "description": "The paths to one or more icons for the button in the spaces toolbar. Reset to the extension icon, when set to an empty string.",
                         "optional": true
                     },
                     "themeIcons": {
-                        "description": "Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The <val>light</val> icons will be used on dark backgrounds and vice versa. At least the set for <em>16px</em> icons should be specified. The set for <em>32px</em> icons will be used on screens with a very high pixel density, if specified.",
+                        "description": "Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The <val>light</val> icons will be used on dark backgrounds and vice versa. At least the set for <em>16px</em> icons should be specified. The set for <em>32px</em> icons will be used on screens with a very high pixel density, if specified. Reset when set to an empty array.",
                         "items": {
                             "$ref": "manifest.ThemeIcons"
                         },
@@ -261,8 +261,49 @@
                         "type": "array"
                     },
                     "title": {
-                        "description": "The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Defaults to the name of the extension, if set to an empty string.",
+                        "description": "The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Reset to the name of the extension, when set to an empty string.",
                         "optional": true,
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "id": "SpaceButtonProperties_MV3",
+                "properties": {
+                    "badgeBackgroundColor": {
+                        "choices": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "$ref": "ColorArray"
+                            }
+                        ],
+                        "description": "Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is <value>[255, 0, 0, 255]</value>. Can also be a string with an HTML color name (<value>red</value>) or a HEX color value (<value>#FF0000</value> or <value>#F00</value>). Reset when set to <value>null</value>.",
+                        "optional": "omit-key-if-missing"
+                    },
+                    "badgeText": {
+                        "description": "Sets the badge text for the button in the spaces toolbar. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to <value>null</value>.",
+                        "optional": "omit-key-if-missing",
+                        "type": "string"
+                    },
+                    "defaultIcons": {
+                        "$ref": "manifest.IconPath",
+                        "description": "The paths to one or more icons for the button in the spaces toolbar. Reset to the extension icon, when set to <value>null</value>.",
+                        "optional": "omit-key-if-missing"
+                    },
+                    "themeIcons": {
+                        "description": "Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The <val>light</val> icons will be used on dark backgrounds and vice versa. At least the set for <em>16px</em> icons should be specified. The set for <em>32px</em> icons will be used on screens with a very high pixel density, if specified. Reset when set to <value>null</value>.",
+                        "items": {
+                            "$ref": "manifest.ThemeIcons"
+                        },
+                        "optional": "omit-key-if-missing",
+                        "type": "array"
+                    },
+                    "title": {
+                        "description": "The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Reset to the name of the extension, when set to <value>null</value>.",
+                        "optional": "omit-key-if-missing",
                         "type": "string"
                     }
                 },

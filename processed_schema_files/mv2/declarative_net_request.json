@@ -252,6 +252,15 @@
                 "name": "getDynamicRules",
                 "parameters": [
                     {
+                        "$ref": "GetRulesFilter",
+                        "description": "An object to filter the set of dynamic rules for the extension.",
+                        "name": "filter",
+                        "optional": true,
+                        "support": {
+                            "version_added": "127"
+                        }
+                    },
+                    {
                         "name": "callback",
                         "parameters": [
                             {
@@ -276,6 +285,15 @@
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getSessionRules",
                 "name": "getSessionRules",
                 "parameters": [
+                    {
+                        "$ref": "GetRulesFilter",
+                        "description": "An object to filter the set of session scoped rules for the extension.",
+                        "name": "filter",
+                        "optional": true,
+                        "support": {
+                            "version_added": "127"
+                        }
+                    },
                     {
                         "name": "callback",
                         "parameters": [
@@ -879,6 +897,20 @@
                         "minimum": 1,
                         "optional": true,
                         "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "id": "GetRulesFilter",
+                "properties": {
+                    "ruleIds": {
+                        "description": "If specified, only rules with matching IDs are included.",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "optional": true,
+                        "type": "array"
                     }
                 },
                 "type": "object"

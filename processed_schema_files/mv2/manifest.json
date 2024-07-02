@@ -181,11 +181,14 @@
                     },
                     "incognito": {
                         "default": "spanning",
+                        "description": "The 'split' value is not supported.",
                         "enum": [
                             "not_allowed",
-                            "spanning"
+                            "spanning",
+                            "split"
                         ],
                         "optional": true,
+                        "postprocess": "incognitoSplitUnsupportedAndFallback",
                         "type": "string"
                     },
                     "minimum_chrome_version": {

@@ -40,7 +40,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/sessions.html#gettabvalue-tabid-key",
                 "async": "callback",
-                "description": "Retrieve a previously stored value for a given tab, given its key.",
+                "description": "Retrieve a previously stored value for a given tab, given its key. Returns <value>undefined</value> if the key does not exist.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/sessions/getTabValue",
                 "name": "getTabValue",
                 "parameters": [
@@ -65,6 +65,7 @@
                         "optional": true,
                         "parameters": [
                             {
+                                "description": "This may return undefined",
                                 "optional": true,
                                 "type": "string"
                             }

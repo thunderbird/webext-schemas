@@ -889,23 +889,10 @@
                 "description": "Used by various functions to represent the state of a message being composed. Note that functions using this type may have a partial implementation.",
                 "id": "ComposeDetails",
                 "properties": {
-                    "additionalFccFolder": {
-                        "choices": [
-                            {
-                                "$ref": "folders.MailFolderId"
-                            },
-                            {
-                                "$ref": "folders.MailFolder"
-                            },
-                            {
-                                "enum": [
-                                    ""
-                                ],
-                                "type": "string"
-                            }
-                        ],
-                        "description": "An additional fcc folder which can be selected while composing the message, an empty string if not used.",
-                        "optional": true
+                    "additionalFccFolderId": {
+                        "$ref": "folders.MailFolderId",
+                        "description": "An additional fcc folder which can be selected while composing the message. Cleared when set to <value>null</value>.",
+                        "optional": "omit-key-if-missing"
                     },
                     "attachVCard": {
                         "description": "Whether or not the vCard of the used identity will be attached to the message during send. **Note:** If the value has not been modified, selecting a different identity will load the default value of the new identity.",
@@ -1003,28 +990,10 @@
                         "description": "A single newsgroup name or an array of newsgroup names.",
                         "optional": true
                     },
-                    "overrideDefaultFcc": {
-                        "description": "Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting <value>false</value> will clear the override. Setting <value>true</value> will throw an <em>ExtensionError</em>, if <val>overrideDefaultFccFolder</val> is not set as well.",
-                        "optional": true,
-                        "type": "boolean"
-                    },
-                    "overrideDefaultFccFolder": {
-                        "choices": [
-                            {
-                                "$ref": "folders.MailFolderId"
-                            },
-                            {
-                                "$ref": "folders.MailFolder"
-                            },
-                            {
-                                "enum": [
-                                    ""
-                                ],
-                                "type": "string"
-                            }
-                        ],
-                        "description": " This value overrides the default fcc setting (defined by the used identity) for this message only. Either a $(ref:folders.MailFolder) specifying the folder for the copy of the sent message, or an empty string to not save a copy at all.",
-                        "optional": true
+                    "overrideDefaultFccFolderId": {
+                        "$ref": "folders.MailFolderId",
+                        "description": " This value overrides the default fcc setting (defined by the used identity) for this message only. Either a $(ref:folders.MailFolderId) specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to <value>null</value>.",
+                        "optional": "omit-key-if-missing"
                     },
                     "plainTextBody": {
                         "description": "The plain text content of the message.",

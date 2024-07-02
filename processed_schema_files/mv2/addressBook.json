@@ -517,7 +517,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#getphoto-id",
                 "async": "callback",
-                "description": "Gets the photo associated with this contact, if any.",
+                "description": "Gets the photo associated with this contact. Returns <value>null</value>, if no photo is available.",
                 "name": "getPhoto",
                 "parameters": [
                     {
@@ -529,10 +529,16 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "additionalProperties": true,
-                                "isInstanceOf": "File",
-                                "optional": true,
-                                "type": "object"
+                                "choices": [
+                                    {
+                                        "additionalProperties": true,
+                                        "isInstanceOf": "File",
+                                        "type": "object"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
                             }
                         ],
                         "type": "function"
@@ -675,7 +681,7 @@
                         "type": "boolean"
                     },
                     "searchString": {
-                        "description": "One or more space-separated terms to search for.",
+                        "description": "One or more space-separated terms to search for in predefined contact fields (defined by the preference <value>mail.addr_book.quicksearchquery.format</value>).",
                         "optional": true,
                         "type": "string"
                     }

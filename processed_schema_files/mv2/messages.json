@@ -431,7 +431,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messages.html#openattachment-messageid-partname-tabid",
                 "async": true,
-                "description": "Opens the specified attachment",
+                "description": "Opens the specified attachment.",
                 "name": "openAttachment",
                 "parameters": [
                     {
@@ -457,7 +457,7 @@
             {
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messages.html#query-queryinfo",
                 "async": "callback",
-                "description": "Gets all messages that have the specified properties, or all messages if no properties are specified.",
+                "description": "Gets all messages that have the specified properties, or all messages if no properties are specified. Messages of unified mailbox folders are not included by default (as that could double the amount of returned messages), but explicitly specifying a unified mailbox folder is supported.",
                 "name": "query",
                 "parameters": [
                     {
@@ -900,13 +900,13 @@
                         "properties": {
                             "color": {
                                 "description": "Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.",
-                                "optional": "true",
+                                "optional": true,
                                 "pattern": "^#[0-9a-fA-F]{6}",
                                 "type": "string"
                             },
                             "tag": {
                                 "description": "Human-readable tag name.",
-                                "optional": "true",
+                                "optional": true,
                                 "type": "string"
                             }
                         },
@@ -1052,8 +1052,15 @@
                 "id": "MessageList",
                 "properties": {
                     "id": {
-                        "optional": true,
-                        "type": "string"
+                        "choices": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "description": "Id of the message list, to be used with $(ref:messages.continueList) or $(ref:messages.abortList)."
                     },
                     "messages": {
                         "items": {
@@ -1065,11 +1072,11 @@
                 "type": "object"
             },
             {
-                "description": "Represents an email message \"part\", which could be the whole message",
+                "description": "Represents an email message \"part\", which could be the whole message.",
                 "id": "MessagePart",
                 "properties": {
                     "body": {
-                        "description": "The content of the part",
+                        "description": "The content of the part.",
                         "optional": true,
                         "type": "string"
                     },
@@ -1100,17 +1107,17 @@
                         "type": "object"
                     },
                     "name": {
-                        "description": "Name of the part, if it is a file",
+                        "description": "Name of the part, if it is a file.",
                         "optional": true,
                         "type": "string"
                     },
                     "partName": {
-                        "description": "The identifier of this part, used in $(ref:messages.getAttachmentFile)",
+                        "description": "The identifier of this part, used in $(ref:messages.getAttachmentFile).",
                         "optional": true,
                         "type": "string"
                     },
                     "parts": {
-                        "description": "Any sub-parts of this part",
+                        "description": "Any sub-parts of this part.",
                         "items": {
                             "$ref": "MessagePart"
                         },
@@ -1135,12 +1142,12 @@
                         "type": "boolean"
                     },
                     "junk": {
-                        "description": "Whether the message is marked as junk. Only supported in $(ref:messages.update)",
+                        "description": "Whether the message is marked as junk. Only supported in $(ref:messages.update).",
                         "optional": true,
                         "type": "boolean"
                     },
                     "new": {
-                        "description": "Whether the message is marked as new. Only supported in $(ref:messages.import)",
+                        "description": "Whether the message is marked as new. Only supported in $(ref:messages.import).",
                         "optional": true,
                         "type": "boolean"
                     },
@@ -1277,13 +1284,13 @@
                         "properties": {
                             "color": {
                                 "description": "Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.",
-                                "optional": "true",
+                                "optional": true,
                                 "pattern": "^#[0-9a-fA-F]{6}",
                                 "type": "string"
                             },
                             "tag": {
                                 "description": "Human-readable tag name.",
-                                "optional": "true",
+                                "optional": true,
                                 "type": "string"
                             }
                         },

@@ -287,7 +287,7 @@
                 ],
                 "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/cloudFile.html#getaccount-accountid",
                 "async": "callback",
-                "description": "Retrieve information about a single cloud file account.",
+                "description": "Retrieve information about a single cloud file account, or <value>undefined</value> if it does not exists",
                 "name": "getAccount",
                 "parameters": [
                     {
@@ -300,7 +300,9 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "CloudFileAccount"
+                                "$ref": "CloudFileAccount",
+                                "description": "This may return undefined",
+                                "optional": true
                             }
                         ],
                         "type": "function"
@@ -393,7 +395,9 @@
                         "optional": true,
                         "parameters": [
                             {
-                                "$ref": "CloudFileAccount"
+                                "$ref": "CloudFileAccount",
+                                "description": "This may return undefined",
+                                "optional": true
                             }
                         ],
                         "type": "function"

@@ -305,6 +305,33 @@
             },
             {
                 "async": "callback",
+                "description": "Fetches information about active contexts associated with this extension",
+                "name": "getContexts",
+                "parameters": [
+                    {
+                        "$ref": "ContextFilter",
+                        "description": "A filter to find matching context.",
+                        "name": "filter"
+                    },
+                    {
+                        "name": "callback",
+                        "parameters": [
+                            {
+                                "description": "The matching contexts, if any.",
+                                "items": {
+                                    "$ref": "ExtensionContext"
+                                },
+                                "name": "contexts",
+                                "type": "array"
+                            }
+                        ],
+                        "type": "function"
+                    }
+                ],
+                "type": "function"
+            },
+            {
+                "async": "callback",
                 "description": "<p>Open your Extension's options page, if possible.</p><p>The precise behavior may depend on your manifest's <code>$(topic:optionsV2)[options_ui]</code> or <code>$(topic:options)[options_page]</code> key, or what the browser happens to support at the time.</p><p>If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set $(ref:lastError).</p>",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage",
                 "name": "openOptionsPage",
@@ -746,6 +773,131 @@
             }
         },
         "types": [
+            {
+                "description": "A filter to match against existing extension context. Matching contexts must match all specified filters.",
+                "id": "ContextFilter",
+                "properties": {
+                    "contextIds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "contextTypes": {
+                        "items": {
+                            "$ref": "ContextType"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "documentIds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "documentOrigins": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "documentUrls": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "frameIds": {
+                        "items": {
+                            "type": "integer"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "incognito": {
+                        "optional": true,
+                        "type": "boolean"
+                    },
+                    "tabIds": {
+                        "items": {
+                            "type": "integer"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    },
+                    "windowIds": {
+                        "items": {
+                            "type": "integer"
+                        },
+                        "optional": true,
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            {
+                "description": "The type of extension view.",
+                "enum": [
+                    "BACKGROUND",
+                    "POPUP",
+                    "SIDE_PANEL",
+                    "TAB"
+                ],
+                "id": "ContextType",
+                "type": "string"
+            },
+            {
+                "description": "A context hosting extension content",
+                "id": "ExtensionContext",
+                "properties": {
+                    "contextId": {
+                        "description": "An unique identifier associated to this context",
+                        "type": "string"
+                    },
+                    "contextType": {
+                        "$ref": "ContextType",
+                        "description": "The type of the context"
+                    },
+                    "documentId": {
+                        "description": "An UUID for the document associated with this context, or undefined if it is not hosted in a document",
+                        "optional": true,
+                        "type": "string",
+                        "unsupported": true
+                    },
+                    "documentOrigin": {
+                        "description": "The origin of the document associated with this context, or undefined if it is not hosted in a document",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "documentUrl": {
+                        "description": "The URL of the document associated with this context, or undefined if it is not hosted in a document",
+                        "optional": true,
+                        "type": "string"
+                    },
+                    "frameId": {
+                        "description": "The frame ID for this context, or -1 if it is not hosted in a frame.",
+                        "type": "integer"
+                    },
+                    "incognito": {
+                        "description": "Whether the context is associated with an private browsing context.",
+                        "type": "boolean"
+                    },
+                    "tabId": {
+                        "description": "The tab ID for this context, or -1 if it is not hosted in a tab.",
+                        "type": "integer"
+                    },
+                    "windowId": {
+                        "description": "The window ID for this context, or -1 if it is not hosted in a window.",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
             {
                 "additionalProperties": {
                     "type": "any"
