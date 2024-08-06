@@ -2,7 +2,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplay.html#onmessagesdisplayed-tab-messages-displayedmessages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv3/messageDisplay.html#onmessagesdisplayed-tab-messages-displayedmessages",
                 "description": "Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.",
                 "name": "onMessagesDisplayed",
                 "parameters": [
@@ -26,7 +26,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplay.html#getdisplayedmessages-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv3/messageDisplay.html#getdisplayedmessages-tabid",
                 "async": "callback",
                 "description": "Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.",
                 "name": "getDisplayedMessages",
@@ -54,7 +54,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplay.html#open-openproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv3/messageDisplay.html#open-openproperties",
                 "async": "callback",
                 "description": "Opens a message in a new tab or in a new window.",
                 "name": "open",

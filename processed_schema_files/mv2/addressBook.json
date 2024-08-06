@@ -19,7 +19,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#oncreated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#oncreated-node",
                 "description": "Fired when an address book is created.",
                 "name": "onCreated",
                 "parameters": [
@@ -34,7 +34,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#onupdated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#onupdated-node",
                 "description": "Fired when an address book is renamed.",
                 "name": "onUpdated",
                 "parameters": [
@@ -49,7 +49,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#ondeleted-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#ondeleted-id",
                 "description": "Fired when an addressBook is deleted.",
                 "name": "onDeleted",
                 "parameters": [
@@ -66,7 +66,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#openui",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#openui",
                 "async": "callback",
                 "description": "Opens the address book user interface.",
                 "name": "openUI",
@@ -89,7 +89,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#closeui",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#closeui",
                 "async": true,
                 "description": "Closes the address book user interface.",
                 "name": "closeUI",
@@ -100,7 +100,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#list-complete",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#list-complete",
                 "async": "callback",
                 "description": "Gets a list of the user's address books, optionally including all contacts and mailing lists.",
                 "name": "list",
@@ -132,7 +132,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#get-id-complete",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#get-id-complete",
                 "async": "callback",
                 "description": "Gets a single address book, optionally including all contacts and mailing lists.",
                 "name": "get",
@@ -165,7 +165,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#create-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#create-properties",
                 "async": "callback",
                 "description": "Creates a new, empty address book.",
                 "name": "create",
@@ -197,7 +197,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#update-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#update-id-properties",
                 "async": true,
                 "description": "Renames an address book.",
                 "name": "update",
@@ -222,7 +222,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/addressBooks.html#delete-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/addressBooks.html#delete-id",
                 "async": true,
                 "description": "Removes an address book, and all associated contacts and mailing lists.",
                 "name": "delete",
@@ -362,7 +362,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#oncreated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#oncreated-node",
                 "description": "Fired when a contact is created.",
                 "name": "onCreated",
                 "parameters": [
@@ -377,7 +377,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#onupdated-node-changedproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#onupdated-node-changedproperties",
                 "description": "Fired when a contact is changed.",
                 "name": "onUpdated",
                 "parameters": [
@@ -396,7 +396,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#ondeleted-parentid-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#ondeleted-parentid-id",
                 "description": "Fired when a contact is removed from an address book.",
                 "name": "onDeleted",
                 "parameters": [
@@ -417,7 +417,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#list-parentid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#list-parentid",
                 "async": "callback",
                 "description": "Gets all the contacts in the address book with the id <var>parentId</var>.",
                 "name": "list",
@@ -446,7 +446,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#quicksearch-parentid-queryinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#quicksearch-parentid-queryinfo",
                 "async": "callback",
                 "description": "Gets all contacts matching <var>queryInfo</var> in the address book with the id <var>parentId</var>.",
                 "name": "quickSearch",
@@ -489,7 +489,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#get-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#get-id",
                 "async": "callback",
                 "description": "Gets a single contact.",
                 "name": "get",
@@ -515,7 +515,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#getphoto-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#getphoto-id",
                 "async": "callback",
                 "description": "Gets the photo associated with this contact. Returns <var>null</var>, if no photo is available.",
                 "name": "getPhoto",
@@ -550,7 +550,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#setphoto-id-file",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#setphoto-id-file",
                 "async": true,
                 "description": "Sets the photo associated with this contact.",
                 "name": "setPhoto",
@@ -572,7 +572,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#create-parentid-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#create-parentid-id-properties",
                 "async": "callback",
                 "description": "Adds a new contact to the address book with the id <var>parentId</var>.",
                 "name": "create",
@@ -610,7 +610,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#update-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#update-id-properties",
                 "async": true,
                 "description": "Updates a contact.",
                 "name": "update",
@@ -631,7 +631,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/contacts.html#delete-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/contacts.html#delete-id",
                 "async": true,
                 "description": "Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.",
                 "name": "delete",
@@ -775,7 +775,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#oncreated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#oncreated-node",
                 "description": "Fired when a mailing list is created.",
                 "name": "onCreated",
                 "parameters": [
@@ -790,7 +790,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#onupdated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#onupdated-node",
                 "description": "Fired when a mailing list is changed.",
                 "name": "onUpdated",
                 "parameters": [
@@ -805,7 +805,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#ondeleted-parentid-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#ondeleted-parentid-id",
                 "description": "Fired when a mailing list is deleted.",
                 "name": "onDeleted",
                 "parameters": [
@@ -824,7 +824,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#onmemberadded-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#onmemberadded-node",
                 "description": "Fired when a contact is added to the mailing list.",
                 "name": "onMemberAdded",
                 "parameters": [
@@ -839,7 +839,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#onmemberremoved-parentid-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#onmemberremoved-parentid-id",
                 "description": "Fired when a contact is removed from the mailing list.",
                 "name": "onMemberRemoved",
                 "parameters": [
@@ -860,7 +860,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#list-parentid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#list-parentid",
                 "async": "callback",
                 "description": "Gets all the mailing lists in the address book with id <var>parentId</var>.",
                 "name": "list",
@@ -889,7 +889,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#get-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#get-id",
                 "async": "callback",
                 "description": "Gets a single mailing list.",
                 "name": "get",
@@ -915,7 +915,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#create-parentid-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#create-parentid-properties",
                 "async": "callback",
                 "description": "Creates a new mailing list in the address book with id <var>parentId</var>.",
                 "name": "create",
@@ -959,7 +959,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#update-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#update-id-properties",
                 "async": true,
                 "description": "Edits the properties of a mailing list.",
                 "name": "update",
@@ -992,7 +992,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#delete-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#delete-id",
                 "async": true,
                 "description": "Removes the mailing list.",
                 "name": "delete",
@@ -1008,7 +1008,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#addmember-id-contactid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#addmember-id-contactid",
                 "async": true,
                 "description": "Adds a contact to the mailing list with id <var>id</var>. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.",
                 "name": "addMember",
@@ -1028,7 +1028,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#listmembers-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#listmembers-id",
                 "async": "callback",
                 "description": "Gets all contacts that are members of the mailing list with id <var>id</var>.",
                 "name": "listMembers",
@@ -1057,7 +1057,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailingLists.html#removemember-id-contactid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/mailingLists.html#removemember-id-contactid",
                 "async": true,
                 "description": "Removes a contact from the mailing list with id <var>id</var>. This does not delete the contact from the address book.",
                 "name": "removeMember",

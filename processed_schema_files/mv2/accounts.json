@@ -18,7 +18,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/accounts.html#oncreated-accountid-account",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/accounts.html#oncreated-accountid-account",
                 "description": "Fired when a new account has been created.",
                 "name": "onCreated",
                 "parameters": [
@@ -37,7 +37,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/accounts.html#ondeleted-accountid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/accounts.html#ondeleted-accountid",
                 "description": "Fired when an account has been removed.",
                 "name": "onDeleted",
                 "parameters": [
@@ -52,7 +52,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/accounts.html#onupdated-accountid-changedvalues",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/accounts.html#onupdated-accountid-changedvalues",
                 "description": "Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed <var>defaultIdentity</var> is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.",
                 "name": "onUpdated",
                 "parameters": [
@@ -83,7 +83,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/accounts.html#list-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/accounts.html#list-includesubfolders",
                 "async": "callback",
                 "description": "Returns all mail accounts. They will be returned in the same order as used in Thunderbird's folder pane.",
                 "name": "list",
@@ -115,7 +115,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/accounts.html#get-accountid-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/accounts.html#get-accountid-includesubfolders",
                 "async": "callback",
                 "description": "Returns details of the requested account, or <var>null</var> if it doesn't exist.",
                 "name": "get",
@@ -155,7 +155,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/accounts.html#getdefault-includesubfolders",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/accounts.html#getdefault-includesubfolders",
                 "async": "callback",
                 "description": "Returns the default account, or <var>null</var> if it is not defined.",
                 "name": "getDefault",
@@ -191,7 +191,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/accounts.html#setdefaultidentity-accountid-identityid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/accounts.html#setdefaultidentity-accountid-identityid",
                 "async": true,
                 "deprecated": "Deprecated since Thunderbird 91 and removed in Manifest V3: accounts.setDefaultIdentity() is now available as identities.setDefault.",
                 "description": "Sets the default identity for an account.",
@@ -212,7 +212,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/accounts.html#getdefaultidentity-accountid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/accounts.html#getdefaultidentity-accountid",
                 "async": "callback",
                 "deprecated": "Deprecated since Thunderbird 91 and removed in Manifest V3: accounts.getDefaultIdentity() is now available as identities.getDefault.",
                 "description": "Returns the default identity for an account, or <var>null</var> if it is not defined.",

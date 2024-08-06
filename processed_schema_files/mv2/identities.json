@@ -18,7 +18,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#oncreated-identityid-identity",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#oncreated-identityid-identity",
                 "description": "Fired when a new identity has been created and added to an account. The event also fires for default identities that are created when a new account is added.",
                 "name": "onCreated",
                 "parameters": [
@@ -37,7 +37,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#ondeleted-identityid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#ondeleted-identityid",
                 "description": "Fired when an identity has been removed from an account.",
                 "name": "onDeleted",
                 "parameters": [
@@ -52,7 +52,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#onupdated-identityid-changedvalues",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#onupdated-identityid-changedvalues",
                 "description": "Fired when one or more properties of an identity have been modified. The returned $(ref:identities.MailIdentity) includes only the changed values.",
                 "name": "onUpdated",
                 "parameters": [
@@ -73,7 +73,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#list-accountid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#list-accountid",
                 "async": "callback",
                 "description": "Returns the identities of the specified account, or all identities if no account is specified. Do not expect the returned identities to be in any specific order. Use $(ref:identities.getDefault) to get the default identity of an account.",
                 "name": "list",
@@ -103,7 +103,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#get-identityid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#get-identityid",
                 "async": "callback",
                 "description": "Returns details of the requested identity, or <var>null</var> if it doesn't exist.",
                 "name": "get",
@@ -136,7 +136,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#create-accountid-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#create-accountid-details",
                 "async": "callback",
                 "description": "Create a new identity in the specified account.",
                 "name": "create",
@@ -169,7 +169,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#delete-identityid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#delete-identityid",
                 "async": true,
                 "description": "Attempts to delete the requested identity. Default identities cannot be deleted.",
                 "name": "delete",
@@ -188,7 +188,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#update-identityid-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#update-identityid-details",
                 "async": "callback",
                 "description": "Updates the details of an identity.",
                 "name": "update",
@@ -221,7 +221,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#getdefault-accountid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#getdefault-accountid",
                 "async": "callback",
                 "description": "Returns the default identity for the requested account, or <var>null</var> if it is not defined.",
                 "name": "getDefault",
@@ -254,7 +254,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/identities.html#setdefault-accountid-identityid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/identities.html#setdefault-accountid-identityid",
                 "async": true,
                 "description": "Sets the default identity for the requested account.",
                 "name": "setDefault",

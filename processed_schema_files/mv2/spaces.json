@@ -2,7 +2,7 @@
     {
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spaces.html#create-name-defaulturl-buttonproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/spaces.html#create-name-defaulturl-buttonproperties",
                 "async": "callback",
                 "description": "Creates a new space and adds its button to the spaces toolbar.",
                 "name": "create",
@@ -19,7 +19,7 @@
                         "type": "string"
                     },
                     {
-                        "$ref": "spaces.SpaceButtonProperties_MV2",
+                        "$ref": "spaces.ButtonProperties",
                         "default": {},
                         "description": "Properties of the button for the new space.",
                         "name": "buttonProperties",
@@ -43,7 +43,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spaces.html#get-spaceid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/spaces.html#get-spaceid",
                 "async": "callback",
                 "description": "Retrieves details about the specified space.",
                 "name": "get",
@@ -72,7 +72,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spaces.html#query-queryinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/spaces.html#query-queryinfo",
                 "async": "callback",
                 "description": "Gets all spaces that have the specified properties, or all spaces if no properties are specified.",
                 "name": "query",
@@ -133,7 +133,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spaces.html#remove-spaceid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/spaces.html#remove-spaceid",
                 "async": true,
                 "description": "Removes the specified space, closes all its tabs and removes its button from the spaces toolbar. Throws an exception if the requested space does not exist or was not created by this extension.",
                 "name": "remove",
@@ -151,7 +151,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spaces.html#update-spaceid-defaulturl-buttonproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/spaces.html#update-spaceid-defaulturl-buttonproperties",
                 "async": true,
                 "description": "Updates the specified space. Throws an exception if the requested space does not exist or was not created by this extension.",
                 "name": "update",
@@ -169,7 +169,7 @@
                         "type": "string"
                     },
                     {
-                        "$ref": "spaces.SpaceButtonProperties_MV2",
+                        "$ref": "spaces.ButtonProperties",
                         "description": "Only specified button properties will be updated.",
                         "name": "buttonProperties",
                         "optional": true
@@ -181,7 +181,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spaces.html#open-spaceid-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/spaces.html#open-spaceid-windowid",
                 "async": "callback",
                 "description": "Opens or switches to the specified space. Throws an exception if the requested space does not exist or was not created by this extension.",
                 "name": "open",
@@ -221,7 +221,7 @@
         "namespace": "spaces",
         "types": [
             {
-                "id": "SpaceButtonProperties_MV2",
+                "id": "ButtonProperties",
                 "properties": {
                     "badgeBackgroundColor": {
                         "choices": [
@@ -269,7 +269,7 @@
                 "type": "object"
             },
             {
-                "id": "SpaceButtonProperties_MV3",
+                "id": "SpaceButtonProperties",
                 "properties": {
                     "badgeBackgroundColor": {
                         "choices": [

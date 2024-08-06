@@ -30,7 +30,7 @@
         "description": "The menus API allows to add items to Thunderbird's menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#onclicked-info-tab",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#onclicked-info-tab",
                 "description": "Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/onClicked",
                 "name": "onClicked",
@@ -59,7 +59,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#onshown-info-tab",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#onshown-info-tab",
                 "description": "Fired when a menu is shown. The extension can add, modify or remove menu items and call $(ref:menus.refresh) to update the menu.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/onShown",
                 "name": "onShown",
@@ -87,7 +87,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#onhidden",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#onhidden",
                 "description": "Fired when a menu is hidden. This event is only fired if onShown has fired before.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/onHidden",
                 "name": "onHidden",
@@ -100,7 +100,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#create-createproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#create-createproperties",
                 "description": "Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError'>runtime.lastError</a>).",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/create",
                 "name": "create",
@@ -114,9 +114,23 @@
                                 "type": "boolean"
                             },
                             "command": {
-                                "description": "Specifies a command to issue for the context click. Currently supports internal commands <var>_execute_browser_action</var>, <var>_execute_compose_action</var> and <var>_execute_message_display_action</var>.",
-                                "optional": true,
-                                "type": "string"
+                                "choices": [
+                                    {
+                                        "description": "A user-defined command.",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "description": "A predefined command to open an action popup.",
+                                        "enum": [
+                                            "_execute_browser_action",
+                                            "_execute_compose_action",
+                                            "_execute_message_display_action"
+                                        ],
+                                        "type": "string"
+                                    }
+                                ],
+                                "description": "Specifies a command to issue for the context click. Can either be a user defined command, or one of the predefined commands.",
+                                "optional": true
                             },
                             "contexts": {
                                 "description": "List of contexts this menu item will appear in. Defaults to <var>['page']</var> if not specified.",
@@ -249,7 +263,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#update-id-updateproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#update-id-updateproperties",
                 "async": "callback",
                 "description": "Updates a previously created context menu item.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/update",
@@ -383,7 +397,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#remove-menuitemid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#remove-menuitemid",
                 "async": "callback",
                 "description": "Removes a context menu item.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/remove",
@@ -418,7 +432,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#removeall",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#removeall",
                 "async": "callback",
                 "description": "Removes all context menu items added by this extension.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/removeAll",
@@ -438,7 +452,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#overridecontext-contextoptions",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#overridecontext-contextoptions",
                 "description": "Show the matching menu items from this extension instead of the default menu. This should be called during a <a href='https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event'>contextmenu</a> event handler, and only applies to the menu that opens after this event.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/overrideContext",
                 "name": "overrideContext",
@@ -482,7 +496,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#refresh",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#refresh",
                 "async": true,
                 "description": "Updates the extension items in the shown menu, including changes that have been made since the menu was shown. Has no effect if the menu is hidden. Rebuilding a shown menu is an expensive operation, only invoke this method when necessary.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/refresh",
@@ -500,7 +514,7 @@
         ],
         "properties": {
             "ACTION_MENU_TOP_LEVEL_LIMIT": {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/menus.html#action_menu_top_level_limit",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/menus.html#action_menu_top_level_limit",
                 "description": "The maximum number of top level extension items that can be added to an extension action context menu. Any items beyond this limit will be ignored.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/menus/ACTION_MENU_TOP_LEVEL_LIMIT",
                 "support": {

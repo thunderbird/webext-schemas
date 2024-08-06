@@ -342,29 +342,6 @@
                 "type": "object"
             },
             {
-                "description": "Represents a WebExtension site permissions manifest.json file",
-                "id": "WebExtensionSitePermissionsManifest",
-                "properties": {
-                    "install_origins": {
-                        "items": {
-                            "format": "origin",
-                            "type": "string"
-                        },
-                        "maxItems": 1,
-                        "minItems": 1,
-                        "type": "array"
-                    },
-                    "site_permissions": {
-                        "items": {
-                            "$ref": "SitePermission"
-                        },
-                        "minItems": 1,
-                        "type": "array"
-                    }
-                },
-                "type": "object"
-            },
-            {
                 "additionalProperties": {
                     "$ref": "UnrecognizedProperty"
                 },
@@ -475,18 +452,6 @@
                     }
                 ],
                 "id": "PermissionOrOrigin"
-            },
-            {
-                "choices": [
-                    {
-                        "enum": [
-                            "midi",
-                            "midi-sysex"
-                        ],
-                        "type": "string"
-                    }
-                ],
-                "id": "SitePermission"
             },
             {
                 "format": "url",

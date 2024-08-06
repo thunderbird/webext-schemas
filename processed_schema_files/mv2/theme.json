@@ -457,7 +457,7 @@
         "description": "The theme API allows for customization of Thunderbird's visual elements.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/theme.html#onupdated-updateinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/theme.html#onupdated-updateinfo",
                 "description": "Fired when a new theme has been applied",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/theme/onUpdated",
                 "name": "onUpdated",
@@ -479,7 +479,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/theme.html#getcurrent-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/theme.html#getcurrent-windowid",
                 "async": "callback",
                 "description": "Returns the current theme for the specified window or the last focused window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/theme/getCurrent",
@@ -511,7 +511,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/theme.html#update-windowid-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/theme.html#update-windowid-details",
                 "async": true,
                 "description": "Make complete updates to the theme. Resolves when the update has completed.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/theme/update",
@@ -544,7 +544,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/theme.html#reset-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/beta-mv2/theme.html#reset-windowid",
                 "async": true,
                 "description": "Removes the updates made to the theme.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/theme/reset",
