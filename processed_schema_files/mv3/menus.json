@@ -114,14 +114,23 @@
                                 "type": "boolean"
                             },
                             "command": {
-                                "description": "Specifies a command to issue for the context click. Currently supports internal commands <var>_execute_action</var>, <var>_execute_compose_action</var> and <var>_execute_message_display_action</var>.",
-                                "enum": [
-                                    "_execute_action",
-                                    "_execute_compose_action",
-                                    "_execute_message_display_action"
+                                "choices": [
+                                    {
+                                        "description": "A user-defined command.",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "description": "A predefined command to open an action popup.",
+                                        "enum": [
+                                            "_execute_action",
+                                            "_execute_compose_action",
+                                            "_execute_message_display_action"
+                                        ],
+                                        "type": "string"
+                                    }
                                 ],
-                                "optional": true,
-                                "type": "string"
+                                "description": "Specifies a command to issue for the context click. Can either be a user defined command, or one of the predefined commands.",
+                                "optional": true
                             },
                             "contexts": {
                                 "description": "List of contexts this menu item will appear in. Defaults to <var>['page']</var> if not specified.",
