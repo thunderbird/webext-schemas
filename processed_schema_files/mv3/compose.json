@@ -20,7 +20,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onbeforesend-tab-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#onbeforesend-tab-details",
                 "description": "Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
                 "name": "onBeforeSend",
                 "parameters": [
@@ -61,7 +61,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onaftersend-tab-sendinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#onaftersend-tab-sendinfo",
                 "description": "Fired when sending a message succeeded or failed.",
                 "name": "onAfterSend",
                 "parameters": [
@@ -113,7 +113,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onaftersave-tab-saveinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#onaftersave-tab-saveinfo",
                 "description": "Fired when saving a message as draft or template succeeded or failed.",
                 "name": "onAfterSave",
                 "parameters": [
@@ -161,7 +161,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onattachmentadded-tab-attachment",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#onattachmentadded-tab-attachment",
                 "description": "Fired when an attachment is added to a message being composed.",
                 "name": "onAttachmentAdded",
                 "parameters": [
@@ -186,7 +186,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onattachmentremoved-tab-attachmentid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#onattachmentremoved-tab-attachmentid",
                 "description": "Fired when an attachment is removed from a message being composed.",
                 "name": "onAttachmentRemoved",
                 "parameters": [
@@ -211,7 +211,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onidentitychanged-tab-identityid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#onidentitychanged-tab-identityid",
                 "description": "Fired when the user changes the identity that will be used to send a message being composed.",
                 "name": "onIdentityChanged",
                 "parameters": [
@@ -236,7 +236,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#oncomposestatechanged-tab-state",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#oncomposestatechanged-tab-state",
                 "description": "Fired when the state of the message composer changed.",
                 "name": "onComposeStateChanged",
                 "parameters": [
@@ -258,7 +258,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#onactivedictionarieschanged-tab-dictionaries",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#onactivedictionarieschanged-tab-dictionaries",
                 "description": "Fired when one or more dictionaries have been activated or deactivated.",
                 "name": "onActiveDictionariesChanged",
                 "parameters": [
@@ -282,7 +282,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#beginnew-messageid-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#beginnew-messageid-details",
                 "async": "callback",
                 "description": "Open a new message compose window.\n\n**Note:** The compose format can be set by <var>details.isPlainText</var> or by specifying only one of <var>details.body</var> or <var>details.plainTextBody</var>. Otherwise the default compose format of the selected identity is used.\n\n**Note:** Specifying <var>details.body</var> and <var>details.plainTextBody</var> without also specifying <var>details.isPlainText</var> threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching <var>details.body</var> or <var>details.plainTextBody</var> value.\n\n**Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.",
                 "name": "beginNew",
@@ -316,7 +316,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#beginreply-messageid-replytype-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#beginreply-messageid-replytype-details",
                 "async": "callback",
                 "description": "Open a new message compose window replying to a given message.\n\n**Note:** The compose format can be set by <var>details.isPlainText</var> or by specifying only one of <var>details.body</var> or <var>details.plainTextBody</var>. Otherwise the default compose format of the selected identity is used.\n\n**Note:** Specifying <var>details.body</var> and <var>details.plainTextBody</var> without also specifying <var>details.isPlainText</var> threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching <var>details.body</var> or <var>details.plainTextBody</var> value.\n\n**Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.",
                 "name": "beginReply",
@@ -359,7 +359,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#beginforward-messageid-forwardtype-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#beginforward-messageid-forwardtype-details",
                 "async": "callback",
                 "description": "Open a new message compose window forwarding a given message.\n\n**Note:** The compose format can be set by <var>details.isPlainText</var> or by specifying only one of <var>details.body</var> or <var>details.plainTextBody</var>. Otherwise the default compose format of the selected identity is used.\n\n**Note:** Specifying <var>details.body</var> and <var>details.plainTextBody</var> without also specifying <var>details.isPlainText</var> threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching <var>details.body</var> or <var>details.plainTextBody</var> value.\n\n**Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.",
                 "name": "beginForward",
@@ -401,7 +401,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#getcomposedetails-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#getcomposedetails-tabid",
                 "async": "callback",
                 "description": "Fetches the current state of a compose window. Currently only a limited amount of information is available, more will be added in later versions.",
                 "name": "getComposeDetails",
@@ -431,7 +431,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#setcomposedetails-tabid-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#setcomposedetails-tabid-details",
                 "async": true,
                 "description": "Updates the compose window. The properties of the given $(ref:compose.ComposeDetails) object will be used to overwrite the current values of the specified compose window, so only properties that are to be changed should be included. Modified settings will be treated as user initiated, and turn off further automatic changes on these settings.\n\nWhen updating any of the array properties (<var>customHeaders</var> and most address fields), make sure to first get the current values to not accidentally remove all existing entries when setting the new value.\n\n**Note:** The compose format of an existing compose window cannot be changed. Since Thunderbird 98, setting conflicting values for <var>details.body</var>, <var>details.plainTextBody</var> or <var>details.isPlaintext</var> no longer throws an exception, instead the compose window chooses the matching <var>details.body</var> or <var>details.plainTextBody</var> value and ignores the other.",
                 "name": "setComposeDetails",
@@ -455,7 +455,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#getactivedictionaries-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#getactivedictionaries-tabid",
                 "async": "callback",
                 "description": "Returns a $(ref:compose.ComposeDictionaries) object, listing all installed dictionaries, including the information whether they are currently enabled or not.",
                 "name": "getActiveDictionaries",
@@ -485,7 +485,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#setactivedictionaries-tabid-activedictionaries",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#setactivedictionaries-tabid-activedictionaries",
                 "async": true,
                 "description": "Updates the active dictionaries. Throws if the <var>activeDictionaries</var> array contains unknown or invalid language identifiers.",
                 "name": "setActiveDictionaries",
@@ -512,7 +512,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#listattachments-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#listattachments-tabid",
                 "async": "callback",
                 "description": "Lists all of the attachments of the message being composed in the specified tab.",
                 "name": "listAttachments",
@@ -544,7 +544,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#getattachmentfile-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#getattachmentfile-id",
                 "async": "callback",
                 "description": "Gets the content of a $(ref:compose.ComposeAttachment) as a <a href='https://developer.mozilla.org/docs/Web/API/File'>File</a> object.",
                 "name": "getAttachmentFile",
@@ -573,7 +573,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#addattachment-tabid-attachment",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#addattachment-tabid-attachment",
                 "async": "callback",
                 "description": "Adds an attachment to the message being composed in the specified tab.",
                 "name": "addAttachment",
@@ -613,7 +613,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#updateattachment-tabid-attachmentid-attachment",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#updateattachment-tabid-attachmentid-attachment",
                 "async": "callback",
                 "description": "Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will throw an <em>ExtensionError</em>.",
                 "name": "updateAttachment",
@@ -650,7 +650,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#removeattachment-tabid-attachmentid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#removeattachment-tabid-attachmentid",
                 "async": true,
                 "description": "Removes an attachment from the message being composed in the specified tab.",
                 "name": "removeAttachment",
@@ -673,7 +673,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#sendmessage-tabid-options",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#sendmessage-tabid-options",
                 "async": "callback",
                 "description": "Sends the message currently being composed. If the send mode is not specified or set to <var>default</var>, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an $(ref:compose.onBeforeSend) event or if there has been an error while sending the message to the outgoing mail server.",
                 "name": "sendMessage",
@@ -740,7 +740,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#savemessage-tabid-options",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#savemessage-tabid-options",
                 "async": "callback",
                 "description": "Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.",
                 "name": "saveMessage",
@@ -801,7 +801,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/compose.html#getcomposestate-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/compose.html#getcomposestate-tabid",
                 "async": "callback",
                 "description": "Returns information about the current state of the message composer.",
                 "name": "getComposeState",
@@ -891,7 +891,7 @@
                 "properties": {
                     "additionalFccFolderId": {
                         "$ref": "folders.MailFolderId",
-                        "description": "An additional fcc folder which can be selected while composing the message. Cleared when set to <var>null</var>.",
+                        "description": "An additional fcc folder which can be selected while composing the message. Cleared when set to <var>null</var>. The permission <permission>accountsRead</permission> is required to use this property.",
                         "optional": "omit-key-if-missing"
                     },
                     "attachPublicPGPKey": {
@@ -997,7 +997,7 @@
                     },
                     "overrideDefaultFccFolderId": {
                         "$ref": "folders.MailFolderId",
-                        "description": " This value overrides the default fcc setting (defined by the used identity) for this message only. Either a $(ref:folders.MailFolderId) specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to <var>null</var>.",
+                        "description": " This value overrides the default fcc setting (defined by the used identity) for this message only. Either a $(ref:folders.MailFolderId) specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to <var>null</var>. The permission <permission>accountsRead</permission> is required to use this property.",
                         "optional": "omit-key-if-missing"
                     },
                     "plainTextBody": {

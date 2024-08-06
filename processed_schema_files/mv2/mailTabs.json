@@ -2,7 +2,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#ondisplayedfolderchanged-tab-displayedfolder",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#ondisplayedfolderchanged-tab-displayedfolder",
                 "description": "Fired when the displayed folder changes in any mail tab.",
                 "name": "onDisplayedFolderChanged",
                 "parameters": [
@@ -27,7 +27,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#onselectedmessageschanged-tab-selectedmessages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#onselectedmessageschanged-tab-selectedmessages",
                 "description": "Fired when the selected messages change in any mail tab.",
                 "name": "onSelectedMessagesChanged",
                 "parameters": [
@@ -54,7 +54,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#query-queryinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#query-queryinfo",
                 "async": "callback",
                 "description": "Gets all mail tabs that have the specified properties, or all mail tabs if no properties are specified.",
                 "name": "query",
@@ -108,7 +108,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#get-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#get-tabid",
                 "async": "callback",
                 "description": "Get the $(ref:mailTabs.MailTab) properties of a mail tab.",
                 "name": "get",
@@ -135,7 +135,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#getcurrent",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#getcurrent",
                 "async": "callback",
                 "description": "Get the $(ref:mailTabs.MailTab) properties of the active mail tab. Returns <var>undefined</var>, if the active tab is not a mail tab.",
                 "name": "getCurrent",
@@ -159,7 +159,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#create-createproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#create-createproperties",
                 "async": "callback",
                 "description": "Creates a new mail tab. Standard tab properties can be adjusted via $(ref:tabs.update) after the mail tab has been created. **Note:** A new mail window can be created via $(ref:windows.create).",
                 "name": "create",
@@ -189,7 +189,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#update-tabid-updateproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#update-tabid-updateproperties",
                 "async": "callback",
                 "description": "Modifies the properties of a mail tab. Properties that are not specified in <var>updateProperties</var> are not modified.",
                 "name": "update",
@@ -224,7 +224,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#getlistedmessages-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#getlistedmessages-tabid",
                 "async": "callback",
                 "description": "Lists the messages in the current view, honoring sort order and filters.",
                 "name": "getListedMessages",
@@ -256,7 +256,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#getselectedfolders-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#getselectedfolders-tabid",
                 "async": "callback",
                 "description": "Lists the selected folders in the folder pane.",
                 "name": "getSelectedFolders",
@@ -291,7 +291,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#getselectedmessages-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#getselectedmessages-tabid",
                 "async": "callback",
                 "description": "Lists the selected messages in the current folder.",
                 "name": "getSelectedMessages",
@@ -323,7 +323,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#setselectedmessages-tabid-messageids",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#setselectedmessages-tabid-messageids",
                 "async": true,
                 "description": "Selects none, one or multiple messages.",
                 "name": "setSelectedMessages",
@@ -354,7 +354,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/mailTabs.html#setquickfilter-tabid-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/mailTabs.html#setquickfilter-tabid-properties",
                 "async": true,
                 "description": "Sets the Quick Filter user interface based on the options specified.",
                 "name": "setQuickFilter",
@@ -549,7 +549,7 @@
                                 "deprecated": "Support deprecated since Thunderbird 121 and removed in Manifest V3: MailTabProperties.displayedFolder needs to be specified as a MailFolderId instead of as a full MailFolder object."
                             }
                         ],
-                        "description": "Sets the folder displayed in the mail tab. Requires the <permission>accountsRead</permission> permission. The previous message selection in the given folder will be restored, if any. This property is ignored, if <var>selectedMessages</var> is specified.",
+                        "description": "Sets the folder displayed in the mail tab. Requires the <permission>accountsRead</permission> permission. The previous message selection in the given folder will be restored, if any.",
                         "optional": true
                     },
                     "folderMode": {

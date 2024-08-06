@@ -76,7 +76,7 @@
         "description": "Use a messageDisplayAction to put a button in the message display toolbar. In addition to its icon, a messageDisplayAction button can also have a tooltip, a badge, and a popup.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#onclicked-tab-info",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#onclicked-tab-info",
                 "description": "Fired when a messageDisplayAction button is clicked. This event will not fire if the messageDisplayAction has a popup. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
                 "name": "onClicked",
                 "parameters": [
@@ -101,7 +101,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#settitle-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#settitle-details",
                 "async": "callback",
                 "description": "Sets the title of the messageDisplayAction button. Is used as tooltip and as the label.",
                 "name": "setTitle",
@@ -152,7 +152,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#gettitle-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#gettitle-details",
                 "async": "callback",
                 "description": "Gets the title of the messageDisplayAction button.",
                 "name": "getTitle",
@@ -197,7 +197,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#setlabel-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#setlabel-details",
                 "async": "callback",
                 "description": "Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.",
                 "name": "setLabel",
@@ -248,7 +248,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#getlabel-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#getlabel-details",
                 "async": "callback",
                 "description": "Gets the label of the messageDisplayAction button. Returns <var>null</var>, if no label has been set and the title is used.",
                 "name": "getLabel",
@@ -300,7 +300,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#seticon-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#seticon-details",
                 "async": "callback",
                 "description": "Sets the icon for the messageDisplayAction button. Either the <var>path</var> or the <var>imageData</var> property must be specified.",
                 "name": "setIcon",
@@ -357,7 +357,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#setpopup-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#setpopup-details",
                 "async": "callback",
                 "description": "Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction button.",
                 "name": "setPopup",
@@ -408,7 +408,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#getpopup-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#getpopup-details",
                 "async": "callback",
                 "description": "Gets the html document set as the popup for this messageDisplayAction button.",
                 "name": "getPopup",
@@ -453,7 +453,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#setbadgetext-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#setbadgetext-details",
                 "async": "callback",
                 "description": "Sets the badge text for the messageDisplayAction button. The badge is displayed on top of the icon.",
                 "name": "setBadgeText",
@@ -504,7 +504,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#getbadgetext-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#getbadgetext-details",
                 "async": "callback",
                 "description": "Gets the badge text of the messageDisplayAction button.",
                 "name": "getBadgeText",
@@ -549,7 +549,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#setbadgetextcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#setbadgetextcolor-details",
                 "async": true,
                 "description": "Sets the text color for the badge.",
                 "name": "setBadgeTextColor",
@@ -597,7 +597,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#getbadgetextcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#getbadgetextcolor-details",
                 "async": "callback",
                 "description": "Gets the text color of the badge.",
                 "name": "getBadgeTextColor",
@@ -642,7 +642,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#setbadgebackgroundcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#setbadgebackgroundcolor-details",
                 "async": "callback",
                 "description": "Sets the background color for the badge.",
                 "name": "setBadgeBackgroundColor",
@@ -696,7 +696,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#getbadgebackgroundcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#getbadgebackgroundcolor-details",
                 "async": "callback",
                 "description": "Gets the badge background color of the messageDisplayAction button.",
                 "name": "getBadgeBackgroundColor",
@@ -741,7 +741,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#enable-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#enable-tabid",
                 "async": "callback",
                 "description": "Enables the messageDisplayAction button for a specific tab (if a <var>tabId</var> is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, a messageDisplayAction button is enabled.",
                 "name": "enable",
@@ -766,7 +766,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#disable-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#disable-tabid",
                 "async": "callback",
                 "description": "Disables the messageDisplayAction button for a specific tab (if a <var>tabId</var> is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.",
                 "name": "disable",
@@ -791,7 +791,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#isenabled-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#isenabled-details",
                 "async": "callback",
                 "description": "Checks whether the messageDisplayAction button is enabled.",
                 "name": "isEnabled",
@@ -835,7 +835,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messageDisplayAction.html#openpopup-options",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messageDisplayAction.html#openpopup-options",
                 "async": "callback",
                 "description": "Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action has no popup, is of type <var>menu</var>, is disabled or has been removed from the toolbar.",
                 "name": "openPopup",

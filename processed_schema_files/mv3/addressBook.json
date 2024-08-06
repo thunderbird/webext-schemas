@@ -19,7 +19,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#oncreated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#oncreated-node",
                 "description": "Fired when an address book is created.",
                 "name": "onCreated",
                 "parameters": [
@@ -34,7 +34,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#onupdated-node",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#onupdated-node",
                 "description": "Fired when an address book is renamed.",
                 "name": "onUpdated",
                 "parameters": [
@@ -49,7 +49,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#ondeleted-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#ondeleted-id",
                 "description": "Fired when an addressBook is deleted.",
                 "name": "onDeleted",
                 "parameters": [
@@ -66,7 +66,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#openui",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#openui",
                 "async": "callback",
                 "description": "Opens the address book user interface.",
                 "name": "openUI",
@@ -89,7 +89,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#closeui",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#closeui",
                 "async": true,
                 "description": "Closes the address book user interface.",
                 "name": "closeUI",
@@ -100,7 +100,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#list-complete",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#list-complete",
                 "async": "callback",
                 "description": "Gets a list of the user's address books, optionally including all contacts and mailing lists.",
                 "name": "list",
@@ -132,7 +132,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#get-id-complete",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#get-id-complete",
                 "async": "callback",
                 "description": "Gets a single address book, optionally including all contacts and mailing lists.",
                 "name": "get",
@@ -165,7 +165,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#create-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#create-properties",
                 "async": "callback",
                 "description": "Creates a new, empty address book.",
                 "name": "create",
@@ -197,7 +197,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#update-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#update-id-properties",
                 "async": true,
                 "description": "Renames an address book.",
                 "name": "update",
@@ -222,7 +222,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/addressBooks.html#delete-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/addressBooks.html#delete-id",
                 "async": true,
                 "description": "Removes an address book, and all associated contacts and mailing lists.",
                 "name": "delete",

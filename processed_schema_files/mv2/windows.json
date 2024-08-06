@@ -3,7 +3,7 @@
         "description": "The windows API supports creating, modifying and interacting with Thunderbird windows.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#oncreated-window",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#oncreated-window",
                 "description": "Fired when a window is created.",
                 "filters": [
                     {
@@ -33,7 +33,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#onremoved-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#onremoved-windowid",
                 "description": "Fired when a window is removed (closed).",
                 "filters": [
                     {
@@ -64,7 +64,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#onfocuschanged-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#onfocuschanged-windowid",
                 "description": "Fired when the currently focused window changes. Will be $(ref:windows.WINDOW_ID_NONE), if all windows have lost focus. **Note:** On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one window to another.",
                 "filters": [
                     {
@@ -97,7 +97,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#get-windowid-getinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#get-windowid-getinfo",
                 "async": "callback",
                 "description": "Gets details about a window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/get",
@@ -137,7 +137,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#getcurrent-getinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#getcurrent-getinfo",
                 "async": "callback",
                 "description": "Gets the active or topmost window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getCurrent",
@@ -169,7 +169,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#getlastfocused-getinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#getlastfocused-getinfo",
                 "async": "callback",
                 "description": "Gets the window that was most recently focused &mdash; typically the window 'on top'.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getLastFocused",
@@ -201,7 +201,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#getall-getinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#getall-getinfo",
                 "async": "callback",
                 "description": "Gets all windows.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/getAll",
@@ -236,7 +236,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#create-createdata",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#create-createdata",
                 "async": "callback",
                 "description": "Creates (opens) a new window with any optional sizing, position or default URL provided. When loading a page into a popup window, same-site links are opened within the same window, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a <a href='https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3'>content script</a> , capture click events and handle them manually. Same-site links with targets other than <var>_self</var> are opened in a new tab in the most recent <var>normal</var> Thunderbird window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/create",
@@ -353,7 +353,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#update-windowid-updateinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#update-windowid-updateinfo",
                 "async": "callback",
                 "description": "Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/update",
@@ -436,7 +436,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#remove-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#remove-windowid",
                 "async": "callback",
                 "description": "Removes (closes) a window, and all the tabs inside it.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/remove",
@@ -463,7 +463,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#opendefaultbrowser-url",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#opendefaultbrowser-url",
                 "async": true,
                 "description": "Opens the provided URL in the default system browser.",
                 "name": "openDefaultBrowser",
@@ -482,7 +482,7 @@
         "namespace": "windows",
         "properties": {
             "WINDOW_ID_CURRENT": {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#window_id_current",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#window_id_current",
                 "description": "The windowId value that represents the current window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_CURRENT",
                 "support": {
@@ -491,7 +491,7 @@
                 "value": -2
             },
             "WINDOW_ID_NONE": {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/windows.html#window_id_none",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/windows.html#window_id_none",
                 "description": "The windowId value that represents the absence of a window.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_NONE",
                 "support": {

@@ -2,7 +2,7 @@
     {
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messengerUtilities.html#converttoplaintext-body-options",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messengerUtilities.html#converttoplaintext-body-options",
                 "async": "callback",
                 "description": "Converts the provided body to readable plain text, without tags and leading/trailing whitespace.",
                 "name": "convertToPlainText",
@@ -41,7 +41,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messengerUtilities.html#formatfilesize-sizeinbytes",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messengerUtilities.html#formatfilesize-sizeinbytes",
                 "async": "callback",
                 "description": "Returns the provided file size in a human readable format (e.g. <var>12 bytes</var> or <var>11,4 GB</var>).",
                 "name": "formatFileSize",
@@ -68,7 +68,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messengerUtilities.html#parsemailboxstring-mailboxstring-preservegroups",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messengerUtilities.html#parsemailboxstring-mailboxstring-preservegroups",
                 "async": "callback",
                 "description": "Parse a mailbox string containing one or more email addresses (see RFC 5322, section 3.4).",
                 "name": "parseMailboxString",

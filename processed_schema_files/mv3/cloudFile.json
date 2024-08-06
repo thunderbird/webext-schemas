@@ -65,7 +65,7 @@
         ],
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#onfileupload-account-fileinfo-tab-relatedfileinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#onfileupload-account-fileinfo-tab-relatedfileinfo",
                 "description": "Fired when a file should be uploaded to the cloud file provider.",
                 "name": "onFileUpload",
                 "parameters": [
@@ -132,7 +132,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#onfileuploadabort-account-fileid-tab",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#onfileuploadabort-account-fileid-tab",
                 "name": "onFileUploadAbort",
                 "parameters": [
                     {
@@ -161,7 +161,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#onfilerename-account-fileid-newname-tab",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#onfilerename-account-fileid-newname-tab",
                 "description": "Fired when a previously uploaded file should be renamed.",
                 "name": "onFileRename",
                 "parameters": [
@@ -218,7 +218,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#onfiledeleted-account-fileid-tab",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#onfiledeleted-account-fileid-tab",
                 "description": "Fired when a previously uploaded file should be deleted.",
                 "name": "onFileDeleted",
                 "parameters": [
@@ -248,7 +248,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#onaccountadded-account",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#onaccountadded-account",
                 "description": "Fired when a cloud file account of this add-on was created.",
                 "name": "onAccountAdded",
                 "parameters": [
@@ -264,7 +264,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#onaccountdeleted-accountid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#onaccountdeleted-accountid",
                 "description": "Fired when a cloud file account of this add-on was deleted.",
                 "name": "onAccountDeleted",
                 "parameters": [
@@ -285,7 +285,7 @@
                 "allowedContexts": [
                     "content"
                 ],
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#getaccount-accountid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#getaccount-accountid",
                 "async": "callback",
                 "description": "Retrieve information about a single cloud file account, or <var>undefined</var> if it does not exists",
                 "name": "getAccount",
@@ -317,7 +317,7 @@
                 "allowedContexts": [
                     "content"
                 ],
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#getallaccounts",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#getallaccounts",
                 "async": "callback",
                 "description": "Retrieve all cloud file accounts for the current add-on.",
                 "name": "getAllAccounts",
@@ -345,7 +345,7 @@
                 "allowedContexts": [
                     "content"
                 ],
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/cloudFile.html#updateaccount-accountid-updateproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/cloudFile.html#updateaccount-accountid-updateproperties",
                 "async": "callback",
                 "description": "Update a cloud file account.",
                 "name": "updateAccount",

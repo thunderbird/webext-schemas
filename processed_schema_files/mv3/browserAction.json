@@ -116,7 +116,7 @@
         "description": "Use the action API to add a button to Thunderbird's unified toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#onclicked-tab-info",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#onclicked-tab-info",
                 "description": "Fired when an action button is clicked. This event will not fire if the action has a popup. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/onClicked",
                 "name": "onClicked",
@@ -145,7 +145,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#settitle-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#settitle-details",
                 "async": "callback",
                 "description": "Sets the title of the action button. Is used as tooltip and as the label.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/setTitle",
@@ -197,7 +197,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#gettitle-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#gettitle-details",
                 "async": "callback",
                 "description": "Gets the title of the action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/getTitle",
@@ -243,7 +243,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#setlabel-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#setlabel-details",
                 "async": "callback",
                 "description": "Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.",
                 "name": "setLabel",
@@ -294,7 +294,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#getlabel-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#getlabel-details",
                 "async": "callback",
                 "description": "Gets the label of the action button. Returns <var>null</var>, if no label has been set and the title is used.",
                 "name": "getLabel",
@@ -346,7 +346,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#seticon-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#seticon-details",
                 "async": "callback",
                 "description": "Sets the icon for the action button. Either the <var>path</var> or the <var>imageData</var> property must be specified.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/setIcon",
@@ -404,7 +404,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#setpopup-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#setpopup-details",
                 "async": "callback",
                 "description": "Sets the html document to be opened as a popup when the user clicks on the action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/setPopup",
@@ -456,7 +456,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#getpopup-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#getpopup-details",
                 "async": "callback",
                 "description": "Gets the html document set as the popup for this action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/getPopup",
@@ -502,7 +502,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#setbadgetext-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#setbadgetext-details",
                 "async": "callback",
                 "description": "Sets the badge text for the action button. The badge is displayed on top of the icon.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/setBadgeText",
@@ -554,7 +554,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#getbadgetext-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#getbadgetext-details",
                 "async": "callback",
                 "description": "Gets the badge text of the action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/getBadgeText",
@@ -600,7 +600,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#setbadgetextcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#setbadgetextcolor-details",
                 "async": true,
                 "description": "Sets the text color for the badge.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/setBadgeTextColor",
@@ -649,7 +649,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#getbadgetextcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#getbadgetextcolor-details",
                 "async": "callback",
                 "description": "Gets the text color of the badge.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/getBadgeTextColor",
@@ -695,7 +695,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#setbadgebackgroundcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#setbadgebackgroundcolor-details",
                 "async": "callback",
                 "description": "Sets the background color for the badge.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/setBadgeBackgroundColor",
@@ -750,7 +750,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#getbadgebackgroundcolor-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#getbadgebackgroundcolor-details",
                 "async": "callback",
                 "description": "Gets the badge background color of the action button.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/getBadgeBackgroundColor",
@@ -796,7 +796,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#enable-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#enable-tabid",
                 "async": "callback",
                 "description": "Enables the action button for a specific tab (if a <var>tabId</var> is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, an action button is enabled.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/enable",
@@ -825,7 +825,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#disable-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#disable-tabid",
                 "async": "callback",
                 "description": "Disables the action button for a specific tab (if a <var>tabId</var> is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/disable",
@@ -854,7 +854,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#isenabled-details",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#isenabled-details",
                 "async": "callback",
                 "description": "Checks whether the action button is enabled.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/isEnabled",
@@ -899,7 +899,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/action.html#openpopup-options",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/action.html#openpopup-options",
                 "async": "callback",
                 "description": "Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action has no popup, is of type <var>menu</var>, is disabled or has been removed from the toolbar.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/action/openPopup",

@@ -2,7 +2,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#onmessagedisplayed-tab-message",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/messageDisplay.html#onmessagedisplayed-tab-message",
                 "description": "Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a message window.",
                 "name": "onMessageDisplayed",
                 "parameters": [
@@ -24,7 +24,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#onmessagesdisplayed-tab-messages-displayedmessages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/messageDisplay.html#onmessagesdisplayed-tab-messages-displayedmessages",
                 "description": "Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.",
                 "name": "onMessagesDisplayed",
                 "parameters": [
@@ -51,7 +51,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#getdisplayedmessage-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/messageDisplay.html#getdisplayedmessage-tabid",
                 "async": "callback",
                 "description": "Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible), or the currently active tab. It returns <var>null</var> if no messages are displayed, or if multiple messages are displayed.",
                 "name": "getDisplayedMessage",
@@ -86,7 +86,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#getdisplayedmessages-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/messageDisplay.html#getdisplayedmessages-tabid",
                 "async": "callback",
                 "description": "Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.",
                 "name": "getDisplayedMessages",
@@ -117,7 +117,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/messageDisplay.html#open-openproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/messageDisplay.html#open-openproperties",
                 "async": "callback",
                 "description": "Opens a message in a new tab or in a new window.",
                 "name": "open",

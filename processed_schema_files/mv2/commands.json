@@ -76,7 +76,7 @@
         "description": "Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.",
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#oncommand-command-tab",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/commands.html#oncommand-command-tab",
                 "description": "Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions'>restrictions</a> apply.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/onCommand",
                 "name": "onCommand",
@@ -103,7 +103,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#onchanged-changeinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/commands.html#onchanged-changeinfo",
                 "description": "Fired when a registered command's shortcut is changed.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/onChanged",
                 "name": "onChanged",
@@ -138,7 +138,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#update-detail",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/commands.html#update-detail",
                 "async": true,
                 "description": "Update the details of an already defined command.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/update",
@@ -176,7 +176,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#reset-name",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/commands.html#reset-name",
                 "async": true,
                 "description": "Reset a command's details to what is specified in the manifest.",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/reset",
@@ -197,7 +197,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/commands.html#getall",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/commands.html#getall",
                 "async": "callback",
                 "description": "Returns all the registered extension commands for this extension and their shortcut (if active).",
                 "mdn_url": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/commands/getAll",

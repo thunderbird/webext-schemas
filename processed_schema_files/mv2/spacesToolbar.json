@@ -2,7 +2,7 @@
     {
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spacesToolbar.html#addbutton-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/spacesToolbar.html#addbutton-id-properties",
                 "async": "callback",
                 "description": "Adds a new button to the spaces toolbar. Throws an exception, if the used <var>id</var> is not unique within the extension.",
                 "name": "addButton",
@@ -38,7 +38,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spacesToolbar.html#removebutton-id",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/spacesToolbar.html#removebutton-id",
                 "async": true,
                 "description": "Removes the specified button from the spaces toolbar. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension. If the tab of this button is currently open, it will be closed.",
                 "name": "removeButton",
@@ -56,7 +56,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spacesToolbar.html#updatebutton-id-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/spacesToolbar.html#updatebutton-id-properties",
                 "async": true,
                 "description": "Updates properties of the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.",
                 "name": "updateButton",
@@ -79,7 +79,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest/spacesToolbar.html#clickbutton-id-windowid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv2/spacesToolbar.html#clickbutton-id-windowid",
                 "async": "callback",
                 "description": "Trigger a click on the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.",
                 "name": "clickButton",

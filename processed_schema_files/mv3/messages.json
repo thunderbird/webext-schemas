@@ -26,7 +26,7 @@
     {
         "events": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#onupdated-message-changedproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#onupdated-message-changedproperties",
                 "description": "Fired when one or more properties of a message have been updated.",
                 "name": "onUpdated",
                 "parameters": [
@@ -45,7 +45,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#onmoved-originalmessages-movedmessages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#onmoved-originalmessages-movedmessages",
                 "description": "Fired when messages have been moved.",
                 "name": "onMoved",
                 "parameters": [
@@ -67,7 +67,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#oncopied-originalmessages-copiedmessages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#oncopied-originalmessages-copiedmessages",
                 "description": "Fired when messages have been copied.",
                 "name": "onCopied",
                 "parameters": [
@@ -89,7 +89,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#ondeleted-messages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#ondeleted-messages",
                 "description": "Fired when messages have been permanently deleted.",
                 "name": "onDeleted",
                 "parameters": [
@@ -107,7 +107,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#onnewmailreceived-folder-messages",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#onnewmailreceived-folder-messages",
                 "description": "Fired when a new message is received, and has been through junk classification and message filters.",
                 "extraParameters": [
                     {
@@ -139,7 +139,7 @@
         ],
         "functions": [
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#list-folderid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#list-folderid",
                 "async": "callback",
                 "description": "Gets all messages in a folder.",
                 "name": "list",
@@ -168,7 +168,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#continuelist-messagelistid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#continuelist-messagelistid",
                 "async": "callback",
                 "description": "Returns the next chunk of messages in a list. See $(doc:examples/messageLists) for more information.",
                 "name": "continueList",
@@ -194,7 +194,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#abortlist-messagelistid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#abortlist-messagelistid",
                 "async": true,
                 "description": "Finalizes the specified list and terminates any process currently still adding messages.",
                 "name": "abortList",
@@ -210,7 +210,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#get-messageid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#get-messageid",
                 "async": "callback",
                 "description": "Returns the specified message.",
                 "name": "get",
@@ -236,7 +236,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getfull-messageid-options",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#getfull-messageid-options",
                 "async": "callback",
                 "description": "Returns the specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.",
                 "name": "getFull",
@@ -274,7 +274,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getraw-messageid-options",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#getraw-messageid-options",
                 "async": "callback",
                 "description": "Returns the unmodified source of a message. Throws if the message could not be read, for example due to network issues.",
                 "name": "getRaw",
@@ -330,7 +330,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#listattachments-messageid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#listattachments-messageid",
                 "async": "callback",
                 "description": "Lists the attachments of a message.",
                 "name": "listAttachments",
@@ -359,7 +359,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#listinlinetextparts-messageid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#listinlinetextparts-messageid",
                 "async": "callback",
                 "description": "Lists all inline text parts of a message. These parts are not returned by $(ref:messages.listAttachments) and usually make up the readable content of the message, mostly with content type <var>text/plain</var> or <var>text/html</var>. If a message only includes a part with content type <var>text/html</var>, the method $(ref:messengerUtilities.convertToPlainText) can be used to retreive a plain text version. \n\n**Note:** A message usually contains only one inline text part per subtype, but technically messages can contain multiple inline text parts per subtype.",
                 "name": "listInlineTextParts",
@@ -388,7 +388,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#getattachmentfile-messageid-partname",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#getattachmentfile-messageid-partname",
                 "async": "callback",
                 "description": "Gets the content of a $(ref:messages.MessageAttachment) as a <a href='https://developer.mozilla.org/docs/Web/API/File'>File</a> object.",
                 "name": "getAttachmentFile",
@@ -421,7 +421,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#deleteattachments-messageid-partnames",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#deleteattachments-messageid-partnames",
                 "async": true,
                 "description": "Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a <var>text/x-moz-deleted</var> content type. This permanently modifies the message.",
                 "name": "deleteAttachments",
@@ -450,7 +450,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#openattachment-messageid-partname-tabid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#openattachment-messageid-partname-tabid",
                 "async": true,
                 "description": "Opens the specified attachment.",
                 "name": "openAttachment",
@@ -476,7 +476,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#query-queryinfo",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#query-queryinfo",
                 "async": "callback",
                 "description": "Gets all messages that have the specified properties, or all messages if no properties are specified. Messages of unified mailbox folders are not included by default (as that could double the amount of returned messages), but explicitly specifying a unified mailbox folder is supported.",
                 "name": "query",
@@ -487,8 +487,18 @@
                         "optional": true,
                         "properties": {
                             "accountId": {
-                                "$ref": "accounts.MailAccountId",
-                                "description": "Limits the search to folders of the account with the specified id.",
+                                "choices": [
+                                    {
+                                        "$ref": "accounts.MailAccountId"
+                                    },
+                                    {
+                                        "items": {
+                                            "$ref": "accounts.MailAccountId"
+                                        },
+                                        "type": "array"
+                                    }
+                                ],
+                                "description": "Limits the search to the specified account(s). Accounts are searched in the specified order.",
                                 "optional": true
                             },
                             "attachment": {
@@ -524,8 +534,18 @@
                                 "type": "boolean"
                             },
                             "folderId": {
-                                "$ref": "folders.MailFolderId",
-                                "description": "Returns only messages from the folder with the specified id. The <permission>accountsRead</permission> permission is required.",
+                                "choices": [
+                                    {
+                                        "$ref": "folders.MailFolderId"
+                                    },
+                                    {
+                                        "items": {
+                                            "$ref": "folders.MailFolderId"
+                                        },
+                                        "type": "array"
+                                    }
+                                ],
+                                "description": "Limits the search to the specified folder(s). Folders are searched in the specified order. The <permission>accountsRead</permission> permission is required.",
                                 "optional": true
                             },
                             "fromDate": {
@@ -640,7 +660,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#update-messageid-newproperties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#update-messageid-newproperties",
                 "async": true,
                 "description": "Updates message properties and tags. Updating external messages will throw an <em>ExtensionError</em>.",
                 "name": "update",
@@ -663,7 +683,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#move-messageids-folderid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#move-messageids-folderid",
                 "async": true,
                 "description": "Moves messages to a specified folder. If the messages cannot be removed from the source folder, they will be copied instead of moved. Moving external messages will throw an <em>ExtensionError</em>.",
                 "name": "move",
@@ -692,7 +712,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#copy-messageids-folderid",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#copy-messageids-folderid",
                 "async": true,
                 "description": "Copies messages to a specified folder.",
                 "name": "copy",
@@ -721,7 +741,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#delete-messageids-skiptrash",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#delete-messageids-skiptrash",
                 "async": true,
                 "description": "Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an <em>ExtensionError</em>. The <var>skipTrash</var> parameter allows immediate permanent deletion, bypassing the trash folder.",
                 "name": "delete",
@@ -750,7 +770,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#import-file-folderid-properties",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#import-file-folderid-properties",
                 "async": "callback",
                 "description": "Imports a message into a local Thunderbird folder. To import a message into an IMAP folder, add it to a local folder first and then move it to the IMAP folder.",
                 "name": "import",
@@ -792,7 +812,7 @@
                 "type": "function"
             },
             {
-                "api_documentation_url": "https://webextension-api.thunderbird.net/en/latest-mv3/messages.html#archive-messageids",
+                "api_documentation_url": "https://webextension-api.thunderbird.net/en/128-esr-mv3/messages.html#archive-messageids",
                 "async": true,
                 "description": "Archives messages using the current settings. Archiving external messages will throw an <em>ExtensionError</em>.",
                 "name": "archive",
@@ -842,23 +862,28 @@
                 "type": "object"
             },
             {
+                "description": "Content may either be a single email address, or a mailbox string (see RFC 5322, section 3.4). Use $(ref:messengerUtilities.parseMailboxString) to extract the name and/or the email from the mailbox string.",
+                "id": "MailBoxHeaderString",
+                "type": "string"
+            },
+            {
                 "description": "Basic information about a message.",
                 "id": "MessageHeader",
                 "properties": {
                     "author": {
-                        "type": "string"
+                        "$ref": "messages.MailBoxHeaderString"
                     },
                     "bccList": {
                         "description": "The Bcc recipients. Not populated for news/nntp messages.",
                         "items": {
-                            "type": "string"
+                            "$ref": "messages.MailBoxHeaderString"
                         },
                         "type": "array"
                     },
                     "ccList": {
                         "description": "The Cc recipients. Not populated for news/nntp messages.",
                         "items": {
-                            "type": "string"
+                            "$ref": "messages.MailBoxHeaderString"
                         },
                         "type": "array"
                     },
@@ -911,7 +936,7 @@
                     "recipients": {
                         "description": "The To recipients. Not populated for news/nntp messages.",
                         "items": {
-                            "type": "string"
+                            "$ref": "messages.MailBoxHeaderString"
                         },
                         "type": "array"
                     },
