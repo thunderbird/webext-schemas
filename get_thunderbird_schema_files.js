@@ -105,7 +105,7 @@ const TEMP_DIR = "temp";
 const API_DOC_BASE_URL = "https://webextension-api.thunderbird.net/en";
 
 let schemas = [];
-let api_doc_branch = "stable";
+let api_doc_branch = "latest";
 
 const args = yargs.argv;
 let bcd;
@@ -134,18 +134,11 @@ async function main() {
   }
 
   // Determine api_doc_branch based on requested release.
-  if (["central", "beta"].includes(args.release)) {
-    api_doc_branch = "latest";
-  } else if (args.release.startsWith("esr")) {
-    api_doc_branch = args.release.substring(3);
-  } else {
-    console.log(
-      `Unknown release: ${args.release}. Falling back to "stable" for API_DOC_URL generation`
-    );
-    api_doc_branch = "stable";
+  if (args.release == "beta") {
+    api_doc_branch = `beta-mv${args.manifest_version}`;
   }
-  if (args.manifest_version == "3") {
-    api_doc_branch += "-mv3";
+  if (args.release.startsWith("esr")) {
+    api_doc_branch = `${args.release.substring(3)}-esr-mv${args.manifest_version}`;
   }
 
   // Setup output directory.
