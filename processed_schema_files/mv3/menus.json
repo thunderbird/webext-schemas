@@ -116,20 +116,13 @@
                             "command": {
                                 "choices": [
                                     {
-                                        "description": "A user-defined command.",
                                         "type": "string"
                                     },
                                     {
-                                        "description": "A predefined command to open an action popup.",
-                                        "enum": [
-                                            "_execute_action",
-                                            "_execute_compose_action",
-                                            "_execute_message_display_action"
-                                        ],
-                                        "type": "string"
+                                        "$ref": "menus.MenuActionCommand"
                                     }
                                 ],
-                                "description": "Specifies a command to issue for the context click. Can either be a user defined command, or one of the predefined commands.",
+                                "description": "Specifies a command to issue for the context click. Can either be a user defined command, or one of the predefined action commands.",
                                 "optional": true
                             },
                             "contexts": {
@@ -872,6 +865,16 @@
                     }
                 },
                 "type": "object"
+            },
+            {
+                "description": "A predefined command to open an action popup.",
+                "enum": [
+                    "_execute_action",
+                    "_execute_compose_action",
+                    "_execute_message_display_action"
+                ],
+                "id": "MenuActionCommand",
+                "type": "string"
             }
         ]
     }
