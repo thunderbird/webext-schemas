@@ -194,13 +194,7 @@
                 "parameters": [
                     {
                         "name": "callback",
-                        "parameters": [
-                            {
-                                "description": "Whether any alarm was found to clear.",
-                                "name": "wasCleared",
-                                "type": "boolean"
-                            }
-                        ],
+                        "parameters": [],
                         "type": "function"
                     }
                 ],
