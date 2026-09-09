@@ -5,7 +5,7 @@
                 "version_added": "91"
             }
         ],
-        "applicationVersion": "155.0",
+        "applicationVersion": "155.0.1",
         "namespace": "manifest",
         "types": [
             {
